@@ -15,6 +15,9 @@ public class LoginScreen extends javax.swing.JFrame {
      */
     public LoginScreen() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.setDefaultCloseOperation(javax.swing.JFrame.EXIT_ON_CLOSE);
+
     }
 
     /**
