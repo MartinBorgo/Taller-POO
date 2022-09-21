@@ -10,13 +10,24 @@ package enumeraciones;
  * Esta enumeración contiene todas las caracteristicas que puede poseer una obra
  */
 public enum CaracteristicaTipo {
-    BOLETIN,
-    COLECCION,
-    COMPENDIO,
-    DIARIO,
-    DICCIONARIO,
-    DOCUMENTAL,
-    ENCICLOPEDIA,
-    INVESTIGACION,
-    MONOGRAFIA;
+    BOLETIN("Boletin."),
+    COLECCION("Coleccion."),
+    COMPENDIO("Compedio."),
+    DIARIO("Diario."),
+    DICCIONARIO("Diccionario,"),
+    DOCUMENTAL("Documental."),
+    ENCICLOPEDIA("Enciclopedia."),
+    INVESTIGACION("Investigacion."),
+    MONOGRAFIA("Monografia");
+    
+    private String caracteristicaTipo;
+
+    private CaracteristicaTipo(String caracteristicaTipo) {
+        this.caracteristicaTipo = caracteristicaTipo;
+    }
+
+    public String getCaracteristicaTipo() {
+        return caracteristicaTipo;
+    }
+    
 }

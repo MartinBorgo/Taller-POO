@@ -9,10 +9,21 @@ package enumeraciones;
  * @author martin
  */
 public enum FormatoTipo {
-    ELECTRONICO,
-    DVD,
-    CD,
-    PAPEL,
-    VIDEO,
-    AUDIO;
+    ELECTRONICO("Electronico."),
+    DVD("DVD."),
+    CD("CD."),
+    PAPEL("Papel."),
+    VIDEO("Video."),
+    AUDIO("Audio.");
+    
+    private String formato;
+
+    private FormatoTipo(String formato) {
+        this.formato = formato;
+    }
+
+    public String getFormato() {
+        return formato;
+    }
+    
 }

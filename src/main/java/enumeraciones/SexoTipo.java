@@ -9,6 +9,17 @@ package enumeraciones;
  * @author martin
  */
 public enum SexoTipo {
-    MASCULINO,
-    FEMENINO;
+    MASCULINO("Masculino."),
+    FEMENINO("Femenino.");
+    
+    private String sexoTipo;
+
+    private SexoTipo(String sexoTipo) {
+        this.sexoTipo = sexoTipo;
+    }
+
+    public String getSexoTipo() {
+        return sexoTipo;
+    }
+    
 }
