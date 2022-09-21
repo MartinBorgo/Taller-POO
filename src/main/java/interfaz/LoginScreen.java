@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.mycompany.taller.poo.interfaz;
+package interfaz;
 
 /**
  *
@@ -52,9 +52,19 @@ public class LoginScreen extends javax.swing.JFrame {
 
         botonIngresar.setFont(new java.awt.Font("Noto Sans", 1, 13)); // NOI18N
         botonIngresar.setText("Ingresar");
+        botonIngresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonIngresarActionPerformed(evt);
+            }
+        });
 
         botonResetear.setFont(new java.awt.Font("Noto Sans", 1, 13)); // NOI18N
         botonResetear.setText("Resetear");
+        botonResetear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonResetearActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -119,6 +129,35 @@ public class LoginScreen extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    /**
+     * 
+     * @param evt
+     * Resive un evento y resetea la casilla de nombre de usuario y contraseña vacias
+     */
+    private void botonResetearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonResetearActionPerformed
+        this.txtNombreUsuario.setText("");
+        this.txtContrasenia.setText("");
+    }//GEN-LAST:event_botonResetearActionPerformed
+
+    /**
+     * 
+     * @param evt
+     * Recive un evento y chequea que el nombre de usuario y su contrasenia coincidan
+     * si es asi se inicia la secion son el correspondiente rango de usuario, sino se debe volver a ingresar contrasenia y nombre
+     */
+    private void botonIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonIngresarActionPerformed
+        // TODO add your handling code here:
+        if (this.txtNombreUsuario.getText().equals("Norma") && this.txtContrasenia.getText().equals("12345")){
+            dispose();
+            
+            VentanaAdministrador ventanaAdmin = new VentanaAdministrador();
+            ventanaAdmin.show();
+        }else {
+            javax.swing.JOptionPane.showMessageDialog(rootPane, "Contraseña o usuario incorrecto");
+            botonResetearActionPerformed(evt);
+        }
+    }//GEN-LAST:event_botonIngresarActionPerformed
 
     /**
      * @param args the command line arguments
