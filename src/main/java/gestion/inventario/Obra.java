@@ -13,6 +13,7 @@ import enumeraciones.ObraTipo;
  * @author martin
  */
 public class Obra {
+    
     private ObraTipo tipoDeObra;
     private AreaTematicaTipo areaTematica;
     private int cantidadEjemplares;
@@ -32,7 +33,8 @@ public class Obra {
     public Obra() {
     }
 
-    public Obra(ObraTipo tipoDeObra, AreaTematicaTipo areaTematica, int cantidadEjemplares, String titulo, String subtitulo, String primerAutor, String segundAutor, String tercerAutor, String genero, CaracteristicaTipo caracterisitica, String indiceObra, String[] areaReferencia, int solicitudFacultad, int solicitudGeneral, int isbn) {
+    public Obra(ObraTipo tipoDeObra, AreaTematicaTipo areaTematica, int cantidadEjemplares, String titulo, String subtitulo, String primerAutor, String segundAutor, String tercerAutor, 
+                 String genero, CaracteristicaTipo caracterisitica, String indiceObra, String[] areaReferencia, int solicitudFacultad, int solicitudGeneral, int isbn) {
         this.tipoDeObra = tipoDeObra;
         this.areaTematica = areaTematica;
         this.cantidadEjemplares = cantidadEjemplares;

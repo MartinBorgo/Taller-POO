@@ -1,7 +1,7 @@
 package com.mycompany.taller.poo;
 import enumeraciones.*;
 import interfaz.*;
-
+import personas.*;
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -50,6 +50,12 @@ public class Main {
         for(SexoTipo sexo : SexoTipo.values()){
             System.out.println(sexo.getSexoTipo());
         }
+        //Creacion de objetos de cada tipo de persona.
+        Persona lector1 = new Lector();
+        Persona docente1 = new Docente();
+        Persona alumno1 = new Alumno();
+        Persona usuario1 = new Usuario();
+        Persona bibliotecario1 = new Bibliotecario();
         //jaja saludos
     }
 }
