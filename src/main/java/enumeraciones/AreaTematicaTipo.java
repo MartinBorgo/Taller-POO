@@ -10,9 +10,19 @@ package enumeraciones;
  * Esta enumeración contiene a las areas tematicas a las que puede pertenecer un libro
  */
 public enum AreaTematicaTipo {
-    MATEMATICAS,
-    SISTEMAS_OPERATIVOS,
-    PROGRAMACION,
-    CONTABILIDAD,
-    ADMINISTRACION_DE_EMPRESAS;
+    MATEMATICAS("Matematica."),
+    SISTEMAS_OPERATIVOS("Sistemas operativos."),
+    PROGRAMACION("Programacion."),
+    CONTABILIDAD("Contabilidad."),
+    ADMINISTRACION_DE_EMPRESAS("Administracion de empresas.");
+    
+    private final String areaTematicaTipo;
+    
+    private AreaTematicaTipo(String areaTematicaTipo){
+        this.areaTematicaTipo = areaTematicaTipo;
+    }
+
+    public String getAreaTematicaTipo() {
+        return areaTematicaTipo;
+    }
 }
