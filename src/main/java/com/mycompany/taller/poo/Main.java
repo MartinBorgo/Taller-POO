@@ -31,7 +31,7 @@ public class Main {
         VentanaAdministrador prueba = new VentanaAdministrador();
         LoginScreen login = new LoginScreen();
         
-        //login.show();
+        login.show();
         
         //Probando valores de las enumeraciones
         for(AreaTematicaTipo area : AreaTematicaTipo.values()){
