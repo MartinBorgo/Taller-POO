@@ -1,6 +1,6 @@
 package com.mycompany.taller.poo;
 
-import interfaz.LoginScreen;
+import com.mycompany.taller.poo.interfaz.LoginScreen;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
