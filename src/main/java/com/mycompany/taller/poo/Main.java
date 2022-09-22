@@ -1,5 +1,6 @@
 package com.mycompany.taller.poo;
 import enumeraciones.*;
+import gestion.inventario.Obra;
 import interfaz.*;
 import personas.*;
 /*
@@ -18,7 +19,7 @@ public class Main {
         VentanaAdministrador prueba = new VentanaAdministrador();
         LoginScreen login = new LoginScreen();
         
-        login.show();
+        //login.show();
         
         //Probando valores de las enumeraciones
         for(AreaTematicaTipo area : AreaTematicaTipo.values()){
@@ -56,6 +57,11 @@ public class Main {
         Persona alumno1 = new Alumno();
         Persona usuario1 = new Usuario();
         Persona bibliotecario1 = new Bibliotecario();
+        
+        String []listita = {"1","2"}; //Para el atributo areaReferencia[] que es un array 
+        Obra obra1 = new Obra(ObraTipo.LIBRO, AreaTematicaTipo.MATEMATICAS, 2, "LA MEJOR OBRA DEL MUNDO", "NO LO ES", "EL PEPE", "JUAN", "FELIPE", "ACCION", CaracteristicaTipo.DIARIO, "NO ",listita, 2, 5, 3);
+        System.out.println("");
+        System.out.println(obra1);
         //jaja saludos
     }
 }

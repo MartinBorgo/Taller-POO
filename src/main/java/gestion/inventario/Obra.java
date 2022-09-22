@@ -171,6 +171,32 @@ public class Obra {
     public void setIsbnColeccion(int isbn) {
         this.isbn = isbn;
     }
+
+    @Override
+    public String toString() {
+        return String.format("Tipo obra: %s"
+                + "%nArea tematica: %s"
+                + "%nCantidad ejemplares: %d"
+                + "%nTitulo: %s"
+                + "%nSubtitulo: %s"
+                + "%nPrimer autor: %s"
+                + "%nSegundo autor: %s"
+                + "%nTercer autor: %s"
+                + "%nGenero: %s"
+                + "%nCaracteristica: %s"
+                + "%nIndice obra: %s"
+                + "%nArea referencia: %s"
+                + "%nSolicitud facultad: %d"
+                + "%nSolicitud general: %d"
+                + "%nISBN: %d", 
+                tipoDeObra.getObraTipo(), 
+                areaTematica.getAreaTematicaTipo(),
+                cantidadEjemplares, titulo, subtitulo, 
+                primerAutor, segundAutor, tercerAutor,
+                genero, caracterisitica.getCaracteristicaTipo(),
+                indiceObra, areaReferencia[0], solicitudFacultad, 
+                solicitudGeneral, isbn);
+    }
     
     
     
