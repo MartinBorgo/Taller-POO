@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Enum.java to edit this template
  */
-package com.mycompany.taller.poo.enumeraciones;
+package enumeraciones;
 
 /**
  *
@@ -20,7 +20,7 @@ public enum CaracteristicaTipo {
     INVESTIGACION("Investigacion."),
     MONOGRAFIA("Monografia");
     
-    private String caracteristicaTipo;
+    private final String caracteristicaTipo;
 
     private CaracteristicaTipo(String caracteristicaTipo) {
         this.caracteristicaTipo = caracteristicaTipo;

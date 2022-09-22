@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Enum.java to edit this template
  */
-package com.mycompany.taller.poo.enumeraciones;
+package enumeraciones;
 
 /**
  *
@@ -16,7 +16,7 @@ public enum FormatoTipo {
     VIDEO("Video."),
     AUDIO("Audio.");
     
-    private String formato;
+    private final String formato;
 
     private FormatoTipo(String formato) {
         this.formato = formato;

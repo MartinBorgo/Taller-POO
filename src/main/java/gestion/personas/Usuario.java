@@ -1,4 +1,4 @@
-package personas;
+package gestion.personas;
 
 import java.util.GregorianCalendar;
 

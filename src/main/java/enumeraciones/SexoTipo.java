@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Enum.java to edit this template
  */
-package com.mycompany.taller.poo.enumeraciones;
+package enumeraciones;
 
 /**
  *
@@ -12,7 +12,7 @@ public enum SexoTipo {
     MASCULINO("Masculino."),
     FEMENINO("Femenino.");
     
-    private String sexoTipo;
+    private final String sexoTipo;
 
     private SexoTipo(String sexoTipo) {
         this.sexoTipo = sexoTipo;
