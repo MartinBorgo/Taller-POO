@@ -172,7 +172,6 @@ public class Obra {
         this.isbn = isbn;
     }
 
-<<<<<<< HEAD
     @Override
     public String toString() {
         return String.format("Tipo obra: %s"
@@ -200,7 +199,6 @@ public class Obra {
     }
     
     
-=======
     public Edicion getEdicion() {
         return edicion;
     }
@@ -208,6 +206,5 @@ public class Obra {
     public void setEdicion(Edicion edicion) {
         this.edicion = edicion;
     }
->>>>>>> 10d29aea31e71684b4bc2fc83bd2a1f161806ead
     
 }

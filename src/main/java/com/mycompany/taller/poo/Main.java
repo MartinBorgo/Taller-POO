@@ -1,27 +1,9 @@
 package com.mycompany.taller.poo;
-<<<<<<< HEAD
-import enumeraciones.*;
-import gestion.inventario.Obra;
 import interfaz.*;
-import personas.*;
-=======
+import enumeraciones.*;
+import gestion.inventario.*;
+import gestion.personas.*;
 
-import interfaz.VentanaAdministrador;
-import enumeraciones.CaracteristicaTipo;
-import enumeraciones.ObraTipo;
-import enumeraciones.FormatoTipo;
-import enumeraciones.SexoTipo;
-import enumeraciones.AreaTematicaTipo;
-import enumeraciones.PrestamoTipo;
-import gestion.personas.Bibliotecario;
-import gestion.personas.Alumno;
-import gestion.personas.Usuario;
-import gestion.personas.Lector;
-import gestion.personas.Docente;
-import gestion.personas.Persona;
-import interfaz.LoginScreen;
-
->>>>>>> 10d29aea31e71684b4bc2fc83bd2a1f161806ead
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -39,51 +21,17 @@ public class Main {
         LoginScreen login = new LoginScreen();
         
         //login.show();
-        
-        //Probando valores de las enumeraciones
-        for(AreaTematicaTipo area : AreaTematicaTipo.values()){
-            System.out.println(area.getAreaTematicaTipo());
-        }
-        
-        System.out.println("");
-        for(CaracteristicaTipo caracteristica : CaracteristicaTipo.values()){
-            System.out.println(caracteristica.getCaracteristicaTipo());
-        }
-        
-        System.out.println("");
-        for (FormatoTipo formato : FormatoTipo.values()) {
-            System.out.println(formato.getFormato());
-        }
-        
-        System.out.println("");
-        for(ObraTipo obra : ObraTipo.values()){
-            System.out.println(obra.getObraTipo());
-        }
-        
-        
-        System.out.println("");
-        for(PrestamoTipo prestamo : PrestamoTipo.values()){
-            System.out.println(prestamo.getPrestamoTipo());
-        }
-        
-        System.out.println("");
-        for(SexoTipo sexo : SexoTipo.values()){
-            System.out.println(sexo.getSexoTipo());
-        }
         //Creacion de objetos de cada tipo de persona.
         Persona lector1 = new Lector();
         Persona docente1 = new Docente();
         Persona alumno1 = new Alumno();
         Persona usuario1 = new Usuario();
         Persona bibliotecario1 = new Bibliotecario();
-<<<<<<< HEAD
         
+        Edicion edicion1 = new Edicion();
         String []listita = {"1","2"}; //Para el atributo areaReferencia[] que es un array 
-        Obra obra1 = new Obra(ObraTipo.LIBRO, AreaTematicaTipo.MATEMATICAS, 2, "LA MEJOR OBRA DEL MUNDO", "NO LO ES", "EL PEPE", "JUAN", "FELIPE", "ACCION", CaracteristicaTipo.DIARIO, "NO ",listita, 2, 5, 3);
-        System.out.println("");
+        Obra obra1 = new Obra(ObraTipo.LIBRO, AreaTematicaTipo.MATEMATICAS, 0, "OBRA1", "SUBTITULO1", "AUTOR1", "AUTOR2", "AUTOR3", "ACCION", CaracteristicaTipo.BOLETIN, "320 PAGS", listita, 321, edicion1);
         System.out.println(obra1);
         //jaja saludos
-=======
->>>>>>> 10d29aea31e71684b4bc2fc83bd2a1f161806ead
     }
 }

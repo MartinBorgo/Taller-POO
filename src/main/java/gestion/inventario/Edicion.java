@@ -31,6 +31,9 @@ public class Edicion {
         this.formato = formato;
     }
 
+    public Edicion() {
+    }
+
     public String getEditorial() {
         return editorial;
     }

@@ -15,7 +15,7 @@ public enum ObraTipo {
     TESIS("Tesis."),
     MANUAL("Manual.");
     
-    private final String obraTipo;
+    private String obraTipo;
 
     private ObraTipo(String obraTipo) {
         this.obraTipo = obraTipo;

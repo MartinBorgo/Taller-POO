@@ -20,7 +20,7 @@ public enum CaracteristicaTipo {
     INVESTIGACION("Investigacion."),
     MONOGRAFIA("Monografia");
     
-    private final String caracteristicaTipo;
+    private String caracteristicaTipo;
 
     private CaracteristicaTipo(String caracteristicaTipo) {
         this.caracteristicaTipo = caracteristicaTipo;
