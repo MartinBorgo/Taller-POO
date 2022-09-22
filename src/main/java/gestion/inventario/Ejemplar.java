@@ -4,6 +4,7 @@
  */
 package gestion.inventario;
 
+import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 /**
@@ -104,6 +105,15 @@ public class Ejemplar {
 
     public void setEnPrestamo(boolean enPrestamo) {
         this.enPrestamo = enPrestamo;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Id ejemplar: %s"
+                + "%nFecha adquisicion: %s/%s/%s"
+                + "%nForma adquisicion: %s"
+                + "%nEn prestamo: %s", idUnico, fechaAdquisicion.get(Calendar.YEAR), fechaAdquisicion.get(Calendar.MONTH), 
+                fechaAdquisicion.get(Calendar.DAY_OF_MONTH), formaAdquisicion, enPrestamo);
     }
  
     

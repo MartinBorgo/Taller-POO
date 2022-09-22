@@ -31,6 +31,9 @@ public class Edicion {
         this.formato = formato;
     }
 
+    public Edicion() {
+    }
+
     public String getEditorial() {
         return editorial;
     }
@@ -93,6 +96,21 @@ public class Edicion {
 
     public void setFormato(FormatoTipo formato) {
         this.formato = formato;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Editorial: %s"
+                + "%nPais edicion: %s"
+                + "%nNumero de edicion: %d"
+                + "%nAnio: %d"
+                + "%nVolumenes: %d"
+                + "%nPaginas: %d"
+                + "%nIdioma: %s"
+                + "%nFormato: %s", 
+                editorial, paisEdicion, numeroEdicion, 
+                anio, volumenes, paginas, 
+                idioma, formato.getFormato());
     }
     
 }

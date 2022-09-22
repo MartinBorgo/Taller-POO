@@ -42,5 +42,13 @@ public class Ubicacion {
     public void setEstante(int estante) {
         this.estante = estante;
     }
+
+    @Override
+    public String toString() {
+        return String.format("Pasillo: %s"
+                + "%nEstanteria: %s"
+                + "%nEstante: %s", 
+                pasillo, estanteria, estante);
+    }
     
 }
