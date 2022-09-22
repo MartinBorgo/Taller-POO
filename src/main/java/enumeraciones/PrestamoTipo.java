@@ -9,6 +9,17 @@ package com.mycompany.taller.poo.enumeraciones;
  * @author martin
  */
 public enum PrestamoTipo {
-    SALA,
-    DOMICILIO;
+    SALA("Sala."),
+    DOMICILIO("Domicilio.");
+    
+    private String prestamoTipo;
+
+    private PrestamoTipo(String prestamoTipo) {
+        this.prestamoTipo = prestamoTipo;
+    }
+
+    public String getPrestamoTipo() {
+        return prestamoTipo;
+    }
+    
 }

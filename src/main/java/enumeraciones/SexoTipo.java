@@ -7,12 +7,19 @@ package com.mycompany.taller.poo.enumeraciones;
 /**
  *
  * @author martin
- * Esta enumeración contiene a las areas tematicas a las que puede pertenecer un libro
  */
-public enum AreaTematicaTipo {
-    MATEMATICAS,
-    SISTEMAS_OPERATIVOS,
-    PROGRAMACION,
-    CONTABILIDAD,
-    ADMINISTRACION_DE_EMPRESAS;
+public enum SexoTipo {
+    MASCULINO("Masculino."),
+    FEMENINO("Femenino.");
+    
+    private String sexoTipo;
+
+    private SexoTipo(String sexoTipo) {
+        this.sexoTipo = sexoTipo;
+    }
+
+    public String getSexoTipo() {
+        return sexoTipo;
+    }
+    
 }

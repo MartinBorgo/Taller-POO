@@ -2,11 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.taller.poo.gestion.inventario;
+package gestion.inventario;
 
-import com.mycompany.taller.poo.enumeraciones.AreaTematicaTipo;
-import com.mycompany.taller.poo.enumeraciones.CaracteristicaTipo;
-import com.mycompany.taller.poo.enumeraciones.ObraTipo;
+import enumeraciones.AreaTematicaTipo;
+import enumeraciones.CaracteristicaTipo;
+import enumeraciones.ObraTipo;
 
 /**
  *

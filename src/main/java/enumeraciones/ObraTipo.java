@@ -9,9 +9,20 @@ package com.mycompany.taller.poo.enumeraciones;
  * @author martin
  */
 public enum ObraTipo {
-    LIBRO,
-    REVISTA,
-    ENSAYO,
-    TESIS,
-    MANUALES;
+    LIBRO("Libro."),
+    REVISTA("Revista."),
+    ENSAYO("Ensayo."),
+    TESIS("Tesis."),
+    MANUAL("Manual.");
+    
+    private String obraTipo;
+
+    private ObraTipo(String obraTipo) {
+        this.obraTipo = obraTipo;
+    }
+
+    public String getObraTipo() {
+        return obraTipo;
+    }
+    
 }
