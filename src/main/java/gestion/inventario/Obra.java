@@ -188,14 +188,15 @@ public class Obra {
                 + "%nArea referencia: %s"
                 + "%nSolicitud facultad: %d"
                 + "%nSolicitud general: %d"
-                + "%nISBN: %d", 
+                + "%nISBN: %d"
+                + "%nEdicion:%n%s", 
                 tipoDeObra.getObraTipo(), 
                 areaTematica.getAreaTematicaTipo(),
                 cantidadEjemplares, titulo, subtitulo, 
                 primerAutor, segundAutor, tercerAutor,
                 genero, caracterisitica.getCaracteristicaTipo(),
                 indiceObra, areaReferencia[0], solicitudFacultad, 
-                solicitudGeneral, isbn);
+                solicitudGeneral, isbn, edicion.toString());
     }
     
     
