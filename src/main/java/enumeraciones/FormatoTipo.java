@@ -16,7 +16,7 @@ public enum FormatoTipo {
     VIDEO("Video."),
     AUDIO("Audio.");
     
-    private String formato;
+    private final String formato;
 
     private FormatoTipo(String formato) {
         this.formato = formato;

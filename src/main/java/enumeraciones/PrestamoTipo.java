@@ -12,7 +12,7 @@ public enum PrestamoTipo {
     SALA("Sala."),
     DOMICILIO("Domicilio.");
     
-    private String prestamoTipo;
+    private final String prestamoTipo;
 
     private PrestamoTipo(String prestamoTipo) {
         this.prestamoTipo = prestamoTipo;

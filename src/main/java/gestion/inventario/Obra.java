@@ -13,7 +13,6 @@ import enumeraciones.ObraTipo;
  * @author martin
  */
 public class Obra {
-    
     private ObraTipo tipoDeObra;
     private AreaTematicaTipo areaTematica;
     private int cantidadEjemplares;
@@ -29,12 +28,9 @@ public class Obra {
     private int solicitudFacultad;
     private int solicitudGeneral;
     private int isbn;
+    private Edicion edicion;  
 
-    public Obra() {
-    }
-
-    public Obra(ObraTipo tipoDeObra, AreaTematicaTipo areaTematica, int cantidadEjemplares, String titulo, String subtitulo, String primerAutor, String segundAutor, String tercerAutor, 
-                 String genero, CaracteristicaTipo caracterisitica, String indiceObra, String[] areaReferencia, int solicitudFacultad, int solicitudGeneral, int isbn) {
+    public Obra(ObraTipo tipoDeObra, AreaTematicaTipo areaTematica, int cantidadEjemplares, String titulo, String subtitulo, String primerAutor, String segundAutor, String tercerAutor, String genero, CaracteristicaTipo caracterisitica, String indiceObra, String[] areaReferencia, int isbn, Edicion edicion) {
         this.tipoDeObra = tipoDeObra;
         this.areaTematica = areaTematica;
         this.cantidadEjemplares = cantidadEjemplares;
@@ -47,11 +43,15 @@ public class Obra {
         this.caracterisitica = caracterisitica;
         this.indiceObra = indiceObra;
         this.areaReferencia = areaReferencia;
-        this.solicitudFacultad = solicitudFacultad;
-        this.solicitudGeneral = solicitudGeneral;
         this.isbn = isbn;
+        this.edicion = edicion;
+        this.solicitudFacultad = 0;
+        this.solicitudGeneral = 0;
     }
-    
+
+    public Obra() {
+    }
+
     public ObraTipo getTipoDeObra() {
         return tipoDeObra;
     }
@@ -164,14 +164,15 @@ public class Obra {
         this.solicitudGeneral = solicitudGeneral;
     }
 
-    public int getIsbnColeccion() {
+    public int getIsbn() {
         return isbn;
     }
 
-    public void setIsbnColeccion(int isbn) {
+    public void setIsbn(int isbn) {
         this.isbn = isbn;
     }
 
+<<<<<<< HEAD
     @Override
     public String toString() {
         return String.format("Tipo obra: %s"
@@ -199,5 +200,14 @@ public class Obra {
     }
     
     
+=======
+    public Edicion getEdicion() {
+        return edicion;
+    }
+
+    public void setEdicion(Edicion edicion) {
+        this.edicion = edicion;
+    }
+>>>>>>> 10d29aea31e71684b4bc2fc83bd2a1f161806ead
     
 }

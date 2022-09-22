@@ -12,7 +12,7 @@ public enum SexoTipo {
     MASCULINO("Masculino."),
     FEMENINO("Femenino.");
     
-    private String sexoTipo;
+    private final String sexoTipo;
 
     private SexoTipo(String sexoTipo) {
         this.sexoTipo = sexoTipo;

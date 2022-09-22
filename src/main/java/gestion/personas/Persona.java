@@ -1,4 +1,4 @@
-package personas;
+package gestion.personas;
 
 import enumeraciones.SexoTipo;
 import java.util.GregorianCalendar;

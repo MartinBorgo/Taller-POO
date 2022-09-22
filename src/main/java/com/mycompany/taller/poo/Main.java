@@ -1,8 +1,27 @@
 package com.mycompany.taller.poo;
+<<<<<<< HEAD
 import enumeraciones.*;
 import gestion.inventario.Obra;
 import interfaz.*;
 import personas.*;
+=======
+
+import interfaz.VentanaAdministrador;
+import enumeraciones.CaracteristicaTipo;
+import enumeraciones.ObraTipo;
+import enumeraciones.FormatoTipo;
+import enumeraciones.SexoTipo;
+import enumeraciones.AreaTematicaTipo;
+import enumeraciones.PrestamoTipo;
+import gestion.personas.Bibliotecario;
+import gestion.personas.Alumno;
+import gestion.personas.Usuario;
+import gestion.personas.Lector;
+import gestion.personas.Docente;
+import gestion.personas.Persona;
+import interfaz.LoginScreen;
+
+>>>>>>> 10d29aea31e71684b4bc2fc83bd2a1f161806ead
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -57,11 +76,14 @@ public class Main {
         Persona alumno1 = new Alumno();
         Persona usuario1 = new Usuario();
         Persona bibliotecario1 = new Bibliotecario();
+<<<<<<< HEAD
         
         String []listita = {"1","2"}; //Para el atributo areaReferencia[] que es un array 
         Obra obra1 = new Obra(ObraTipo.LIBRO, AreaTematicaTipo.MATEMATICAS, 2, "LA MEJOR OBRA DEL MUNDO", "NO LO ES", "EL PEPE", "JUAN", "FELIPE", "ACCION", CaracteristicaTipo.DIARIO, "NO ",listita, 2, 5, 3);
         System.out.println("");
         System.out.println(obra1);
         //jaja saludos
+=======
+>>>>>>> 10d29aea31e71684b4bc2fc83bd2a1f161806ead
     }
 }
