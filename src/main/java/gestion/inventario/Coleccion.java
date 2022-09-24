@@ -17,7 +17,10 @@ public class Coleccion extends Obra {
     private int isbnColeccion;
     private String nombre;
 
-    public Coleccion(int isbnColeccion, String nombre, ObraTipo tipoDeObra, AreaTematicaTipo areaTematica, int cantidadEjemplares, String titulo, String subtitulo, String primerAutor, String segundAutor, String tercerAutor, String genero, CaracteristicaTipo caracterisitica, String indiceObra, String[] areaReferencia, int isbn, Edicion edicion) {
+    public Coleccion(int isbnColeccion, String nombre, ObraTipo tipoDeObra, AreaTematicaTipo areaTematica, int cantidadEjemplares, String titulo, 
+            String subtitulo, String primerAutor, String segundAutor, String tercerAutor, String genero,CaracteristicaTipo caracterisitica, 
+            String indiceObra, String[] areaReferencia, int isbn, Edicion edicion) {
+        
         super(tipoDeObra, areaTematica, cantidadEjemplares, titulo, subtitulo, primerAutor, segundAutor, tercerAutor, genero, caracterisitica, indiceObra, areaReferencia, isbn, edicion);
         this.isbnColeccion = isbnColeccion;
         this.nombre = nombre;
@@ -42,4 +45,12 @@ public class Coleccion extends Obra {
         this.nombre = nombre;
     }
 
+    @Override
+    public String toString() {
+        return String.format("ISBN coleccion: %s"
+                + "%nNombre coleccion: %s", 
+                isbnColeccion, nombre);
+    }
+    
+    
 }

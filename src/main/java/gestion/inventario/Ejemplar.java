@@ -33,6 +33,7 @@ public class Ejemplar {
     }
 
     public Ejemplar() {
+        incremental++;
     }
 
     public static int getIncremental() {
