@@ -23,5 +23,11 @@ public class Bibliotecario extends Persona {
 	public void setIdentificacion(String identificacion) {
 		this.identificacion = identificacion;
 	}
+
+    @Override
+    public String toString() {
+        return String.format("%s"
+                + "%nIdentificacion:%s", super.toString(), identificacion);
+    }
 	
 }

@@ -24,6 +24,13 @@ public class Lector extends Persona {
     public void setEstaMultado(boolean estaMultado) {
         this.estaMultado = estaMultado;
     }
+
+    @Override
+    public String toString() {
+        return String.format("%s"
+                + "%nMultado:%s", 
+                super.toString(), estaMultado);
+    }
 	
-	
+    
 }

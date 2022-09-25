@@ -19,6 +19,12 @@ public class Usuario extends Persona {
 	public void setCarreras(String[] carreras) {
 		this.carreras = carreras;
 	}
+
+    @Override
+    public String toString() {
+        return String.format("%s"
+                + "%nCarreras:", super.toString()); //Faltaria poner que se retornen las carreras PENDIENTE.
+    }
 	
 	
 }

@@ -1,6 +1,7 @@
 package gestion.personas;
 
 import enumeraciones.SexoTipo;
+import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 public abstract class Persona {
@@ -119,6 +120,27 @@ public abstract class Persona {
 
     public void setMail(String mail) {
         this.mail = mail;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Nombre: %s"
+                + "%nApellidos:%s"
+                + "%nDNI:%s"
+                + "%nFecha nacimiento:%s/%s/%s"
+                + "%nSexo:%s"
+                + "%nNacionalidad:%s"
+                + "%nDomicilio:%s"
+                + "%nCodigo postal:%s"
+                + "%nLocalidad:%s"
+                + "%nNumero celular:%s"
+                + "%nMail:%s", 
+                nombres, apellidos, dni,
+                fechaNacimiento.get(Calendar.YEAR),
+                fechaNacimiento.get(Calendar.MONTH), 
+                fechaNacimiento.get(Calendar.DAY_OF_MONTH),
+                sexo.getSexoTipo(), nacionalidad, domicilio, 
+                codPostal, localidad, numCelular, mail);
     }
 	
 }
