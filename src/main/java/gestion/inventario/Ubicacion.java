@@ -19,6 +19,9 @@ public class Ubicacion {
         this.estante = estante;
     }
 
+    public Ubicacion() {
+    }
+    
     public int getPasillo() {
         return pasillo;
     }

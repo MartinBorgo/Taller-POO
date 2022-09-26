@@ -15,7 +15,6 @@ public class Reservacion {
     private LocalDate inicio;
     private LocalDate finalizacion;
     private Lector solicitante;
-
     public Reservacion(Lector lector, LocalDate inicio) {
         this.solicitante = lector;
         this.inicio = inicio;

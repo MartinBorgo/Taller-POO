@@ -6,6 +6,7 @@ package gestion.inventario;
 
 import enumeraciones.PrestamoTipo;
 import gestion.personas.Bibliotecario;
+import gestion.personas.Lector;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -22,6 +23,8 @@ public class Prestamo {
     private Bibliotecario emisorPrestamo;
     private Bibliotecario reseptorPrestamo;
     private ArrayList<Reservacion> reservaciones = new ArrayList();
+    private Ejemplar ejemplarSolicitado;
+    private Lector lectorSolicita;
 
     public Prestamo(PrestamoTipo tipoPrestamo, Bibliotecario emisor) {
         if (tipoPrestamo == PrestamoTipo.DOMICILIO){
