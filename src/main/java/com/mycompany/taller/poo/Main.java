@@ -4,6 +4,7 @@ import interfaz.*;
 import enumeraciones.*;
 import gestion.inventario.*;
 import gestion.personas.*;
+import java.time.LocalDate;
 import java.util.GregorianCalendar;
 
 /*
@@ -31,12 +32,15 @@ public class Main {
         Persona usuario1 = new Usuario();
         Persona bibliotecario1 = new Bibliotecario();
         
-        GregorianCalendar fechaAdquisicion1 = new GregorianCalendar(2020, 5, 24);
-        Ejemplar ejemplar1 = new Ejemplar(fechaAdquisicion1, "Comprado");
-        System.out.println("TOSTRING DE EJEMPLAR: \n"+ ejemplar1);
+        // Provando si anda la clase multa
+        Multa multa1 = new Multa(LocalDate.now());
         
         Ubicacion ubicacion1 = new Ubicacion(5,11, 5);
         System.out.println("\nTOSTRING DE UBICACION: \n"+ ubicacion1);
+        
+        GregorianCalendar fechaAdquisicion1 = new GregorianCalendar(2020, 5, 24);
+        Ejemplar ejemplar1 = new Ejemplar(fechaAdquisicion1, "Comprado", ubicacion1);
+        System.out.println("TOSTRING DE EJEMPLAR: \n"+ ejemplar1);
         
         Edicion edicion1 = new Edicion("Union", "Espania", 4, 2020, 1, 625, "Espaniol", FormatoTipo.PAPEL);
         String []listita = {"1","2"}; //Para el atributo areaReferencia[] que es un array 
@@ -51,6 +55,6 @@ public class Main {
         lector1.setSexo(SexoTipo.MASCULINO);
         lector1.setFechaNacimiento(fechaNacimiento1);
         System.out.println("\n TOSTRING DE PERSONA Y LECTOR: \n"+ lector1.toString());
-        //jaja saludos
+        
     }
 }

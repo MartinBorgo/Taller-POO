@@ -28,9 +28,12 @@ public class Obra {
     private int solicitudFacultad;
     private int solicitudGeneral;
     private int isbn;
-    private Edicion edicion;  
+    private Edicion edicion;
 
-    public Obra(ObraTipo tipoDeObra, AreaTematicaTipo areaTematica, int cantidadEjemplares, String titulo, String subtitulo, String primerAutor, String segundAutor, String tercerAutor, String genero, CaracteristicaTipo caracterisitica, String indiceObra, String[] areaReferencia, int isbn, Edicion edicion) {
+    public Obra(ObraTipo tipoDeObra, AreaTematicaTipo areaTematica, int cantidadEjemplares, String titulo, String subtitulo, String primerAutor,
+                String segundAutor, String tercerAutor, String genero, CaracteristicaTipo caracterisitica, String indiceObra, String[] areaReferencia,
+                int isbn, Edicion edicion) {
+        
         this.tipoDeObra = tipoDeObra;
         this.areaTematica = areaTematica;
         this.cantidadEjemplares = cantidadEjemplares;

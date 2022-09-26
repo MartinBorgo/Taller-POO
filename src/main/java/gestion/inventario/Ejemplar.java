@@ -4,6 +4,8 @@
  */
 package gestion.inventario;
 
+import gestion.personas.Lector;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
@@ -22,11 +24,15 @@ public class Ejemplar {
     private String motivoBaja;
     private String ubicacionBaja;
     private boolean enPrestamo;
+    private Ubicacion ubicacion;
+    private Prestamo prestamo;
+    private ArrayList<Lector> listaLectores = new ArrayList();
 
-    public Ejemplar(GregorianCalendar fechaAdquisicion, String formaAdquisicion) {
+    public Ejemplar(GregorianCalendar fechaAdquisicion, String formaAdquisicion, Ubicacion ubicacion) {
         this.idUnico = incremental;
         this.fechaAdquisicion = fechaAdquisicion;
         this.formaAdquisicion = formaAdquisicion;
+        this.ubicacion = ubicacion;
         this.enPrestamo = false;
         
         incremental++;
@@ -106,6 +112,18 @@ public class Ejemplar {
 
     public void setEnPrestamo(boolean enPrestamo) {
         this.enPrestamo = enPrestamo;
+    }
+
+    public Ubicacion getUbicacion() {
+        return ubicacion;
+    }
+
+    public void setUbicacion(Ubicacion ubicacion) {
+        this.ubicacion = ubicacion;
+    }
+    
+    public void agregarLector(Lector lector) {
+        this.listaLectores.add(lector);
     }
 
     @Override

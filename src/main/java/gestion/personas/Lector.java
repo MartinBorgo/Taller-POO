@@ -1,9 +1,14 @@
 package gestion.personas;
 
+import gestion.inventario.Ejemplar;
+import gestion.inventario.Prestamo;
+import java.util.ArrayList;
 import java.util.GregorianCalendar;
 
 public class Lector extends Persona {
 	private boolean estaMultado;
+        private Prestamo prestamo;
+        private ArrayList<Ejemplar> listaLibros = new ArrayList();
 
 	public Lector() {
 	}
@@ -23,6 +28,23 @@ public class Lector extends Persona {
 
     public void setEstaMultado(boolean estaMultado) {
         this.estaMultado = estaMultado;
+    }
+    
+
+    public Prestamo getPrestamo() {
+        return prestamo;
+    }
+
+    public void setPrestamo(Prestamo prestamo) {
+        this.prestamo = prestamo;
+    }
+    
+    public void agragarPrestamo(Prestamo prestamo) {
+        this.prestamo = prestamo;
+    }
+
+    public void agregarLibro(Ejemplar ejemplar) {
+        this.listaLibros.add(ejemplar);
     }
 
     @Override
