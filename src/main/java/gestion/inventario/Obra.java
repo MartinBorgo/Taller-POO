@@ -7,6 +7,8 @@ package gestion.inventario;
 import enumeraciones.AreaTematicaTipo;
 import enumeraciones.CaracteristicaTipo;
 import enumeraciones.ObraTipo;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -24,14 +26,15 @@ public class Obra {
     private String genero;
     private CaracteristicaTipo caracterisitica;
     private String indiceObra;
-    private String [] areaReferencia;
+    private String areaReferencia;
     private int solicitudFacultad;
     private int solicitudGeneral;
     private int isbn;
     private Edicion edicion;
+    private List<Ejemplar> ejemplares = new ArrayList();
 
     public Obra(ObraTipo tipoDeObra, AreaTematicaTipo areaTematica, int cantidadEjemplares, String titulo, String subtitulo, String primerAutor,
-                String segundAutor, String tercerAutor, String genero, CaracteristicaTipo caracterisitica, String indiceObra, String[] areaReferencia,
+                String segundAutor, String tercerAutor, String genero, CaracteristicaTipo caracterisitica, String indiceObra, String areaReferencia,
                 int isbn, Edicion edicion) {
         
         this.tipoDeObra = tipoDeObra;
@@ -143,11 +146,11 @@ public class Obra {
         this.indiceObra = indiceObra;
     }
 
-    public String[] getAreaReferencia() {
+    public String getAreaReferencia() {
         return areaReferencia;
     }
 
-    public void setAreaReferencia(String[] areaReferencia) {
+    public void setAreaReferencia(String areaReferencia) {
         this.areaReferencia = areaReferencia;
     }
 
@@ -198,7 +201,7 @@ public class Obra {
                 cantidadEjemplares, titulo, subtitulo, 
                 primerAutor, segundAutor, tercerAutor,
                 genero, caracterisitica.getCaracteristicaTipo(),
-                indiceObra, areaReferencia[0], solicitudFacultad, 
+                indiceObra, areaReferencia, solicitudFacultad, 
                 solicitudGeneral, isbn, edicion.toString());
     }
     
