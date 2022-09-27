@@ -1,15 +1,17 @@
 package gestion.personas;
 
 import gestion.inventario.Ejemplar;
+import gestion.inventario.Multa;
 import gestion.inventario.Prestamo;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
+import java.util.List;
 
 public class Lector extends Persona {
 	private boolean estaMultado;
         private Prestamo prestamo;
         private ArrayList<Ejemplar> listaLibros = new ArrayList();
-
+        private List<Multa>multas = new ArrayList();
 	public Lector() {
 	}
 

@@ -49,17 +49,15 @@ public class Main {
         // Provando si anda la clase multa
         Multa multa1 = new Multa(LocalDate.now());
         
-        Ubicacion ubicacion1 = new Ubicacion(5,11, 5);
+        Ubicacion ubicacion1 = new Ubicacion(2,11,1);
         System.out.println("\nTOSTRING DE UBICACION: \n"+ ubicacion1);
         
         GregorianCalendar fechaAdquisicion1 = new GregorianCalendar(2020, 5, 24);
-        Ejemplar ejemplar1 = new Ejemplar(fechaAdquisicion1, "Comprado", ubicacion1);
-        System.out.println("TOSTRING DE EJEMPLAR: \n"+ ejemplar1);
-        
+        Ejemplar ejemplar1 = new Ejemplar(fechaAdquisicion1, "Regalado", ubicacion1);
+        System.out.println("\nTO STRING DE EJEMPLAR:\n" + ejemplar1);
         Edicion edicion1 = new Edicion("Union", "Espania", 4, 2020, 1, 625, "Espaniol", FormatoTipo.PAPEL);
-        String []listita = {"1","2"}; //Para el atributo areaReferencia[] que es un array 
         
-        Obra obra1 = new Obra(ObraTipo.ENSAYO, AreaTematicaTipo.PROGRAMACION, 0, "OBRA1", "SUBTITULO1", "AUTOR1", "AUTOR2", "AUTOR3", "ACCION", CaracteristicaTipo.BOLETIN, "320 PAGS", listita, 321, edicion1);
+        Obra obra1 = new Obra(ObraTipo.ENSAYO, AreaTematicaTipo.PROGRAMACION, 0, "OBRA1", "SUBTITULO1", "AUTOR1", "AUTOR2", "AUTOR3", "ACCION", CaracteristicaTipo.BOLETIN, "320 PAGS", "Area tecnologia", 321, edicion1);
         System.out.println("\nTOSTRING DE OBRA: \n"+ obra1);
         
         Coleccion coleccion1 = new Coleccion();

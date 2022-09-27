@@ -8,6 +8,7 @@ import gestion.personas.Lector;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.List;
 
 /**
  *
@@ -26,8 +27,11 @@ public class Ejemplar {
     private boolean enPrestamo;
     private Ubicacion ubicacion;
     private Prestamo prestamo;
+    private Obra obra;
     private ArrayList<Lector> listaLectores = new ArrayList();
-
+    private Coleccion coleccion; //PUEDE PERTENECER A UNA COLECCION.
+    private List<Reservacion> reservaciones = new ArrayList();
+   
     public Ejemplar(GregorianCalendar fechaAdquisicion, String formaAdquisicion, Ubicacion ubicacion) {
         this.idUnico = incremental;
         this.fechaAdquisicion = fechaAdquisicion;
@@ -131,8 +135,9 @@ public class Ejemplar {
         return String.format("Id ejemplar: %s"
                 + "%nFecha adquisicion: %s/%s/%s"
                 + "%nForma adquisicion: %s"
-                + "%nEn prestamo: %s", idUnico, fechaAdquisicion.get(Calendar.YEAR), fechaAdquisicion.get(Calendar.MONTH), 
-                fechaAdquisicion.get(Calendar.DAY_OF_MONTH), formaAdquisicion, enPrestamo);
+                + "%nEn prestamo: %s"
+                + "%nUbicacion:%n%s", idUnico, fechaAdquisicion.get(Calendar.YEAR), fechaAdquisicion.get(Calendar.MONTH), 
+                fechaAdquisicion.get(Calendar.DAY_OF_MONTH), formaAdquisicion, enPrestamo, ubicacion);
     }
  
     
