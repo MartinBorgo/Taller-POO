@@ -4,6 +4,9 @@
  */
 package interfaz;
 
+import com.mycompany.taller.poo.Main;
+import gestion.personas.Usuario;
+
 /**
  *
  * @author martin
@@ -148,14 +151,24 @@ public class LoginScreen extends javax.swing.JFrame {
      */
     private void botonIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonIngresarActionPerformed
         // TODO add your handling code here:
-        if (this.txtNombreUsuario.getText().equals("Norma") && this.txtContrasenia.getText().equals("12345")){
-            dispose();
+        for(Usuario bibliotecario : Main.listaDeBibliotecarios){
+            if(bibliotecario.esAdministrador()){
+                if(bibliotecario.getNombreUsuario().equals(this.txtNombreUsuario.getText()) && bibliotecario.getContrasenia().equals(this.txtContrasenia.getText())) {
+                    dispose();
             
-            VentanaAdministrador ventanaAdmin = new VentanaAdministrador();
-            ventanaAdmin.show();
-        }else {
-            javax.swing.JOptionPane.showMessageDialog(rootPane, "Contraseña o usuario incorrecto");
-            botonResetearActionPerformed(evt);
+                    VentanaAdministrador ventanaAdmin = new VentanaAdministrador();
+                    ventanaAdmin.show();
+                }
+            } else {
+                if(bibliotecario.getNombreUsuario().equals(this.txtNombreUsuario.getText()) && bibliotecario.getContrasenia().equals(this.txtContrasenia.getText())) {
+                    dispose();
+            
+                    VentanaAdministrador ventanaAdmin = new VentanaAdministrador();
+                    ventanaAdmin.show();
+                }
+            
+            }
+
         }
     }//GEN-LAST:event_botonIngresarActionPerformed
 
