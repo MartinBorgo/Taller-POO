@@ -23,7 +23,7 @@ public class Main {
         VentanaAdministrador prueba = new VentanaAdministrador();
         LoginScreen login = new LoginScreen();
 
-        //login.show();
+        login.show();
 
         //Creacion de objetos de cada tipo de persona.
         Persona lector1 = new Lector();
