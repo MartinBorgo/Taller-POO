@@ -5,6 +5,7 @@ import enumeraciones.*;
 import gestion.inventario.*;
 import gestion.personas.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.GregorianCalendar;
 
 /*
@@ -17,10 +18,23 @@ import java.util.GregorianCalendar;
  * @author pepeponpin
  */
 public class Main {
+    public static ArrayList<Usuario> listaDeBibliotecarios = new ArrayList();
+    public static ArrayList<Lector> listaLectores = new ArrayList();
+    public static ArrayList<Prestamo> listaPrestamos = new ArrayList();
+    
     public static void main(String []args){
-        System.out.println("SOY EL MAIN");
         
-        VentanaAdministrador prueba = new VentanaAdministrador();
+        Usuario user1 = new Usuario(true, "Norma", "12345");
+        Usuario user2 = new Usuario(false, "Eduardo", "hola01");
+        Usuario user3 = new Usuario(false, "Ana", "345");
+        Usuario user4 = new Usuario(false, "Elisa", "1111a");
+        
+        listaDeBibliotecarios.add(user1);
+        listaDeBibliotecarios.add(user2);
+        listaDeBibliotecarios.add(user3);
+        listaDeBibliotecarios.add(user4);
+        
+        
         LoginScreen login = new LoginScreen();
 
         login.show();

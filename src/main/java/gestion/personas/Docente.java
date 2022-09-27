@@ -10,9 +10,11 @@ public class Docente extends Persona {
 
 	public Docente(String nombres, String apellidos, int dni, GregorianCalendar fechaNacimiento, String nacionalidad,
 			String domicilio, int codPostal, String localidad, String numCelular, String mail, String[] carreras) {
-		super(nombres, apellidos, dni, fechaNacimiento, nacionalidad, domicilio, codPostal, localidad, numCelular,
-				mail);
-		this.carreras = carreras;
+		
+            super(nombres, apellidos, dni, fechaNacimiento, nacionalidad,
+                  domicilio, codPostal, localidad, numCelular,mail);
+		
+            this.carreras = carreras;
 	}
 
     public String[] getCarreras() {
