@@ -9,6 +9,7 @@ import enumeraciones.CaracteristicaTipo;
 import enumeraciones.ObraTipo;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  *
@@ -32,7 +33,7 @@ public class Obra {
     private int isbn;
     private Edicion edicion;
     private List<Ejemplar> ejemplares = new ArrayList();
-
+    
     public Obra(ObraTipo tipoDeObra, AreaTematicaTipo areaTematica, int cantidadEjemplares, String titulo, String subtitulo, String primerAutor,
                 String segundAutor, String tercerAutor, String genero, CaracteristicaTipo caracterisitica, String indiceObra, String areaReferencia,
                 int isbn, Edicion edicion) {
@@ -214,4 +215,7 @@ public class Obra {
         this.edicion = edicion;
     }
     
+    public static List<Obra> getEditorial(List<Obra> list, String editorial){
+        return list.stream().filter(x -> x.edicion.getEditorial().equals(editorial)).collect(Collectors.toList());
+    }
 }
