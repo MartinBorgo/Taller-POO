@@ -8,21 +8,22 @@ import java.util.GregorianCalendar;
 import java.util.List;
 
 public class Lector extends Persona {
-	private boolean estaMultado;
-        private Prestamo prestamo;
-        private ArrayList<Ejemplar> listaLibros = new ArrayList();
-        private List<Multa>multas = new ArrayList();
-	public Lector() {
-	}
+    private boolean estaMultado;
+    private Prestamo prestamo;
+    private ArrayList<Ejemplar> listaLibros = new ArrayList();
+    private List<Multa>multas = new ArrayList();
 
-	public Lector(String nombres, String apellidos, int dni, GregorianCalendar fechaNacimiento, String nacionalidad,
-                      String domicilio, int codPostal, String localidad, String numCelular, String mail, boolean estaMultado) {
+    public Lector() {
+    }
+
+    public Lector(String nombres, String apellidos, int dni, GregorianCalendar fechaNacimiento, String nacionalidad,
+                  String domicilio, int codPostal, String localidad, String numCelular, String mail) {
 		
-            super(nombres, apellidos, dni, fechaNacimiento, nacionalidad,
-                      domicilio, codPostal, localidad, numCelular,mail);
+        super(nombres, apellidos, dni, fechaNacimiento, nacionalidad,
+              domicilio, codPostal, localidad, numCelular,mail);
 		
-            this.estaMultado = estaMultado;
-	}
+        this.estaMultado = false;
+    }
 
     public boolean estaMultado() {
         return estaMultado;
@@ -47,6 +48,10 @@ public class Lector extends Persona {
 
     public void agregarLibro(Ejemplar ejemplar) {
         this.listaLibros.add(ejemplar);
+    }
+    
+    public void agregarMulta(Multa multa) {
+        this.multas.add(multa);
     }
 
     @Override

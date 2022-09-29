@@ -34,7 +34,7 @@ public class Obra {
     private List<Ejemplar> ejemplares = new ArrayList();
 
     /**
-     * Constructor para las obras que tienen tres autores
+     * Constructor parametrizado para crear un objeto de tipo Obra
      * 
      * @param tipoDeObra
      * @param areaTematica
@@ -42,7 +42,7 @@ public class Obra {
      * @param titulo
      * @param subtitulo
      * @param primerAutor
-     * @param segundAutor
+     * @param segundoAutor
      * @param tercerAutor
      * @param genero
      * @param caracterisitica
@@ -72,6 +72,8 @@ public class Obra {
     }
 
     public Obra() {
+        this.solicitudFacultad = 0;
+        this.solicitudGeneral = 0;
     }
 
     public ObraTipo getTipoDeObra() {
@@ -192,6 +194,11 @@ public class Obra {
 
     public void setIsbn(int isbn) {
         this.isbn = isbn;
+    }
+    
+    public void agregarEjemplar(Ejemplar ej) {
+        this.ejemplares.add(ej);
+    
     }
 
     @Override

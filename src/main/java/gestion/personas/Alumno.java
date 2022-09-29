@@ -2,27 +2,27 @@ package gestion.personas;
 
 import java.util.GregorianCalendar;
 
-public class Alumno extends Persona {
-	private String []carreras;
+public class Alumno extends Lector {
+	private String carrera;
 
 	public Alumno() {
 	}
 
 	public Alumno(String nombres, String apellidos, int dni, GregorianCalendar fechaNacimiento, String nacionalidad,
-                      String domicilio, int codPostal, String localidad, String numCelular, String mail, String[] carreras) {
+                      String domicilio, int codPostal, String localidad, String numCelular, String mail, String carrera) {
 		
             super(nombres, apellidos, dni, fechaNacimiento, nacionalidad, 
                   domicilio, codPostal, localidad, numCelular,mail);
 		
-            this.carreras = carreras;
+            this.carrera = carrera;
 	}
 
-	public String[] getCarreras() {
-		return carreras;
+	public String getCarreras() {
+		return carrera;
 	}
 
-	public void setCarreras(String[] carreras) {
-		this.carreras = carreras;
+	public void setCarreras(String carreras) {
+		this.carrera = carreras;
 	}
 
     @Override
