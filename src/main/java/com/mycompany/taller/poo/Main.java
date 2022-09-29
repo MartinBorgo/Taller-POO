@@ -21,6 +21,7 @@ public class Main {
     public static ArrayList<Usuario> listaDeBibliotecarios = new ArrayList();
     public static ArrayList<Lector> listaLectores = new ArrayList();
     public static ArrayList<Prestamo> listaPrestamos = new ArrayList();
+    public static ArrayList<Ejemplar> listaObras = new ArrayList();
     
     public static void main(String []args){
         
@@ -52,14 +53,15 @@ public class Main {
         Ubicacion ubicacion1 = new Ubicacion(2,11,1);
         System.out.println("\nTOSTRING DE UBICACION: \n"+ ubicacion1);
         
-        GregorianCalendar fechaAdquisicion1 = new GregorianCalendar(2020, 5, 24);
-        Ejemplar ejemplar1 = new Ejemplar(fechaAdquisicion1, "Regalado", ubicacion1);
-        System.out.println("\nTO STRING DE EJEMPLAR:\n" + ejemplar1);
         Edicion edicion1 = new Edicion("Union", "Espania", 4, 2020, 1, 625, "Espaniol", FormatoTipo.PAPEL);
         
-        Obra obra1 = new Obra(ObraTipo.ENSAYO, AreaTematicaTipo.PROGRAMACION, 0, "OBRA1", "SUBTITULO1", "AUTOR1", "AUTOR2", "AUTOR3", "ACCION", CaracteristicaTipo.BOLETIN, "320 PAGS", "Area tecnologia", 321, edicion1);
+        Obra obra1 = new Obra(ObraTipo.ENSAYO, AreaTematicaTipo.PROGRAMACION, 0, "OBRA1", "SUBTITULO1", "AUTOR1", "AUTOR2", "AUTOR3", "ACCION", CaracteristicaTipo.BOLETIN, "Area tecnologia", 321, edicion1);
         System.out.println("\nTOSTRING DE OBRA: \n"+ obra1);
         
+        GregorianCalendar fechaAdquisicion1 = new GregorianCalendar(2020, 5, 24);
+        Ejemplar ejemplar1 = new Ejemplar(fechaAdquisicion1, "Regalado", ubicacion1, obra1);
+        System.out.println("\nTO STRING DE EJEMPLAR:\n" + ejemplar1);
+
         Coleccion coleccion1 = new Coleccion();
         System.out.println("\nTOSTRING DE COLECCION: \n" + coleccion1);
         

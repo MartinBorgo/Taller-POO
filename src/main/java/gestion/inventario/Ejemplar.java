@@ -32,11 +32,12 @@ public class Ejemplar {
     private Coleccion coleccion; //PUEDE PERTENECER A UNA COLECCION.
     private List<Reservacion> reservaciones = new ArrayList();
    
-    public Ejemplar(GregorianCalendar fechaAdquisicion, String formaAdquisicion, Ubicacion ubicacion) {
+    public Ejemplar(GregorianCalendar fechaAdquisicion, String formaAdquisicion, Ubicacion ubicacion, Obra obra) {
         this.idUnico = incremental;
         this.fechaAdquisicion = fechaAdquisicion;
         this.formaAdquisicion = formaAdquisicion;
         this.ubicacion = ubicacion;
+        this.obra = obra;
         this.enPrestamo = false;
         
         incremental++;

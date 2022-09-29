@@ -1,4 +1,4 @@
-/*
+ /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
@@ -21,7 +21,7 @@ public class Obra {
     private String titulo;
     private String subtitulo;
     private String primerAutor;
-    private String segundAutor;
+    private String segundoAutor;
     private String tercerAutor;
     private String genero;
     private CaracteristicaTipo caracterisitica;
@@ -33,8 +33,25 @@ public class Obra {
     private Edicion edicion;
     private List<Ejemplar> ejemplares = new ArrayList();
 
+    /**
+     * Constructor para las obras que tienen tres autores
+     * 
+     * @param tipoDeObra
+     * @param areaTematica
+     * @param cantidadEjemplares
+     * @param titulo
+     * @param subtitulo
+     * @param primerAutor
+     * @param segundAutor
+     * @param tercerAutor
+     * @param genero
+     * @param caracterisitica
+     * @param areaReferencia
+     * @param isbn
+     * @param edicion 
+     */
     public Obra(ObraTipo tipoDeObra, AreaTematicaTipo areaTematica, int cantidadEjemplares, String titulo, String subtitulo, String primerAutor,
-                String segundAutor, String tercerAutor, String genero, CaracteristicaTipo caracterisitica, String indiceObra, String areaReferencia,
+                String segundoAutor, String tercerAutor, String genero, CaracteristicaTipo caracterisitica, String areaReferencia,
                 int isbn, Edicion edicion) {
         
         this.tipoDeObra = tipoDeObra;
@@ -43,11 +60,10 @@ public class Obra {
         this.titulo = titulo;
         this.subtitulo = subtitulo;
         this.primerAutor = primerAutor;
-        this.segundAutor = segundAutor;
+        this.segundoAutor = segundoAutor;
         this.tercerAutor = tercerAutor;
         this.genero = genero;
         this.caracterisitica = caracterisitica;
-        this.indiceObra = indiceObra;
         this.areaReferencia = areaReferencia;
         this.isbn = isbn;
         this.edicion = edicion;
@@ -106,12 +122,12 @@ public class Obra {
         this.primerAutor = primerAutor;
     }
 
-    public String getSegundAutor() {
-        return segundAutor;
+    public String getSegundoAutor() {
+        return segundoAutor;
     }
 
-    public void setSegundAutor(String segundAutor) {
-        this.segundAutor = segundAutor;
+    public void setSegundoAutor(String segundoAutor) {
+        this.segundoAutor = segundoAutor;
     }
 
     public String getTercerAutor() {
@@ -199,7 +215,7 @@ public class Obra {
                 tipoDeObra.getObraTipo(), 
                 areaTematica.getAreaTematicaTipo(),
                 cantidadEjemplares, titulo, subtitulo, 
-                primerAutor, segundAutor, tercerAutor,
+                primerAutor, segundoAutor, tercerAutor,
                 genero, caracterisitica.getCaracteristicaTipo(),
                 indiceObra, areaReferencia, solicitudFacultad, 
                 solicitudGeneral, isbn, edicion.toString());

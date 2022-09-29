@@ -163,8 +163,8 @@ public class LoginScreen extends javax.swing.JFrame {
                 if(bibliotecario.getNombreUsuario().equals(this.txtNombreUsuario.getText()) && bibliotecario.getContrasenia().equals(this.txtContrasenia.getText())) {
                     dispose();
             
-                    VentanaAdministrador ventanaAdmin = new VentanaAdministrador();
-                    ventanaAdmin.show();
+                    VentanaBibliotecario ventanaBibliotecario = new VentanaBibliotecario();
+                    ventanaBibliotecario.show();
                 }
             
             }

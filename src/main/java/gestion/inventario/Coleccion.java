@@ -17,17 +17,15 @@ import java.util.List;
  */
 public class Coleccion extends Obra {
     private int isbnColeccion;
-    private String nombre;
+    private String nombreColeccion;
     private List<Ejemplar> ejemplares = new ArrayList();
-    public Coleccion(int isbnColeccion, String nombre, ObraTipo tipoDeObra, AreaTematicaTipo areaTematica, int cantidadEjemplares, String titulo, 
-            String subtitulo, String primerAutor, String segundAutor, String tercerAutor, String genero,CaracteristicaTipo caracterisitica, 
-            String indiceObra, String areaReferencia, int isbn, Edicion edicion) {
-        
-        super(tipoDeObra, areaTematica, cantidadEjemplares, titulo, subtitulo, primerAutor, segundAutor, tercerAutor, 
-                genero, caracterisitica, indiceObra, areaReferencia, isbn, edicion);
+
+    public Coleccion(int isbnColeccion, String nombre, ObraTipo tipoDeObra, AreaTematicaTipo areaTematica, int cantidadEjemplares, String titulo, String subtitulo, String primerAutor, String segundAutor, String tercerAutor, String genero, CaracteristicaTipo caracterisitica, String areaReferencia, int isbn, Edicion edicion) {
+        super(tipoDeObra, areaTematica, cantidadEjemplares, titulo, subtitulo, primerAutor, segundAutor, tercerAutor, genero, caracterisitica, areaReferencia, isbn, edicion);
         this.isbnColeccion = isbnColeccion;
-        this.nombre = nombre;
+        this.nombreColeccion = nombre;
     }
+
 
     public Coleccion() {
     }
@@ -40,19 +38,19 @@ public class Coleccion extends Obra {
         this.isbnColeccion = isbnColeccion;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getNombreColeccion() {
+        return nombreColeccion;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombreColeccion(String nombre) {
+        this.nombreColeccion = nombre;
     }
 
     @Override
     public String toString() {
         return String.format("ISBN coleccion: %s"
                 + "%nNombre coleccion: %s", 
-                isbnColeccion, nombre);
+                isbnColeccion, nombreColeccion);
     }
     
     
