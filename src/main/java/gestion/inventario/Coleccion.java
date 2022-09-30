@@ -45,6 +45,10 @@ public class Coleccion extends Obra {
     public void setNombreColeccion(String nombre) {
         this.nombreColeccion = nombre;
     }
+    
+    public void agregarEjemplar(Ejemplar e) {
+        this.ejemplares.add(e);
+    }
 
     @Override
     public String toString() {

@@ -5,18 +5,19 @@
 package interfaz;
 
 import com.mycompany.taller.poo.Main;
+import gestion.personas.Bibliotecario;
 import gestion.personas.Usuario;
 
 /**
  *
  * @author martin
  */
-public class LoginScreen extends javax.swing.JFrame {
+public class VentanaLogueo extends javax.swing.JFrame {
 
     /**
      * Creates new form LoginScreen
      */
-    public LoginScreen() {
+    public VentanaLogueo() {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(javax.swing.JFrame.EXIT_ON_CLOSE);
@@ -154,6 +155,8 @@ public class LoginScreen extends javax.swing.JFrame {
         for(Usuario bibliotecario : Main.listaDeBibliotecarios){
             if(bibliotecario.esAdministrador()){
                 if(bibliotecario.getNombreUsuario().equals(this.txtNombreUsuario.getText()) && bibliotecario.getContrasenia().equals(this.txtContrasenia.getText())) {
+                    bibliotecarioLogueado = bibliotecario;
+                    
                     dispose();
             
                     VentanaAdministrador ventanaAdmin = new VentanaAdministrador();
@@ -161,6 +164,8 @@ public class LoginScreen extends javax.swing.JFrame {
                 }
             } else {
                 if(bibliotecario.getNombreUsuario().equals(this.txtNombreUsuario.getText()) && bibliotecario.getContrasenia().equals(this.txtContrasenia.getText())) {
+                    bibliotecarioLogueado = bibliotecario;
+                    
                     dispose();
             
                     VentanaBibliotecario ventanaBibliotecario = new VentanaBibliotecario();
@@ -189,24 +194,26 @@ public class LoginScreen extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(LoginScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaLogueo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(LoginScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaLogueo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(LoginScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaLogueo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(LoginScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaLogueo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new LoginScreen().setVisible(true);
+                new VentanaLogueo().setVisible(true);
             }
         });
     }
 
+    public static Usuario bibliotecarioLogueado;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonIngresar;
     private javax.swing.JButton botonResetear;

@@ -51,8 +51,7 @@ public class Obra {
      * @param areaReferencia
      * @param isbn
      * @param edicion 
-     */
-        
+     */    
     public Obra(ObraTipo tipoDeObra, AreaTematicaTipo areaTematica, int cantidadEjemplares, String titulo, String subtitulo, String primerAutor,
                 String segundoAutor, String tercerAutor, String genero, CaracteristicaTipo caracterisitica, String areaReferencia,
                 int isbn, Edicion edicion) {
@@ -202,6 +201,14 @@ public class Obra {
     public void agregarEjemplar(Ejemplar ej) {
         this.ejemplares.add(ej);
     
+    }
+    
+    public Ejemplar buscarEjemplar(int identificador) {
+        for(Ejemplar ejemplar : this.ejemplares){
+            if(ejemplar.getIdUnico() == identificador) return ejemplar;
+        }
+        
+        return null;
     }
 
     @Override

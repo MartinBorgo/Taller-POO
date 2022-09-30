@@ -26,12 +26,20 @@ public class Ejemplar {
     private String ubicacionBaja;
     private boolean enPrestamo;
     private Ubicacion ubicacion;
-    private Prestamo prestamo;
+    private Prestamo infoPrestamo;
     private Obra obra;
-    private ArrayList<Lector> listaLectores = new ArrayList();
     private Coleccion coleccion; //PUEDE PERTENECER A UNA COLECCION.
+    private ArrayList<Lector> listaSolicitudLectores = new ArrayList();
     private List<Reservacion> reservaciones = new ArrayList();
    
+    /**
+     * Construye un objeto ejemplar con la informacion basica a la hora de su adquisicion
+     * 
+     * @param fechaAdquisicion
+     * @param formaAdquisicion
+     * @param ubicacion
+     * @param obra 
+     */
     public Ejemplar(GregorianCalendar fechaAdquisicion, String formaAdquisicion, Ubicacion ubicacion, Obra obra) {
         this.idUnico = incremental;
         this.fechaAdquisicion = fechaAdquisicion;
@@ -40,97 +48,266 @@ public class Ejemplar {
         this.obra = obra;
         this.enPrestamo = false;
         
+        obra.agregarEjemplar(this); // Se mantiene la relacion entre ejemplar y Obra
+        
         incremental++;
     }
 
+    /**
+     * Construye un objeto Ejemplar con la informacion basica a la hora de la adquisicion
+     * 
+     * @param fechaAdquisicion
+     * @param formaAdquisicion
+     * @param ubicacion
+     * @param coleccion 
+     */
+    public Ejemplar(GregorianCalendar fechaAdquisicion, String formaAdquisicion, Ubicacion ubicacion, Coleccion coleccion) {
+        this.idUnico = incremental;
+        this.fechaAdquisicion = fechaAdquisicion;
+        this.formaAdquisicion = formaAdquisicion;
+        this.ubicacion = ubicacion;
+        this.coleccion = coleccion;
+        
+        coleccion.agregarEjemplar(this);
+        
+        incremental++;
+    }
+
+    
+    
+    /**
+     * Construye un objeto ejemplar si settear ningun tipo de dato
+     */
     public Ejemplar() {
         incremental++;
     }
 
-    public static int getIncremental() {
-        return incremental;
-    }
-
-    public static void setIncremental(int incremental) {
-        Ejemplar.incremental = incremental;
-    }
-
+    /**
+     * Devuelve el codigo identificador de el ejemplar
+     * @return int
+     */
     public int getIdUnico() {
         return idUnico;
     }
 
+    /**
+     * Setea El codigo unico con el valor pasado por aparametro
+     * 
+     * @param idUnico 
+     */
     public void setIdUnico(int idUnico) {
         this.idUnico = idUnico;
     }
 
+    /**
+     * Devuelve las observaciones que se realizaron a ese ejemplar
+     * 
+     * @return String
+     */
     public String getObservaciones() {
         return observaciones;
     }
 
-    public void setObservaciones(String observaciones) {
-        this.observaciones = observaciones;
+    
+    /**
+     * Setea una observacion a el ejemplar
+     * 
+     * @param observacion
+     */
+    public void setObservaciones(String observacion) {
+        this.observaciones = observacion;
     }
 
+    /**
+     * Devuleve la fecha de adquisicion del ejemplar
+     * 
+     * @return GregorianCalendar 
+     */
     public GregorianCalendar getFechaAdquisicion() {
         return fechaAdquisicion;
     }
 
+    /**
+     * Setea la fecha de adquisicion del ejemplar con la fecha pasada por parametros
+     * 
+     * @param fechaAdquisicion 
+     */
     public void setFechaAdquisicion(GregorianCalendar fechaAdquisicion) {
         this.fechaAdquisicion = fechaAdquisicion;
     }
 
+    /**
+     * Devuelve la forma en la que se adquirio el ejemplar
+     * 
+     * @return String
+     */
     public String getFormaAdquisicion() {
         return formaAdquisicion;
     }
 
+    /**
+     * Setea la forma en la que se adquirio el ejemplar
+     * 
+     * @param formaAdquisicion 
+     */
     public void setFormaAdquisicion(String formaAdquisicion) {
         this.formaAdquisicion = formaAdquisicion;
     }
 
+    /**
+     * Devuelve la fecha en la que se dio de baja al ejemplar
+     * 
+     * @return GregorianCalendar 
+     */
     public GregorianCalendar getFechaBaja() {
         return fechaBaja;
     }
 
+    /**
+     * Setea la fecha de baja del ejemplar con la fecha pasada por parametro
+     * 
+     * @param fechaBaja 
+     */
     public void setFechaBaja(GregorianCalendar fechaBaja) {
         this.fechaBaja = fechaBaja;
     }
 
+    /**
+     * Devuelve el motivo de la baja del ejemplar
+     * 
+     * @return String
+     */
     public String getMotivoBaja() {
         return motivoBaja;
     }
 
+    /**
+     * Setea el motivo de la baja del ejemplar con lo pasado por parametro
+     * 
+     * @param motivoBaja 
+     */
     public void setMotivoBaja(String motivoBaja) {
         this.motivoBaja = motivoBaja;
     }
 
+    /**
+     * Devuelve la ubicacion en la que se encuentra el ejemplar dado de baja
+     * 
+     * @return String 
+     */
     public String getUbicacionBaja() {
         return ubicacionBaja;
     }
 
+    /**
+     * Setea la ubicaion de baja del ejemplar por lo pasado en parametro
+     * 
+     * @param ubicacionBaja 
+     */
     public void setUbicacionBaja(String ubicacionBaja) {
         this.ubicacionBaja = ubicacionBaja;
     }
 
+    /**
+     * Devuelve el estado del ejemplar:
+     * true -> Esta en prestamo
+     * false -> Esta disponible
+     * 
+     * @return boolean 
+     */
     public boolean isEnPrestamo() {
         return enPrestamo;
     }
 
+    /**
+     * Setea el estado del del ejemplar con el valor pasado por parametro
+     * true -> El ejemplar pasa a estar en prestamo
+     * false -> El ejemplar pasa a estar disponible
+     * 
+     * @param enPrestamo 
+     */
     public void setEnPrestamo(boolean enPrestamo) {
         this.enPrestamo = enPrestamo;
     }
 
+    /**
+     * Devuelve la ubicacion en la que se encuentra el ejemplar en la biblioteca
+     * 
+     * @return Ubicacion
+     */
     public Ubicacion getUbicacion() {
         return ubicacion;
     }
 
+    /**
+     * Setea la ubicacion en la que se encuentra el libro
+     * 
+     * @param ubicacion 
+     */
     public void setUbicacion(Ubicacion ubicacion) {
         this.ubicacion = ubicacion;
     }
     
-    public void agregarLector(Lector lector) {
-        this.listaLectores.add(lector);
+    /**
+     * Devuelve la un objeto de tipo Prestamo, con toda la informacion de este mismo
+     * 
+     * @return Prestamo
+     */
+    public Prestamo getInfoPrestamo() {
+        return infoPrestamo;
     }
 
+    /**
+     * Setea un prestamo para el ejemplar
+     * 
+     * @param infoPrestamo 
+     */
+    public void setInfoPrestamo(Prestamo infoPrestamo) {
+        this.infoPrestamo = infoPrestamo;
+        this.enPrestamo = true;
+    }
+
+    /**
+     * Devuelve la Obra de la que es elejemplar
+     * 
+     * @return Obra
+     */
+    public Obra getObra() {
+        return obra;
+    }
+
+    /**
+     * Setea la obra del ejemplar
+     * 
+     * @param obra 
+     */
+    public void setObra(Obra obra) {
+        this.obra = obra;
+    }
+
+    /**
+     * Devuevlve la coleccion a la que pertenece el ejemplar
+     * 
+     * @return Coleccion
+     */
+    public Coleccion getColeccion() {
+        return coleccion;
+    }
+
+    /**
+     * Setea un nuevo coleccion para el ejemplar
+     * 
+     * @param coleccion 
+     */
+    public void setColeccion(Coleccion coleccion) {
+        this.coleccion = coleccion;
+    }
+
+    /**
+     * Devuelve un String que representa de forma conceptual al objeto
+     * 
+     * @return String 
+     */
     @Override
     public String toString() {
         return String.format("Id ejemplar: %s"
@@ -141,5 +318,24 @@ public class Ejemplar {
                 fechaAdquisicion.get(Calendar.DAY_OF_MONTH), formaAdquisicion, enPrestamo, ubicacion);
     }
  
+    // ========== Metodos hechos a mano ========== //
+    
+    /**
+     * Agrega un lector a la lista de personas que solicitaron este ejemplar alguna vez
+     * 
+     * @param lector 
+     */
+    public void agregarLector(Lector lector) {
+        this.listaSolicitudLectores.add(lector);
+    }
+    
+    /**
+     * Agrega una reservacion a la lista de reservaciones que hay de el ejemplar en cuestion
+     * 
+     * @param reservacion 
+     */
+    public void agregarReservacion(Reservacion reservacion) {
+        this.reservaciones.add(reservacion);
+    }
     
 }

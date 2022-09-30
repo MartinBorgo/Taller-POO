@@ -5,10 +5,10 @@
 package gestion.inventario;
 
 import enumeraciones.PrestamoTipo;
-import gestion.personas.Bibliotecario;
 import gestion.personas.Lector;
-import java.time.LocalDate;
-import java.util.ArrayList;
+import gestion.personas.Usuario;
+
+import java.util.GregorianCalendar;
 
 
 /**
@@ -16,46 +16,39 @@ import java.util.ArrayList;
  * @author martin
  */
 public class Prestamo {
-    private LocalDate fechaInicio;
-    private LocalDate fechaDevolucion;
+    private GregorianCalendar fechaInicio;
+    private GregorianCalendar fechaDevolucion;
     private int diasDePrestamo = 4;
     private PrestamoTipo tipoPrestamo;
-    private Bibliotecario emisorPrestamo;
-    private Bibliotecario reseptorPrestamo;
-    private ArrayList<Reservacion> reservaciones = new ArrayList();
+    private Usuario emisorPrestamo;
+    private Usuario reseptorPrestamo;
     private Ejemplar ejemplarSolicitado;
     private Lector lectorSolicita;
 
-    public Prestamo(PrestamoTipo tipoPrestamo, Bibliotecario emisor) {
-        if (tipoPrestamo == PrestamoTipo.DOMICILIO){
-            this.tipoPrestamo = tipoPrestamo;
-            this.emisorPrestamo = emisor;
-            this.fechaInicio = LocalDate.now();
-            this.calcularFinPrestamo();
-        } else {
-            this.tipoPrestamo = tipoPrestamo;
-            this.emisorPrestamo = emisor;
-            this.fechaInicio = LocalDate.now();
-            this.fechaDevolucion = fechaInicio;
-        }
+    public Prestamo(GregorianCalendar fechaInicio, PrestamoTipo tipoPrestamo, Usuario emisorPrestamo, Ejemplar ejemplarSolicitado, Lector lectorSolicita) {
+        this.fechaInicio = fechaInicio;
+        this.tipoPrestamo = tipoPrestamo;
+        this.emisorPrestamo = emisorPrestamo;
+        this.ejemplarSolicitado = ejemplarSolicitado;
+        this.lectorSolicita = lectorSolicita;
     }
 
     public Prestamo() {
     }
 
-    public LocalDate getFechaInicio() {
+    public GregorianCalendar getFechaInicio() {
         return fechaInicio;
     }
 
-    public void setFechaInicio(LocalDate fechaInicio) {
+    public void setFechaInicio(GregorianCalendar fechaInicio) {
         this.fechaInicio = fechaInicio;
     }
 
-    public LocalDate getFechaDevolucion() {
+    public GregorianCalendar getFechaDevolucion() {
         return fechaDevolucion;
     }
 
-    public void setFechaDevolucion(LocalDate fechaDevolucion) {
+    public void setFechaDevolucion(GregorianCalendar fechaDevolucion) {
         this.fechaDevolucion = fechaDevolucion;
     }
 
@@ -75,31 +68,36 @@ public class Prestamo {
         this.tipoPrestamo = tipoPrestamo;
     }
 
-    public Bibliotecario getEmisorPrestamo() {
+    public Usuario getEmisorPrestamo() {
         return emisorPrestamo;
     }
 
-    public void setEmisorPrestamo(Bibliotecario emisorPrestamo) {
+    public void setEmisorPrestamo(Usuario emisorPrestamo) {
         this.emisorPrestamo = emisorPrestamo;
     }
 
-    public Bibliotecario getReseptorPrestamo() {
+    public Usuario getReseptorPrestamo() {
         return reseptorPrestamo;
     }
 
-    public void setReseptorPrestamo(Bibliotecario reseptorPrestamo) {
+    public void setReseptorPrestamo(Usuario reseptorPrestamo) {
         this.reseptorPrestamo = reseptorPrestamo;
     }
 
-    public void agregarReservacion(Reservacion reservacion){
-        this.reservaciones.add(reservacion);
+    public Ejemplar getEjemplarSolicitado() {
+        return ejemplarSolicitado;
     }
-    
-    /**
-     * Metodo privado que sirve para calcular el dia en el que se tiene que devolver el prestamo
-     */
-    private void calcularFinPrestamo() {
-        this.fechaDevolucion = this.fechaInicio.plusDays(this.diasDePrestamo);
+
+    public void setEjemplarSolicitado(Ejemplar ejemplarSolicitado) {
+        this.ejemplarSolicitado = ejemplarSolicitado;
+    }
+
+    public Lector getLectorSolicita() {
+        return lectorSolicita;
+    }
+
+    public void setLectorSolicita(Lector lectorSolicita) {
+        this.lectorSolicita = lectorSolicita;
     }
     
     
