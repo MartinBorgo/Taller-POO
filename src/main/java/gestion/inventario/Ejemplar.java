@@ -73,8 +73,6 @@ public class Ejemplar {
         incremental++;
     }
 
-    
-    
     /**
      * Construye un objeto ejemplar si settear ningun tipo de dato
      */

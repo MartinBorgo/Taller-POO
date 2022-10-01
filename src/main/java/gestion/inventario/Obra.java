@@ -18,6 +18,7 @@ import java.util.stream.Collectors;
 public class Obra {
     private ObraTipo tipoDeObra;
     private AreaTematicaTipo areaTematica;
+    private CaracteristicaTipo caracterisitica;
     private int cantidadEjemplares;
     private String titulo;
     private String subtitulo;
@@ -25,7 +26,6 @@ public class Obra {
     private String segundoAutor;
     private String tercerAutor;
     private String genero;
-    private CaracteristicaTipo caracterisitica;
     private String indiceObra;
     private String areaReferencia;
     private int solicitudFacultad;

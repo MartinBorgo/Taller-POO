@@ -4,42 +4,72 @@
  */
 package gestion.inventario;
 
-import java.time.LocalDate;
+
+import java.util.GregorianCalendar;
 
 /**
  *
  * @author martin
  */
 public class Multa {
-    private LocalDate inicio;
-    private LocalDate finalizacion;
+    private GregorianCalendar inicio;
+    private GregorianCalendar finalizacion;
 
-    public Multa(LocalDate inicio) {
-        this.inicio = LocalDate.now();
-        this.calcularFinMulta();
+    /**
+     * Construye un objeto Multa con todas su exprecion
+     * 
+     * @param inicio 
+     */
+    public Multa(GregorianCalendar inicio) {
+        this.inicio = inicio;
+        
+        inicio.add(3, 30);  // Se le suma a la fecha de inicio los dias que va a esta multado
+        this.finalizacion = inicio;
     }
 
+    /**
+     * construye un objeto Multa con sus valores por defecto
+     */
     public Multa() {
     }
 
-    public LocalDate getInicio() {
+    /**
+     * Devuelve la fecha en la que se inicio la Multa
+     * 
+     * @return GregorianCalendar 
+     */
+    public GregorianCalendar getInicio() {
         return inicio;
     }
 
-    public void setInicio(LocalDate inicio) {
+    /**
+     * Setea una nueva fecha de inicio para el prestamo
+     * 
+     * @param inicio 
+     */
+    public void setInicio(GregorianCalendar inicio) {
         this.inicio = inicio;
+        
+        inicio.add(3, 30);
+        this.finalizacion = inicio;
     }
 
-    public LocalDate getFinalizacion() {
+    /**
+     * Devuelve la fecha a la que finalizara o finalizo la Multa
+     * 
+     * @return GregorianCalendar 
+     */
+    public GregorianCalendar getFinalizacion() {
         return finalizacion;
     }
 
-    public void setFinalizacion(LocalDate finalizacion) {
+    /**
+     * Setea una nueva fecha de finalizacion para la Multa
+     * 
+     * @param finalizacion 
+     */
+    public void setFinalizacion(GregorianCalendar finalizacion) {
         this.finalizacion = finalizacion;
     }
-    
-    private void calcularFinMulta() {
-        this.finalizacion = this.inicio.plusDays(30);
-    }
-    
+
 }
