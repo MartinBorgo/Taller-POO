@@ -252,4 +252,12 @@ public class Obra {
     public static List<Obra> getEditorial(List<Obra> list, String editorial){
         return list.stream().filter(x -> x.edicion.getEditorial().equals(editorial)).collect(Collectors.toList());
     }
+    
+    public static String imprimirObras(List <Obra> list){
+        String resultado = "";
+        for (Obra obra : list) {
+            resultado = resultado.concat(obra.toString());
+        }
+        return resultado;
+    }
 }
