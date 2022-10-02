@@ -100,17 +100,22 @@ public class Edicion {
 
     @Override
     public String toString() {
-        return String.format("Editorial: %s"
-                + "%nPais edicion: %s"
-                + "%nNumero de edicion: %d"
-                + "%nAnio: %d"
-                + "%nVolumenes: %d"
-                + "%nPaginas: %d"
-                + "%nIdioma: %s"
-                + "%nFormato: %s", 
-                editorial, paisEdicion, numeroEdicion, 
-                anio, volumenes, paginas, 
-                idioma, formato.getFormato());
+        
+                return String.format("Editorial: %s"
+                        + "%nAnio: %d", 
+                editorial,anio);
+                
+//        return String.format("Editorial: %s"
+//                + "%nPais edicion: %s"
+//                + "%nNumero de edicion: %d"
+//                + "%nAnio: %d"
+//                + "%nVolumenes: %d"
+//                + "%nPaginas: %d"
+//                + "%nIdioma: %s"
+//                + "%nFormato: %s", 
+//                editorial, paisEdicion, numeroEdicion, 
+//                anio, volumenes, paginas, 
+//                idioma, formato.getFormato());
     }
     
 }

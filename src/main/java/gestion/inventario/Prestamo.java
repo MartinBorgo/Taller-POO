@@ -21,7 +21,7 @@ public class Prestamo {
     private int diasDePrestamo = 4;
     private PrestamoTipo tipoPrestamo;
     private Usuario emisorPrestamo;
-    private Usuario reseptorPrestamo;
+    private Usuario receptorPrestamo;
     private Ejemplar ejemplarSolicitado;
     private Lector lectorSolicita;
 
@@ -76,12 +76,12 @@ public class Prestamo {
         this.emisorPrestamo = emisorPrestamo;
     }
 
-    public Usuario getReseptorPrestamo() {
-        return reseptorPrestamo;
+    public Usuario getReceptorPrestamo() {
+        return receptorPrestamo;
     }
 
-    public void setReseptorPrestamo(Usuario reseptorPrestamo) {
-        this.reseptorPrestamo = reseptorPrestamo;
+    public void setReceptorPrestamo(Usuario receptorPrestamo) {
+        this.receptorPrestamo = receptorPrestamo;
     }
 
     public Ejemplar getEjemplarSolicitado() {

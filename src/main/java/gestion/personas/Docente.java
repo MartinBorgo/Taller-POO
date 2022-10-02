@@ -3,18 +3,16 @@ package gestion.personas;
 import java.util.GregorianCalendar;
 
 public class Docente extends Lector {
-	private String carreras;
+    private String carreras;
 	
-	public Docente() {
-	}
+    public Docente() {
+    }
 
-	public Docente(String nombres, String apellidos, int dni, GregorianCalendar fechaNacimiento, String nacionalidad,
-			String domicilio, int codPostal, String localidad, String numCelular, String mail, String carreras) {
-		
-            super(nombres, apellidos, dni, fechaNacimiento, nacionalidad,
-                  domicilio, codPostal, localidad, numCelular,mail);
-		
-            this.carreras = carreras;
+    public Docente(String nombres, String apellidos, int dni, GregorianCalendar fechaNacimiento, String nacionalidad,
+            String domicilio, int codPostal, String localidad, String numCelular, String mail, String carreras) {
+        
+        super(nombres, apellidos, dni, fechaNacimiento, nacionalidad,domicilio, codPostal, localidad, numCelular,mail);
+        this.carreras = carreras;
 	}
 
     public String getCarreras() {
@@ -28,7 +26,7 @@ public class Docente extends Lector {
     @Override
     public String toString() {
         return String.format("%s"
-                + "%nCarreras:", super.toString()); //Faltaria poner que se retornen las carreras PENDIENTE.
+                + "%nCarreras:%s", super.toString(), carreras);
     }
 	
 }

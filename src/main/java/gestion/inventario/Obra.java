@@ -213,29 +213,41 @@ public class Obra {
 
     @Override
     public String toString() {
-        return String.format("Tipo obra: %s"
+        
+                return String.format("Tipo obra: %s"
                 + "%nArea tematica: %s"
-                + "%nCantidad ejemplares: %d"
                 + "%nTitulo: %s"
-                + "%nSubtitulo: %s"
                 + "%nPrimer autor: %s"
-                + "%nSegundo autor: %s"
-                + "%nTercer autor: %s"
                 + "%nGenero: %s"
                 + "%nCaracteristica: %s"
-                + "%nIndice obra: %s"
-                + "%nArea referencia: %s"
-                + "%nSolicitud facultad: %d"
-                + "%nSolicitud general: %d"
-                + "%nISBN: %d"
                 + "%nEdicion:%n%s", 
                 tipoDeObra.getObraTipo(), 
-                areaTematica.getAreaTematicaTipo(),
-                cantidadEjemplares, titulo, subtitulo, 
-                primerAutor, segundoAutor, tercerAutor,
-                genero, caracterisitica.getCaracteristicaTipo(),
-                indiceObra, areaReferencia, solicitudFacultad, 
-                solicitudGeneral, isbn, edicion.toString());
+                areaTematica.getAreaTematicaTipo(),titulo, primerAutor, genero, 
+                caracterisitica.getCaracteristicaTipo(), edicion.toString());
+                
+//        return String.format("Tipo obra: %s"
+//                + "%nArea tematica: %s"
+//                + "%nCantidad ejemplares: %d"
+//                + "%nTitulo: %s"
+//                + "%nSubtitulo: %s"
+//                + "%nPrimer autor: %s"
+//                + "%nSegundo autor: %s"
+//                + "%nTercer autor: %s"
+//                + "%nGenero: %s"
+//                + "%nCaracteristica: %s"
+//                + "%nIndice obra: %s"
+//                + "%nArea referencia: %s"
+//                + "%nSolicitud facultad: %d"
+//                + "%nSolicitud general: %d"
+//                + "%nISBN: %d"
+//                + "%nEdicion:%n%s", 
+//                tipoDeObra.getObraTipo(), 
+//                areaTematica.getAreaTematicaTipo(),
+//                cantidadEjemplares, titulo, subtitulo, 
+//                primerAutor, segundoAutor, tercerAutor,
+//                genero, caracterisitica.getCaracteristicaTipo(),
+//                indiceObra, areaReferencia, solicitudFacultad, 
+//                solicitudGeneral, isbn, edicion.toString());
     }
     
     

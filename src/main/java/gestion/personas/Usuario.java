@@ -60,7 +60,9 @@ public class Usuario extends Persona {
         
     @Override
     public String toString() {
-        return "Administrador: " + this.administrador + " Nombre de usuario: " + this.nombreUsuario + " Contraseña: " + this.contrasenia;
+        return String.format("Administrador: %s"
+                + "%nNombre usuario: %s"
+                + "%nContraseña: %s", administrador, nombreUsuario, contrasenia);
     }
 	
 	
