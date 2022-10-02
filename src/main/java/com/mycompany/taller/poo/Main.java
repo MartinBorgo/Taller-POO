@@ -4,7 +4,6 @@ import interfaz.VentanaLogueo;
 import enumeraciones.*;
 import gestion.inventario.*;
 import gestion.personas.*;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.List;

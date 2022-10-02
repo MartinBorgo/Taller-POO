@@ -962,16 +962,12 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                    nuevaColeccion.setNombreColeccion(txtNombreColeccion.getText());
                    nuevaColeccion.setIsbnColeccion(Integer.parseInt(txtISBNColeccion.getText()));
                    
-                   GregorianCalendar fechaAdquisicion = new GregorianCalendar();
                    
                    for(int i = 0; i < nuevaColeccion.getCantidadEjemplares(); i++) {
-                       Ejemplar ejemplarNuevo = new Ejemplar(fechaAdquisicion,
+                       Ejemplar ejemplarNuevo = new Ejemplar(new GregorianCalendar(),
                                                              (String) this.boxFormaAdquisicion.getSelectedItem(),
                                                              nuevaUbicacion,
                                                              nuevaColeccion);
-                       
-                       // Se agrega el ejemplar creado como perteneciente a una coleccion
-                       nuevaColeccion.agregarEjemplar(ejemplarNuevo);
                        
                    }
                Main.listaObras.add(nuevaColeccion);
@@ -1012,16 +1008,12 @@ public class VentanaAdministrador extends javax.swing.JFrame {
             nuevaObra.setIsbn(Integer.parseInt(txtISBN.getText()));
             nuevaObra.setEdicion(nuevaEdicion);
             
-            GregorianCalendar fechaAdquisicion = new GregorianCalendar();
 
             for(int i = 0; i <= nuevaObra.getCantidadEjemplares(); i++) {
-               Ejemplar ejemplarNuevo = new Ejemplar(fechaAdquisicion,
+               Ejemplar ejemplarNuevo = new Ejemplar(new GregorianCalendar(),
                                                      (String) this.boxFormaAdquisicion.getSelectedItem(),
                                                      nuevaUbicacion,
                                                      nuevaObra);
-                       
-               // Se agrega el ajemplar como perteneciente a una obra
-               nuevaObra.agregarEjemplar(ejemplarNuevo);
     
             }
             Main.listaObras.add(nuevaObra);
@@ -1099,23 +1091,14 @@ public class VentanaAdministrador extends javax.swing.JFrame {
         // Busco el ejemplar teniendo en cuenta el codigo unico que posee cada uno
         Ejemplar ejemplarPrestamo = buscarEjemplar(Integer.parseInt(this.txtCodEjemplar.getText()));
         
-        // Se crea el prestamo
-        GregorianCalendar fechaInicioPrestamo = new GregorianCalendar();
-        
         // se setea el prestamo
         Usuario bibliotecarioEmisor = VentanaLogueo.bibliotecarioLogueado;
         
-        Prestamo nuevoPrestamo = new Prestamo(fechaInicioPrestamo,
+        Prestamo nuevoPrestamo = new Prestamo(new GregorianCalendar(),
                                               (PrestamoTipo) this.boxTipoDePrestamo.getSelectedItem(),
                                               bibliotecarioEmisor,
                                               ejemplarPrestamo,
                                               lectorPrestamo);
-        
-        // Se agrega el prestamo al usuario que lo solicito
-        lectorPrestamo.setLibroEnPrestamo(nuevoPrestamo);
-        
-        // Se agrega la informacion del prestamo en el ejemplar correspondiente
-        ejemplarPrestamo.setInfoPrestamo(nuevoPrestamo);
         
     }//GEN-LAST:event_botonRegistrarPrestamoActionPerformed
 
@@ -1127,6 +1110,7 @@ public class VentanaAdministrador extends javax.swing.JFrame {
             }
         
         }
+        
         return null;
     }
     

@@ -31,6 +31,14 @@ public class Prestamo {
         this.emisorPrestamo = emisorPrestamo;
         this.ejemplarSolicitado = ejemplarSolicitado;
         this.lectorSolicita = lectorSolicita;
+        
+        // Se mantiene la relacion entre Prestamo y Lector
+        ejemplarSolicitado.setInfoPrestamo(this);
+        ejemplarSolicitado.agregarLector(lectorSolicita);
+        
+        // Se mantiene la relacion entre Prestamo y Ejemplar
+        lectorSolicita.setLibroEnPrestamo(this);
+        lectorSolicita.agregarLibro(ejemplarSolicitado);
     }
 
     public Prestamo() {
