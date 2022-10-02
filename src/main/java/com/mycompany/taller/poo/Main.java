@@ -78,9 +78,8 @@ public class Main {
         
         
         
-        VentanaLogueo login = new VentanaLogueo();
-
-        login.show();
+//        VentanaLogueo login = new VentanaLogueo();
+//        login.show();
 
 
         
