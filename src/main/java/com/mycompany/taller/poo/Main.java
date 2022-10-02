@@ -71,15 +71,12 @@ public class Main {
         List<Obra> l = Obra.getEditorial(listaObras, "Union");
         
         System.out.println("FILTRADO POR EDITORIAL.");
-        for(Obra i : l){
-            System.out.println("");
-            System.out.println(i);
-        }
+        String resultado = Obra.imprimirObras(l);
+        System.out.println(resultado);
         
         
         
         VentanaLogueo login = new VentanaLogueo();
-
         login.show();
 
 
