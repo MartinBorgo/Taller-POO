@@ -89,6 +89,15 @@ public class Lector extends Persona {
     }
 
     /**
+     * Devuelve la cantidad de multas que le pusieron al lector
+     * 
+     * @return int 
+     */
+    public int cantidadMultas() {
+        return multas.size();
+    }
+    
+    /**
      * Devuelve la representacion del objeto lector en forma de un string
      * 
      * @return String 

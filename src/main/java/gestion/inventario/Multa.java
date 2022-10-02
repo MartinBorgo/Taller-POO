@@ -4,7 +4,7 @@
  */
 package gestion.inventario;
 
-
+import gestion.personas.Lector;
 import java.util.GregorianCalendar;
 
 /**
@@ -12,6 +12,7 @@ import java.util.GregorianCalendar;
  * @author martin
  */
 public class Multa {
+    private Lector personaMultada;
     private GregorianCalendar inicio;
     private GregorianCalendar finalizacion;
 
@@ -20,8 +21,11 @@ public class Multa {
      * 
      * @param inicio 
      */
-    public Multa(GregorianCalendar inicio) {
+    public Multa(GregorianCalendar inicio, Lector personaMultada) {
         this.inicio = inicio;
+        this.personaMultada = personaMultada;
+        
+        personaMultada.agregarMulta(this);
         
         inicio.add(3, 30);  // Se le suma a la fecha de inicio los dias que va a esta multado
         this.finalizacion = inicio;
@@ -66,10 +70,30 @@ public class Multa {
     /**
      * Setea una nueva fecha de finalizacion para la Multa
      * 
-     * @param finalizacion 
+     * @param finalizacion
      */
     public void setFinalizacion(GregorianCalendar finalizacion) {
         this.finalizacion = finalizacion;
     }
+
+    /**
+     * Devulve el lector al que se le puso la multa
+     * 
+     * @return Lector
+     */
+    public Lector getPersonaMultada() {
+        return personaMultada;
+    }
+
+    /**
+     * Setea un nuevo lector para la multa
+     * 
+     * @param personaMultada 
+     */
+    public void setPersonaMultada(Lector personaMultada) {
+        this.personaMultada = personaMultada;
+    }
+    
+    
 
 }

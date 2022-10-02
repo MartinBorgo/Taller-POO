@@ -198,6 +198,17 @@ public class Obra {
         this.isbn = isbn;
     }
     
+    public Edicion getEdicion() {
+        return edicion;
+    }
+
+    public void setEdicion(Edicion edicion) {
+        this.edicion = edicion;
+    }
+    
+    // =========== Metodos hechos a mano =========== //
+    
+    
     public void agregarEjemplar(Ejemplar ej) {
         this.ejemplares.add(ej);
     
@@ -248,15 +259,6 @@ public class Obra {
 //                genero, caracterisitica.getCaracteristicaTipo(),
 //                indiceObra, areaReferencia, solicitudFacultad, 
 //                solicitudGeneral, isbn, edicion.toString());
-    }
-    
-    
-    public Edicion getEdicion() {
-        return edicion;
-    }
-
-    public void setEdicion(Edicion edicion) {
-        this.edicion = edicion;
     }
     
     public static List<Obra> getEditorial(List<Obra> list, String editorial){
