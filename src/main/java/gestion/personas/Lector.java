@@ -38,7 +38,7 @@ public class Lector extends Persona {
     }
 
     /**
-     * Setea el estado del lector
+     * Settea el estado del lector
      * 
      * true -> El lector pasa a estar multado
      * false -> El lector deja de estar multado
@@ -105,8 +105,7 @@ public class Lector extends Persona {
     @Override
     public String toString() {
         return String.format("%s"
-                + "%nMultado:%s", 
-                super.toString(), estaMultado);
+                + "%nMultado:%s", super.toString(), estaMultado);
     }
    
 }
