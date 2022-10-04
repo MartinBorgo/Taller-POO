@@ -46,7 +46,7 @@ public class VentanaLogueo extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Noto Sans", 1, 24)); // NOI18N
-        jLabel1.setText("Inicion de Secion");
+        jLabel1.setText("Iniciar de Sesion");
 
         jLabel2.setFont(new java.awt.Font("Noto Sans", 0, 18)); // NOI18N
         jLabel2.setText("Nombre de Usuario:");
@@ -75,7 +75,7 @@ public class VentanaLogueo extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(356, Short.MAX_VALUE)
+                .addContainerGap(361, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(356, 356, 356))
             .addGroup(jPanel1Layout.createSequentialGroup()

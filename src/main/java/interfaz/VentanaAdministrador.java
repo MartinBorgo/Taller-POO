@@ -181,7 +181,7 @@ public class VentanaAdministrador extends javax.swing.JFrame {
 
         botonBusquedaEjemplar.setText("Buscar");
 
-        boxGestionFiltrado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        boxGestionFiltrado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ejemplares en prestamo.", "Ejemplar por codigo unico.", "Item 3", "Item 4" }));
 
         jLabel20.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
         jLabel20.setText("Filtrar por:");
@@ -238,7 +238,7 @@ public class VentanaAdministrador extends javax.swing.JFrame {
 
         jScrollPane2.setViewportView(ListaBusqueda);
 
-        boxBusquedaTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        boxBusquedaTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Lectores no devolvieron obras.", "Obras mas solicitadas alumnos/docentes.", "Obras solicitadas por publico general.", "Ejemplares disponibles por area referencia.", "Obras reservadas en una fecha determinada.", "Lectores multados en un periodo de tiempo.", "Lectores por cantidad de multas aplicadas.", "Obras de una editorial determinada." }));
 
         jLabel21.setText("Filtrar por:");
 
