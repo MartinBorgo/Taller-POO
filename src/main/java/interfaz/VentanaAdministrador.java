@@ -22,7 +22,6 @@ import gestion.personas.Docente;
 import gestion.personas.Lector;
 import gestion.personas.Usuario;
 import java.util.GregorianCalendar;
-import java.util.HashSet;
 import javax.swing.DefaultComboBoxModel;
 
 /**
@@ -35,8 +34,9 @@ public class VentanaAdministrador extends javax.swing.JFrame {
      * Creates new form VentanaAdministrador
      */
     public VentanaAdministrador() {
+        super("Devolucion de un Ejemplar");
         initComponents();
-        this.setDefaultCloseOperation(javax.swing.JFrame.EXIT_ON_CLOSE);
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -231,7 +231,7 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botonDarBaja)
                     .addComponent(botonRealizarObservacion))
-                .addContainerGap(173, Short.MAX_VALUE))
+                .addContainerGap(165, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Gestionar Ejemplares", jPanel2);
@@ -286,7 +286,7 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                     .addComponent(txtFechaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(63, 63, 63)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(192, Short.MAX_VALUE))
+                .addContainerGap(184, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Buscar", jPanel4);
@@ -310,6 +310,11 @@ public class VentanaAdministrador extends javax.swing.JFrame {
         });
 
         botonRegistrarDevolucion.setText("Registrar devolucion");
+        botonRegistrarDevolucion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonRegistrarDevolucionActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -369,7 +374,7 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                     .addComponent(txtDocumentoLector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34)
                 .addComponent(botonRegistrarPrestamo)
-                .addContainerGap(461, Short.MAX_VALUE))
+                .addContainerGap(453, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Prestamo", jPanel3);
@@ -524,7 +529,7 @@ public class VentanaAdministrador extends javax.swing.JFrame {
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap(14, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel44)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -898,7 +903,7 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                     .addComponent(txtISBNColeccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(90, 90, 90)
                 .addComponent(botonCargarDatos)
-                .addContainerGap(74, Short.MAX_VALUE))
+                .addContainerGap(66, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Registrar Obra", jPanel1);
@@ -1091,19 +1096,26 @@ public class VentanaAdministrador extends javax.swing.JFrame {
         // Busco el ejemplar teniendo en cuenta el codigo unico que posee cada uno
         Ejemplar ejemplarPrestamo = buscarEjemplar(Integer.parseInt(this.txtCodEjemplar.getText()));
         
-        // se setea el prestamo
-        Usuario bibliotecarioEmisor = VentanaLogueo.bibliotecarioLogueado;
+        if(lectorPrestamo == null || ejemplarPrestamo == null) {
+            if(lectorPrestamo == null){
+                javax.swing.JOptionPane.showMessageDialog(rootPane, "El Lector no se encuentra registrado, por favor cargue sus datos.");
+            }else{
+                javax.swing.JOptionPane.showMessageDialog(rootPane, "Codigo no valido, ese ejemplar no existe.");
+
+            }
+        }else{
+            // se setea el prestamo
+            Usuario bibliotecarioEmisor = VentanaLogueo.bibliotecarioLogueado;
         
-        Prestamo nuevoPrestamo = new Prestamo(new GregorianCalendar(),
-                                              (PrestamoTipo) this.boxTipoDePrestamo.getSelectedItem(),
-                                              bibliotecarioEmisor,
-                                              ejemplarPrestamo,
-                                              lectorPrestamo);
-        
+            Prestamo nuevoPrestamo = new Prestamo(new GregorianCalendar(),
+                                                 (PrestamoTipo) this.boxTipoDePrestamo.getSelectedItem(),
+                                                 bibliotecarioEmisor,
+                                                 ejemplarPrestamo,
+                                                 lectorPrestamo);
+        }
     }//GEN-LAST:event_botonRegistrarPrestamoActionPerformed
 
-    
-    private Lector buscarLector(int documento){
+        private Lector buscarLector(int documento){
         for(Lector lector : Main.listaLectores) {
             if(lector.getDni() == documento){
                 return lector;
@@ -1117,13 +1129,21 @@ public class VentanaAdministrador extends javax.swing.JFrame {
     
     private Ejemplar buscarEjemplar(int identificador){
         for(Obra obra : Main.listaObras){
-           if (obra.buscarEjemplar(Integer.parseInt(this.txtCodEjemplar.getText())) != null){
-               return obra.buscarEjemplar(Integer.parseInt(this.txtCodEjemplar.getText()));
+           if (obra.buscarEjemplar(identificador) != null){
+               return obra.buscarEjemplar(identificador);
            }
         }
         
         return null;
     }
+    
+    private void botonRegistrarDevolucionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarDevolucionActionPerformed
+        VentanaRegistrarDevolucion devolucion = new VentanaRegistrarDevolucion();
+        devolucion.show();
+    }//GEN-LAST:event_botonRegistrarDevolucionActionPerformed
+
+    
+
     
     /**
      * @param args the command line arguments

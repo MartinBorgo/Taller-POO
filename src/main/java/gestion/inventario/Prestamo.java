@@ -32,6 +32,9 @@ public class Prestamo {
         this.ejemplarSolicitado = ejemplarSolicitado;
         this.lectorSolicita = lectorSolicita;
         
+        fechaInicio.add(3,this.diasDePrestamo);
+        this.fechaDevolucion = fechaInicio;
+        
         // Se mantiene la relacion entre Prestamo y Lector
         ejemplarSolicitado.setInfoPrestamo(this);
         ejemplarSolicitado.agregarLector(lectorSolicita);

@@ -18,9 +18,9 @@ public class VentanaLogueo extends javax.swing.JFrame {
      * Creates new form LoginScreen
      */
     public VentanaLogueo() {
+        super("Inicion de Secion");
         initComponents();
         this.setLocationRelativeTo(null);
-        this.setDefaultCloseOperation(javax.swing.JFrame.EXIT_ON_CLOSE);
 
     }
 
