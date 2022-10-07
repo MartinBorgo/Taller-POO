@@ -4,6 +4,7 @@
  */
 package interfaz;
 
+import com.mycompany.taller.poo.GestionDatos;
 import com.mycompany.taller.poo.Main;
 import enumeraciones.AreaTematicaTipo;
 import enumeraciones.CaracteristicaTipo;
@@ -29,13 +30,17 @@ import javax.swing.DefaultComboBoxModel;
  * @author martin
  */
 public class VentanaAdministrador extends javax.swing.JFrame {
-
+    private GestionDatos datos;
+    
     /**
      * Creates new form VentanaAdministrador
      */
     public VentanaAdministrador() {
-        super("Devolucion de un Ejemplar");
+        super("Gestion de Biblioteca");
+        
+        datos = new GestionDatos();
         initComponents();
+        
         this.setLocationRelativeTo(null);
     }
 
