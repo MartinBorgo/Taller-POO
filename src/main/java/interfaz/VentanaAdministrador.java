@@ -243,6 +243,11 @@ public class VentanaAdministrador extends javax.swing.JFrame {
         jLabel21.setText("Filtrar por:");
 
         botonFiltrar.setText("Filtrar");
+        botonFiltrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonFiltrarActionPerformed(evt);
+            }
+        });
 
         jLabel22.setText("Desde:");
 
@@ -1141,6 +1146,61 @@ public class VentanaAdministrador extends javax.swing.JFrame {
         VentanaRegistrarDevolucion devolucion = new VentanaRegistrarDevolucion();
         devolucion.show();
     }//GEN-LAST:event_botonRegistrarDevolucionActionPerformed
+    private void llenarListaBusqueda(String[] asd){
+        ListaBusqueda.removeAll();
+        ListaBusqueda.setModel(new javax.swing.DefaultListModel<String>() {
+            String[] strings = asd;
+                public int getSize() { return strings.length; }
+                public String getElementAt(int i) { return strings[i]; }
+                });
+                jScrollPane2.setViewportView(ListaBusqueda);
+    }
+    private void botonFiltrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonFiltrarActionPerformed
+        // TODO add your handling code here:
+        switch (boxBusquedaTipo.getSelectedIndex()){
+            case 0:
+                //Lectores que no devolvieron sus obras.
+                String[] enviar = {"Lectores que no devolvieron sus obras.","segunda linea."};
+                llenarListaBusqueda(enviar);
+                break;
+            case 1:
+                //Obras más solicitadas por alumnos/docentes.
+                String[] enviar1 = {"Obras más solicitadas por alumnos/docentes.","segunda linea."};
+                llenarListaBusqueda(enviar1);
+                break;
+            case 2:
+                //Obras mas solicitadas por el público general.
+                String[] enviar2 = {"Obras mas solicitadas por el público general.","segunda linea."};
+                llenarListaBusqueda(enviar2);
+                break;
+            case 3:
+                //Ejemplares disponibles por area de referencia.
+                String[] enviar3= {"Ejemplares disponibles por area de referencia.","segunda linea."};
+                llenarListaBusqueda(enviar3);
+                break;
+            case 4:
+                //Obras reservadas en una fecha determinada.
+                String[] enviar4= {"Obras reservadas en una fecha determinada.","segunda linea."};
+                llenarListaBusqueda(enviar4);
+                break;
+            case 5:
+                //Lectores multados en un período de tiempo.
+                String[] enviar5= {"Lectores multados en un período de tiempo.","segunda linea."};
+                llenarListaBusqueda(enviar5);
+                break;
+            case 6:
+                //Lectores por cantidad de multas aplicadas.
+                String[] enviar6= {"Lectores por cantidad de multas aplicadas.","segunda linea."};
+                llenarListaBusqueda(enviar6);
+                break;
+            case 7:
+                //Obras de una editorial determinada.
+                String[] enviar7= {"Obras de una editorial determinada.","segunda linea."};
+                llenarListaBusqueda(enviar7);
+                break;
+
+        }
+    }//GEN-LAST:event_botonFiltrarActionPerformed
 
     
 
