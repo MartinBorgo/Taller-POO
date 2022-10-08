@@ -65,6 +65,17 @@ public class Main {
         ejemplar1.setEnPrestamo(true);
         Ejemplar ejemplar2 = new Ejemplar(fecha2, "Comprado", ubicacion2,obra1);
         
+        List<Ejemplar> ejemplaresDisponiblesObra1 = obra1.ejemplaresDisponiblesAreaReferencia("Area tecnologia");
+        
+        for (Ejemplar ejemplar : ejemplaresDisponiblesObra1) {
+			System.out.println("Titulo ejemplar: "+ ejemplar.getObra().getTitulo() +"\nEjemplar en prestamo? "+ ejemplar.isEnPrestamo());
+		}
+        obra5.setSolicitudGeneral(5);
+        obra2.setSolicitudGeneral(29);
+        
+        obra6.setSolicitudFacultad(12);
+        obra3.setSolicitudFacultad(1); 
+        
         listaDeBibliotecarios.add(user1);
         listaDeBibliotecarios.add(user2);
         listaDeBibliotecarios.add(user3);
@@ -76,6 +87,18 @@ public class Main {
         listaObras.add(obra4);
         listaObras.add(obra5);
         listaObras.add(obra6);
+        
+        List<Obra> solicitadosGeneral = Obra.getSolicitudGeneral(listaObras);
+        System.out.println("SOLICITUDES GENERAL:\n");
+        for (Obra obra : solicitadosGeneral) {
+			System.out.println(obra.getTitulo()+ "\n" + obra.getSolicitudGeneral());
+		}
+        
+        System.out.println("\nSOLICITUDES FACULTAD:\n");
+        List<Obra> solicitadosFacultad = Obra.getSolicitudFacultad(listaObras);
+        for (Obra obra : solicitadosFacultad) {
+			System.out.println(obra.getTitulo()+ "\n" + obra.getSolicitudFacultad());
+		}
         
         List<Obra> l = Obra.getEditorial(listaObras, "Union");
         
