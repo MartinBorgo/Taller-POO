@@ -27,6 +27,12 @@ public class Main {
 
     
     public static void main(String []args){
+    	GregorianCalendar fecha1 = new GregorianCalendar(2000, 5, 14);
+    	GregorianCalendar fecha2 = new GregorianCalendar(1999, 2, 24);
+    	GregorianCalendar fecha3 = new GregorianCalendar(1985, 8, 26);
+    	
+    	Ubicacion ubicacion1 = new Ubicacion(12,3,5);
+    	Ubicacion ubicacion2 = new Ubicacion(12,3,6);
         
         Usuario user1 = new Usuario(true, "Norma", "12345");
         Usuario user2 = new Usuario(false, "Eduardo", "hola01");
@@ -54,6 +60,10 @@ public class Main {
         
         Obra obra6 = new Obra(ObraTipo.REVISTA, AreaTematicaTipo.CONTABILIDAD, 1, "OBRA4", "SUBTITULO1",
                 "AUTOR1", "AUTOR2", "AUTOR3", "ACCION", CaracteristicaTipo.BOLETIN, "Area tecnologia", 321, edicion3);
+        
+        Ejemplar ejemplar1 = new Ejemplar(fecha1, "Regalado", ubicacion1,obra1);
+        ejemplar1.setEnPrestamo(true);
+        Ejemplar ejemplar2 = new Ejemplar(fecha2, "Comprado", ubicacion2,obra1);
         
         listaDeBibliotecarios.add(user1);
         listaDeBibliotecarios.add(user2);
