@@ -985,7 +985,7 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                                                              nuevaColeccion);
                        
                    }
-               Main.listaObras.add(nuevaColeccion);
+               this.datos.agregarObra(nuevaColeccion);
            }
           // En el caso de que no sea una coleccion se crean los objetos correspondientes y se lo caraga en el ArrayList
         } else {
@@ -1031,7 +1031,7 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                                                      nuevaObra);
     
             }
-            Main.listaObras.add(nuevaObra);
+            this.datos.agregarObra(nuevaObra);
         }
     }//GEN-LAST:event_botonCargarDatosActionPerformed
 
@@ -1052,7 +1052,7 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                                             this.txtNumCelular.getText(),
                                             this.txtCorreoElectronico.getText());
             
-            Main.listaLectores.add(nuevoLector);
+            this.datos.agregarLector(nuevoLector);
         }
         
         if(this.boxCargo.getSelectedItem().equals("ALUMNO")) {
@@ -1072,7 +1072,7 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                                             this.txtCorreoElectronico.getText(),
                                             this.txtCarreras.getText());
         
-            Main.listaLectores.add(nuevoAlumno);
+            this.datos.agregarLector(nuevoAlumno);
         }
         
         if(this.boxCargo.getSelectedItem().equals("DOCENTE")) {
@@ -1092,7 +1092,7 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                                             this.txtCorreoElectronico.getText(),
                                             this.txtCarreras.getText());
         
-            Main.listaLectores.add(nuevoDocente);
+            this.datos.agregarLector(nuevoDocente);
         }
         
         
@@ -1101,10 +1101,13 @@ public class VentanaAdministrador extends javax.swing.JFrame {
     private void botonRegistrarPrestamoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarPrestamoActionPerformed
         
         // Se busca al lector segun el documento que se coloco, si no se lo encuentra devulve una referencua nula
-        Lector lectorPrestamo = buscarLector(Integer.parseInt(this.txtDocumentoLector.getText()));
+        Lector lectorPrestamo = this.datos.buscarLector(Integer.parseInt(this.txtDocumentoLector.getText()));
         
         // Busco el ejemplar teniendo en cuenta el codigo unico que posee cada uno
-        Ejemplar ejemplarPrestamo = buscarEjemplar(Integer.parseInt(this.txtCodEjemplar.getText()));
+        Ejemplar ejemplarPrestamo = this.datos.buscarEjemplar(Integer.parseInt(this.txtCodEjemplar.getText()));
+        
+        // Se agarra al usuario que esta logueado para setear el emisor del prestamo
+        Usuario bibliotecarioEmisor = VentanaLogueo.bibliotecarioLogueado;
         
         if(lectorPrestamo == null || ejemplarPrestamo == null) {
             if(lectorPrestamo == null){
@@ -1115,8 +1118,6 @@ public class VentanaAdministrador extends javax.swing.JFrame {
             }
         }else{
             // se setea el prestamo
-            Usuario bibliotecarioEmisor = VentanaLogueo.bibliotecarioLogueado;
-        
             Prestamo nuevoPrestamo = new Prestamo(new GregorianCalendar(),
                                                  (PrestamoTipo) this.boxTipoDePrestamo.getSelectedItem(),
                                                  bibliotecarioEmisor,
@@ -1124,33 +1125,12 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                                                  lectorPrestamo);
         }
     }//GEN-LAST:event_botonRegistrarPrestamoActionPerformed
-
-        private Lector buscarLector(int documento){
-        for(Lector lector : Main.listaLectores) {
-            if(lector.getDni() == documento){
-                return lector;
-            }
-        
-        }
-        
-        return null;
-    }
-    
-    
-    private Ejemplar buscarEjemplar(int identificador){
-        for(Obra obra : Main.listaObras){
-           if (obra.buscarEjemplar(identificador) != null){
-               return obra.buscarEjemplar(identificador);
-           }
-        }
-        
-        return null;
-    }
     
     private void botonRegistrarDevolucionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarDevolucionActionPerformed
-        VentanaRegistrarDevolucion devolucion = new VentanaRegistrarDevolucion();
-        devolucion.show();
+        VentanaRegistrarDevolucion devolucion = new VentanaRegistrarDevolucion(this.datos);
+        devolucion.setVisible(true);
     }//GEN-LAST:event_botonRegistrarDevolucionActionPerformed
+    
     private void llenarListaBusqueda(String[] asd){
         ListaBusqueda.removeAll();
         ListaBusqueda.setModel(new javax.swing.DefaultListModel<String>() {
@@ -1160,6 +1140,7 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                 });
                 jScrollPane2.setViewportView(ListaBusqueda);
     }
+    
     private void botonFiltrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonFiltrarActionPerformed
         // TODO add your handling code here:
         switch (boxBusquedaTipo.getSelectedIndex()){

@@ -4,7 +4,7 @@
  */
 package interfaz;
 
-import com.mycompany.taller.poo.Main;
+import com.mycompany.taller.poo.GestionDatos;
 import gestion.inventario.Multa;
 import gestion.personas.Lector;
 import java.util.GregorianCalendar;
@@ -14,12 +14,14 @@ import java.util.GregorianCalendar;
  * @author martin
  */
 public class VentanaRegistrarDevolucion extends javax.swing.JFrame {
-
+    private GestionDatos datos;
     /**
      * Creates new form VentanaRegistrarDevolucion
      */
-    public VentanaRegistrarDevolucion() {
+    public VentanaRegistrarDevolucion(GestionDatos datos) {
         super("Gestion de Biblioteca");
+        this.datos = datos;
+        
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -38,6 +40,7 @@ public class VentanaRegistrarDevolucion extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         txtCodEjemplar = new javax.swing.JTextField();
         botonRegistrarDevolucion = new javax.swing.JButton();
+        botonCancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -53,6 +56,13 @@ public class VentanaRegistrarDevolucion extends javax.swing.JFrame {
             }
         });
 
+        botonCancelar.setText("Cancelar");
+        botonCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonCancelarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -60,30 +70,38 @@ public class VentanaRegistrarDevolucion extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(152, 152, 152)
+                        .addGap(180, 180, 180)
                         .addComponent(jLabel2)
                         .addGap(18, 18, 18)
                         .addComponent(txtCodEjemplar, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(220, 220, 220)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(259, 259, 259)
+                        .addGap(284, 284, 284)
                         .addComponent(botonRegistrarDevolucion)))
-                .addContainerGap(208, Short.MAX_VALUE))
+                .addContainerGap(180, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(213, 213, 213))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(botonCancelar)
+                        .addGap(16, 16, 16))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(70, 70, 70)
+                .addGap(76, 76, 76)
                 .addComponent(jLabel1)
-                .addGap(24, 24, 24)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txtCodEjemplar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(43, 43, 43)
+                .addGap(18, 18, 18)
                 .addComponent(botonRegistrarDevolucion)
-                .addContainerGap(86, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
+                .addComponent(botonCancelar)
+                .addGap(17, 17, 17))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -101,31 +119,27 @@ public class VentanaRegistrarDevolucion extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonRegistrarDevolucionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarDevolucionActionPerformed
-                
-        Lector lectorEntregaPrestamo = buscarPrestamo(Integer.parseInt(this.txtCodEjemplar.getText()));
+        try{
+            Lector lectorEntregaPrestamo = this.datos.buscarPrestamo(Integer.parseInt(this.txtCodEjemplar.getText()));
         
-        GregorianCalendar fechaDevolucionActual = new GregorianCalendar();
+            if(lectorEntregaPrestamo.getLibroEnPrestamo().getFechaDevolucion().after(new GregorianCalendar())) {
+                new Multa(new GregorianCalendar(), lectorEntregaPrestamo);
+                lectorEntregaPrestamo.setEstaMultado(true);
+            }
         
-        if(lectorEntregaPrestamo.getLibroEnPrestamo().getFechaDevolucion().after(fechaDevolucionActual)) {
-            new Multa(fechaDevolucionActual, lectorEntregaPrestamo);
-            lectorEntregaPrestamo.setEstaMultado(true);
+            lectorEntregaPrestamo.getLibroEnPrestamo().setReceptorPrestamo(VentanaLogueo.bibliotecarioLogueado);
+        
+            dispose();
+        } catch(Exception e) {
+            javax.swing.JOptionPane.showMessageDialog(rootPane, "Por favor ingrese un codigo valido");
         }
-        
-        lectorEntregaPrestamo.getLibroEnPrestamo().setReceptorPrestamo(VentanaLogueo.bibliotecarioLogueado);
-        
-        dispose();
         
     }//GEN-LAST:event_botonRegistrarDevolucionActionPerformed
 
-    private Lector buscarPrestamo(int identificador) {
-        for(Lector lector : Main.listaLectores) {
-           if (lector.getLibroEnPrestamo().getEjemplarSolicitado().getIdUnico() == identificador) {
-               return lector;
-           }
-        }
-        
-        return null;
-    }
+    private void botonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCancelarActionPerformed
+        this.setVisible(false);
+    }//GEN-LAST:event_botonCancelarActionPerformed
+
     
     /**
      * @param args the command line arguments
@@ -157,12 +171,14 @@ public class VentanaRegistrarDevolucion extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VentanaRegistrarDevolucion().setVisible(true);
+                GestionDatos a = null;
+                new VentanaRegistrarDevolucion(a).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botonCancelar;
     private javax.swing.JButton botonRegistrarDevolucion;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

@@ -4,6 +4,7 @@
  */
 package com.mycompany.taller.poo;
 
+import gestion.inventario.Ejemplar;
 import gestion.inventario.Obra;
 import gestion.personas.Lector;
 import gestion.personas.Usuario;
@@ -35,6 +36,36 @@ public class GestionDatos {
     public void agregarLector(Lector lector) {
         this.listaLectores.add(lector);
     }
+    
+    public Lector buscarPrestamo(int id) {
+        for(Lector lector : this.listaLectores) {
+            if(lector.getLibroEnPrestamo().getEjemplarSolicitado().getIdUnico() == id) {
+                return lector;
+            }
+        }
+        
+        return null;
+    }
+
+    public Lector buscarLector(int dni) {
+        for(Lector lector : this.listaLectores) {
+            if(lector.getDni() == dni) {
+                return lector;
+            }
+        }
+        
+        return null;
+    }
+    
+    public Ejemplar buscarEjemplar(int id) {
+        for(Obra obra : this.listaObras) {
+            if(obra.buscarEjemplar(id) != null) {
+                return obra.buscarEjemplar(id);
+            }
+        }
+        return null;
+    }
+    
     
     
 }
