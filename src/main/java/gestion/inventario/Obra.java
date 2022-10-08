@@ -8,6 +8,7 @@ import enumeraciones.AreaTematicaTipo;
 import enumeraciones.CaracteristicaTipo;
 import enumeraciones.ObraTipo;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -405,4 +406,32 @@ public class Obra {
         }
         return resultado;
     }
+    
+    public static List<Obra> getSolicitudGeneral(List<Obra> list){
+    	CriterioSolicitudGeneral a = new CriterioSolicitudGeneral();
+    	List<Obra> copy = list.stream().collect(Collectors.toList());
+    	copy.sort(a);
+    	Collections.reverse(copy);
+    	return copy;
+    }
+    
+    public static List<Obra> getSolicitudFacultad(List<Obra> list){
+    	CriterioSolicitudFacultad a = new CriterioSolicitudFacultad();
+    	List<Obra> copy = list.stream().collect(Collectors.toList());
+    	copy.sort(a);
+    	Collections.reverse(copy);
+    	return copy;
+    }
+    
+    public List<Ejemplar> ejemplaresDisponiblesAreaReferencia(String areaReferencia) {
+    	List<Ejemplar> aux = new ArrayList<>();
+    	for (Ejemplar ejemplar : ejemplares) {
+    		if(ejemplar.isEnPrestamo() == false) {
+    			if(ejemplar.getObra().areaReferencia.equals(areaReferencia)) {
+    				aux.add(ejemplar);
+    			}
+    		}
+    	}
+    	return aux;
+    }    
 }

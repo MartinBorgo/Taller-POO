@@ -27,6 +27,12 @@ public class Main {
 
     
     public static void main(String []args){
+    	GregorianCalendar fecha1 = new GregorianCalendar(2000, 5, 14);
+    	GregorianCalendar fecha2 = new GregorianCalendar(1999, 2, 24);
+    	GregorianCalendar fecha3 = new GregorianCalendar(1985, 8, 26);
+    	
+    	Ubicacion ubicacion1 = new Ubicacion(12,3,5);
+    	Ubicacion ubicacion2 = new Ubicacion(12,3,6);
         
         Usuario user1 = new Usuario(true, "Norma", "12345");
         Usuario user2 = new Usuario(false, "Eduardo", "hola01");
@@ -55,6 +61,21 @@ public class Main {
         Obra obra6 = new Obra(ObraTipo.REVISTA, AreaTematicaTipo.CONTABILIDAD, 1, "OBRA4", "SUBTITULO1",
                 "AUTOR1", "AUTOR2", "AUTOR3", "ACCION", CaracteristicaTipo.BOLETIN, "Area tecnologia", 321, edicion3);
         
+        Ejemplar ejemplar1 = new Ejemplar(fecha1, "Regalado", ubicacion1,obra1);
+        ejemplar1.setEnPrestamo(true);
+        Ejemplar ejemplar2 = new Ejemplar(fecha2, "Comprado", ubicacion2,obra1);
+        
+        List<Ejemplar> ejemplaresDisponiblesObra1 = obra1.ejemplaresDisponiblesAreaReferencia("Area tecnologia");
+        
+        for (Ejemplar ejemplar : ejemplaresDisponiblesObra1) {
+			System.out.println("Titulo ejemplar: "+ ejemplar.getObra().getTitulo() +"\nEjemplar en prestamo? "+ ejemplar.isEnPrestamo());
+		}
+        obra5.setSolicitudGeneral(5);
+        obra2.setSolicitudGeneral(29);
+        
+        obra6.setSolicitudFacultad(12);
+        obra3.setSolicitudFacultad(1); 
+        
         listaDeBibliotecarios.add(user1);
         listaDeBibliotecarios.add(user2);
         listaDeBibliotecarios.add(user3);
@@ -66,6 +87,18 @@ public class Main {
         listaObras.add(obra4);
         listaObras.add(obra5);
         listaObras.add(obra6);
+        
+        List<Obra> solicitadosGeneral = Obra.getSolicitudGeneral(listaObras);
+        System.out.println("SOLICITUDES GENERAL:\n");
+        for (Obra obra : solicitadosGeneral) {
+			System.out.println(obra.getTitulo()+ "\n" + obra.getSolicitudGeneral());
+		}
+        
+        System.out.println("\nSOLICITUDES FACULTAD:\n");
+        List<Obra> solicitadosFacultad = Obra.getSolicitudFacultad(listaObras);
+        for (Obra obra : solicitadosFacultad) {
+			System.out.println(obra.getTitulo()+ "\n" + obra.getSolicitudFacultad());
+		}
         
         List<Obra> l = Obra.getEditorial(listaObras, "Union");
         
