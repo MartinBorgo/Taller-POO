@@ -5,12 +5,13 @@
 package gestion.inventario;
 
 import enumeraciones.FormatoTipo;
+import java.io.Serializable;
 
 /**
  *
  * @author martin
  */
-public class Edicion {
+public class Edicion implements Serializable{
     private String editorial;
     private String paisEdicion;
     private  int numeroEdicion;

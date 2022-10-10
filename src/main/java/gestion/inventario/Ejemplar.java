@@ -5,6 +5,7 @@
 package gestion.inventario;
 
 import gestion.personas.Lector;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -14,7 +15,7 @@ import java.util.List;
  *
  * @author martin
  */
-public class Ejemplar {
+public class Ejemplar implements Serializable{
     private static int incremental = 1;
     
     private int idUnico;
