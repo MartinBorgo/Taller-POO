@@ -19,7 +19,7 @@ public class VentanaRegistrarDevolucion extends javax.swing.JFrame {
      * Creates new form VentanaRegistrarDevolucion
      */
     public VentanaRegistrarDevolucion(GestionDatos datos) {
-        super("Gestion de Biblioteca");
+        super("Devolucion de Ejemplar");
         this.datos = datos;
         
         initComponents();
