@@ -4,6 +4,11 @@ import interfaz.VentanaLogueo;
 import enumeraciones.*;
 import gestion.inventario.*;
 import gestion.personas.*;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.List;
@@ -26,41 +31,41 @@ public class Main {
     public static ArrayList<Obra> listaObras = new ArrayList(); 
 
     
-    public static void main(String []args){
-//    	GregorianCalendar fecha1 = new GregorianCalendar(2000, 5, 14);
-//    	GregorianCalendar fecha2 = new GregorianCalendar(1999, 2, 24);
-//    	GregorianCalendar fecha3 = new GregorianCalendar(1985, 8, 26);
-//    	
-//    	Ubicacion ubicacion1 = new Ubicacion(12,3,5);
-//    	Ubicacion ubicacion2 = new Ubicacion(12,3,6);
-//        
+    public static void main(String []args) throws IOException, ClassNotFoundException{
+    	GregorianCalendar fecha1 = new GregorianCalendar(2000, 5, 14);
+    	GregorianCalendar fecha2 = new GregorianCalendar(1999, 2, 24);
+    	GregorianCalendar fecha3 = new GregorianCalendar(1985, 8, 26);
+    	
+    	Ubicacion ubicacion1 = new Ubicacion(12,3,5);
+    	Ubicacion ubicacion2 = new Ubicacion(12,3,6);
+        
         Usuario user1 = new Usuario(true, "Norma", "12345");
         Usuario user2 = new Usuario(false, "Eduardo", "hola01");
         Usuario user3 = new Usuario(false, "Ana", "345");
         Usuario user4 = new Usuario(false, "Elisa", "1111a");
-//        
-//        Edicion edicion1 = new Edicion("Union", "Espania", 4, 2020, 1, 625, "Espaniol", FormatoTipo.PAPEL);
-//        Edicion edicion2 = new Edicion("Siglo XXI", "Espania", 2, 1999, 1, 321, "Espaniol", FormatoTipo.PAPEL);
-//        Edicion edicion3 = new Edicion("Innisfree", "Espania", 1, 2012, 1, 120, "Espaniol", FormatoTipo.ELECTRONICO);
-//        
-//        Obra obra1 = new Obra(ObraTipo.ENSAYO, AreaTematicaTipo.PROGRAMACION, 1, "OBRA1", "SUBTITULO1",
-//                "AUTOR1", "AUTOR2", "AUTOR3", "ACCION", CaracteristicaTipo.BOLETIN, "Area tecnologia", 321, edicion1);
-//        
-//        Obra obra2 = new Obra(ObraTipo.LIBRO, AreaTematicaTipo.PROGRAMACION, 1, "OBRA2", "SUBTITULO1",
-//                "AUTOR1", "AUTOR2", "AUTOR3", "ACCION", CaracteristicaTipo.BOLETIN, "Area tecnologia", 321, edicion2);
-//        
-//        Obra obra3 = new Obra(ObraTipo.ENSAYO, AreaTematicaTipo.PROGRAMACION, 1, "OBRA3", "SUBTITULO1",
-//                "AUTOR1", "AUTOR2", "AUTOR3", "ACCION", CaracteristicaTipo.BOLETIN, "Area tecnologia", 321, edicion3);
-//        
-//        Obra obra4 = new Obra(ObraTipo.REVISTA, AreaTematicaTipo.CONTABILIDAD, 1, "OBRA4", "SUBTITULO1",
-//                "AUTOR1", "AUTOR2", "AUTOR3", "ACCION", CaracteristicaTipo.BOLETIN, "Area tecnologia", 321, edicion3);
-//        
-//        Obra obra5 = new Obra(ObraTipo.REVISTA, AreaTematicaTipo.CONTABILIDAD, 1, "OBRA4", "SUBTITULO1",
-//                "AUTOR1", "AUTOR2", "AUTOR3", "ACCION", CaracteristicaTipo.BOLETIN, "Area tecnologia", 321, edicion3);
-//        
-//        Obra obra6 = new Obra(ObraTipo.REVISTA, AreaTematicaTipo.CONTABILIDAD, 1, "OBRA4", "SUBTITULO1",
-//                "AUTOR1", "AUTOR2", "AUTOR3", "ACCION", CaracteristicaTipo.BOLETIN, "Area tecnologia", 321, edicion3);
-//        
+        
+        Edicion edicion1 = new Edicion("Union", "Espania", 4, 2020, 1, 625, "Espaniol", FormatoTipo.PAPEL);
+        Edicion edicion2 = new Edicion("Siglo XXI", "Espania", 2, 1999, 1, 321, "Espaniol", FormatoTipo.PAPEL);
+        Edicion edicion3 = new Edicion("Innisfree", "Espania", 1, 2012, 1, 120, "Espaniol", FormatoTipo.ELECTRONICO);
+        
+        Obra obra1 = new Obra(ObraTipo.ENSAYO, AreaTematicaTipo.PROGRAMACION, 1, "OBRA1", "SUBTITULO1",
+                "AUTOR1", "AUTOR2", "AUTOR3", "ACCION", CaracteristicaTipo.BOLETIN, "Area tecnologia", 321, edicion1);
+        
+        Obra obra2 = new Obra(ObraTipo.LIBRO, AreaTematicaTipo.PROGRAMACION, 1, "OBRA2", "SUBTITULO1",
+                "AUTOR1", "AUTOR2", "AUTOR3", "ACCION", CaracteristicaTipo.BOLETIN, "Area tecnologia", 321, edicion2);
+        
+        Obra obra3 = new Obra(ObraTipo.ENSAYO, AreaTematicaTipo.PROGRAMACION, 1, "OBRA3", "SUBTITULO1",
+                "AUTOR1", "AUTOR2", "AUTOR3", "ACCION", CaracteristicaTipo.BOLETIN, "Area tecnologia", 321, edicion3);
+        
+        Obra obra4 = new Obra(ObraTipo.REVISTA, AreaTematicaTipo.CONTABILIDAD, 1, "OBRA4", "SUBTITULO1",
+                "AUTOR1", "AUTOR2", "AUTOR3", "ACCION", CaracteristicaTipo.BOLETIN, "Area tecnologia", 321, edicion3);
+        
+        Obra obra5 = new Obra(ObraTipo.REVISTA, AreaTematicaTipo.CONTABILIDAD, 1, "OBRA4", "SUBTITULO1",
+                "AUTOR1", "AUTOR2", "AUTOR3", "ACCION", CaracteristicaTipo.BOLETIN, "Area tecnologia", 321, edicion3);
+        
+        Obra obra6 = new Obra(ObraTipo.REVISTA, AreaTematicaTipo.CONTABILIDAD, 1, "OBRA4", "SUBTITULO1",
+                "AUTOR1", "AUTOR2", "AUTOR3", "ACCION", CaracteristicaTipo.BOLETIN, "Area tecnologia", 321, edicion3);
+        
 //        Ejemplar ejemplar1 = new Ejemplar(fecha1, "Regalado", ubicacion1,obra1);
 //        ejemplar1.setEnPrestamo(true);
 //        Ejemplar ejemplar2 = new Ejemplar(fecha2, "Comprado", ubicacion2,obra1);
@@ -70,24 +75,53 @@ public class Main {
 //        for (Ejemplar ejemplar : ejemplaresDisponiblesObra1) {
 //			System.out.println("Titulo ejemplar: "+ ejemplar.getObra().getTitulo() +"\nEjemplar en prestamo? "+ ejemplar.isEnPrestamo());
 //		}
-//        obra5.setSolicitudGeneral(5);
-//        obra2.setSolicitudGeneral(29);
-//        
-//        obra6.setSolicitudFacultad(12);
-//        obra3.setSolicitudFacultad(1); 
-//        
+        obra5.setSolicitudGeneral(5);
+        obra2.setSolicitudGeneral(29);
+        
+        obra6.setSolicitudFacultad(12);
+        obra3.setSolicitudFacultad(1);
+        
         listaDeBibliotecarios.add(user1);
         listaDeBibliotecarios.add(user2);
         listaDeBibliotecarios.add(user3);
         listaDeBibliotecarios.add(user4);
-//        
-//        listaObras.add(obra1);
-//        listaObras.add(obra2);
-//        listaObras.add(obra3);
-//        listaObras.add(obra4);
-//        listaObras.add(obra5);
-//        listaObras.add(obra6);
-//        
+        
+        
+        listaObras.add(obra1);
+        listaObras.add(obra2);
+        listaObras.add(obra3);
+        listaObras.add(obra4);
+        listaObras.add(obra5);
+        listaObras.add(obra6);
+        
+        //Escritura del ListObras al archivos obras.txt
+        FileOutputStream fos = new FileOutputStream("obras.txt");
+        ObjectOutputStream output = new ObjectOutputStream(fos);
+        
+        int tamanio = listaObras.size();
+        output.writeInt(tamanio);
+        
+        for (Obra p: listaObras) {
+            output.writeObject(p);
+        }
+        output.close();
+        fos.close();
+        
+        //Lectura de obras.
+        FileInputStream fin = new FileInputStream("obras.txt");
+        ObjectInputStream input = new ObjectInputStream(fin);
+        List<Obra> obrasArchivo = new ArrayList<>();
+        int n = input.readInt();
+        Obra aux;
+        for(int i = 0; i < n; i++ ){
+            aux = (Obra)input.readObject();
+            obrasArchivo.add(aux);
+        }
+        
+        System.out.println("IMPRESION ELEMENTOS DEL ARCHIVO");
+        for (Obra obra : obrasArchivo) {
+            System.out.println(obra.getTitulo());
+        }
 //        List<Obra> solicitadosGeneral = Obra.getSolicitudGeneral(listaObras);
 //        System.out.println("SOLICITUDES GENERAL:\n");
 //        for (Obra obra : solicitadosGeneral) {
@@ -105,9 +139,7 @@ public class Main {
 //        System.out.println("FILTRADO POR EDITORIAL.");
 //        String resultado = Obra.imprimirObras(l);
 //        System.out.println(resultado);
-//        
-        
-        
+
         VentanaLogueo login = new VentanaLogueo();
         login.setVisible(true);
 

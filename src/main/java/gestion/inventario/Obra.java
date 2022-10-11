@@ -7,6 +7,7 @@ package gestion.inventario;
 import enumeraciones.AreaTematicaTipo;
 import enumeraciones.CaracteristicaTipo;
 import enumeraciones.ObraTipo;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -16,7 +17,7 @@ import java.util.stream.Collectors;
  *
  * @author martin
  */
-public class Obra {
+public class Obra implements Serializable{
     private ObraTipo tipoDeObra;
     private AreaTematicaTipo areaTematica;
     private CaracteristicaTipo caracterisitica;

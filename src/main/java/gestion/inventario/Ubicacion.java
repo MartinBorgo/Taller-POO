@@ -4,11 +4,13 @@
  */
 package gestion.inventario;
 
+import java.io.Serializable;
+
 /**
  *
  * @author martin
  */
-public class Ubicacion {
+public class Ubicacion implements Serializable{
     private int pasillo;
     private int estanteria;
     private int estante;
