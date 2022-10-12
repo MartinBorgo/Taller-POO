@@ -24,8 +24,12 @@ import gestion.personas.Usuario;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
+import net.sourceforge.barbecue.BarcodeException;
+import net.sourceforge.barbecue.output.OutputException;
 
 /**
  *
@@ -189,6 +193,11 @@ public class VentanaAdministrador extends javax.swing.JFrame {
         botonBusquedaEjemplar.setText("Buscar");
 
         boxGestionFiltrado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ejemplares en prestamo.", "Ejemplar por codigo unico.", "Item 3", "Item 4" }));
+        boxGestionFiltrado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boxGestionFiltradoActionPerformed(evt);
+            }
+        });
 
         jLabel20.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
         jLabel20.setText("Filtrar por:");
@@ -980,10 +989,16 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                    
                    
                    for(int i = 0; i < nuevaColeccion.getCantidadEjemplares(); i++) {
-                       Ejemplar ejemplarNuevo = new Ejemplar(new GregorianCalendar(),
-                                                             (String) this.boxFormaAdquisicion.getSelectedItem(),
-                                                             nuevaUbicacion,
-                                                             nuevaColeccion);
+                       try {
+                           Ejemplar ejemplarNuevo = new Ejemplar(new GregorianCalendar(),
+                                   (String) this.boxFormaAdquisicion.getSelectedItem(),
+                                   nuevaUbicacion,
+                                   nuevaColeccion);
+                       } catch (BarcodeException ex) {
+                           Logger.getLogger(VentanaAdministrador.class.getName()).log(Level.SEVERE, null, ex);
+                       } catch (OutputException ex) {
+                           Logger.getLogger(VentanaAdministrador.class.getName()).log(Level.SEVERE, null, ex);
+                       }
                        
                    }
                this.datos.agregarObra(nuevaColeccion);
@@ -1026,10 +1041,16 @@ public class VentanaAdministrador extends javax.swing.JFrame {
             
 
             for(int i = 0; i <= nuevaObra.getCantidadEjemplares(); i++) {
-               Ejemplar ejemplarNuevo = new Ejemplar(new GregorianCalendar(),
-                                                     (String) this.boxFormaAdquisicion.getSelectedItem(),
-                                                     nuevaUbicacion,
-                                                     nuevaObra);
+                try {
+                    Ejemplar ejemplarNuevo = new Ejemplar(new GregorianCalendar(),
+                            (String) this.boxFormaAdquisicion.getSelectedItem(),
+                            nuevaUbicacion,
+                            nuevaObra);
+                } catch (BarcodeException ex) {
+                    Logger.getLogger(VentanaAdministrador.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (OutputException ex) {
+                    Logger.getLogger(VentanaAdministrador.class.getName()).log(Level.SEVERE, null, ex);
+                }
     
             }
             this.datos.agregarObra(nuevaObra);
@@ -1185,6 +1206,10 @@ public class VentanaAdministrador extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_botonFiltrarActionPerformed
+
+    private void boxGestionFiltradoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxGestionFiltradoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_boxGestionFiltradoActionPerformed
 
     
 

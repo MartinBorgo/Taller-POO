@@ -5,11 +5,19 @@
 package gestion.inventario;
 
 import gestion.personas.Lector;
+import java.io.File;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import net.sourceforge.barbecue.Barcode;
+import net.sourceforge.barbecue.BarcodeException;
+import net.sourceforge.barbecue.BarcodeFactory;
+import net.sourceforge.barbecue.BarcodeImageHandler;
+import net.sourceforge.barbecue.output.OutputException;
 
 /**
  *
@@ -32,6 +40,7 @@ public class Ejemplar implements Serializable{
     private Coleccion coleccion; //PUEDE PERTENECER A UNA COLECCION.
     private List<Lector> listaSolicitudLectores = new ArrayList();
     private List<Reservacion> reservaciones = new ArrayList();
+    private String codigoBarras;
    
     /**
      * Construye un objeto ejemplar con la informacion basica a la hora de su adquisicion
@@ -41,7 +50,10 @@ public class Ejemplar implements Serializable{
      * @param ubicacion
      * @param obra 
      */
-    public Ejemplar(GregorianCalendar fechaAdquisicion, String formaAdquisicion, Ubicacion ubicacion, Obra obra) {
+    
+    //Puede agarrar excepciones del metodo setCodigoBarras();
+    public Ejemplar(GregorianCalendar fechaAdquisicion, String formaAdquisicion, Ubicacion ubicacion, Obra obra) 
+            throws BarcodeException, OutputException {
         this.idUnico = incremental;
         this.fechaAdquisicion = fechaAdquisicion;
         this.formaAdquisicion = formaAdquisicion;
@@ -50,6 +62,7 @@ public class Ejemplar implements Serializable{
         this.enPrestamo = false;
         
         obra.agregarEjemplar(this); // Se mantiene la relacion entre ejemplar y Obra
+        this.setCodigoBarras();
         
         incremental++;
     }
@@ -62,7 +75,10 @@ public class Ejemplar implements Serializable{
      * @param ubicacion
      * @param coleccion 
      */
-    public Ejemplar(GregorianCalendar fechaAdquisicion, String formaAdquisicion, Ubicacion ubicacion, Coleccion coleccion) {
+    
+    //Puede agarrar excepciones del metodo setCodigoBarras();
+    public Ejemplar(GregorianCalendar fechaAdquisicion, String formaAdquisicion, Ubicacion ubicacion, Coleccion coleccion) 
+            throws BarcodeException, OutputException {
         this.idUnico = incremental;
         this.fechaAdquisicion = fechaAdquisicion;
         this.formaAdquisicion = formaAdquisicion;
@@ -71,6 +87,7 @@ public class Ejemplar implements Serializable{
         
         coleccion.agregarEjemplar(this);
         
+        this.setCodigoBarras();
         incremental++;
     }
 
@@ -337,6 +354,10 @@ public class Ejemplar implements Serializable{
     public void setReservaciones(List<Reservacion> reservaciones) {
         this.reservaciones = reservaciones;
     }
+
+    public String getCodigoBarras() {
+        return codigoBarras;
+    }
     
     // ========== Metodos hechos a mano ========== //
     
@@ -372,5 +393,13 @@ public class Ejemplar implements Serializable{
                 + "%nUbicacion:%n%s", idUnico, fechaAdquisicion.get(Calendar.YEAR), fechaAdquisicion.get(Calendar.MONTH), 
                 fechaAdquisicion.get(Calendar.DAY_OF_MONTH), formaAdquisicion, enPrestamo, ubicacion);
     }
-
+    
+    public void setCodigoBarras() throws BarcodeException, OutputException{
+        String idAux = Integer.toString(this.idUnico);
+        Barcode bar = BarcodeFactory.createCode128(idAux);
+        File archivo = new File("src/main/java/codigoDeBarras/" + idAux + ".png");
+        
+        BarcodeImageHandler.savePNG(bar, archivo);
+        this.codigoBarras = bar.getLabel();
+    }
 }
