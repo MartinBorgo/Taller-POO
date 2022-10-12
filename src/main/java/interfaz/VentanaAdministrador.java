@@ -190,6 +190,11 @@ public class VentanaAdministrador extends javax.swing.JFrame {
         botonBusquedaEjemplar.setText("Buscar");
 
         boxGestionFiltrado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ejemplares en prestamo.", "Ejemplar por codigo unico.", "Item 3", "Item 4" }));
+        boxGestionFiltrado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boxGestionFiltradoActionPerformed(evt);
+            }
+        });
 
         jLabel20.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
         jLabel20.setText("Filtrar por:");
@@ -1186,6 +1191,10 @@ public class VentanaAdministrador extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_botonFiltrarActionPerformed
+
+    private void boxGestionFiltradoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxGestionFiltradoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_boxGestionFiltradoActionPerformed
 
     
 

@@ -12,6 +12,8 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.List;
+import net.sourceforge.barbecue.BarcodeException;
+import net.sourceforge.barbecue.output.OutputException;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -31,7 +33,7 @@ public class Main {
     public static ArrayList<Obra> listaObras = new ArrayList(); 
 
     
-    public static void main(String []args) throws IOException, ClassNotFoundException{
+    public static void main(String []args) throws IOException, ClassNotFoundException, BarcodeException, OutputException{
     	GregorianCalendar fecha1 = new GregorianCalendar(2000, 5, 14);
     	GregorianCalendar fecha2 = new GregorianCalendar(1999, 2, 24);
     	GregorianCalendar fecha3 = new GregorianCalendar(1985, 8, 26);
@@ -66,9 +68,12 @@ public class Main {
         Obra obra6 = new Obra(ObraTipo.REVISTA, AreaTematicaTipo.CONTABILIDAD, 1, "OBRA4", "SUBTITULO1",
                 "AUTOR1", "AUTOR2", "AUTOR3", "ACCION", CaracteristicaTipo.BOLETIN, "Area tecnologia", 321, edicion3);
         
-//        Ejemplar ejemplar1 = new Ejemplar(fecha1, "Regalado", ubicacion1,obra1);
-//        ejemplar1.setEnPrestamo(true);
-//        Ejemplar ejemplar2 = new Ejemplar(fecha2, "Comprado", ubicacion2,obra1);
+        Ejemplar ejemplar1 = new Ejemplar(fecha1, "Regalado", ubicacion1,obra1);
+        ejemplar1.setEnPrestamo(true);
+        Ejemplar ejemplar2 = new Ejemplar(fecha2, "Comprado", ubicacion2,obra1);
+        Ejemplar ejemplar3 = new Ejemplar(fecha2, "Comprado", ubicacion2,obra1);
+        System.out.println("CODIGO BARRAS EJEMPLAR 1" + ejemplar1.getCodigoBarras());
+        System.out.println("CODIGO BARRAS EJEMPLAR 2" + ejemplar2.getCodigoBarras());
 //        
 //        List<Ejemplar> ejemplaresDisponiblesObra1 = obra1.ejemplaresDisponiblesAreaReferencia("Area tecnologia");
 //        
