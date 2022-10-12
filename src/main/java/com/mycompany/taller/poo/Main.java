@@ -122,6 +122,7 @@ public class Main {
         for (Obra obra : obrasArchivo) {
             System.out.println(obra.getTitulo());
         }
+
 //        List<Obra> solicitadosGeneral = Obra.getSolicitudGeneral(listaObras);
 //        System.out.println("SOLICITUDES GENERAL:\n");
 //        for (Obra obra : solicitadosGeneral) {

@@ -30,7 +30,7 @@ public class Ejemplar implements Serializable{
     private Prestamo infoPrestamo;
     private Obra obra;
     private Coleccion coleccion; //PUEDE PERTENECER A UNA COLECCION.
-    private ArrayList<Lector> listaSolicitudLectores = new ArrayList();
+    private List<Lector> listaSolicitudLectores = new ArrayList();
     private List<Reservacion> reservaciones = new ArrayList();
    
     /**
@@ -303,20 +303,41 @@ public class Ejemplar implements Serializable{
     }
 
     /**
-     * Devuelve un String que representa de forma conceptual al objeto
+     * Devuelve la lista de todos los lectores que solicitaron este ejemplar
      * 
-     * @return String 
+     * @return List<Lector>
      */
-    @Override
-    public String toString() {
-        return String.format("Id ejemplar: %s"
-                + "%nFecha adquisicion: %s/%s/%s"
-                + "%nForma adquisicion: %s"
-                + "%nEn prestamo: %s"
-                + "%nUbicacion:%n%s", idUnico, fechaAdquisicion.get(Calendar.YEAR), fechaAdquisicion.get(Calendar.MONTH), 
-                fechaAdquisicion.get(Calendar.DAY_OF_MONTH), formaAdquisicion, enPrestamo, ubicacion);
+    public List<Lector> getListaSolicitudLectores() {
+        return listaSolicitudLectores;
     }
- 
+
+    /**
+     * Setea una nueva lista de lector que tomo en prestamo el ejemplar 
+     * 
+     * @param listaSolicitudLectores List<Lector>
+     */
+    public void setListaSolicitudLectores(List<Lector> listaSolicitudLectores) {
+        this.listaSolicitudLectores = listaSolicitudLectores;
+    }
+
+    /**
+     * Devuelve la lista de las reservaciones que tiene el ejemplar
+     * 
+     * @return Lista de todas las reservaciones del ejemplar
+     */
+    public List<Reservacion> getReservaciones() {
+        return reservaciones;
+    }
+
+    /**
+     * Setea una nueva lista de resercaciones para el ejemplar
+     * 
+     * @param reservaciones 
+     */
+    public void setReservaciones(List<Reservacion> reservaciones) {
+        this.reservaciones = reservaciones;
+    }
+    
     // ========== Metodos hechos a mano ========== //
     
     /**
@@ -337,4 +358,19 @@ public class Ejemplar implements Serializable{
         this.reservaciones.add(reservacion);
     }
     
+    /**
+     * Devuelve un String que representa de forma conceptual al objeto
+     * 
+     * @return String 
+     */
+    @Override
+    public String toString() {
+        return String.format("Id ejemplar: %s"
+                + "%nFecha adquisicion: %s/%s/%s"
+                + "%nForma adquisicion: %s"
+                + "%nEn prestamo: %s"
+                + "%nUbicacion:%n%s", idUnico, fechaAdquisicion.get(Calendar.YEAR), fechaAdquisicion.get(Calendar.MONTH), 
+                fechaAdquisicion.get(Calendar.DAY_OF_MONTH), formaAdquisicion, enPrestamo, ubicacion);
+    }
+
 }

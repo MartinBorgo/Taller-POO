@@ -10,7 +10,7 @@ import java.util.Comparator;
  *
  * @author pepeponpin
  */
-class CriterioSolicitudGeneral implements Comparator<Obra>{
+public class CriterioSolicitudGeneral implements Comparator<Obra>{
 
     @Override
     public int compare(Obra o1, Obra o2) {

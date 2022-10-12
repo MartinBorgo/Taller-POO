@@ -54,22 +54,6 @@ public class Obra implements Serializable{
      * @param isbn
      * @param edicion 
      */    
-        /**
-         * Constructor de Obra.
-         * @param tipoDeObra
-         * @param areaTematica
-         * @param cantidadEjemplares
-         * @param titulo
-         * @param subtitulo
-         * @param primerAutor
-         * @param segundoAutor
-         * @param tercerAutor
-         * @param genero
-         * @param caracterisitica
-         * @param areaReferencia
-         * @param isbn
-         * @param edicion 
-         */
     public Obra(ObraTipo tipoDeObra, AreaTematicaTipo areaTematica, int cantidadEjemplares, String titulo, String subtitulo, String primerAutor,
                 String segundoAutor, String tercerAutor, String genero, CaracteristicaTipo caracterisitica, String areaReferencia,
                 int isbn, Edicion edicion) {
@@ -321,6 +305,17 @@ public class Obra implements Serializable{
     public void setEdicion(Edicion edicion) {
         this.edicion = edicion;
     }
+
+    /**
+     * Devuelve todos los ejemplares correspondientes al objeto Obra
+     * 
+     * @return List<Ejemplar>
+     */
+    public List<Ejemplar> getEjemplares() {
+        return ejemplares;
+    }
+    
+    
     
     // =========== Metodos hechos a mano =========== //
     
@@ -332,6 +327,7 @@ public class Obra implements Serializable{
         this.ejemplares.add(ej);
     
     }
+    
     /**
      * Devuelve el ejemplar utilizando el número identificador introducido de parámetro.
      * @param identificador int
@@ -344,6 +340,7 @@ public class Obra implements Serializable{
         
         return null;
     }
+    
     /**
      * Método toString de Obra.
      * @return String
@@ -424,7 +421,7 @@ public class Obra implements Serializable{
     	return copy;
     }
     
-    public List<Ejemplar> ejemplaresDisponiblesAreaReferencia(String areaReferencia) {
+    public List<Ejemplar> DisponibleAreaReferencia(String areaReferencia) {
     	List<Ejemplar> aux = new ArrayList<>();
     	for (Ejemplar ejemplar : ejemplares) {
     		if(ejemplar.isEnPrestamo() == false) {

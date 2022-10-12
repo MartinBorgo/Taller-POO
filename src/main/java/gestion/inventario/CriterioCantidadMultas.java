@@ -4,18 +4,19 @@
  */
 package gestion.inventario;
 
+import gestion.personas.Lector;
 import java.util.Comparator;
 
 /**
  *
- * @author pepeponpin
+ * @author martin
  */
-public class CriterioSolicitudFacultad implements Comparator<Obra>{
+public class CriterioCantidadMultas implements Comparator<Lector>{
 
     @Override
-    public int compare(Obra o1, Obra o2) {
-	int diff = o1.getSolicitudFacultad() - o2.getSolicitudFacultad();
-	return diff;    
+    public int compare(Lector o1, Lector o2) {
+        int diff = o1.cantidadMultas() - o2.cantidadMultas();
+        return diff;
     }
     
 }
