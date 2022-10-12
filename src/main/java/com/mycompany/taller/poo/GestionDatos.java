@@ -10,6 +10,7 @@ import gestion.inventario.CriterioSolicitudGeneral;
 import gestion.inventario.Ejemplar;
 import gestion.inventario.Multa;
 import gestion.inventario.Obra;
+import gestion.inventario.Reservacion;
 import gestion.personas.Lector;
 import gestion.personas.Usuario;
 import java.io.FileInputStream;
@@ -115,9 +116,11 @@ public class GestionDatos {
      * @return Ejemplar o null
      */
     public Ejemplar buscarEjemplar(int id) {
-        for(Obra obra : this.listaObras) {
-            if(obra.buscarEjemplar(id) != null) {
-                return obra.buscarEjemplar(id);
+        List<Ejemplar> ejemplares = listaEjemplares();
+        
+        for(Ejemplar ejemplar : ejemplares) {
+            if(ejemplar.getIdUnico() == id) {
+                return ejemplar;
             }
         }
         return null;
@@ -262,6 +265,27 @@ public class GestionDatos {
         return periodoMulta;
     }
     
+    /**
+     * Lista a todos los ejemplares que esten reservados a partir de una determinada fecha
+     * 
+     * @param desde - GregorianCalendar
+     * @return Devuelve una lista con todos los ejemplares que se encuentran reservados a partir de esa fecha
+     */
+    public List<Ejemplar> ejemplaresReservados(GregorianCalendar desde) {
+        List<Ejemplar> ejemplares = listaEjemplares();
+        ArrayList<Ejemplar> reservados = new ArrayList();
+        
+        for(Ejemplar ejemplar : ejemplares) {
+            for(Reservacion res : ejemplar.getReservaciones()){
+                if(res.getInicio().after(desde)) {
+                    if(reservados.contains(ejemplar) == false) reservados.add(ejemplar);
+                }
+            }
+        }
+        
+        return reservados;
+    }
+    
     // ================ Metodos privados de la clase =============== //
     
     /**
@@ -277,6 +301,7 @@ public class GestionDatos {
     
         return ejemplares;
     }
+    
     
     private void escribirDatosObra() {
         try {

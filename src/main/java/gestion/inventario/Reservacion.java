@@ -5,13 +5,14 @@
 package gestion.inventario;
 
 import gestion.personas.Lector;
+import java.io.Serializable;
 import java.util.GregorianCalendar;
 
 /**
  *
  * @author martin
  */
-public class Reservacion {
+public class Reservacion implements Serializable{
     private GregorianCalendar inicio;
     private GregorianCalendar finalizacion;
     private Lector solicitante;
