@@ -67,6 +67,44 @@ public class Lector extends Persona {
     public void setLibroEnPrestamo(Prestamo libroEnPrestamo) {
         this.libroEnPrestamo = libroEnPrestamo;
     }
+
+    /**
+     * Devuelve una lista con todas las multas que tiene el lector
+     * 
+     * @return ArrayList<ejemplar>
+     */
+    public ArrayList<Ejemplar> getListaLibros() {
+        return listaLibros;
+    }
+
+    /**
+     * Setea un nuevo valor para la el listado de libros que pidio prestado el lector
+     * 
+     * @param listaLibros ArrayList<Ejemplar>
+     */
+    public void setListaLibros(ArrayList<Ejemplar> listaLibros) {
+        this.listaLibros = listaLibros;
+    }
+
+    /**
+     * Devuelve el listado de todas las multas que posee el lector
+     * 
+     * @return Lista<Multa> 
+     */
+    public List<Multa> getMultas() {
+        return multas;
+    }
+
+    /**
+     * Setea un nuevo valor para la lista de multas que posee el lector
+     * 
+     * @param multas List<Multa> 
+     */
+    public void setMultas(List<Multa> multas) {
+        this.multas = multas;
+    }
+    
+    
     
     // ========== Metodos hechos a mano ========== //
     

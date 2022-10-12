@@ -5,41 +5,48 @@
 package gestion.inventario;
 
 import gestion.personas.Lector;
-import java.time.LocalDate;
+import java.util.GregorianCalendar;
 
 /**
  *
  * @author martin
  */
 public class Reservacion {
-    private LocalDate inicio;
-    private LocalDate finalizacion;
+    private GregorianCalendar inicio;
+    private GregorianCalendar finalizacion;
     private Lector solicitante;
-    public Reservacion(Lector lector, LocalDate inicio) {
+    
+    public Reservacion(Lector lector, GregorianCalendar inicio) {
         this.solicitante = lector;
         this.inicio = inicio;
-        this.calcularFinReservacion();
+        
+        inicio.add(3, 4);
+        this.finalizacion = inicio;
         
     }
 
-    public LocalDate getInicio() {
+    public GregorianCalendar getInicio() {
         return inicio;
     }
 
-    public void setInicio(LocalDate inicio) {
+    public void setInicio(GregorianCalendar inicio) {
         this.inicio = inicio;
     }
 
-    public LocalDate getFinalizacion() {
+    public GregorianCalendar getFinalizacion() {
         return finalizacion;
     }
 
-    public void setFinalizacion(LocalDate finalizacion) {
+    public void setFinalizacion(GregorianCalendar finalizacion) {
         this.finalizacion = finalizacion;
     }
-    
-    private void calcularFinReservacion() {
-        this.finalizacion = this.inicio.plusDays(4);
+
+    public Lector getSolicitante() {
+        return solicitante;
+    }
+
+    public void setSolicitante(Lector solicitante) {
+        this.solicitante = solicitante;
     }
     
 }
