@@ -1,17 +1,16 @@
 package gestion.personas;
 
+import enumeraciones.SexoTipo;
+import java.io.Serializable;
 import java.util.GregorianCalendar;
 
-public class Usuario extends Persona {
+public class Usuario extends Persona implements Serializable{
     private boolean administrador;
     private String nombreUsuario;
     private String contrasenia;
 
-    public Usuario(boolean administrador, String nombreUsuario, String contrasenia, String nombres,
-                   String apellidos, int dni, GregorianCalendar fechaNacimiento, String nacionalidad,
-                   String domicilio, int codPostal, String localidad, String numCelular, String mail) {
-        
-        super(nombres, apellidos, dni, fechaNacimiento, nacionalidad, domicilio, codPostal, localidad, numCelular, mail);
+    public Usuario(boolean administrador, String nombreUsuario, String contrasenia, String nombres, String apellidos, int dni, GregorianCalendar fechaNacimiento, String nacionalidad, String domicilio, int codPostal, String localidad, String numCelular, String mail, SexoTipo sexo) {
+        super(nombres, apellidos, dni, fechaNacimiento, nacionalidad, domicilio, codPostal, localidad, numCelular, mail, sexo);
         this.administrador = administrador;
         this.nombreUsuario = nombreUsuario;
         this.contrasenia = contrasenia;

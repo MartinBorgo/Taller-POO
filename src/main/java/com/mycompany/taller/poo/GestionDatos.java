@@ -4,19 +4,10 @@
  */
 package com.mycompany.taller.poo;
 
-import gestion.inventario.CriterioCantidadMultas;
-import gestion.inventario.CriterioSolicitudFacultad;
-import gestion.inventario.CriterioSolicitudGeneral;
-import gestion.inventario.Ejemplar;
-import gestion.inventario.Multa;
-import gestion.inventario.Obra;
-import gestion.inventario.Reservacion;
+import gestion.inventario.*;
+import java.io.*;
 import gestion.personas.Lector;
 import gestion.personas.Usuario;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.GregorianCalendar;
@@ -39,6 +30,7 @@ public class GestionDatos {
         this.listaUsuarios = new ArrayList();
         this.listaLectores = new ArrayList();
         this.listaObras = new ArrayList();
+        
         leerDatosUsuario();
         leerDatosObra();
         leerDatosLector();

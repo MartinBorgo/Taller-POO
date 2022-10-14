@@ -2,18 +2,17 @@ package gestion.personas;
 
 import java.util.GregorianCalendar;
 
-public class Bibliotecario extends Persona {
+public class Bibliotecario extends Usuario {
     private String identificacion;
     
     public Bibliotecario() {
     }
 
-    public Bibliotecario(String identificacion, String nombres, String apellidos, int dni, GregorianCalendar fechaNacimiento, 
-            String nacionalidad, String domicilio, int codPostal, String localidad, String numCelular, String mail) {
-        
-        super(nombres, apellidos, dni, fechaNacimiento, nacionalidad, domicilio, codPostal, localidad, numCelular, mail);
+    public Bibliotecario(String identificacion, boolean administrador, String nombreUsuario, String contrasenia) {
+        super(administrador, nombreUsuario, contrasenia);
         this.identificacion = identificacion;
     }
+    
     
     public String getIdentificacion() {
         return identificacion;

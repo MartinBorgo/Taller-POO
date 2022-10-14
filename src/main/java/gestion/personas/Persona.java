@@ -1,10 +1,11 @@
 package gestion.personas;
 
 import enumeraciones.SexoTipo;
+import java.io.Serializable;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
-public abstract class Persona {
+public abstract class Persona implements Serializable{
 	private String nombres;
 	private String apellidos;
 	private int dni;
@@ -21,7 +22,7 @@ public abstract class Persona {
 	}
 
 	public Persona(String nombres, String apellidos, int dni, GregorianCalendar fechaNacimiento, String nacionalidad,
-			String domicilio, int codPostal, String localidad, String numCelular, String mail) {
+			String domicilio, int codPostal, String localidad, String numCelular, String mail, SexoTipo sexo) {
 		this.nombres = nombres;
 		this.apellidos = apellidos;
 		this.dni = dni;
@@ -32,6 +33,7 @@ public abstract class Persona {
 		this.localidad = localidad;
 		this.numCelular = numCelular;
 		this.mail = mail;
+                this.sexo = sexo;
 	}
 
     public String getNombres() {

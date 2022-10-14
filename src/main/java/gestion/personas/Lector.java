@@ -1,13 +1,15 @@
 package gestion.personas;
 
+import enumeraciones.SexoTipo;
 import gestion.inventario.Ejemplar;
 import gestion.inventario.Multa;
 import gestion.inventario.Prestamo;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.List;
 
-public class Lector extends Persona {
+public class Lector extends Persona implements Serializable{
     private boolean estaMultado;
     private Prestamo libroEnPrestamo;
     private ArrayList<Ejemplar> listaLibros = new ArrayList();
@@ -16,14 +18,12 @@ public class Lector extends Persona {
     public Lector() {
     }
 
-    public Lector(String nombres, String apellidos, int dni, GregorianCalendar fechaNacimiento, String nacionalidad,
-                  String domicilio, int codPostal, String localidad, String numCelular, String mail) {
-		
-        super(nombres, apellidos, dni, fechaNacimiento, nacionalidad,
-              domicilio, codPostal, localidad, numCelular,mail);
-		
+    public Lector(String nombres, String apellidos, int dni, GregorianCalendar fechaNacimiento, String nacionalidad, 
+            String domicilio, int codPostal, String localidad, String numCelular, String mail, SexoTipo sexo) {
+        super(nombres, apellidos, dni, fechaNacimiento, nacionalidad, domicilio, codPostal, localidad, numCelular, mail, sexo);
         this.estaMultado = false;
     }
+    
 
     /**
      * Devuelve si el lector esta multado

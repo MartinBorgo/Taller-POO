@@ -1,5 +1,6 @@
 package gestion.personas;
 
+import enumeraciones.SexoTipo;
 import java.util.GregorianCalendar;
 
 public class Alumno extends Lector {
@@ -8,15 +9,13 @@ public class Alumno extends Lector {
 	public Alumno() {
 	}
 
-	public Alumno(String nombres, String apellidos, int dni, GregorianCalendar fechaNacimiento, String nacionalidad,
-                      String domicilio, int codPostal, String localidad, String numCelular, String mail, String carrera) {
-		
-            super(nombres, apellidos, dni, fechaNacimiento, nacionalidad, 
-                  domicilio, codPostal, localidad, numCelular,mail);
-		
-            this.carrera = carrera;
-	}
-
+    public Alumno(String carrera, String nombres, String apellidos, int dni, GregorianCalendar fechaNacimiento, String nacionalidad, 
+            String domicilio, int codPostal, String localidad, String numCelular, String mail, SexoTipo sexo) {
+        super(nombres, apellidos, dni, fechaNacimiento, nacionalidad, domicilio, codPostal, localidad, numCelular, mail, sexo);
+        this.carrera = carrera;
+    }
+        
+        
 	public String getCarreras() {
 		return carrera;
 	}
