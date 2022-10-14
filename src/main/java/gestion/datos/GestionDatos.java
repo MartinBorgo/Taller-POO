@@ -4,10 +4,14 @@
  */
 package gestion.datos;
 
+import excepciones.EjemplarInexistenteError;
+import excepciones.LectorNoRegistradoError;
+import excepciones.PrestamoInexistenteError;
 import gestion.inventario.Ejemplar;
 import gestion.inventario.Multa;
 import gestion.inventario.Obra;
 import gestion.inventario.Reservacion;
+import gestion.personas.Bibliotecario;
 import gestion.personas.Lector;
 import gestion.personas.Usuario;
 import java.io.FileInputStream;
@@ -28,6 +32,7 @@ public class GestionDatos {
     private List<Usuario> listaUsuarios;
     private List<Lector> listaLectores;
     private List<Obra> listaObras;
+    private Bibliotecario usuarioLoguado;
 
     /**
      * Construye un objeto GestionDatos con todas su informacion inicializada
@@ -70,57 +75,108 @@ public class GestionDatos {
         this.listaLectores.add(lector);
         escribirDatosLector();
     }
+
+    /**
+     * Devuelve el usuario que inicio sesion
+     * 
+     * @return El usuarion que se logueo
+     */
+    public Bibliotecario getUsuarioLoguado() {
+        return usuarioLoguado;
+    }
+
+    /**
+     * Setea al usuario que se reguistro en esa sesion
+     * 
+     * @param usuarioLoguado Bibliotecario
+     */
+    public void setUsuarioLoguado(Bibliotecario usuarioLoguado) {
+        this.usuarioLoguado = usuarioLoguado;
+    }
+
+    /**
+     * Devuelve el listado de toods los usuarios que se pueden operar la aplicacion
+     * 
+     * @return List<Usuario>
+     */
+    public List<Usuario> getListaUsuarios() {
+        return listaUsuarios;
+    }
+
+    /**
+     * Devuelve un listado de todos los lectores que se encuentran registrados en los archivos
+     * 
+     * @return List<Lector>
+     */
+    public List<Lector> getListaLectores() {
+        return listaLectores;
+    }
+
+    /**
+     * Devuelve un listado de todas las obras que posee la biblioteca
+     * 
+     * @return List<Obra>
+     */
+    public List<Obra> getListaObras() {
+        return listaObras;
+    }
+    
+    
+    // ================ Metodos de busqueda =============== //
     
     /**
      * Devuelve el lector que tenga en prestamo el ejemplar que se pase por parametro.
-     * Si el codigo del ejemplar que pasamos por parametro no coincide con el de ningun ejemplar -> <b> return null </b>
      * 
-     * @param id - Integer
+     * @param cod String
      * @return Lector o null
+     * @throws PrestamoInexistenteError Si el prestamo de ese ejemplar no existe
      */
-    public Lector buscarPrestamo(int id) {
+    public Lector buscarPrestamo(String cod) throws PrestamoInexistenteError {
         for(Lector lector : this.listaLectores) {
-            if(lector.getLibroEnPrestamo().getEjemplarSolicitado().getIdUnico() == id) {
+            if(lector.getLibroEnPrestamo().getEjemplarSolicitado().getCodigoBarras().equals(cod)) {
                 return lector;
             }
         }
         
-        return null;
+        throw new PrestamoInexistenteError();
     }
 
     /**
      * Devuelve al lector que posea el numero de documento pasado por parametro.
      * Si el parametro que le pasamos no coincide con el DNI de ningun lector -> <b> return null </b>
      * 
-     * @param dni Integer
+     * @param dni int
      * @return Lector o null
+     * @throws LectorNoRegistradoError Si no se encuentra en la lista de lectores
      */
-    public Lector buscarLector(int dni) {
+    public Lector buscarLector(int dni) throws LectorNoRegistradoError {
         for(Lector lector : this.listaLectores) {
             if(lector.getDni() == dni) {
                 return lector;
             }
         }
         
-        return null;
+        throw new LectorNoRegistradoError();
     }
     
     /**
      * Devuelve el ejemplar que posea el el mismo id que el que se le pasa por parametro.
      * Si el numero que le pasamos por parametro no coincide con ningun ID -> <b> return null </b>
      * 
-     * @param id
+     * @param cod String
      * @return Ejemplar o null
+     * @throws EjemplarInexistenteError Si el codigo no coincide con ninguno de los codigos de los ejemplares cargados
      */
-    public Ejemplar buscarEjemplar(int id) {
+    public Ejemplar buscarEjemplar(String cod) throws EjemplarInexistenteError {
         List<Ejemplar> ejemplares = listaEjemplares();
         
         for(Ejemplar ejemplar : ejemplares) {
-            if(ejemplar.getIdUnico() == id) {
+            if(ejemplar.getCodigoBarras().equals(cod)) {
                 return ejemplar;
             }
         }
-        return null;
+        
+        throw new EjemplarInexistenteError();
     }
     
     // ================ Metodos de filtrado/ordenamiento =============== //
@@ -151,7 +207,7 @@ public class GestionDatos {
     /**
      * Devulve una lista ordenada de a cuerdo a la cantidad de solicitudes que se realizaron a las obras por el publico general
      * 
-     * @return List<obras> Lista ordenada de las obras mas solicitadas por el publico general
+     * @return List<Obra> Lista ordenada de las obras mas solicitadas por el publico general
      */
     public List<Obra> getSolicitudGeneral() {
     	CriterioSolicitudGeneral general = new CriterioSolicitudGeneral();
@@ -233,8 +289,6 @@ public class GestionDatos {
     
         return lectoresParaMultar;
     }
-    
-    // Este metodo esta todavia en construccion
     
     /**
      * Esta funcnion recibe dos fecha (en formato GregorianCalendar) y devuelve una lista con todas las personas que fueron multados en ese momento de tiempo

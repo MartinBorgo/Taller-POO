@@ -11,6 +11,8 @@ import enumeraciones.FormatoTipo;
 import enumeraciones.ObraTipo;
 import enumeraciones.PrestamoTipo;
 import enumeraciones.SexoTipo;
+import excepciones.EjemplarInexistenteError;
+import excepciones.LectorNoRegistradoError;
 import gestion.inventario.Coleccion;
 import gestion.inventario.Edicion;
 import gestion.inventario.Ejemplar;
@@ -21,7 +23,6 @@ import gestion.personas.Alumno;
 import gestion.personas.Docente;
 import gestion.personas.Lector;
 import gestion.personas.Usuario;
-import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.logging.Level;
@@ -33,7 +34,7 @@ import net.sourceforge.barbecue.output.OutputException;
 
 /**
  *
- * @author martin
+ * @author Grupo 2
  */
 public class VentanaAdministrador extends javax.swing.JFrame {
     private GestionDatos datos;
@@ -75,10 +76,7 @@ public class VentanaAdministrador extends javax.swing.JFrame {
         boxBusquedaTipo = new javax.swing.JComboBox<>();
         jLabel21 = new javax.swing.JLabel();
         botonFiltrar = new javax.swing.JButton();
-        txtFechaFinal = new javax.swing.JTextField();
-        jLabel22 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
-        txtFechaInicio = new javax.swing.JTextField();
+        txtBusquedaListado = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jLabel24 = new javax.swing.JLabel();
         boxTipoDePrestamo = new javax.swing.JComboBox<>();
@@ -265,10 +263,6 @@ public class VentanaAdministrador extends javax.swing.JFrame {
             }
         });
 
-        jLabel22.setText("Desde:");
-
-        jLabel23.setText("Hasta:");
-
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -277,21 +271,17 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                 .addGap(36, 36, 36)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 991, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 110, Short.MAX_VALUE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel21)
                         .addGap(18, 18, 18)
                         .addComponent(boxBusquedaTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
+                        .addComponent(txtBusquedaListado, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(botonFiltrar)
-                        .addGap(62, 62, 62)
-                        .addComponent(jLabel22)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtFechaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel23)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtFechaFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 991, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 110, Short.MAX_VALUE))
+                        .addGap(195, 195, 195))))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -301,16 +291,13 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                     .addComponent(jLabel21)
                     .addComponent(boxBusquedaTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botonFiltrar)
-                    .addComponent(jLabel22)
-                    .addComponent(jLabel23)
-                    .addComponent(txtFechaFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtFechaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtBusquedaListado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(63, 63, 63)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(290, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Buscar", jPanel4);
+        jTabbedPane1.addTab("Listados", jPanel4);
 
         jLabel24.setText("Tipo de prestamo:");
 
@@ -1059,10 +1046,12 @@ public class VentanaAdministrador extends javax.swing.JFrame {
     }//GEN-LAST:event_botonCargarDatosActionPerformed
 
     private void botonRegistrarLectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarLectorActionPerformed
-        if(this.boxCargo.getSelectedItem().equals("LECTOR GENERAL")) {
-            GregorianCalendar fechaNacimiento = new GregorianCalendar(Integer.parseInt(this.txtAnioNacimiento.getText()),
+        GregorianCalendar fechaNacimiento = new GregorianCalendar(Integer.parseInt(this.txtAnioNacimiento.getText()),
                                                                        Integer.parseInt(this.txtMesNacimiento.getText()),
                                                                        Integer.parseInt(this.txtDiaNacimiento.getText()));
+        
+        if(this.boxCargo.getSelectedItem().equals("LECTOR GENERAL")) {
+            
             
             Lector nuevoLector = new Lector(this.txtNombre.getText(),
                                             this.txtApellido.getText(),
@@ -1080,10 +1069,6 @@ public class VentanaAdministrador extends javax.swing.JFrame {
         }
         
         if(this.boxCargo.getSelectedItem().equals("ALUMNO")) {
-            GregorianCalendar fechaNacimiento = new GregorianCalendar(Integer.parseInt(this.txtAnioNacimiento.getText()),
-                                                                       Integer.parseInt(this.txtMesNacimiento.getText()),
-                                                                       Integer.parseInt(this.txtDiaNacimiento.getText()));
-            
             Alumno nuevoAlumno = new Alumno(this.txtCarreras.getText(),
                                             this.txtNombre.getText(),
                                             this.txtApellido.getText(),
@@ -1100,11 +1085,7 @@ public class VentanaAdministrador extends javax.swing.JFrame {
             this.datos.agregarLector(nuevoAlumno);
         }
         
-        if(this.boxCargo.getSelectedItem().equals("DOCENTE")) {
-            GregorianCalendar fechaNacimiento = new GregorianCalendar(Integer.parseInt(this.txtAnioNacimiento.getText()),
-                                                                      Integer.parseInt(this.txtMesNacimiento.getText()),
-                                                                      Integer.parseInt(this.txtDiaNacimiento.getText()));
-            
+        if(this.boxCargo.getSelectedItem().equals("DOCENTE")) {            
             Docente nuevoDocente = new Docente(this.txtCarreras.getText(),
                                                this.txtNombre.getText(),
                                                this.txtApellido.getText(),
@@ -1127,29 +1108,41 @@ public class VentanaAdministrador extends javax.swing.JFrame {
     private void botonRegistrarPrestamoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarPrestamoActionPerformed
         
         // Se busca al lector segun el documento que se coloco, si no se lo encuentra devulve una referencua nula
-        Lector lectorPrestamo = this.datos.buscarLector(Integer.parseInt(this.txtDocumentoLector.getText()));
-        
-        // Busco el ejemplar teniendo en cuenta el codigo unico que posee cada uno
-        Ejemplar ejemplarPrestamo = this.datos.buscarEjemplar(Integer.parseInt(this.txtCodEjemplar.getText()));
-        
-        // Se agarra al usuario que esta logueado para setear el emisor del prestamo
-        Usuario bibliotecarioEmisor = VentanaLogueo.bibliotecarioLogueado;
-        
-        if(lectorPrestamo == null || ejemplarPrestamo == null) {
-            if(lectorPrestamo == null){
-                javax.swing.JOptionPane.showMessageDialog(rootPane, "El Lector no se encuentra registrado, por favor cargue sus datos.");
-            }else{
-                javax.swing.JOptionPane.showMessageDialog(rootPane, "Codigo no valido, ese ejemplar no existe.");
-
-            }
-        }else{
-            // se setea el prestamo
-            Prestamo nuevoPrestamo = new Prestamo(new GregorianCalendar(),
-                                                 (PrestamoTipo) this.boxTipoDePrestamo.getSelectedItem(),
-                                                 bibliotecarioEmisor,
-                                                 ejemplarPrestamo,
-                                                 lectorPrestamo);
+        Lector lectorPrestamo = null;
+        Ejemplar ejemplarPrestamo = null;
+        try {
+            lectorPrestamo = this.datos.buscarLector(Integer.parseInt(this.txtDocumentoLector.getText()));
+            
+            ejemplarPrestamo = this.datos.buscarEjemplar(this.txtCodEjemplar.getText());
+        } catch (LectorNoRegistradoError ex) {
+            javax.swing.JOptionPane.showMessageDialog(rootPane, "El Lector no se encuentra registrado, por favor cargue sus datos.");
+        } catch (EjemplarInexistenteError ex) {
+            javax.swing.JOptionPane.showMessageDialog(rootPane, "Codigo no valido, ese ejemplar no existe.");
         }
+
+        // Verifico que el lector no este multado
+        if(lectorPrestamo.estaMultado()) {
+            // Si el lector esta multado veo si su multa ya expiro, si es asi digo que no esta mas multado y le concedo el prestamo
+            if(lectorPrestamo.getMultas().get(lectorPrestamo.cantidadMultas()).getFinalizacion().before(new GregorianCalendar())) {
+                lectorPrestamo.setEstaMultado(false);
+                    
+                Prestamo nuevoPrestamo = new Prestamo(new GregorianCalendar(),
+                                                      (PrestamoTipo) this.boxTipoDePrestamo.getSelectedItem(),
+                                                      datos.getUsuarioLoguado(),
+                                                      ejemplarPrestamo,
+                                                      lectorPrestamo);
+                
+            } else { javax.swing.JOptionPane.showMessageDialog(rootPane, "Este lector esta multado no se le puede realizar un prestamo."); }
+        } else if(lectorPrestamo.estaMultado() == false){
+            Prestamo nuevoPrestamo = new Prestamo(new GregorianCalendar(),
+                                                  (PrestamoTipo) this.boxTipoDePrestamo.getSelectedItem(),
+                                                  datos.getUsuarioLoguado(),
+                                                  ejemplarPrestamo,
+                                                  lectorPrestamo);
+        }
+            
+            
+        
     }//GEN-LAST:event_botonRegistrarPrestamoActionPerformed
     
     private void botonRegistrarDevolucionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarDevolucionActionPerformed
@@ -1171,8 +1164,9 @@ public class VentanaAdministrador extends javax.swing.JFrame {
         switch (this.boxBusquedaTipo.getSelectedIndex()){
             case 0:
                 //Lectores que no devolvieron sus obras.
+                List<Lector> lectores = datos.devolucionesTardias();
                 
-                //actualizarLista();
+                actualizarLista(lectores);
                 break;
             case 1:
                 System.out.println("Se ejecuta");
@@ -1282,8 +1276,6 @@ public class VentanaAdministrador extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
@@ -1339,6 +1331,7 @@ public class VentanaAdministrador extends javax.swing.JFrame {
     private javax.swing.JTextField txtAnioNacimiento;
     private javax.swing.JTextField txtApellido;
     private javax.swing.JTextField txtAreaReferencia;
+    private javax.swing.JTextField txtBusquedaListado;
     private javax.swing.JTextField txtCanEjemplares;
     private javax.swing.JTextField txtCantidadPaginas;
     private javax.swing.JTextField txtCarreras;
@@ -1351,8 +1344,6 @@ public class VentanaAdministrador extends javax.swing.JFrame {
     private javax.swing.JTextField txtDocumentoLector;
     private javax.swing.JTextField txtDomicilio;
     private javax.swing.JTextField txtEditorial;
-    private javax.swing.JTextField txtFechaFinal;
-    private javax.swing.JTextField txtFechaInicio;
     private javax.swing.JTextField txtGenero;
     private javax.swing.JTextField txtGestionBusqueda;
     private javax.swing.JTextField txtISBN;

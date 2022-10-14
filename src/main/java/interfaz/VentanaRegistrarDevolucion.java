@@ -4,6 +4,7 @@
  */
 package interfaz;
 
+import excepciones.PrestamoInexistenteError;
 import gestion.datos.GestionDatos;
 import gestion.inventario.Multa;
 import gestion.personas.Lector;
@@ -120,18 +121,18 @@ public class VentanaRegistrarDevolucion extends javax.swing.JFrame {
 
     private void botonRegistrarDevolucionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarDevolucionActionPerformed
         try{
-            Lector lectorEntregaPrestamo = this.datos.buscarPrestamo(Integer.parseInt(this.txtCodEjemplar.getText()));
+            Lector lectorEntregaPrestamo = this.datos.buscarPrestamo(this.txtCodEjemplar.getText());
         
-            if(lectorEntregaPrestamo.getLibroEnPrestamo().getFechaDevolucion().after(new GregorianCalendar())) {
+            if(lectorEntregaPrestamo.getLibroEnPrestamo().getFechaDevolucion().before(new GregorianCalendar())) {
                 new Multa(new GregorianCalendar(), lectorEntregaPrestamo);
                 lectorEntregaPrestamo.setEstaMultado(true);
             }
         
-            lectorEntregaPrestamo.getLibroEnPrestamo().setReceptorPrestamo(VentanaLogueo.bibliotecarioLogueado);
+            lectorEntregaPrestamo.getLibroEnPrestamo().setReceptorPrestamo(datos.getUsuarioLoguado());
         
             dispose();
-        } catch(Exception e) {
-            javax.swing.JOptionPane.showMessageDialog(rootPane, "Por favor ingrese un codigo valido");
+        } catch(PrestamoInexistenteError ex) {
+            javax.swing.JOptionPane.showMessageDialog(rootPane, "Este ejemplar mo se encuentra en prestamo");
         }
         
     }//GEN-LAST:event_botonRegistrarDevolucionActionPerformed

@@ -165,7 +165,7 @@ public class Lector extends Persona {
     @Override
     public String toString() {
         return String.format("%s"
-                + "%nMultado:%s", super.toString(), estaMultado);
+                + "Es un %s", super.toString(), this.getClass().getName());
     }
    
 }

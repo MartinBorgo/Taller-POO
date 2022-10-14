@@ -129,20 +129,8 @@ public abstract class Persona implements Serializable {
         return String.format("Nombre: %s"
                 + "%nApellidos:%s"
                 + "%nDNI:%s"
-                + "%nFecha nacimiento:%s/%s/%s"
-                + "%nSexo:%s"
-                + "%nNacionalidad:%s"
-                + "%nDomicilio:%s"
-                + "%nCodigo postal:%s"
-                + "%nLocalidad:%s"
-                + "%nNumero celular:%s"
-                + "%nMail:%s", 
-                nombres, apellidos, dni,
-                fechaNacimiento.get(Calendar.YEAR),
-                fechaNacimiento.get(Calendar.MONTH), 
-                fechaNacimiento.get(Calendar.DAY_OF_MONTH),
-                sexo.getSexoTipo(), nacionalidad, domicilio, 
-                codPostal, localidad, numCelular, mail);
+                + "%nNumero celular:%s", 
+                nombres, apellidos, dni, numCelular);
     }
 	
 }

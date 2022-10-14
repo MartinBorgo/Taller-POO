@@ -16,7 +16,7 @@ import net.sourceforge.barbecue.output.OutputException;
 
 /**
  *
- * @author pepeponpin
+ * @author Grupo 2
  */
 public class Main {
     public static ArrayList<Usuario> listaDeBibliotecarios = new ArrayList();

@@ -5,7 +5,6 @@
 package interfaz;
 
 import gestion.datos.GestionDatos;
-import com.mycompany.taller.poo.Main;
 import gestion.personas.Bibliotecario;
 import gestion.personas.Usuario;
 
@@ -156,10 +155,10 @@ public class VentanaLogueo extends javax.swing.JFrame {
      */
     private void botonIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonIngresarActionPerformed
         // TODO add your handling code here:
-        for(Usuario bibliotecario : Main.listaDeBibliotecarios){
+        for(Usuario bibliotecario : datos.getListaUsuarios()){
             if(bibliotecario.esAdministrador()){
                 if(bibliotecario.getNombreUsuario().equals(this.txtNombreUsuario.getText()) && bibliotecario.getContrasenia().equals(this.txtContrasenia.getText())) {
-                    bibliotecarioLogueado = bibliotecario;
+                    datos.setUsuarioLoguado((Bibliotecario) bibliotecario);
                     
                     dispose();
             
@@ -168,7 +167,7 @@ public class VentanaLogueo extends javax.swing.JFrame {
                 }
             } else {
                 if(bibliotecario.getNombreUsuario().equals(this.txtNombreUsuario.getText()) && bibliotecario.getContrasenia().equals(this.txtContrasenia.getText())) {
-                    bibliotecarioLogueado = bibliotecario;
+                    datos.setUsuarioLoguado((Bibliotecario) bibliotecario);
                     
                     dispose();
             
@@ -218,7 +217,6 @@ public class VentanaLogueo extends javax.swing.JFrame {
         });
     }
 
-    public static Usuario bibliotecarioLogueado;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonIngresar;
     private javax.swing.JButton botonResetear;
