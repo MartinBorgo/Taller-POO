@@ -994,6 +994,7 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                                    (String) this.boxFormaAdquisicion.getSelectedItem(),
                                    nuevaUbicacion,
                                    nuevaColeccion);
+                           
                        } catch (BarcodeException ex) {
                            Logger.getLogger(VentanaAdministrador.class.getName()).log(Level.SEVERE, null, ex);
                        } catch (OutputException ex) {

@@ -1,8 +1,9 @@
 package gestion.personas;
 
+import java.io.Serializable;
 import java.util.GregorianCalendar;
 
-public class Usuario extends Persona {
+public class Usuario extends Persona implements Serializable {
     private boolean administrador;
     private String nombreUsuario;
     private String contrasenia;

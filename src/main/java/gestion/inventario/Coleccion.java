@@ -7,6 +7,7 @@ package gestion.inventario;
 import enumeraciones.AreaTematicaTipo;
 import enumeraciones.CaracteristicaTipo;
 import enumeraciones.ObraTipo;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +16,7 @@ import java.util.List;
  *
  * @author martin
  */
-public class Coleccion extends Obra {
+public class Coleccion extends Obra implements Serializable {
     private int isbnColeccion;
     private String nombreColeccion;
     private List<Ejemplar> ejemplares = new ArrayList();
