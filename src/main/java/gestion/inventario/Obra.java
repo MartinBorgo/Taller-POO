@@ -342,6 +342,22 @@ public class Obra implements Serializable{
     }
     
     /**
+     * Este metodo incrementa en uno el argumento <b>solicitudGeneral</b> del objeto obra
+     * 
+     */
+    public void incrementarGeneral() {
+        solicitudGeneral++;
+    }
+
+    /**
+     * Este metodo incrementa en uno el argumento <b>solicitudFacultad</b> del objeto obra
+     * 
+     */
+    public void incrementarFacultad() {
+        solicitudFacultad++;
+    }
+    
+    /**
      * Método toString de Obra.
      * @return String
      */
@@ -382,54 +398,6 @@ public class Obra implements Serializable{
 //                genero, caracterisitica.getCaracteristicaTipo(),
 //                indiceObra, areaReferencia, solicitudFacultad, 
 //                solicitudGeneral, isbn, edicion.toString());
+   
     }
-    /**
-     * Devuelve una lista de las editoriales.
-     * @param list Obra
-     * @param editorial String
-     * @return List
-     */
-    public static List<Obra> getEditorial(List<Obra> list, String editorial){
-        return list.stream().filter(x -> x.edicion.getEditorial().equals(editorial)).collect(Collectors.toList());
-    }
-    /**
-     * Devuelve todas las obras concatenadas en un String.
-     * @param list Obra
-     * @return String
-     */
-    public static String imprimirObras(List <Obra> list){
-        String resultado = "";
-        for (Obra obra : list) {
-            resultado = resultado.concat(obra.toString());
-        }
-        return resultado;
-    }
-    
-    public static List<Obra> getSolicitudGeneral(List<Obra> list){
-    	CriterioSolicitudGeneral a = new CriterioSolicitudGeneral();
-    	List<Obra> copy = list.stream().collect(Collectors.toList());
-    	copy.sort(a);
-    	Collections.reverse(copy);
-    	return copy;
-    }
-    
-    public static List<Obra> getSolicitudFacultad(List<Obra> list){
-    	CriterioSolicitudFacultad a = new CriterioSolicitudFacultad();
-    	List<Obra> copy = list.stream().collect(Collectors.toList());
-    	copy.sort(a);
-    	Collections.reverse(copy);
-    	return copy;
-    }
-    
-    public List<Ejemplar> DisponibleAreaReferencia(String areaReferencia) {
-    	List<Ejemplar> aux = new ArrayList<>();
-    	for (Ejemplar ejemplar : ejemplares) {
-    		if(ejemplar.isEnPrestamo() == false) {
-    			if(ejemplar.getObra().areaReferencia.equals(areaReferencia)) {
-    				aux.add(ejemplar);
-    			}
-    		}
-    	}
-    	return aux;
-    }    
 }

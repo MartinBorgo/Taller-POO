@@ -4,7 +4,7 @@
  */
 package interfaz;
 
-import com.mycompany.taller.poo.GestionDatos;
+import gestion.datos.GestionDatos;
 import gestion.inventario.Multa;
 import gestion.personas.Lector;
 import java.util.GregorianCalendar;

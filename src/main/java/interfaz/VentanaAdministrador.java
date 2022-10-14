@@ -4,7 +4,7 @@
  */
 package interfaz;
 
-import com.mycompany.taller.poo.GestionDatos;
+import gestion.datos.GestionDatos;
 import enumeraciones.AreaTematicaTipo;
 import enumeraciones.CaracteristicaTipo;
 import enumeraciones.FormatoTipo;
@@ -41,10 +41,10 @@ public class VentanaAdministrador extends javax.swing.JFrame {
     /**
      * Creates new form VentanaAdministrador
      */
-    public VentanaAdministrador() {
+    public VentanaAdministrador(GestionDatos datos) {
         super("Gestion de Biblioteca");
         
-        datos = new GestionDatos();
+        this.datos = datos;
         initComponents();
         
         this.setLocationRelativeTo(null);
@@ -1044,9 +1044,9 @@ public class VentanaAdministrador extends javax.swing.JFrame {
             for(int i = 0; i <= nuevaObra.getCantidadEjemplares(); i++) {
                 try {
                     Ejemplar ejemplarNuevo = new Ejemplar(new GregorianCalendar(),
-                            (String) this.boxFormaAdquisicion.getSelectedItem(),
-                            nuevaUbicacion,
-                            nuevaObra);
+                                                          (String) this.boxFormaAdquisicion.getSelectedItem(),
+                                                          nuevaUbicacion,
+                                                          nuevaObra);
                 } catch (BarcodeException ex) {
                     Logger.getLogger(VentanaAdministrador.class.getName()).log(Level.SEVERE, null, ex);
                 } catch (OutputException ex) {
@@ -1073,7 +1073,8 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                                             Integer.parseInt(this.txtCodPostal.getText()),
                                             this.txtLocalidad.getText(),
                                             this.txtNumCelular.getText(),
-                                            this.txtCorreoElectronico.getText());
+                                            this.txtCorreoElectronico.getText(),
+                                            (SexoTipo) this.boxSexo.getSelectedItem());
             
             this.datos.agregarLector(nuevoLector);
         }
@@ -1083,7 +1084,8 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                                                                        Integer.parseInt(this.txtMesNacimiento.getText()),
                                                                        Integer.parseInt(this.txtDiaNacimiento.getText()));
             
-            Alumno nuevoAlumno = new Alumno(this.txtNombre.getText(),
+            Alumno nuevoAlumno = new Alumno(this.txtCarreras.getText(),
+                                            this.txtNombre.getText(),
                                             this.txtApellido.getText(),
                                             Integer.parseInt(this.txtDocumento.getText()),
                                             fechaNacimiento,
@@ -1093,7 +1095,7 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                                             this.txtLocalidad.getText(),
                                             this.txtNumCelular.getText(),
                                             this.txtCorreoElectronico.getText(),
-                                            this.txtCarreras.getText());
+                                            (SexoTipo) this.boxSexo.getSelectedItem());
         
             this.datos.agregarLector(nuevoAlumno);
         }
@@ -1103,17 +1105,18 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                                                                       Integer.parseInt(this.txtMesNacimiento.getText()),
                                                                       Integer.parseInt(this.txtDiaNacimiento.getText()));
             
-            Docente nuevoDocente = new Docente(this.txtNombre.getText(),
-                                            this.txtApellido.getText(),
-                                            Integer.parseInt(this.txtDocumento.getText()),
-                                            fechaNacimiento,
-                                            this.txtNacionalidad.getText(),
-                                            this.txtDomicilio.getText(),
-                                            Integer.parseInt(this.txtCodPostal.getText()),
-                                            this.txtLocalidad.getText(),
-                                            this.txtNumCelular.getText(),
-                                            this.txtCorreoElectronico.getText(),
-                                            this.txtCarreras.getText());
+            Docente nuevoDocente = new Docente(this.txtCarreras.getText(),
+                                               this.txtNombre.getText(),
+                                               this.txtApellido.getText(),
+                                               Integer.parseInt(this.txtDocumento.getText()),
+                                               fechaNacimiento,
+                                               this.txtNacionalidad.getText(),
+                                               this.txtDomicilio.getText(),
+                                               Integer.parseInt(this.txtCodPostal.getText()),
+                                               this.txtLocalidad.getText(),
+                                               this.txtNumCelular.getText(),
+                                               this.txtCorreoElectronico.getText(),
+                                               (SexoTipo) this.boxSexo.getSelectedItem());
         
             this.datos.agregarLector(nuevoDocente);
         }
@@ -1168,14 +1171,8 @@ public class VentanaAdministrador extends javax.swing.JFrame {
         switch (this.boxBusquedaTipo.getSelectedIndex()){
             case 0:
                 //Lectores que no devolvieron sus obras.
-                ArrayList<String> asd = new ArrayList();
-                asd.add("Uno");
-                asd.add("Dos");
-                asd.add("Tres");
-                asd.add("Cuatro");
-                asd.add("Cinco");
                 
-                actualizarLista(asd);
+                //actualizarLista();
                 break;
             case 1:
                 System.out.println("Se ejecuta");
@@ -1245,7 +1242,8 @@ public class VentanaAdministrador extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VentanaAdministrador().setVisible(true);
+                GestionDatos dat = null;
+                new VentanaAdministrador(dat).setVisible(true);
             }
         });
     }

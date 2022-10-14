@@ -4,6 +4,7 @@
  */
 package interfaz;
 
+import gestion.datos.GestionDatos;
 import com.mycompany.taller.poo.Main;
 import gestion.personas.Bibliotecario;
 import gestion.personas.Usuario;
@@ -14,13 +15,16 @@ import gestion.personas.Usuario;
  */
 public class VentanaLogueo extends javax.swing.JFrame {
 
+    private GestionDatos datos;
     /**
      * Creates new form LoginScreen
      */
-    public VentanaLogueo() {
+    public VentanaLogueo(GestionDatos datos) {
         super("Inicion de Secion");
         initComponents();
         this.setLocationRelativeTo(null);
+        
+        this.datos = datos;
 
     }
 
@@ -159,7 +163,7 @@ public class VentanaLogueo extends javax.swing.JFrame {
                     
                     dispose();
             
-                    VentanaAdministrador ventanaAdmin = new VentanaAdministrador();
+                    VentanaAdministrador ventanaAdmin = new VentanaAdministrador(datos);
                     ventanaAdmin.show();
                 }
             } else {
@@ -208,7 +212,8 @@ public class VentanaLogueo extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VentanaLogueo().setVisible(true);
+                GestionDatos dat = null;
+                new VentanaLogueo(dat).setVisible(true);
             }
         });
     }

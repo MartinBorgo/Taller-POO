@@ -26,10 +26,11 @@ public class Multa implements Serializable{
         this.inicio = inicio;
         this.personaMultada = personaMultada;
         
-        personaMultada.agregarMulta(this);
-        
         inicio.add(3, 30);  // Se le suma a la fecha de inicio los dias que va a esta multado
         this.finalizacion = inicio;
+        
+        personaMultada.agregarMulta(this);
+        
     }
 
     /**

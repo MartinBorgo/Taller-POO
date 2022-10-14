@@ -2,11 +2,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.taller.poo;
+package gestion.datos;
 
-import gestion.inventario.CriterioCantidadMultas;
-import gestion.inventario.CriterioSolicitudFacultad;
-import gestion.inventario.CriterioSolicitudGeneral;
 import gestion.inventario.Ejemplar;
 import gestion.inventario.Multa;
 import gestion.inventario.Obra;
@@ -195,7 +192,7 @@ public class GestionDatos {
      * 
      * @return List<Lector> Una lista de lectores ordenados por quien tuvo mas multas
      */
-    public List<Lector> getMulas() {
+    public List<Lector> getMultas() {
         CriterioCantidadMultas multas = new CriterioCantidadMultas();
         
         // Copio todos los elementos de la lista en una nueva

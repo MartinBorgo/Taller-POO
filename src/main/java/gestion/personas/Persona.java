@@ -1,39 +1,41 @@
 package gestion.personas;
 
 import enumeraciones.SexoTipo;
+import java.io.Serializable;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
-public abstract class Persona {
-	private String nombres;
-	private String apellidos;
-	private int dni;
-	private GregorianCalendar fechaNacimiento;
-	private SexoTipo sexo;
-	private String nacionalidad;
-	private String domicilio;
-	private int codPostal;
-	private String localidad;
-	private String numCelular;
-	private String mail;
-	
-	public Persona() {
-	}
+public abstract class Persona implements Serializable {
+    private String nombres;
+    private String apellidos;
+    private int dni;
+    private GregorianCalendar fechaNacimiento;
+    private SexoTipo sexo;
+    private String nacionalidad;
+    private String domicilio;
+    private int codPostal;
+    private String localidad;
+    private String numCelular;
+    private String mail;
 
-	public Persona(String nombres, String apellidos, int dni, GregorianCalendar fechaNacimiento, String nacionalidad,
-			String domicilio, int codPostal, String localidad, String numCelular, String mail) {
-		this.nombres = nombres;
-		this.apellidos = apellidos;
-		this.dni = dni;
-		this.fechaNacimiento = fechaNacimiento;
-		this.nacionalidad = nacionalidad;
-		this.domicilio = domicilio;
-		this.codPostal = codPostal;
-		this.localidad = localidad;
-		this.numCelular = numCelular;
-		this.mail = mail;
-	}
+    public Persona(String nombres, String apellidos, int dni, GregorianCalendar fechaNacimiento, String nacionalidad,
+                   String domicilio, int codPostal, String localidad, String numCelular, String mail, SexoTipo sexo) {
+	this.nombres = nombres;
+	this.apellidos = apellidos;
+	this.dni = dni;
+	this.fechaNacimiento = fechaNacimiento;
+	this.nacionalidad = nacionalidad;
+	this.domicilio = domicilio;
+	this.codPostal = codPostal;
+	this.localidad = localidad;
+	this.numCelular = numCelular;
+	this.mail = mail;
+        this.sexo = sexo;
+    }
 
+    public Persona() {
+    }
+        
     public String getNombres() {
         return nombres;
     }
