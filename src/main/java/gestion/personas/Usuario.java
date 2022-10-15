@@ -12,12 +12,12 @@ public class Usuario extends Persona implements Serializable {
     /**
      * Construye un objeto Usuario con todos sus parametros inicializados
      * 
-     * @param administrador boolena
+     * @param administrador boolean
      * @param nombreUsuario String
      * @param contrasenia String
      * @param nombres String
      * @param apellidos String
-     * @param dni Integer
+     * @param dni int
      * @param fechaNacimiento GregorianCalendar
      * @param nacionalidad String
      * @param domicilio String
@@ -37,7 +37,7 @@ public class Usuario extends Persona implements Serializable {
     }
 
     /**
-     * Construye un objeto Usuario con sus atributos de unicio de secion seteados
+     * Construye un objeto Usuario con sus atributos de inicio de sesion seteados
      * 
      * @param administrador boolean
      * @param nombreUsuario String
@@ -112,7 +112,7 @@ public class Usuario extends Persona implements Serializable {
     }
       
     /**
-     * Devuelve una representacion del objeto Usuarioen forma de String
+     * Devuelve una representacion del objeto Usuario en forma de String
      * 
      * @return String
      */

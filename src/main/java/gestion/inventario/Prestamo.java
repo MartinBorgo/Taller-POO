@@ -59,7 +59,9 @@ public class Prestamo implements Serializable{
         lectorSolicita.agregarLibro(ejemplarSolicitado);
         
     }
-
+    /**
+     * Se crea un objecto con valores preterminados.
+     */
     public Prestamo() {
     }
     /**
@@ -71,7 +73,7 @@ public class Prestamo implements Serializable{
     }
     /**
      * Establece la fecha de inicio del préstamo.
-     * @param fechaInicio -> GregorianCalendar
+     * @param fechaInicio GregorianCalendar
      */
     public void setFechaInicio(GregorianCalendar fechaInicio) {
         this.fechaInicio = fechaInicio;
@@ -85,7 +87,7 @@ public class Prestamo implements Serializable{
     }
     /**
      * Establece la fecha de devolución.
-     * @param fechaDevolucion -> GregorianCalendar
+     * @param fechaDevolucion GregorianCalendar
      */
     public void setFechaDevolucion(GregorianCalendar fechaDevolucion) {
         this.fechaDevolucion = fechaDevolucion;
@@ -99,7 +101,7 @@ public class Prestamo implements Serializable{
     }
     /**
      * Establece la cantidad de días del préstamo.
-     * @param diasDePrestamo -> int
+     * @param diasDePrestamo int
      */
     public void setDiasDePrestamo(int diasDePrestamo) {
         this.diasDePrestamo = diasDePrestamo;
@@ -113,7 +115,7 @@ public class Prestamo implements Serializable{
     }
     /**
      * Establece el tipo de préstamo. Requiere un objeto PrestamoTipo.
-     * @param tipoPrestamo -> PrestamoTipo
+     * @param tipoPrestamo PrestamoTipo
      */
     public void setTipoPrestamo(PrestamoTipo tipoPrestamo) {
         this.tipoPrestamo = tipoPrestamo;
@@ -126,8 +128,8 @@ public class Prestamo implements Serializable{
         return emisorPrestamo;
     }
     /**
-     * Esablece el emisor del préstamo. Requiere como parámetro un objeto Usuario.
-     * @param emisorPrestamo -> Usuario
+     * Establece el emisor del préstamo. Requiere como parámetro un objeto Usuario.
+     * @param emisorPrestamo Usuario
      */
     public void setEmisorPrestamo(Usuario emisorPrestamo) {
         this.emisorPrestamo = emisorPrestamo;
@@ -141,7 +143,7 @@ public class Prestamo implements Serializable{
     }
     /**
      * Establece el receptor del préstamo. Requiere un objeto Usuario.
-     * @param receptorPrestamo -> Usuario
+     * @param receptorPrestamo Usuario
      */
     public void setReceptorPrestamo(Usuario receptorPrestamo) {
         this.receptorPrestamo = receptorPrestamo;
@@ -155,7 +157,7 @@ public class Prestamo implements Serializable{
     }
     /**
      * Establece el Ejemplar que es solicitado para el préstamo.
-     * @param ejemplarSolicitado -> Ejemplar
+     * @param ejemplarSolicitado Ejemplar
      */
     public void setEjemplarSolicitado(Ejemplar ejemplarSolicitado) {
         this.ejemplarSolicitado = ejemplarSolicitado;
@@ -169,7 +171,7 @@ public class Prestamo implements Serializable{
     }
     /**
      * Establece la solicitud del lector. Requiere un objeto Lector.
-     * @param lectorSolicita -> Lector
+     * @param lectorSolicita Lector
      */
     public void setLectorSolicita(Lector lectorSolicita) {
         this.lectorSolicita = lectorSolicita;

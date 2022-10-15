@@ -47,7 +47,7 @@ public class Alumno extends Lector {
     /**
      * Setea la carrera en que cursa el alumno
      * 
-     * @param carreras 
+     * @param carreras String
      */
     public void setCarreras(String carreras) {
 	this.carrera = carreras;

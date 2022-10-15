@@ -8,7 +8,7 @@ public class Bibliotecario extends Usuario {
     /**
      * Construye un objeto Bibliotecarion con sus valores inicializados
      * 
-     * @param administrador boolena
+     * @param administrador boolean
      * @param nombreUsuario String
      * @param contrasenia String
      */
