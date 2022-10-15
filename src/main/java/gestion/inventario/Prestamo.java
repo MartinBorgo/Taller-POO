@@ -26,11 +26,11 @@ public class Prestamo implements Serializable{
     private Lector lectorSolicita;
     /**
      * Constructor de Prestamo.
-     * @param fechaInicio
-     * @param tipoPrestamo
-     * @param emisorPrestamo
-     * @param ejemplarSolicitado
-     * @param lectorSolicita 
+     * @param fechaInicio GregorianCalendar
+     * @param tipoPrestamo PrestamoTipo
+     * @param emisorPrestamo Usuario
+     * @param ejemplarSolicitado Ejemplar
+     * @param lectorSolicita Lector
      */
     public Prestamo(GregorianCalendar fechaInicio, PrestamoTipo tipoPrestamo, Usuario emisorPrestamo, Ejemplar ejemplarSolicitado, Lector lectorSolicita) {
         this.fechaInicio = fechaInicio;

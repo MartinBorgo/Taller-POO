@@ -967,7 +967,7 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                    nuevaColeccion.setSegundoAutor(txtSegundoAutor.getText());
                    nuevaColeccion.setTercerAutor(txtAreaReferencia.getText());
                    nuevaColeccion.setGenero(txtGenero.getText());
-                   nuevaColeccion.setCaracterisitica((CaracteristicaTipo) boxCaracteristicas.getSelectedItem());
+                   nuevaColeccion.setCaracteristica((CaracteristicaTipo) boxCaracteristicas.getSelectedItem());
                    nuevaColeccion.setAreaReferencia(txtAreaReferencia.getText());
                    nuevaColeccion.setIsbn(Integer.parseInt(txtISBN.getText()));
                    nuevaColeccion.setEdicion(nuevaEdicion);
@@ -1022,7 +1022,7 @@ public class VentanaAdministrador extends javax.swing.JFrame {
             nuevaObra.setSegundoAutor(txtSegundoAutor.getText());
             nuevaObra.setTercerAutor(txtTercerAutor.getText());
             nuevaObra.setGenero(txtGenero.getText());
-            nuevaObra.setCaracterisitica((CaracteristicaTipo) boxCaracteristicas.getSelectedItem());
+            nuevaObra.setCaracteristica((CaracteristicaTipo) boxCaracteristicas.getSelectedItem());
             nuevaObra.setAreaReferencia(txtAreaReferencia.getText());
             nuevaObra.setIsbn(Integer.parseInt(txtISBN.getText()));
             nuevaObra.setEdicion(nuevaEdicion);

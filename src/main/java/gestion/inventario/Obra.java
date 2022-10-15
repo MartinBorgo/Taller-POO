@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
 public class Obra implements Serializable{
     private ObraTipo tipoDeObra;
     private AreaTematicaTipo areaTematica;
-    private CaracteristicaTipo caracterisitica;
+    private CaracteristicaTipo caracteristica;
     private int cantidadEjemplares;
     private String titulo;
     private String subtitulo;
@@ -38,24 +38,23 @@ public class Obra implements Serializable{
 
 
     /**
-     * Constructor parametrizado para crear un objeto de tipo Obra
-     * 
-     * @param tipoDeObra
-     * @param areaTematica
-     * @param cantidadEjemplares
-     * @param titulo
-     * @param subtitulo
-     * @param primerAutor
-     * @param segundoAutor
-     * @param tercerAutor
-     * @param genero
-     * @param caracterisitica
-     * @param areaReferencia
-     * @param isbn
-     * @param edicion 
+     * Construye un objeto obra con los valore pasados por parametro.
+     * @param tipoDeObra tipoDeObra
+     * @param areaTematica AreaTematicaTipo
+     * @param cantidadEjemplares int
+     * @param titulo String
+     * @param subtitulo String
+     * @param primerAutor String
+     * @param segundoAutor String
+     * @param tercerAutor String
+     * @param genero String
+     * @param caracteristica CaracteristicaTipo
+     * @param areaReferencia String
+     * @param isbn int
+     * @param edicion Edicion
      */    
     public Obra(ObraTipo tipoDeObra, AreaTematicaTipo areaTematica, int cantidadEjemplares, String titulo, String subtitulo, String primerAutor,
-                String segundoAutor, String tercerAutor, String genero, CaracteristicaTipo caracterisitica, String areaReferencia,
+                String segundoAutor, String tercerAutor, String genero, CaracteristicaTipo caracteristica, String areaReferencia,
                 int isbn, Edicion edicion) {
         
         this.tipoDeObra = tipoDeObra;
@@ -67,7 +66,7 @@ public class Obra implements Serializable{
         this.segundoAutor = segundoAutor;
         this.tercerAutor = tercerAutor;
         this.genero = genero;
-        this.caracterisitica = caracterisitica;
+        this.caracteristica = caracteristica;
         this.areaReferencia = areaReferencia;
         this.isbn = isbn;
         this.edicion = edicion;
@@ -90,7 +89,7 @@ public class Obra implements Serializable{
     }
     /**
      * Establece el tipo de obra. Requiere un objeto ObraTipo.
-     * @param tipoDeObra -> ObraTipo
+     * @param tipoDeObra ObraTipo
      */
     public void setTipoDeObra(ObraTipo tipoDeObra) {
         this.tipoDeObra = tipoDeObra;
@@ -104,7 +103,7 @@ public class Obra implements Serializable{
     }
     /**
      * Establece el area temática de la obra. Requiere un objeto AreaTematicaTipo.
-     * @param areaTematica -> AreaTematicaTipo
+     * @param areaTematica AreaTematicaTipo
      */
     public void setAreaTematica(AreaTematicaTipo areaTematica) {
         this.areaTematica = areaTematica;
@@ -118,7 +117,7 @@ public class Obra implements Serializable{
     }
     /**
      * Establece la cantidad de ejemplares de la obra.
-     * @param cantidadEjemplares -> int
+     * @param cantidadEjemplares int
      */
     public void setCantidadEjemplares(int cantidadEjemplares) {
         this.cantidadEjemplares = cantidadEjemplares;
@@ -132,7 +131,7 @@ public class Obra implements Serializable{
     }
     /**
      * Establece el subtitulo de la obra.
-     * @param titulo -> String
+     * @param titulo String
      */
     public void setTitulo(String titulo) {
         this.titulo = titulo;
@@ -146,7 +145,7 @@ public class Obra implements Serializable{
     }
     /**
      * Establece el subtitulo de la obra.
-     * @param subtitulo -> String
+     * @param subtitulo String
      */
     public void setSubtitulo(String subtitulo) {
         this.subtitulo = subtitulo;
@@ -160,7 +159,7 @@ public class Obra implements Serializable{
     }
     /**
      * Establece el primer autor de la obra.
-     * @param primerAutor -> String
+     * @param primerAutor String
      */
     public void setPrimerAutor(String primerAutor) {
         this.primerAutor = primerAutor;
@@ -174,7 +173,7 @@ public class Obra implements Serializable{
     }
     /**
      * Establece el segundo autor de la obra.
-     * @param segundoAutor -> String
+     * @param segundoAutor String
      */
     public void setSegundoAutor(String segundoAutor) {
         this.segundoAutor = segundoAutor;
@@ -188,7 +187,7 @@ public class Obra implements Serializable{
     }
     /**
      * Establece el tercer autor de la obra.
-     * @param tercerAutor -> String
+     * @param tercerAutor String
      */
     public void setTercerAutor(String tercerAutor) {
         this.tercerAutor = tercerAutor;
@@ -202,7 +201,7 @@ public class Obra implements Serializable{
     }
     /**
      * Establece el género en un String.
-     * @param genero -> String
+     * @param genero String
      */
     public void setGenero(String genero) {
         this.genero = genero;
@@ -211,15 +210,15 @@ public class Obra implements Serializable{
      * Devuelve un objeto CaracteristicaTipo de la obra actual.
      * @return Caracteristicatipo
      */
-    public CaracteristicaTipo getCaracterisitica() {
-        return caracterisitica;
+    public CaracteristicaTipo getCaracteristica() {
+        return caracteristica;
     }
     /**
      * Establece la caracteristica del objeto obra actual. Requiere como parámetro un CaracteristicaTipo.
-     * @param caracterisitica -> CaracteristicaTipo
+     * @param caracteristica CaracteristicaTipo
      */
-    public void setCaracterisitica(CaracteristicaTipo caracterisitica) {
-        this.caracterisitica = caracterisitica;
+    public void setCaracteristica(CaracteristicaTipo caracteristica) {
+        this.caracteristica = caracteristica;
     }
     /**
      * Devuelve el indice de obra del objeto obra actual.
@@ -230,7 +229,7 @@ public class Obra implements Serializable{
     }
     /**
      * Establece el indice de obra del objeto obra actual.
-     * @param indiceObra ->String
+     * @param indiceObra String
      */
     public void setIndiceObra(String indiceObra) {
         this.indiceObra = indiceObra;
@@ -244,7 +243,7 @@ public class Obra implements Serializable{
     }
     /**
      * Establece el area de referencia del objeto de obra actual.
-     * @param areaReferencia -> String
+     * @param areaReferencia String
      */
     public void setAreaReferencia(String areaReferencia) {
         this.areaReferencia = areaReferencia;
@@ -258,7 +257,7 @@ public class Obra implements Serializable{
     }
     /**
      * Establece la solicitud facultad para el objeto actual de obra.
-     * @param solicitudFacultad -> int
+     * @param solicitudFacultad int
      */
     public void setSolicitudFacultad(int solicitudFacultad) {
         this.solicitudFacultad = solicitudFacultad;
@@ -272,7 +271,7 @@ public class Obra implements Serializable{
     }
     /**
      * Establece la solicitud general. Requiere un int de parámetro.
-     * @param solicitudGeneral -> int
+     * @param solicitudGeneral int
      */
     public void setSolicitudGeneral(int solicitudGeneral) {
         this.solicitudGeneral = solicitudGeneral;
@@ -286,7 +285,7 @@ public class Obra implements Serializable{
     }
     /**
      * Establece el ISBN de la Obra.
-     * @param isbn -> int
+     * @param isbn int
      */
     public void setIsbn(int isbn) {
         this.isbn = isbn;
@@ -300,7 +299,7 @@ public class Obra implements Serializable{
     }
     /**
      * Establece la edición. Se debe introducir como parámetro un objeto de tipo Edicion.
-     * @param edicion -> Edicion
+     * @param edicion Edicion
      */
     public void setEdicion(Edicion edicion) {
         this.edicion = edicion;
@@ -309,7 +308,7 @@ public class Obra implements Serializable{
     /**
      * Devuelve todos los ejemplares correspondientes al objeto Obra
      * 
-     * @return List<Ejemplar>
+     * @return List Ejemplar
      */
     public List<Ejemplar> getEjemplares() {
         return ejemplares;
@@ -321,7 +320,7 @@ public class Obra implements Serializable{
     
     /**
      * Agregar Ejemplar. Requiere que sea un objeto de tipo Ejemplar.
-     * @param ej -> Ejemplar
+     * @param ej Ejemplar
      */
     public void agregarEjemplar(Ejemplar ej) {
         this.ejemplares.add(ej);
@@ -363,7 +362,6 @@ public class Obra implements Serializable{
      */
     @Override
     public String toString() {
-        
                 return String.format("Tipo obra: %s"
                 + "%nArea tematica: %s"
                 + "%nTitulo: %s"
@@ -373,31 +371,6 @@ public class Obra implements Serializable{
                 + "%nEdicion:%n%s", 
                 tipoDeObra.getObraTipo(), 
                 areaTematica.getAreaTematicaTipo(),titulo, primerAutor, genero, 
-                caracterisitica.getCaracteristicaTipo(), edicion.toString());
-                
-//        return String.format("Tipo obra: %s"
-//                + "%nArea tematica: %s"
-//                + "%nCantidad ejemplares: %d"
-//                + "%nTitulo: %s"
-//                + "%nSubtitulo: %s"
-//                + "%nPrimer autor: %s"
-//                + "%nSegundo autor: %s"
-//                + "%nTercer autor: %s"
-//                + "%nGenero: %s"
-//                + "%nCaracteristica: %s"
-//                + "%nIndice obra: %s"
-//                + "%nArea referencia: %s"
-//                + "%nSolicitud facultad: %d"
-//                + "%nSolicitud general: %d"
-//                + "%nISBN: %d"
-//                + "%nEdicion:%n%s", 
-//                tipoDeObra.getObraTipo(), 
-//                areaTematica.getAreaTematicaTipo(),
-//                cantidadEjemplares, titulo, subtitulo, 
-//                primerAutor, segundoAutor, tercerAutor,
-//                genero, caracterisitica.getCaracteristicaTipo(),
-//                indiceObra, areaReferencia, solicitudFacultad, 
-//                solicitudGeneral, isbn, edicion.toString());
-   
+                caracteristica.getCaracteristicaTipo(), edicion.toString());
     }
 }

@@ -17,6 +17,7 @@ import net.sourceforge.barbecue.output.*;
 /**
  *
  * @author martin
+ * 
  */
 public class Ejemplar implements Serializable{
     private static int incremental = 1;
@@ -40,10 +41,12 @@ public class Ejemplar implements Serializable{
     /**
      * Construye un objeto ejemplar con la informacion basica a la hora de su adquisicion
      * 
-     * @param fechaAdquisicion
-     * @param formaAdquisicion
-     * @param ubicacion
-     * @param obra 
+     * @param fechaAdquisicion GregorianCalendar
+     * @param formaAdquisicion String
+     * @param ubicacion Ubicacion
+     * @param obra Obra
+     * @throws BarcodeException setCodigoBarras()
+     * @throws OutputException setCodigoBarras()
      */
     
     //Puede agarrar excepciones del metodo setCodigoBarras();
@@ -65,10 +68,12 @@ public class Ejemplar implements Serializable{
     /**
      * Construye un objeto Ejemplar con la informacion basica a la hora de la adquisicion
      * 
-     * @param fechaAdquisicion
-     * @param formaAdquisicion
-     * @param ubicacion
-     * @param coleccion 
+     * @param fechaAdquisicion fechaAdquisicion
+     * @param formaAdquisicion String
+     * @param ubicacion Ubicacion
+     * @param coleccion Coleccion
+     * @throws BarcodeException setCodigoBarras()
+     * @throws OutputException setCodigoBarras()
      */
     
     //Puede agarrar excepciones del metodo setCodigoBarras();
@@ -88,8 +93,12 @@ public class Ejemplar implements Serializable{
 
     /**
      * Construye un objeto ejemplar si settear ningun tipo de dato
+     * @throws BarcodeException setCodigoBarras()
+     * @throws OutputException setCodigoBarras()
      */
-    public Ejemplar() {
+    public Ejemplar() throws BarcodeException, OutputException {
+        this.idUnico = incremental;
+        this.setCodigoBarras();
         incremental++;
     }
 
@@ -102,9 +111,9 @@ public class Ejemplar implements Serializable{
     }
 
     /**
-     * Setea El codigo unico con el valor pasado por aparametro
+     * Setea El codigo unico con el valor pasado por parametro
      * 
-     * @param idUnico 
+     * @param idUnico int
      */
     public void setIdUnico(int idUnico) {
         this.idUnico = idUnico;
@@ -123,14 +132,14 @@ public class Ejemplar implements Serializable{
     /**
      * Setea una observacion a el ejemplar
      * 
-     * @param observacion
+     * @param observacion String
      */
     public void setObservaciones(String observacion) {
         this.observaciones = observacion;
     }
 
     /**
-     * Devuleve la fecha de adquisicion del ejemplar
+     * Devuelve la fecha de adquisicion del ejemplar
      * 
      * @return GregorianCalendar 
      */
@@ -141,7 +150,7 @@ public class Ejemplar implements Serializable{
     /**
      * Setea la fecha de adquisicion del ejemplar con la fecha pasada por parametros
      * 
-     * @param fechaAdquisicion 
+     * @param fechaAdquisicion GregorianCalendar
      */
     public void setFechaAdquisicion(GregorianCalendar fechaAdquisicion) {
         this.fechaAdquisicion = fechaAdquisicion;
@@ -159,7 +168,7 @@ public class Ejemplar implements Serializable{
     /**
      * Setea la forma en la que se adquirio el ejemplar
      * 
-     * @param formaAdquisicion 
+     * @param formaAdquisicion String
      */
     public void setFormaAdquisicion(String formaAdquisicion) {
         this.formaAdquisicion = formaAdquisicion;
@@ -177,7 +186,7 @@ public class Ejemplar implements Serializable{
     /**
      * Setea la fecha de baja del ejemplar con la fecha pasada por parametro
      * 
-     * @param fechaBaja 
+     * @param fechaBaja GregorianCalendar
      */
     public void setFechaBaja(GregorianCalendar fechaBaja) {
         this.fechaBaja = fechaBaja;
@@ -186,7 +195,7 @@ public class Ejemplar implements Serializable{
     /**
      * Devuelve el motivo de la baja del ejemplar
      * 
-     * @return String
+     * @return String String
      */
     public String getMotivoBaja() {
         return motivoBaja;
@@ -195,7 +204,7 @@ public class Ejemplar implements Serializable{
     /**
      * Setea el motivo de la baja del ejemplar con lo pasado por parametro
      * 
-     * @param motivoBaja 
+     * @param motivoBaja String
      */
     public void setMotivoBaja(String motivoBaja) {
         this.motivoBaja = motivoBaja;
@@ -211,9 +220,9 @@ public class Ejemplar implements Serializable{
     }
 
     /**
-     * Setea la ubicaion de baja del ejemplar por lo pasado en parametro
+     * Setea la ubicacion de baja del ejemplar por lo pasado en parametro
      * 
-     * @param ubicacionBaja 
+     * @param ubicacionBaja String
      */
     public void setUbicacionBaja(String ubicacionBaja) {
         this.ubicacionBaja = ubicacionBaja;
@@ -235,7 +244,7 @@ public class Ejemplar implements Serializable{
      * true -> El ejemplar pasa a estar en prestamo
      * false -> El ejemplar pasa a estar disponible
      * 
-     * @param enPrestamo 
+     * @param enPrestamo boolean
      */
     public void setEnPrestamo(boolean enPrestamo) {
         this.enPrestamo = enPrestamo;
@@ -253,7 +262,7 @@ public class Ejemplar implements Serializable{
     /**
      * Setea la ubicacion en la que se encuentra el libro
      * 
-     * @param ubicacion 
+     * @param ubicacion Ubicacion
      */
     public void setUbicacion(Ubicacion ubicacion) {
         this.ubicacion = ubicacion;
@@ -271,7 +280,7 @@ public class Ejemplar implements Serializable{
     /**
      * Setea un prestamo para el ejemplar
      * 
-     * @param infoPrestamo 
+     * @param infoPrestamo Prestamo
      */
     public void setInfoPrestamo(Prestamo infoPrestamo) {
         this.infoPrestamo = infoPrestamo;
@@ -279,7 +288,7 @@ public class Ejemplar implements Serializable{
     }
 
     /**
-     * Devuelve la Obra de la que es elejemplar
+     * Devuelve la Obra de la que es el ejemplar
      * 
      * @return Obra
      */
@@ -290,14 +299,14 @@ public class Ejemplar implements Serializable{
     /**
      * Setea la obra del ejemplar
      * 
-     * @param obra 
+     * @param obra Obra
      */
     public void setObra(Obra obra) {
         this.obra = obra;
     }
 
     /**
-     * Devuevlve la coleccion a la que pertenece el ejemplar
+     * Devuelve la coleccion a la que pertenece el ejemplar
      * 
      * @return Coleccion
      */
@@ -308,7 +317,7 @@ public class Ejemplar implements Serializable{
     /**
      * Setea un nuevo coleccion para el ejemplar
      * 
-     * @param coleccion 
+     * @param coleccion Coleccion
      */
     public void setColeccion(Coleccion coleccion) {
         this.coleccion = coleccion;
@@ -317,7 +326,7 @@ public class Ejemplar implements Serializable{
     /**
      * Devuelve la lista de todos los lectores que solicitaron este ejemplar
      * 
-     * @return List<Lector>
+     * @return List Lector
      */
     public List<Lector> getListaSolicitudLectores() {
         return listaSolicitudLectores;
@@ -326,7 +335,7 @@ public class Ejemplar implements Serializable{
     /**
      * Setea una nueva lista de lector que tomo en prestamo el ejemplar 
      * 
-     * @param listaSolicitudLectores List<Lector>
+     * @param listaSolicitudLectores List Lector
      */
     public void setListaSolicitudLectores(List<Lector> listaSolicitudLectores) {
         this.listaSolicitudLectores = listaSolicitudLectores;
@@ -342,14 +351,18 @@ public class Ejemplar implements Serializable{
     }
 
     /**
-     * Setea una nueva lista de resercaciones para el ejemplar
+     * Setea una nueva lista de reservaciones para el ejemplar
      * 
-     * @param reservaciones 
+     * @param reservaciones List Reservacion
      */
     public void setReservaciones(List<Reservacion> reservaciones) {
         this.reservaciones = reservaciones;
     }
 
+    /**
+     * Devuelve el codigo de barras del ejemplar
+     * @return String
+     */
     public String getCodigoBarras() {
         return codigoBarras;
     }
@@ -359,7 +372,7 @@ public class Ejemplar implements Serializable{
     /**
      * Agrega un lector a la lista de personas que solicitaron este ejemplar alguna vez
      * 
-     * @param lector 
+     * @param lector Lector
      */
     public void agregarLector(Lector lector) {
         this.listaSolicitudLectores.add(lector);
@@ -368,7 +381,7 @@ public class Ejemplar implements Serializable{
     /**
      * Agrega una reservacion a la lista de reservaciones que hay de el ejemplar en cuestion
      * 
-     * @param reservacion 
+     * @param reservacion Reservacion
      */
     public void agregarReservacion(Reservacion reservacion) {
         this.reservaciones.add(reservacion);
@@ -389,7 +402,12 @@ public class Ejemplar implements Serializable{
                 fechaAdquisicion.get(Calendar.DAY_OF_MONTH), formaAdquisicion, enPrestamo, ubicacion);
     }
     
-    public void setCodigoBarras() throws BarcodeException, OutputException{
+    /**
+     * Ingresa un codigo de barras al ejemplar, llamado desde el constructor.
+     * @throws OutputException barbecue
+     * @throws BarcodeException barbecue
+     */
+    private void setCodigoBarras() throws BarcodeException, OutputException{
         String idAux = Integer.toString(this.idUnico);
         Barcode bar = BarcodeFactory.createCode128(idAux);
         File archivo = new File("src/main/java/codigoDeBarras/" + idAux + ".png");
