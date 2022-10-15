@@ -337,14 +337,12 @@ public class GestionDatos {
         return reservados;
     }
     
-    // ================ Metodos privados de la clase =============== //
-    
     /**
      * Devuelve una lista que contiene todos los ejemplares del distintas Obras cargadas en el sistema
      * 
      * @return List<Ejemplar> 
      */
-    private List<Ejemplar> listaEjemplares() {
+    public List<Ejemplar> listaEjemplares() {
         List<Ejemplar> ejemplares = new ArrayList();
         for(Obra obra : this.listaObras) {
             ejemplares.addAll(obra.getEjemplares());
@@ -353,6 +351,7 @@ public class GestionDatos {
         return ejemplares;
     }
     
+    // ================ Metodos privados de la clase =============== //
     
     private void escribirDatosObra() {
         try {
