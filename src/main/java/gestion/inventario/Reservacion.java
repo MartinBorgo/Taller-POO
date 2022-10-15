@@ -10,19 +10,23 @@ import java.util.GregorianCalendar;
 
 /**
  *
- * @author martin
+ * @author Grupo 2
  */
 public class Reservacion implements Serializable{
     private GregorianCalendar inicio;
     private GregorianCalendar finalizacion;
+    private Ejemplar ejemplarReservado;
     private Lector solicitante;
     
-    public Reservacion(Lector lector, GregorianCalendar inicio) {
+    public Reservacion(Lector lector, Ejemplar ejemplar, GregorianCalendar inicio) {
         this.solicitante = lector;
         this.inicio = inicio;
         
         inicio.add(3, 4);
         this.finalizacion = inicio;
+        
+        this.ejemplarReservado = ejemplar;
+        ejemplar.agregarReservacion(this);
         
     }
 
@@ -42,6 +46,14 @@ public class Reservacion implements Serializable{
         this.finalizacion = finalizacion;
     }
 
+    public Ejemplar getEjemplarReservado() {
+        return ejemplarReservado;
+    }
+
+    public void setEjemplarReservado(Ejemplar ejemplarReservado) {
+        this.ejemplarReservado = ejemplarReservado;
+    }
+    
     public Lector getSolicitante() {
         return solicitante;
     }
