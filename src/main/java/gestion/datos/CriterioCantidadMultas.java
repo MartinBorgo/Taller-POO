@@ -13,6 +13,12 @@ import java.util.Comparator;
  */
 class CriterioCantidadMultas implements Comparator<Lector>{
 
+    /**
+     * Se utiliza en GestionDatos para getMultas()
+     * @param o1 Lector
+     * @param o2 Lector
+     * @return int
+     */
     @Override
     public int compare(Lector o1, Lector o2) {
         int diff = o1.cantidadMultas() - o2.cantidadMultas();

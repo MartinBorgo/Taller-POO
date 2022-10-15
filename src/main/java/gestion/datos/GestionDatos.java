@@ -79,7 +79,7 @@ public class GestionDatos {
     /**
      * Devuelve el usuario que inicio sesion
      * 
-     * @return El usuarion que se logueo
+     * @return Usuario El usuario que se logueo
      */
     public Bibliotecario getUsuarioLoguado() {
         return usuarioLoguado;
@@ -97,7 +97,7 @@ public class GestionDatos {
     /**
      * Devuelve el listado de toods los usuarios que se pueden operar la aplicacion
      * 
-     * @return List<Usuario>
+     * @return List Usuario
      */
     public List<Usuario> getListaUsuarios() {
         return listaUsuarios;
@@ -106,7 +106,7 @@ public class GestionDatos {
     /**
      * Devuelve un listado de todos los lectores que se encuentran registrados en los archivos
      * 
-     * @return List<Lector>
+     * @return List Lector
      */
     public List<Lector> getListaLectores() {
         return listaLectores;
@@ -115,7 +115,7 @@ public class GestionDatos {
     /**
      * Devuelve un listado de todas las obras que posee la biblioteca
      * 
-     * @return List<Obra>
+     * @return List Obra
      */
     public List<Obra> getListaObras() {
         return listaObras;
@@ -185,7 +185,7 @@ public class GestionDatos {
      * Lista a todos los ejemplares disponibles de el area de referencia indicada
      * 
      * @param areaReferencia String
-     * @return List<Ejemplar>
+     * @return List Ejemplar
      */
     public List<Ejemplar> disponibleAreaReferencia(String areaReferencia) {
         List<Ejemplar> disponibles = new ArrayList();
@@ -207,7 +207,7 @@ public class GestionDatos {
     /**
      * Devulve una lista ordenada de a cuerdo a la cantidad de solicitudes que se realizaron a las obras por el publico general
      * 
-     * @return List<Obra> Lista ordenada de las obras mas solicitadas por el publico general
+     * @return List Obra Lista ordenada de las obras mas solicitadas por el publico general
      */
     public List<Obra> getSolicitudGeneral() {
     	CriterioSolicitudGeneral general = new CriterioSolicitudGeneral();
@@ -227,7 +227,7 @@ public class GestionDatos {
     /**
      * Ordena las obras de a cuerdo a la cantidad de solicitudas que tuvieron los por parte de alumnos y profesores
      * 
-     * @return List<Obra> Lista ordenada de obras mas pedidas por los estudiantes y profesores
+     * @return List Obra Lista ordenada de obras mas pedidas por los estudiantes y profesores
      */
     public List<Obra> getSolicitudFacultad(){
     	CriterioSolicitudFacultad facultad = new CriterioSolicitudFacultad();
@@ -246,7 +246,7 @@ public class GestionDatos {
     /**
      * Ordena la lista de Lectores de acuerdo con la cantidad de multas que tenga cada uno de ellos
      * 
-     * @return List<Lector> Una lista de lectores ordenados por quien tuvo mas multas
+     * @return List Lector Una lista de lectores ordenados por quien tuvo mas multas
      */
     public List<Lector> getMultas() {
         CriterioCantidadMultas multas = new CriterioCantidadMultas();
@@ -262,6 +262,11 @@ public class GestionDatos {
         return copy;
     }
     
+    /**
+     * Devuelve una lista con las obras que sean de la misma editorial.
+     * @param editorial String
+     * @return List Obra Una lista de obras que sean de la misma editorial
+     */
     public List<Obra> getEditoriales(String editorial) {
         List<Obra> filtradoObra = listaObras.stream().filter(x -> x.getEdicion().getEditorial().equals(editorial)).collect(Collectors.toList());
         return filtradoObra;
@@ -270,7 +275,7 @@ public class GestionDatos {
     /**
      * Devuelve una lista con todos los lectores tienen un libro en prestamo y no lo devolvieron en la fecha correspondiente
      * 
-     * @return List<Ejemplar> Lista con todos los lectores proximos a multar
+     * @return List Ejemplar Lista con todos los lectores proximos a multar
      *
      */
     public List<Lector> devolucionesTardias() {
@@ -294,7 +299,7 @@ public class GestionDatos {
      * Esta funcnion recibe dos fecha (en formato GregorianCalendar) y devuelve una lista con todas las personas que fueron multados en ese momento de tiempo
      * 
      * @param fechaInicio GregorianCalendar
-     * @param fechaFinal gregorianCalendar
+     * @param fechaFinal GregorianCalendar
      * @return Una lista con todos los lectores que estuvieron multados en ese periodo de tiempo List<Lector> 
      */
     public List<Lector> periodoDeMulta(GregorianCalendar fechaInicio, GregorianCalendar fechaFinal) {
@@ -320,7 +325,7 @@ public class GestionDatos {
      * Lista a todos los ejemplares que esten reservados a partir de una determinada fecha
      * 
      * @param desde - GregorianCalendar
-     * @return Devuelve una lista con todos los ejemplares que se encuentran reservados a partir de esa fecha
+     * @return List Ejemplar Devuelve una lista con todos los ejemplares que se encuentran reservados a partir de esa fecha
      */
     public List<Ejemplar> ejemplaresReservados(GregorianCalendar desde) {
         List<Ejemplar> ejemplares = listaEjemplares();
@@ -340,7 +345,7 @@ public class GestionDatos {
     /**
      * Devuelve una lista que contiene todos los ejemplares del distintas Obras cargadas en el sistema
      * 
-     * @return List<Ejemplar> 
+     * @return List Ejemplar
      */
     public List<Ejemplar> listaEjemplares() {
         List<Ejemplar> ejemplares = new ArrayList();

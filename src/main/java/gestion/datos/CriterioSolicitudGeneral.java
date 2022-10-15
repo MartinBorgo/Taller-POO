@@ -13,6 +13,12 @@ import java.util.Comparator;
  */
 class CriterioSolicitudGeneral implements Comparator<Obra>{
 
+    /**
+     * Se utiliza en GestionDatos para getSolicitudGeneral()
+     * @param o1 Obra
+     * @param o2 Obra
+     * @return int
+     */
     @Override
     public int compare(Obra o1, Obra o2) {
 	int diff = o1.getSolicitudGeneral() - o2.getSolicitudGeneral();

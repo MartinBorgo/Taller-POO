@@ -18,9 +18,9 @@ public class Multa implements Serializable{
     private GregorianCalendar finalizacion;
 
     /**
-     * Construye un objeto Multa con todas su exprecion
-     * 
-     * @param inicio 
+     * Crea un objeto multa con valores pasados por parametros.
+     * @param inicio GregorianCalendar
+     * @param personaMultada Lector
      */
     public Multa(GregorianCalendar inicio, Lector personaMultada) {
         this.inicio = inicio;
@@ -34,7 +34,7 @@ public class Multa implements Serializable{
     }
 
     /**
-     * construye un objeto Multa con sus valores por defecto
+     * Construye un objeto Multa con sus valores por defecto.
      */
     public Multa() {
     }
@@ -51,7 +51,7 @@ public class Multa implements Serializable{
     /**
      * Setea una nueva fecha de inicio para el prestamo
      * 
-     * @param inicio 
+     * @param inicio GregorianCalendar
      */
     public void setInicio(GregorianCalendar inicio) {
         this.inicio = inicio;
@@ -72,7 +72,7 @@ public class Multa implements Serializable{
     /**
      * Setea una nueva fecha de finalizacion para la Multa
      * 
-     * @param finalizacion
+     * @param finalizacion GregorianCalendar
      */
     public void setFinalizacion(GregorianCalendar finalizacion) {
         this.finalizacion = finalizacion;
@@ -90,7 +90,7 @@ public class Multa implements Serializable{
     /**
      * Setea un nuevo lector para la multa
      * 
-     * @param personaMultada 
+     * @param personaMultada GregorianCalendar
      */
     public void setPersonaMultada(Lector personaMultada) {
         this.personaMultada = personaMultada;

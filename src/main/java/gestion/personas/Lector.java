@@ -65,7 +65,7 @@ public class Lector extends Persona {
      * true -> El lector pasa a estar multado
      * false -> El lector deja de estar multado
      * 
-     * @param estaMultado 
+     * @param estaMultado boolean
      */
     public void setEstaMultado(boolean estaMultado) {
         this.estaMultado = estaMultado;
@@ -84,7 +84,7 @@ public class Lector extends Persona {
     /**
      * Setea un nuevo prestamo para el lector
      * 
-     * @param libroEnPrestamo 
+     * @param libroEnPrestamo Prestamo
      */
     public void setLibroEnPrestamo(Prestamo libroEnPrestamo) {
         this.libroEnPrestamo = libroEnPrestamo;
@@ -93,7 +93,7 @@ public class Lector extends Persona {
     /**
      * Devuelve una lista con todas las multas que tiene el lector
      * 
-     * @return ArrayList<ejemplar>
+     * @return ArrayList ejemplar
      */
     public ArrayList<Ejemplar> getListaLibros() {
         return listaLibros;
@@ -102,7 +102,7 @@ public class Lector extends Persona {
     /**
      * Setea un nuevo valor para la el listado de libros que pidio prestado el lector
      * 
-     * @param listaLibros ArrayList<Ejemplar>
+     * @param listaLibros ArrayList Ejemplar
      */
     public void setListaLibros(ArrayList<Ejemplar> listaLibros) {
         this.listaLibros = listaLibros;
@@ -111,7 +111,7 @@ public class Lector extends Persona {
     /**
      * Devuelve el listado de todas las multas que posee el lector
      * 
-     * @return Lista<Multa> 
+     * @return Lista Multa
      */
     public List<Multa> getMultas() {
         return multas;
@@ -120,7 +120,7 @@ public class Lector extends Persona {
     /**
      * Setea un nuevo valor para la lista de multas que posee el lector
      * 
-     * @param multas List<Multa> 
+     * @param multas List Multa
      */
     public void setMultas(List<Multa> multas) {
         this.multas = multas;
@@ -133,7 +133,7 @@ public class Lector extends Persona {
     /**
      * Agrega un objeto libro al historial de los libros que solicito el lector
      * 
-     * @param ejemplar 
+     * @param ejemplar Ejemplar
      */
     public void agregarLibro(Ejemplar ejemplar) {
         this.listaLibros.add(ejemplar);
@@ -142,7 +142,7 @@ public class Lector extends Persona {
     /**
      * Agrega un objeto multa al historial de busquedas de el lector
      * 
-     * @param multa 
+     * @param multa Multa
      */
     public void agregarMulta(Multa multa) {
         this.multas.add(multa);
