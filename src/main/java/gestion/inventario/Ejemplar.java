@@ -30,7 +30,7 @@ public class Ejemplar implements Serializable{
     private String formaAdquisicion;
     private GregorianCalendar fechaBaja;
     private String motivoBaja;
-    private String ubicacionBaja;
+    private Ubicacion ubicacionBaja;
     private boolean enPrestamo;
     private Ubicacion ubicacion;
     private Prestamo infoPrestamo;
@@ -209,7 +209,7 @@ public class Ejemplar implements Serializable{
      * 
      * @return String 
      */
-    public String getUbicacionBaja() {
+    public Ubicacion getUbicacionBaja() {
         return ubicacionBaja;
     }
 
@@ -218,7 +218,7 @@ public class Ejemplar implements Serializable{
      * 
      * @param ubicacionBaja 
      */
-    public void setUbicacionBaja(String ubicacionBaja) {
+    public void setUbicacionBaja(Ubicacion ubicacionBaja) {
         this.ubicacionBaja = ubicacionBaja;
     }
 
