@@ -2,7 +2,6 @@ package gestion.personas;
 
 import enumeraciones.SexoTipo;
 import java.io.Serializable;
-import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 public abstract class Persona implements Serializable {

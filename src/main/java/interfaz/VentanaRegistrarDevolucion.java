@@ -123,12 +123,12 @@ public class VentanaRegistrarDevolucion extends javax.swing.JFrame {
         try{
             Lector lectorEntregaPrestamo = this.datos.buscarPrestamo(this.txtCodEjemplar.getText());
         
-            if(lectorEntregaPrestamo.getLibroEnPrestamo().getFechaDevolucion().before(new GregorianCalendar())) {
+            if(lectorEntregaPrestamo.getPrestamo().getFechaDevolucion().before(new GregorianCalendar())) {
                 new Multa(new GregorianCalendar(), lectorEntregaPrestamo);
                 lectorEntregaPrestamo.setEstaMultado(true);
             }
         
-            lectorEntregaPrestamo.getLibroEnPrestamo().setReceptorPrestamo(datos.getUsuarioLoguado());
+            lectorEntregaPrestamo.getPrestamo().setReceptorPrestamo(datos.getUsuarioLoguado());
         
             dispose();
         } catch(PrestamoInexistenteError ex) {

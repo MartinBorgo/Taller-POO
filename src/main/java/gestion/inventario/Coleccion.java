@@ -19,7 +19,7 @@ import java.util.List;
 public class Coleccion extends Obra implements Serializable {
     private int isbnColeccion;
     private String nombreColeccion;
-    private List<Ejemplar> ejemplares = new ArrayList();
+    private List<Ejemplar> ejemplares;
 
     /**
      * Construye un objeto Coleccion con toda la informacion pasada por parametros
@@ -48,6 +48,7 @@ public class Coleccion extends Obra implements Serializable {
         
         this.isbnColeccion = isbnColeccion;
         this.nombreColeccion = nombre;
+        this.ejemplares = new ArrayList();
     }
 
     /**

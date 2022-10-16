@@ -133,7 +133,7 @@ public class GestionDatos {
      */
     public Lector buscarPrestamo(String cod) throws PrestamoInexistenteError {
         for(Lector lector : this.listaLectores) {
-            if(lector.getLibroEnPrestamo().getEjemplarSolicitado().getCodigoBarras().equals(cod)) {
+            if(lector.getPrestamo().getEjemplarSolicitado().getCodigoBarras().equals(cod)) {
                 return lector;
             }
         }
@@ -286,8 +286,8 @@ public class GestionDatos {
         List<Lector> lectoresParaMultar = new ArrayList();
         
         for(Ejemplar ejemplar : ejemplares) {
-            if(ejemplar.getInfoPrestamo().getFechaDevolucion().before(new GregorianCalendar())) {
-                lectoresParaMultar.add(ejemplar.getInfoPrestamo().getLectorSolicita());
+            if(ejemplar.getPrestamo().getFechaDevolucion().before(new GregorianCalendar())) {
+                lectoresParaMultar.add(ejemplar.getPrestamo().getLectorSolicita());
             
             }
         }

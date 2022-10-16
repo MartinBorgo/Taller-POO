@@ -31,11 +31,11 @@ public class Ejemplar implements Serializable{
     private Ubicacion ubicacionBaja;
     private boolean enPrestamo;
     private Ubicacion ubicacion;
-    private Prestamo infoPrestamo;
+    private Prestamo Prestamo;
     private Obra obra;
     private Coleccion coleccion; //PUEDE PERTENECER A UNA COLECCION.
-    private List<Lector> listaSolicitudLectores = new ArrayList();
-    private List<Reservacion> reservaciones = new ArrayList();
+    private List<Lector> listaSolicitudLectores;
+    private List<Reservacion> reservaciones;
     private String codigoBarras;
    
     /**
@@ -50,17 +50,18 @@ public class Ejemplar implements Serializable{
      */
     
     //Puede agarrar excepciones del metodo setCodigoBarras();
-    public Ejemplar(GregorianCalendar fechaAdquisicion, String formaAdquisicion, Ubicacion ubicacion, Obra obra) 
-            throws BarcodeException, OutputException {
+    public Ejemplar(GregorianCalendar fechaAdquisicion, String formaAdquisicion, Ubicacion ubicacion, Obra obra) throws BarcodeException, OutputException {
         this.idUnico = incremental;
         this.fechaAdquisicion = fechaAdquisicion;
         this.formaAdquisicion = formaAdquisicion;
         this.ubicacion = ubicacion;
         this.obra = obra;
         this.enPrestamo = false;
+        this.listaSolicitudLectores  = new ArrayList();
+        this.reservaciones = new ArrayList();
+        this.setCodigoBarras();
         
         obra.agregarEjemplar(this); // Se mantiene la relacion entre ejemplar y Obra
-        this.setCodigoBarras();
         
         incremental++;
     }
@@ -77,17 +78,18 @@ public class Ejemplar implements Serializable{
      */
     
     //Puede agarrar excepciones del metodo setCodigoBarras();
-    public Ejemplar(GregorianCalendar fechaAdquisicion, String formaAdquisicion, Ubicacion ubicacion, Coleccion coleccion) 
-            throws BarcodeException, OutputException {
+    public Ejemplar(GregorianCalendar fechaAdquisicion, String formaAdquisicion, Ubicacion ubicacion, Coleccion coleccion) throws BarcodeException, OutputException {
         this.idUnico = incremental;
         this.fechaAdquisicion = fechaAdquisicion;
         this.formaAdquisicion = formaAdquisicion;
         this.ubicacion = ubicacion;
         this.coleccion = coleccion;
+        this.listaSolicitudLectores  = new ArrayList();
+        this.reservaciones = new ArrayList();
+        this.setCodigoBarras();
         
         coleccion.agregarEjemplar(this);
         
-        this.setCodigoBarras();
         incremental++;
     }
 
@@ -98,7 +100,10 @@ public class Ejemplar implements Serializable{
      */
     public Ejemplar() throws BarcodeException, OutputException {
         this.idUnico = incremental;
+        this.listaSolicitudLectores  = new ArrayList();
+        this.reservaciones = new ArrayList();
         this.setCodigoBarras();
+        
         incremental++;
     }
 
@@ -273,17 +278,17 @@ public class Ejemplar implements Serializable{
      * 
      * @return Prestamo
      */
-    public Prestamo getInfoPrestamo() {
-        return infoPrestamo;
+    public Prestamo getPrestamo() {
+        return Prestamo;
     }
 
     /**
      * Setea un prestamo para el ejemplar
      * 
-     * @param infoPrestamo Prestamo
+     * @param Prestamo Prestamo
      */
-    public void setInfoPrestamo(Prestamo infoPrestamo) {
-        this.infoPrestamo = infoPrestamo;
+    public void setPrestamo(Prestamo Prestamo) {
+        this.Prestamo = Prestamo;
         this.enPrestamo = true;
     }
 

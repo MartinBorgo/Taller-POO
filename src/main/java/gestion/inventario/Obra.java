@@ -34,7 +34,7 @@ public class Obra implements Serializable{
     private int solicitudGeneral;
     private int isbn;
     private Edicion edicion;
-    private List<Ejemplar> ejemplares = new ArrayList();
+    private List<Ejemplar> ejemplares;
 
 
     /**
@@ -72,6 +72,7 @@ public class Obra implements Serializable{
         this.edicion = edicion;
         this.solicitudFacultad = 0;
         this.solicitudGeneral = 0;
+        this.ejemplares = new ArrayList();
     }
     /**
      * Constructor por defecto.
@@ -79,6 +80,7 @@ public class Obra implements Serializable{
     public Obra() {
         this.solicitudFacultad = 0;
         this.solicitudGeneral = 0;
+        this.ejemplares = new ArrayList();
     }
     /**
      * Devuelve el ObraTipo de la obra.

@@ -50,12 +50,12 @@ public class Prestamo implements Serializable{
         }
         
         // Se mantiene la relacion entre Prestamo y Lector
-        ejemplarSolicitado.setInfoPrestamo(this);
+        ejemplarSolicitado.setPrestamo(this);
         ejemplarSolicitado.setEnPrestamo(true);
         ejemplarSolicitado.agregarLector(lectorSolicita);
                 
         // Se mantiene la relacion entre Prestamo y Ejemplar
-        lectorSolicita.setLibroEnPrestamo(this);
+        lectorSolicita.setPrestamo(this);
         lectorSolicita.agregarLibro(ejemplarSolicitado);
         
     }

@@ -160,7 +160,7 @@ public class VentanaLogueo extends javax.swing.JFrame {
                 if(bibliotecario.getNombreUsuario().equals(this.txtNombreUsuario.getText()) && bibliotecario.getContrasenia().equals(this.txtContrasenia.getText())) {
                     datos.setUsuarioLoguado((Bibliotecario) bibliotecario);
                     
-                    dispose();
+                    this.setVisible(false);
             
                     VentanaAdministrador ventanaAdmin = new VentanaAdministrador(datos);
                     ventanaAdmin.show();
@@ -169,7 +169,7 @@ public class VentanaLogueo extends javax.swing.JFrame {
                 if(bibliotecario.getNombreUsuario().equals(this.txtNombreUsuario.getText()) && bibliotecario.getContrasenia().equals(this.txtContrasenia.getText())) {
                     datos.setUsuarioLoguado((Bibliotecario) bibliotecario);
                     
-                    dispose();
+                    this.setVisible(false);
             
                     VentanaBibliotecario ventanaBibliotecario = new VentanaBibliotecario();
                     ventanaBibliotecario.show();

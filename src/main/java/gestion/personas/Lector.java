@@ -10,7 +10,7 @@ import java.util.List;
 
 public class Lector extends Persona {
     private boolean estaMultado;
-    private Prestamo libroEnPrestamo;
+    private Prestamo Prestamo;
     private ArrayList<Ejemplar> listaLibros;
     private List<Multa>multas;
 
@@ -77,17 +77,17 @@ public class Lector extends Persona {
      * 
      * @return Prestamo 
      */
-    public Prestamo getLibroEnPrestamo() {
-        return libroEnPrestamo;
+    public Prestamo getPrestamo() {
+        return Prestamo;
     }
 
     /**
      * Setea un nuevo prestamo para el lector
      * 
-     * @param libroEnPrestamo Prestamo
+     * @param Prestamo Prestamo
      */
-    public void setLibroEnPrestamo(Prestamo libroEnPrestamo) {
-        this.libroEnPrestamo = libroEnPrestamo;
+    public void setPrestamo(Prestamo Prestamo) {
+        this.Prestamo = Prestamo;
     }
 
     /**

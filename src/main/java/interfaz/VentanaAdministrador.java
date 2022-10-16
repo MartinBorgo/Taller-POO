@@ -924,32 +924,28 @@ public class VentanaAdministrador extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonCargarDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCargarDatosActionPerformed
-        // Se controla que las obras que se inglesa pertenece a una coleccion o no
-        if(this.boxCaracteristicas.getSelectedItem().equals(CaracteristicaTipo.COLECCION)){
-            // Si es una coleccion y se dejo los campos de nombre de la coleccion y de ISBN de la coleccion, se manda un aviso por pantalla
-            if(this.txtNombreColeccion.getText().equals("") || this.txtISBNColeccion.getText().equals("")) {
-               javax.swing.JOptionPane.showMessageDialog(rootPane, "El ingreso del nombre e ISBN son obligatorios para las coleccion.");
-           
-           } else {
-                   // Se crea un objeto de tipo ubicacion para inicializar luego los ejemplares
-                   Ubicacion nuevaUbicacion = new Ubicacion(Integer.parseInt(this.txtNumPasillo.getText()),
-                                                            Integer.parseInt(this.txtNumEstante.getText()),
-                                                            Integer.parseInt(this.txtNumEstanteria.getText()));
+        // Se crea un objeto de tipo ubicacion para inicializar luego los ejemplares
+        Ubicacion nuevaUbicacion = new Ubicacion(Integer.parseInt(this.txtNumPasillo.getText()),
+                                                 Integer.parseInt(this.txtNumEstante.getText()),
+                                                 Integer.parseInt(this.txtNumEstanteria.getText()));
                    
                    // Se crea un objeto de tipo edicion para poder inicializar los ejemplares
-                   Edicion nuevaEdicion = new Edicion(this.txtEditorial.getText(),
-                                                      this.txtPaisEdicion.getText(),
-                                                      Integer.parseInt(this.txtNumEdicion.getText()),
-                                                      Integer.parseInt(this.txtAnioEdicion.getText()),
-                                                      Integer.parseInt(this.txtVolumenes.getText()),
-                                                      Integer.parseInt(this.txtCantidadPaginas.getText()),
-                                                      this.txtIdioma.getText(),
-                                                      (FormatoTipo) this.boxFormato.getSelectedItem());
-                   
-                   // Se inicializa un objeto de tipo obra con el contructor por defecto, ya que por alguna razon el constructor parametrizado
-                   // te tira errores en algunos parametros por mas de que los castee, asi que tube que tirar de los setters para inicializar
-                   // cada uno de los parametros
-                   
+        Edicion nuevaEdicion = new Edicion(this.txtEditorial.getText(),
+                                           this.txtPaisEdicion.getText(),
+                                           Integer.parseInt(this.txtNumEdicion.getText()),
+                                           Integer.parseInt(this.txtAnioEdicion.getText()),
+                                           Integer.parseInt(this.txtVolumenes.getText()),
+                                           Integer.parseInt(this.txtCantidadPaginas.getText()),
+                                           this.txtIdioma.getText(),
+                                           (FormatoTipo) this.boxFormato.getSelectedItem());
+        
+
+        // Se controla que las obras que se inglesa pertenece a una coleccion o no
+        if(this.boxCaracteristicas.getSelectedItem().equals(CaracteristicaTipo.COLECCION)){
+            if(comprovacionColeccion()) {
+               javax.swing.JOptionPane.showMessageDialog(rootPane, "Por favor rellene todos los campos, en el caso de las colecciones ISBN y Nombre son olbigatorios");
+           } else {
+                
                    Coleccion nuevaColeccion = new Coleccion();
                            
                    nuevaColeccion.setTipoDeObra((ObraTipo) boxTipoDeObra.getSelectedItem());
@@ -969,7 +965,7 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                    nuevaColeccion.setIsbnColeccion(Integer.parseInt(txtISBNColeccion.getText()));
                    
                    
-                   for(int i = 0; i < nuevaColeccion.getCantidadEjemplares(); i++) {
+                   for(int i = 1; i <= nuevaColeccion.getCantidadEjemplares(); i++) {
                        try {
                            Ejemplar ejemplarNuevo = new Ejemplar(new GregorianCalendar(),
                                    (String) this.boxFormaAdquisicion.getSelectedItem(),
@@ -984,121 +980,194 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                        
                    }
                this.datos.agregarObra(nuevaColeccion);
+               limpiarRegistrarObra();
+               javax.swing.JOptionPane.showMessageDialog(rootPane, "La obra se a registrado de forma correcta.");
            }
+          
           // En el caso de que no sea una coleccion se crean los objetos correspondientes y se lo caraga en el ArrayList
         } else {
-            // La misma cosa ocurre aca abajo, se crean los objetos de tipo ubicacion y de tipo edicion para poder crear los ejemplares
-            // y el objeto obra se tiene que setear los valores via setters porque el constructor no te deja
-            
-            Ubicacion nuevaUbicacion = new Ubicacion(Integer.parseInt(this.txtNumPasillo.getText()),
-                                                            Integer.parseInt(this.txtNumEstante.getText()),
-                                                            Integer.parseInt(this.txtNumEstanteria.getText()));
-                   
-            Edicion nuevaEdicion = new Edicion(this.txtEditorial.getText(),
-                                               this.txtPaisEdicion.getText(),
-                                               Integer.parseInt(this.txtNumEdicion.getText()),
-                                               Integer.parseInt(this.txtAnioEdicion.getText()),
-                                               Integer.parseInt(this.txtVolumenes.getText()),
-                                               Integer.parseInt(this.txtCantidadPaginas.getText()),
-                                               this.txtIdioma.getText(),
-                                               (FormatoTipo) this.boxFormato.getSelectedItem());
-                   
-
-                   
-            Obra nuevaObra = new Obra();
+            if(comprobacionObra() == false) {
+                
+                Obra nuevaObra = new Obra();
                            
-            nuevaObra.setTipoDeObra((ObraTipo) boxTipoDeObra.getSelectedItem());
-            nuevaObra.setAreaTematica((AreaTematicaTipo) boxAreaTematica.getSelectedItem());
-            nuevaObra.setCantidadEjemplares(Integer.parseInt(txtCanEjemplares.getText()));
-            nuevaObra.setTitulo(txtTitulo.getText());
-            nuevaObra.setSubtitulo(txtSubtitulo.getText());
-            nuevaObra.setPrimerAutor(txtPrimerAutor.getText());
-            nuevaObra.setSegundoAutor(txtSegundoAutor.getText());
-            nuevaObra.setTercerAutor(txtTercerAutor.getText());
-            nuevaObra.setGenero(txtGenero.getText());
-            nuevaObra.setCaracteristica((CaracteristicaTipo) boxCaracteristicas.getSelectedItem());
-            nuevaObra.setAreaReferencia(txtAreaReferencia.getText());
-            nuevaObra.setIsbn(Integer.parseInt(txtISBN.getText()));
-            nuevaObra.setEdicion(nuevaEdicion);
+                nuevaObra.setTipoDeObra((ObraTipo) boxTipoDeObra.getSelectedItem());
+                nuevaObra.setAreaTematica((AreaTematicaTipo) boxAreaTematica.getSelectedItem());
+                nuevaObra.setCantidadEjemplares(Integer.parseInt(txtCanEjemplares.getText()));
+                nuevaObra.setTitulo(txtTitulo.getText());
+                nuevaObra.setSubtitulo(txtSubtitulo.getText());
+                nuevaObra.setPrimerAutor(txtPrimerAutor.getText());
+                nuevaObra.setSegundoAutor(txtSegundoAutor.getText());
+                nuevaObra.setTercerAutor(txtTercerAutor.getText());
+                nuevaObra.setGenero(txtGenero.getText());
+                nuevaObra.setCaracteristica((CaracteristicaTipo) boxCaracteristicas.getSelectedItem());
+                nuevaObra.setAreaReferencia(txtAreaReferencia.getText());
+                nuevaObra.setIsbn(Integer.parseInt(txtISBN.getText()));
+                nuevaObra.setEdicion(nuevaEdicion);
             
 
-            for(int i = 0; i <= nuevaObra.getCantidadEjemplares(); i++) {
-                try {
-                    Ejemplar ejemplarNuevo = new Ejemplar(new GregorianCalendar(),
-                                                          (String) this.boxFormaAdquisicion.getSelectedItem(),
-                                                          nuevaUbicacion,
-                                                          nuevaObra);
-                } catch (BarcodeException ex) {
-                    Logger.getLogger(VentanaAdministrador.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (OutputException ex) {
-                    Logger.getLogger(VentanaAdministrador.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                for(int i = 0; i <= nuevaObra.getCantidadEjemplares(); i++) {
+                    try {
+                        Ejemplar ejemplarNuevo = new Ejemplar(new GregorianCalendar(),
+                                                              (String) this.boxFormaAdquisicion.getSelectedItem(),
+                                                              nuevaUbicacion,
+                                                              nuevaObra);
+                    } catch (BarcodeException ex) {
+                        Logger.getLogger(VentanaAdministrador.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (OutputException ex) {
+                        Logger.getLogger(VentanaAdministrador.class.getName()).log(Level.SEVERE, null, ex);
+                    }
     
-            }
-            this.datos.agregarObra(nuevaObra);
+                }
+                
+                this.datos.agregarObra(nuevaObra);
+                limpiarRegistrarObra();
+                javax.swing.JOptionPane.showMessageDialog(rootPane, "La obra se a registrado de forma correcta.");
+                
+            } else { javax.swing.JOptionPane.showMessageDialog(rootPane, "Por favor ingrese todos los datos."); }
         }
     }//GEN-LAST:event_botonCargarDatosActionPerformed
 
+    private void limpiarRegistrarObra() {
+        this.txtNumPasillo.setText("");
+        this.txtNumEstanteria.setText("");
+        this.txtNumEstante.setText("");
+        this.txtEditorial.setText("");
+        this.txtNumEdicion.setText("");
+        this.txtAnioEdicion.setText("");
+        this.txtVolumenes.setText("");
+        this.txtCantidadPaginas.setText("");
+        this.txtIdioma.setText("");
+        this.txtCanEjemplares.setText("");
+        this.txtTitulo.setText("");
+        this.txtSubtitulo.setText("");
+        this.txtPrimerAutor.setText("");
+        this.txtSegundoAutor.setText("");
+        this.txtTercerAutor.setText("");
+        this.txtGenero.setText("");
+        this.txtAreaReferencia.setText("");
+        this.txtISBN.setText("");
+        this.txtISBNColeccion.setText("");
+        this.txtNombreColeccion.setText("");
+    }
+    
+    private boolean comprobacionObra() {
+        return txtNumPasillo.getText().equals("") || txtNumEstanteria.getText().equals("") || txtNumEstante.getText().equals("") ||
+               txtEditorial.getText().equals("") || txtNumEdicion.getText().equals("") || txtAnioEdicion.getText().equals("") ||
+               txtVolumenes.getText().equals("") || txtCantidadPaginas.getText().equals("") || txtIdioma.getText().equals("") ||
+               txtCanEjemplares.getText().equals("") || txtTitulo.getText().equals("") || txtSubtitulo.getText().equals("") ||
+               txtPrimerAutor.getText().equals("") || txtGenero.getText().equals("") || txtAreaReferencia.getText().equals("") || txtISBN.getText().equals("");
+    }
+    
+    private boolean comprovacionColeccion() {
+        return txtNumPasillo.getText().equals("") || txtNumEstanteria.getText().equals("") || txtNumEstante.getText().equals("") ||
+               txtEditorial.getText().equals("") || txtNumEdicion.getText().equals("") || txtAnioEdicion.getText().equals("") ||
+               txtVolumenes.getText().equals("") || txtCantidadPaginas.getText().equals("") || txtIdioma.getText().equals("") ||
+               txtCanEjemplares.getText().equals("") || txtTitulo.getText().equals("") || txtSubtitulo.getText().equals("") ||
+               txtPrimerAutor.getText().equals("") || txtGenero.getText().equals("") || txtAreaReferencia.getText().equals("") ||
+               txtISBN.getText().equals("") || txtISBNColeccion.getText().equals("") || txtNombreColeccion.getText().equals("");
+    }
+    
     private void botonRegistrarLectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarLectorActionPerformed
         GregorianCalendar fechaNacimiento = new GregorianCalendar(Integer.parseInt(this.txtAnioNacimiento.getText()),
                                                                        Integer.parseInt(this.txtMesNacimiento.getText()),
                                                                        Integer.parseInt(this.txtDiaNacimiento.getText()));
         
-        if(this.boxCargo.getSelectedItem().equals("LECTOR GENERAL")) {
+        if(comprobacionLectorGeneral() == false) {
+            if(this.boxCargo.getSelectedItem().equals("LECTOR GENERAL")) {
             
             
-            Lector nuevoLector = new Lector(this.txtNombre.getText(),
-                                            this.txtApellido.getText(),
-                                            Integer.parseInt(this.txtDocumento.getText()),
-                                            fechaNacimiento,
-                                            this.txtNacionalidad.getText(),
-                                            this.txtDomicilio.getText(),
-                                            Integer.parseInt(this.txtCodPostal.getText()),
-                                            this.txtLocalidad.getText(),
-                                            this.txtNumCelular.getText(),
-                                            this.txtCorreoElectronico.getText(),
-                                            (SexoTipo) this.boxSexo.getSelectedItem());
+                Lector nuevoLector = new Lector(this.txtNombre.getText(),
+                                                this.txtApellido.getText(),
+                                                Integer.parseInt(this.txtDocumento.getText()),
+                                                fechaNacimiento,
+                                                this.txtNacionalidad.getText(),
+                                                this.txtDomicilio.getText(),
+                                                Integer.parseInt(this.txtCodPostal.getText()),
+                                                this.txtLocalidad.getText(),
+                                                this.txtNumCelular.getText(),
+                                                this.txtCorreoElectronico.getText(),
+                                                (SexoTipo) this.boxSexo.getSelectedItem());
             
-            this.datos.agregarLector(nuevoLector);
-        }
+                this.datos.agregarLector(nuevoLector);
+                limpiarRegistrarLector();
+                javax.swing.JOptionPane.showMessageDialog(rootPane, "Se a registrado el lector de manera exitosa.");
+            }
+        } else { javax.swing.JOptionPane.showMessageDialog(rootPane, "Por favor rellene todos los campos."); }
         
-        if(this.boxCargo.getSelectedItem().equals("ALUMNO")) {
-            Alumno nuevoAlumno = new Alumno(this.txtCarreras.getText(),
-                                            this.txtNombre.getText(),
-                                            this.txtApellido.getText(),
-                                            Integer.parseInt(this.txtDocumento.getText()),
-                                            fechaNacimiento,
-                                            this.txtNacionalidad.getText(),
-                                            this.txtDomicilio.getText(),
-                                            Integer.parseInt(this.txtCodPostal.getText()),
-                                            this.txtLocalidad.getText(),
-                                            this.txtNumCelular.getText(),
-                                            this.txtCorreoElectronico.getText(),
-                                            (SexoTipo) this.boxSexo.getSelectedItem());
+        if(comprobacionLectorFacultad() == false){
+            if(this.boxCargo.getSelectedItem().equals("ALUMNO")) {
+                Alumno nuevoAlumno = new Alumno(this.txtCarreras.getText(),
+                                                this.txtNombre.getText(),
+                                                this.txtApellido.getText(),
+                                                Integer.parseInt(this.txtDocumento.getText()),
+                                                fechaNacimiento,
+                                                this.txtNacionalidad.getText(),
+                                                this.txtDomicilio.getText(),
+                                                Integer.parseInt(this.txtCodPostal.getText()),
+                                                this.txtLocalidad.getText(),
+                                                this.txtNumCelular.getText(),
+                                                this.txtCorreoElectronico.getText(),
+                                                (SexoTipo) this.boxSexo.getSelectedItem());
         
-            this.datos.agregarLector(nuevoAlumno);
-        }
+                this.datos.agregarLector(nuevoAlumno);
+                limpiarRegistrarLector();
+                javax.swing.JOptionPane.showMessageDialog(rootPane, "Se a registrado el lector de manera exitosa.");
+            }
         
-        if(this.boxCargo.getSelectedItem().equals("DOCENTE")) {            
-            Docente nuevoDocente = new Docente(this.txtCarreras.getText(),
-                                               this.txtNombre.getText(),
-                                               this.txtApellido.getText(),
-                                               Integer.parseInt(this.txtDocumento.getText()),
-                                               fechaNacimiento,
-                                               this.txtNacionalidad.getText(),
-                                               this.txtDomicilio.getText(),
-                                               Integer.parseInt(this.txtCodPostal.getText()),
-                                               this.txtLocalidad.getText(),
-                                               this.txtNumCelular.getText(),
-                                               this.txtCorreoElectronico.getText(),
-                                               (SexoTipo) this.boxSexo.getSelectedItem());
+            if(this.boxCargo.getSelectedItem().equals("DOCENTE")) {            
+                Docente nuevoDocente = new Docente(this.txtCarreras.getText(),
+                                                   this.txtNombre.getText(),
+                                                   this.txtApellido.getText(),
+                                                   Integer.parseInt(this.txtDocumento.getText()),
+                                                   fechaNacimiento,
+                                                   this.txtNacionalidad.getText(),
+                                                   this.txtDomicilio.getText(),
+                                                   Integer.parseInt(this.txtCodPostal.getText()),
+                                                   this.txtLocalidad.getText(),
+                                                   this.txtNumCelular.getText(),
+                                                   this.txtCorreoElectronico.getText(),
+                                                   (SexoTipo) this.boxSexo.getSelectedItem());
         
-            this.datos.agregarLector(nuevoDocente);
-        }
-        
-        
+                this.datos.agregarLector(nuevoDocente);
+                limpiarRegistrarLector();
+                javax.swing.JOptionPane.showMessageDialog(rootPane, "Se a registrado el lector de manera exitosa.");
+            }
+        }else { javax.swing.JOptionPane.showMessageDialog(rootPane, "El campo carrera es obligatorio para los Alumnos y Profesores."); }
     }//GEN-LAST:event_botonRegistrarLectorActionPerformed
 
+    private void limpiarRegistrarLector() {
+        this.txtCarreras.setText("");
+        this.txtNombre.setText("");
+        this.txtApellido.setText("");
+        this.txtDocumento.setText("");
+        this.txtNacionalidad.setText("");
+        this.txtDomicilio.setText("");
+        this.txtCodPostal.setText("");
+        this.txtLocalidad.setText("");
+        this.txtDepartamento.setText("");
+        this.txtNumCelular.setText("");
+        this.txtCorreoElectronico.setText("");
+        this.txtAnioNacimiento.setText("");
+        this.txtMesNacimiento.setText("");
+        this.txtDiaNacimiento.setText("");
+    }
+    
+    private boolean comprobacionLectorGeneral() {
+        return txtNombre.getText().equals("") || txtApellido.getText().equals("") || txtDocumento.getText().equals("") ||
+               txtNacionalidad.getText().equals("") || txtDomicilio.getText().equals("") || txtCodPostal.getText().equals("") ||
+               txtLocalidad.getText().equals("") || txtDepartamento.getText().equals("") || txtNumCelular.getText().equals("") ||
+               txtCorreoElectronico.getText().equals("") || txtAnioNacimiento.getText().equals("") || txtMesNacimiento.getText().equals("") ||
+               txtDiaNacimiento.getText().equals("");
+    }
+    
+    private boolean comprobacionLectorFacultad() {
+        return txtNombre.getText().equals("") || txtApellido.getText().equals("") || txtDocumento.getText().equals("") ||
+               txtNacionalidad.getText().equals("") || txtDomicilio.getText().equals("") || txtCodPostal.getText().equals("") ||
+               txtLocalidad.getText().equals("") || txtDepartamento.getText().equals("") || txtNumCelular.getText().equals("") ||
+               txtCorreoElectronico.getText().equals("") || txtAnioNacimiento.getText().equals("") || txtMesNacimiento.getText().equals("") ||
+               txtDiaNacimiento.getText().equals("") || txtCarreras.getText().equals("");
+    }
+        
     private void botonRegistrarPrestamoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarPrestamoActionPerformed
         
         // Se busca al lector segun el documento que se coloco, si no se lo encuentra devulve una referencua nula
@@ -1205,7 +1274,6 @@ public class VentanaAdministrador extends javax.swing.JFrame {
         new VentanaDarBajaEjemplar(listaGestionEjemplar.getSelectedIndex(), datos).setVisible(true);
     }//GEN-LAST:event_botonDarBajaActionPerformed
 
-    
 
     
     /**
