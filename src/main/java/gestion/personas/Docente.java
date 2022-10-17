@@ -3,6 +3,10 @@ package gestion.personas;
 import enumeraciones.SexoTipo;
 import java.util.GregorianCalendar;
 
+/**
+ * Esta clase hereda de Lector, especifica que es un integrante de la facultad (FCAD) UNER.
+ * @author pepeponpin
+ */
 public class Docente extends Lector {
     private String carreras;
 

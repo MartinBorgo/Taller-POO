@@ -19,7 +19,7 @@ public class VentanaLogueo extends javax.swing.JFrame {
      * Creates new form LoginScreen
      */
     public VentanaLogueo(GestionDatos datos) {
-        super("Inicion de Secion");
+        super("Inicio de Sesion");
         initComponents();
         this.setLocationRelativeTo(null);
         

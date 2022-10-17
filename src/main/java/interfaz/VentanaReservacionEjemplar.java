@@ -191,7 +191,7 @@ public class VentanaReservacionEjemplar extends javax.swing.JFrame {
         } catch (EjemplarInexistenteError ex) {
             javax.swing.JOptionPane.showMessageDialog(rootPane, "Codigo de ejemplar incorrecto");
         } catch (LectorNoRegistradoError ex) {
-            javax.swing.JOptionPane.showMessageDialog(rootPane, "Este lecor no se encuentra registrado");
+            javax.swing.JOptionPane.showMessageDialog(rootPane, "Este lector no se encuentra registrado");
         }
         
         GregorianCalendar fechaReservacionEjemplar = new GregorianCalendar(Integer.parseInt(txtAnioReservacion.getText()),

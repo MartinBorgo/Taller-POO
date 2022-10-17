@@ -4,6 +4,10 @@ import enumeraciones.SexoTipo;
 import java.io.Serializable;
 import java.util.GregorianCalendar;
 
+/**
+ * Clase abstracta que implementa la interface Serializable.
+ * @author pepeponpin
+ */
 public abstract class Persona implements Serializable {
     private String nombres;
     private String apellidos;

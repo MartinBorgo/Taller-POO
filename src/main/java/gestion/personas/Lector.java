@@ -8,6 +8,10 @@ import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.List;
 
+/**
+ * Esta clase hereda de Persona, especifica que en una biblioteca hay lectores.
+ * @author pepeponpin
+ */
 public class Lector extends Persona {
     private boolean estaMultado;
     private Prestamo Prestamo;
