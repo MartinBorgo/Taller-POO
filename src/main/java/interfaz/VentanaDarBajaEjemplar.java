@@ -173,7 +173,7 @@ public class VentanaDarBajaEjemplar extends javax.swing.JFrame {
             ejemplares.get(indiceEjemplar).setMotivoBaja(areaDeTexto.getText());
             ejemplares.get(indiceEjemplar).setUbicacionBaja(ubicacionBaja);
         } catch (NumberFormatException ex) {
-            javax.swing.JOptionPane.showMessageDialog(rootPane, "Por favor introduzca valores validos para la ubicacion");
+            javax.swing.JOptionPane.showMessageDialog(rootPane, "Por favor introduzca valores validos para la ubicacion.");
         }
     }//GEN-LAST:event_botonDarDeBajaEjemplarActionPerformed
 

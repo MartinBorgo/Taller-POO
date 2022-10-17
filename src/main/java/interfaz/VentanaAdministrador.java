@@ -943,7 +943,7 @@ public class VentanaAdministrador extends javax.swing.JFrame {
         // Se controla que las obras que se inglesa pertenece a una coleccion o no
         if(this.boxCaracteristicas.getSelectedItem().equals(CaracteristicaTipo.COLECCION)){
             if(comprovacionColeccion()) {
-               javax.swing.JOptionPane.showMessageDialog(rootPane, "Por favor rellene todos los campos, en el caso de las colecciones ISBN y Nombre son olbigatorios");
+               javax.swing.JOptionPane.showMessageDialog(rootPane, "Por favor rellene todos los campos, en el caso de las colecciones ISBN y Nombre son obligatorios");
            } else {
                 
                    Coleccion nuevaColeccion = new Coleccion();

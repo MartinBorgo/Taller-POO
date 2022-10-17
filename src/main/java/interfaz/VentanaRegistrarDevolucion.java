@@ -132,7 +132,7 @@ public class VentanaRegistrarDevolucion extends javax.swing.JFrame {
         
             dispose();
         } catch(PrestamoInexistenteError ex) {
-            javax.swing.JOptionPane.showMessageDialog(rootPane, "Este ejemplar mo se encuentra en prestamo");
+            javax.swing.JOptionPane.showMessageDialog(rootPane, "Este ejemplar no se encuentra en prestamo");
         }
         
     }//GEN-LAST:event_botonRegistrarDevolucionActionPerformed
