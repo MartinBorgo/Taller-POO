@@ -1,5 +1,9 @@
 package gestion.personas;
 
+/**
+ * Esta clase hereda de Usuario, siendo un bibliotecario el encargado de realizar prestamos.
+ * @author pepeponpin
+ */
 public class Bibliotecario extends Usuario {
     private static int incremento = 1;
     

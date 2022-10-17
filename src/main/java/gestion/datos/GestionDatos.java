@@ -300,7 +300,7 @@ public class GestionDatos {
      * 
      * @param fechaInicio GregorianCalendar
      * @param fechaFinal GregorianCalendar
-     * @return Una lista con todos los lectores que estuvieron multados en ese periodo de tiempo List<Lector> 
+     * @return Una lista con todos los lectores que estuvieron multados en ese periodo de tiempo List Lector
      */
     public List<Lector> periodoDeMulta(GregorianCalendar fechaInicio, GregorianCalendar fechaFinal) {
         List<Lector> periodoMulta = new ArrayList();

@@ -4,6 +4,10 @@ import enumeraciones.SexoTipo;
 import java.io.Serializable;
 import java.util.GregorianCalendar;
 
+/**
+ * Esta clase hereda de persona e implementa la interface serializable.
+ * @author pepeponpin
+ */
 public class Usuario extends Persona implements Serializable {
     private boolean administrador;
     private String nombreUsuario;
