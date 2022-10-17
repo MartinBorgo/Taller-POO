@@ -3,6 +3,10 @@ package gestion.personas;
 import enumeraciones.SexoTipo;
 import java.util.GregorianCalendar;
 
+/**
+ * Esta clase Alumno hereda de la clase lector, especifica que es un integrante de la facultad (FCAD) UNER.
+ * @author pepeponpin
+ */
 public class Alumno extends Lector {
     private String carrera;
 

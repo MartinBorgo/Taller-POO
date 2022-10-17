@@ -5,15 +5,22 @@
 package excepciones;
 
 /**
- *
+ * Esta clase se encarga de tirar una excepcion si el lector no esta registrado.
  * @author martin
  */
 public class LectorNoRegistradoError extends Exception {
 
+    /**
+     * Constructor que recibe un String y se encarga de enviar un mensaje con la excepcion.
+     * @param message String
+     */
     public LectorNoRegistradoError(String message) {
         super(message);
     }
 
+    /**
+     * Constructor con los valores preterminados.
+     */
     public LectorNoRegistradoError() {
     }
     
