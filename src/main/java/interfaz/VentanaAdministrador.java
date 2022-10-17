@@ -22,7 +22,6 @@ import gestion.inventario.Ubicacion;
 import gestion.personas.Alumno;
 import gestion.personas.Docente;
 import gestion.personas.Lector;
-import gestion.personas.Usuario;
 import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.logging.Level;
@@ -44,10 +43,9 @@ public class VentanaAdministrador extends javax.swing.JFrame {
      */
     public VentanaAdministrador(GestionDatos datos) {
         super("Gestion de Biblioteca");
-        
         this.datos = datos;
         initComponents();
-        
+        esconderPeriodos();
         this.setLocationRelativeTo(null);
     }
 
@@ -75,6 +73,20 @@ public class VentanaAdministrador extends javax.swing.JFrame {
         jLabel21 = new javax.swing.JLabel();
         botonFiltrar = new javax.swing.JButton();
         txtBusquedaListado = new javax.swing.JTextField();
+        lblTituloInicioPeriodo = new javax.swing.JLabel();
+        lblTituloFinPeriodo = new javax.swing.JLabel();
+        lblDiaInicioPeriodo = new javax.swing.JLabel();
+        lblMesInicioPeriodo = new javax.swing.JLabel();
+        lblAnioInicioPeriodo = new javax.swing.JLabel();
+        lblDiaFinalPeriodo = new javax.swing.JLabel();
+        lblMesFinalPeriodo = new javax.swing.JLabel();
+        lblAnioFinalPeriodo = new javax.swing.JLabel();
+        txtDiaFinalPeriodo = new javax.swing.JTextField();
+        txtMesFinalPeriodo = new javax.swing.JTextField();
+        txtAnioFinalPeriodo = new javax.swing.JTextField();
+        txtDiaInicioPeriodo = new javax.swing.JTextField();
+        txtMesInicioPeriodo = new javax.swing.JTextField();
+        txtAnioInicioPeriodo = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jLabel24 = new javax.swing.JLabel();
         boxTipoDePrestamo = new javax.swing.JComboBox<>();
@@ -238,6 +250,11 @@ public class VentanaAdministrador extends javax.swing.JFrame {
         jScrollPane2.setViewportView(ListaBusqueda);
 
         boxBusquedaTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Lectores no devolvieron obras.", "Obras mas solicitadas alumnos/docentes.", "Obras solicitadas por publico general.", "Ejemplares disponibles por area referencia.", "Obras reservadas en una fecha determinada.", "Lectores multados en un periodo de tiempo.", "Lectores por cantidad de multas aplicadas.", "Obras de una editorial determinada." }));
+        boxBusquedaTipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boxBusquedaTipoActionPerformed(evt);
+            }
+        });
 
         jLabel21.setText("Filtrar por:");
 
@@ -248,10 +265,32 @@ public class VentanaAdministrador extends javax.swing.JFrame {
             }
         });
 
+        lblTituloInicioPeriodo.setText("Inicio del periodo");
+
+        lblTituloFinPeriodo.setText("Fin del periodo");
+
+        lblDiaInicioPeriodo.setText("Dia:");
+
+        lblMesInicioPeriodo.setText("Mes:");
+
+        lblAnioInicioPeriodo.setText("Año:");
+
+        lblDiaFinalPeriodo.setText("Dia:");
+
+        lblMesFinalPeriodo.setText("Mes:");
+
+        lblAnioFinalPeriodo.setText("Año:");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(265, 265, 265)
+                .addComponent(lblTituloInicioPeriodo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblTituloFinPeriodo)
+                .addGap(320, 320, 320))
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(102, 102, 102)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -264,7 +303,37 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                         .addComponent(txtBusquedaListado, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(botonFiltrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(107, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(250, 250, 250)
+                        .addComponent(lblDiaInicioPeriodo))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblMesInicioPeriodo)
+                            .addComponent(lblAnioInicioPeriodo))))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtMesInicioPeriodo, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
+                    .addComponent(txtDiaInicioPeriodo)
+                    .addComponent(txtAnioInicioPeriodo))
+                .addGap(305, 305, 305)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblDiaFinalPeriodo, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblMesFinalPeriodo, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(18, 18, 18))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(lblAnioFinalPeriodo)
+                        .addGap(19, 19, 19)))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtAnioFinalPeriodo, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
+                    .addComponent(txtDiaFinalPeriodo)
+                    .addComponent(txtMesFinalPeriodo))
+                .addGap(305, 305, 305))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -277,7 +346,29 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                     .addComponent(txtBusquedaListado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(63, 63, 63)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(290, Short.MAX_VALUE))
+                .addGap(48, 48, 48)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTituloInicioPeriodo)
+                    .addComponent(lblTituloFinPeriodo))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblDiaInicioPeriodo)
+                    .addComponent(lblDiaFinalPeriodo)
+                    .addComponent(txtDiaFinalPeriodo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtDiaInicioPeriodo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblMesInicioPeriodo)
+                    .addComponent(lblMesFinalPeriodo)
+                    .addComponent(txtMesFinalPeriodo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtMesInicioPeriodo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtAnioFinalPeriodo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblAnioFinalPeriodo)
+                    .addComponent(txtAnioInicioPeriodo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblAnioInicioPeriodo))
+                .addContainerGap(108, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Listados", jPanel4);
@@ -925,45 +1016,45 @@ public class VentanaAdministrador extends javax.swing.JFrame {
 
     private void botonCargarDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCargarDatosActionPerformed
         // Se crea un objeto de tipo ubicacion para inicializar luego los ejemplares
-        Ubicacion nuevaUbicacion = new Ubicacion(Integer.parseInt(this.txtNumPasillo.getText()),
-                                                 Integer.parseInt(this.txtNumEstante.getText()),
-                                                 Integer.parseInt(this.txtNumEstanteria.getText()));
+        try {
+            Ubicacion nuevaUbicacion = new Ubicacion(Integer.parseInt(this.txtNumPasillo.getText()),
+                                                     Integer.parseInt(this.txtNumEstante.getText()),
+                                                     Integer.parseInt(this.txtNumEstanteria.getText()));
                    
                    // Se crea un objeto de tipo edicion para poder inicializar los ejemplares
-        Edicion nuevaEdicion = new Edicion(this.txtEditorial.getText(),
-                                           this.txtPaisEdicion.getText(),
-                                           Integer.parseInt(this.txtNumEdicion.getText()),
-                                           Integer.parseInt(this.txtAnioEdicion.getText()),
-                                           Integer.parseInt(this.txtVolumenes.getText()),
-                                           Integer.parseInt(this.txtCantidadPaginas.getText()),
-                                           this.txtIdioma.getText(),
-                                           (FormatoTipo) this.boxFormato.getSelectedItem());
-        
+            Edicion nuevaEdicion = new Edicion(this.txtEditorial.getText(),
+                                               this.txtPaisEdicion.getText(),
+                                               Integer.parseInt(this.txtNumEdicion.getText()),
+                                               Integer.parseInt(this.txtAnioEdicion.getText()),
+                                               Integer.parseInt(this.txtVolumenes.getText()),
+                                               Integer.parseInt(this.txtCantidadPaginas.getText()),
+                                               this.txtIdioma.getText(),
+                                               (FormatoTipo) this.boxFormato.getSelectedItem());
 
-        // Se controla que las obras que se inglesa pertenece a una coleccion o no
-        if(this.boxCaracteristicas.getSelectedItem().equals(CaracteristicaTipo.COLECCION)){
-            if(comprovacionColeccion()) {
-               javax.swing.JOptionPane.showMessageDialog(rootPane, "Por favor rellene todos los campos, en el caso de las colecciones ISBN y Nombre son olbigatorios");
-           } else {
+            // Se controla que las obras que se inglesa pertenece a una coleccion o no
+            if(this.boxCaracteristicas.getSelectedItem().equals(CaracteristicaTipo.COLECCION)){
+                if(comprovacionColeccion()) {
+                    javax.swing.JOptionPane.showMessageDialog(rootPane, "Por favor rellene todos los campos, en el caso de las colecciones ISBN y Nombre son olbigatorios");
+            } else {
                 
                    Coleccion nuevaColeccion = new Coleccion();
-                           
-                   nuevaColeccion.setTipoDeObra((ObraTipo) boxTipoDeObra.getSelectedItem());
-                   nuevaColeccion.setAreaTematica((AreaTematicaTipo) boxAreaTematica.getSelectedItem());
-                   nuevaColeccion.setCantidadEjemplares(Integer.parseInt(txtCanEjemplares.getText()));
-                   nuevaColeccion.setTitulo(txtTitulo.getText());
-                   nuevaColeccion.setSubtitulo(txtSubtitulo.getText());
-                   nuevaColeccion.setPrimerAutor(txtPrimerAutor.getText());
-                   nuevaColeccion.setSegundoAutor(txtSegundoAutor.getText());
-                   nuevaColeccion.setTercerAutor(txtAreaReferencia.getText());
-                   nuevaColeccion.setGenero(txtGenero.getText());
-                   nuevaColeccion.setCaracteristica((CaracteristicaTipo) boxCaracteristicas.getSelectedItem());
-                   nuevaColeccion.setAreaReferencia(txtAreaReferencia.getText());
-                   nuevaColeccion.setIsbn(Integer.parseInt(txtISBN.getText()));
-                   nuevaColeccion.setEdicion(nuevaEdicion);
-                   nuevaColeccion.setNombreColeccion(txtNombreColeccion.getText());
-                   nuevaColeccion.setIsbnColeccion(Integer.parseInt(txtISBNColeccion.getText()));
                    
+                        nuevaColeccion.setTipoDeObra((ObraTipo) boxTipoDeObra.getSelectedItem());
+                        nuevaColeccion.setAreaTematica((AreaTematicaTipo) boxAreaTematica.getSelectedItem());
+                        nuevaColeccion.setCantidadEjemplares(Integer.parseInt(txtCanEjemplares.getText()));
+                        nuevaColeccion.setTitulo(txtTitulo.getText());
+                        nuevaColeccion.setSubtitulo(txtSubtitulo.getText());
+                        nuevaColeccion.setPrimerAutor(txtPrimerAutor.getText());
+                        nuevaColeccion.setSegundoAutor(txtSegundoAutor.getText());
+                        nuevaColeccion.setTercerAutor(txtAreaReferencia.getText());
+                        nuevaColeccion.setGenero(txtGenero.getText());
+                        nuevaColeccion.setCaracteristica((CaracteristicaTipo) boxCaracteristicas.getSelectedItem());
+                        nuevaColeccion.setAreaReferencia(txtAreaReferencia.getText());
+                        nuevaColeccion.setIsbn(Integer.parseInt(txtISBN.getText()));
+                        nuevaColeccion.setEdicion(nuevaEdicion);
+                        nuevaColeccion.setNombreColeccion(txtNombreColeccion.getText());
+                        nuevaColeccion.setIsbnColeccion(Integer.parseInt(txtISBNColeccion.getText()));
+
                    
                    for(int i = 1; i <= nuevaColeccion.getCantidadEjemplares(); i++) {
                        try {
@@ -984,47 +1075,45 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                javax.swing.JOptionPane.showMessageDialog(rootPane, "La obra se a registrado de forma correcta.");
            }
           
-          // En el caso de que no sea una coleccion se crean los objetos correspondientes y se lo caraga en el ArrayList
-        } else {
-            if(comprobacionObra() == false) {
+           } else {
+                if(comprobacionObra() == false) {
                 
-                Obra nuevaObra = new Obra();
-                           
-                nuevaObra.setTipoDeObra((ObraTipo) boxTipoDeObra.getSelectedItem());
-                nuevaObra.setAreaTematica((AreaTematicaTipo) boxAreaTematica.getSelectedItem());
-                nuevaObra.setCantidadEjemplares(Integer.parseInt(txtCanEjemplares.getText()));
-                nuevaObra.setTitulo(txtTitulo.getText());
-                nuevaObra.setSubtitulo(txtSubtitulo.getText());
-                nuevaObra.setPrimerAutor(txtPrimerAutor.getText());
-                nuevaObra.setSegundoAutor(txtSegundoAutor.getText());
-                nuevaObra.setTercerAutor(txtTercerAutor.getText());
-                nuevaObra.setGenero(txtGenero.getText());
-                nuevaObra.setCaracteristica((CaracteristicaTipo) boxCaracteristicas.getSelectedItem());
-                nuevaObra.setAreaReferencia(txtAreaReferencia.getText());
-                nuevaObra.setIsbn(Integer.parseInt(txtISBN.getText()));
-                nuevaObra.setEdicion(nuevaEdicion);
-            
+                    Obra nuevaObra = new Obra();
+                
+                    nuevaObra.setTipoDeObra((ObraTipo) boxTipoDeObra.getSelectedItem());
+                    nuevaObra.setAreaTematica((AreaTematicaTipo) boxAreaTematica.getSelectedItem());
+                    nuevaObra.setCantidadEjemplares(Integer.parseInt(txtCanEjemplares.getText()));
+                    nuevaObra.setTitulo(txtTitulo.getText());
+                    nuevaObra.setSubtitulo(txtSubtitulo.getText());
+                    nuevaObra.setPrimerAutor(txtPrimerAutor.getText());
+                    nuevaObra.setSegundoAutor(txtSegundoAutor.getText());
+                    nuevaObra.setTercerAutor(txtTercerAutor.getText());
+                    nuevaObra.setGenero(txtGenero.getText());
+                    nuevaObra.setCaracteristica((CaracteristicaTipo) boxCaracteristicas.getSelectedItem());
+                    nuevaObra.setAreaReferencia(txtAreaReferencia.getText());
+                    nuevaObra.setIsbn(Integer.parseInt(txtISBN.getText()));
+                    nuevaObra.setEdicion(nuevaEdicion);
 
-                for(int i = 0; i <= nuevaObra.getCantidadEjemplares(); i++) {
-                    try {
-                        Ejemplar ejemplarNuevo = new Ejemplar(new GregorianCalendar(),
-                                                              (String) this.boxFormaAdquisicion.getSelectedItem(),
-                                                              nuevaUbicacion,
-                                                              nuevaObra);
-                    } catch (BarcodeException ex) {
-                        Logger.getLogger(VentanaAdministrador.class.getName()).log(Level.SEVERE, null, ex);
-                    } catch (OutputException ex) {
-                        Logger.getLogger(VentanaAdministrador.class.getName()).log(Level.SEVERE, null, ex);
+                    for(int i = 0; i <= nuevaObra.getCantidadEjemplares(); i++) {
+                        try {
+                            Ejemplar ejemplarNuevo = new Ejemplar(new GregorianCalendar(),
+                                                                  (String) this.boxFormaAdquisicion.getSelectedItem(),
+                                                                  nuevaUbicacion,
+                                                                  nuevaObra);
+                        } catch (BarcodeException ex) {
+                            Logger.getLogger(VentanaAdministrador.class.getName()).log(Level.SEVERE, null, ex);
+                        } catch (OutputException ex) {
+                            Logger.getLogger(VentanaAdministrador.class.getName()).log(Level.SEVERE, null, ex);
+                        }
                     }
-    
-                }
                 
-                this.datos.agregarObra(nuevaObra);
-                limpiarRegistrarObra();
-                javax.swing.JOptionPane.showMessageDialog(rootPane, "La obra se a registrado de forma correcta.");
+                    this.datos.agregarObra(nuevaObra);
+                    limpiarRegistrarObra();
+                    javax.swing.JOptionPane.showMessageDialog(rootPane, "La obra se a registrado de forma correcta.");
                 
-            } else { javax.swing.JOptionPane.showMessageDialog(rootPane, "Por favor ingrese todos los datos."); }
-        }
+                } else { javax.swing.JOptionPane.showMessageDialog(rootPane, "Por favor ingrese todos los datos."); }
+            }
+        } catch(NumberFormatException ex) {javax.swing.JOptionPane.showMessageDialog(rootPane, "Por favor ingrese los datos de forma correcta");}
     }//GEN-LAST:event_botonCargarDatosActionPerformed
 
     private void limpiarRegistrarObra() {
@@ -1068,71 +1157,74 @@ public class VentanaAdministrador extends javax.swing.JFrame {
     }
     
     private void botonRegistrarLectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarLectorActionPerformed
-        GregorianCalendar fechaNacimiento = new GregorianCalendar(Integer.parseInt(this.txtAnioNacimiento.getText()),
+        try{
+            GregorianCalendar fechaNacimiento = new GregorianCalendar(Integer.parseInt(this.txtAnioNacimiento.getText()),
                                                                        Integer.parseInt(this.txtMesNacimiento.getText()),
                                                                        Integer.parseInt(this.txtDiaNacimiento.getText()));
         
-        if(comprobacionLectorGeneral() == false) {
-            if(this.boxCargo.getSelectedItem().equals("LECTOR GENERAL")) {
+            if(comprobacionLectorGeneral() == false) {
+                if(this.boxCargo.getSelectedItem().equals("LECTOR GENERAL")) {
             
             
-                Lector nuevoLector = new Lector(this.txtNombre.getText(),
-                                                this.txtApellido.getText(),
-                                                Integer.parseInt(this.txtDocumento.getText()),
-                                                fechaNacimiento,
-                                                this.txtNacionalidad.getText(),
-                                                this.txtDomicilio.getText(),
-                                                Integer.parseInt(this.txtCodPostal.getText()),
-                                                this.txtLocalidad.getText(),
-                                                this.txtNumCelular.getText(),
-                                                this.txtCorreoElectronico.getText(),
-                                                (SexoTipo) this.boxSexo.getSelectedItem());
+                    Lector nuevoLector = new Lector(this.txtNombre.getText(),
+                                                    this.txtApellido.getText(),
+                                                    Integer.parseInt(this.txtDocumento.getText()),
+                                                    fechaNacimiento,
+                                                    this.txtNacionalidad.getText(),
+                                                    this.txtDomicilio.getText(),
+                                                    Integer.parseInt(this.txtCodPostal.getText()),
+                                                    this.txtLocalidad.getText(),
+                                                    this.txtNumCelular.getText(),
+                                                    this.txtCorreoElectronico.getText(),
+                                                    (SexoTipo) this.boxSexo.getSelectedItem());
             
-                this.datos.agregarLector(nuevoLector);
-                limpiarRegistrarLector();
-                javax.swing.JOptionPane.showMessageDialog(rootPane, "Se a registrado el lector de manera exitosa.");
-            }
-        } else { javax.swing.JOptionPane.showMessageDialog(rootPane, "Por favor rellene todos los campos."); }
+                    this.datos.agregarLector(nuevoLector);
+                    limpiarRegistrarLector();
+                    javax.swing.JOptionPane.showMessageDialog(rootPane, "Se a registrado el lector de manera exitosa.");
+                }
+            } else { javax.swing.JOptionPane.showMessageDialog(rootPane, "Por favor rellene todos los campos."); }
         
-        if(comprobacionLectorFacultad() == false){
-            if(this.boxCargo.getSelectedItem().equals("ALUMNO")) {
-                Alumno nuevoAlumno = new Alumno(this.txtCarreras.getText(),
-                                                this.txtNombre.getText(),
-                                                this.txtApellido.getText(),
-                                                Integer.parseInt(this.txtDocumento.getText()),
-                                                fechaNacimiento,
-                                                this.txtNacionalidad.getText(),
-                                                this.txtDomicilio.getText(),
-                                                Integer.parseInt(this.txtCodPostal.getText()),
-                                                this.txtLocalidad.getText(),
-                                                this.txtNumCelular.getText(),
-                                                this.txtCorreoElectronico.getText(),
-                                                (SexoTipo) this.boxSexo.getSelectedItem());
+            if(comprobacionLectorFacultad() == false) {
+                if(this.boxCargo.getSelectedItem().equals("ALUMNO")) {
+                    Alumno nuevoAlumno = new Alumno(this.txtCarreras.getText(),
+                                                    this.txtNombre.getText(),
+                                                    this.txtApellido.getText(),
+                                                    Integer.parseInt(this.txtDocumento.getText()),
+                                                    fechaNacimiento,
+                                                    this.txtNacionalidad.getText(),
+                                                    this.txtDomicilio.getText(),
+                                                    Integer.parseInt(this.txtCodPostal.getText()),
+                                                    this.txtLocalidad.getText(),
+                                                    this.txtNumCelular.getText(),
+                                                    this.txtCorreoElectronico.getText(),
+                                                    (SexoTipo) this.boxSexo.getSelectedItem());
         
-                this.datos.agregarLector(nuevoAlumno);
-                limpiarRegistrarLector();
-                javax.swing.JOptionPane.showMessageDialog(rootPane, "Se a registrado el lector de manera exitosa.");
-            }
+                    this.datos.agregarLector(nuevoAlumno);
+                    limpiarRegistrarLector();
+                    javax.swing.JOptionPane.showMessageDialog(rootPane, "Se a registrado el lector de manera exitosa.");
+                }
+            
         
-            if(this.boxCargo.getSelectedItem().equals("DOCENTE")) {            
-                Docente nuevoDocente = new Docente(this.txtCarreras.getText(),
-                                                   this.txtNombre.getText(),
-                                                   this.txtApellido.getText(),
-                                                   Integer.parseInt(this.txtDocumento.getText()),
-                                                   fechaNacimiento,
-                                                   this.txtNacionalidad.getText(),
-                                                   this.txtDomicilio.getText(),
-                                                   Integer.parseInt(this.txtCodPostal.getText()),
-                                                   this.txtLocalidad.getText(),
-                                                   this.txtNumCelular.getText(),
-                                                   this.txtCorreoElectronico.getText(),
-                                                   (SexoTipo) this.boxSexo.getSelectedItem());
+                if(this.boxCargo.getSelectedItem().equals("DOCENTE")) {            
+                    Docente nuevoDocente = new Docente(this.txtCarreras.getText(),
+                                                       this.txtNombre.getText(),
+                                                       this.txtApellido.getText(),
+                                                       Integer.parseInt(this.txtDocumento.getText()),
+                                                       fechaNacimiento,
+                                                       this.txtNacionalidad.getText(),
+                                                       this.txtDomicilio.getText(),
+                                                       Integer.parseInt(this.txtCodPostal.getText()),
+                                                       this.txtLocalidad.getText(),
+                                                       this.txtNumCelular.getText(),
+                                                       this.txtCorreoElectronico.getText(),
+                                                       (SexoTipo) this.boxSexo.getSelectedItem());
         
-                this.datos.agregarLector(nuevoDocente);
-                limpiarRegistrarLector();
-                javax.swing.JOptionPane.showMessageDialog(rootPane, "Se a registrado el lector de manera exitosa.");
-            }
-        }else { javax.swing.JOptionPane.showMessageDialog(rootPane, "El campo carrera es obligatorio para los Alumnos y Profesores."); }
+                    this.datos.agregarLector(nuevoDocente);
+                    limpiarRegistrarLector();
+                    javax.swing.JOptionPane.showMessageDialog(rootPane, "Se a registrado el lector de manera exitosa.");
+                }
+            }else { javax.swing.JOptionPane.showMessageDialog(rootPane, "El campo carrera es obligatorio para los Alumnos y Profesores."); }
+        } catch(NumberFormatException ex) { javax.swing.JOptionPane.showMessageDialog(rootPane, "Por favor ingrese los datos de forma correcta."); }
     }//GEN-LAST:event_botonRegistrarLectorActionPerformed
 
     private void limpiarRegistrarLector() {
@@ -1232,36 +1324,115 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                 actualizarLista(lectores);
                 break;
             case 1:
-                System.out.println("Se ejecuta");
+                // Obras mas solicitadas por alumnos y docentes
+                List<Obra> solicitudesFacultad = datos.getSolicitudFacultad();
+                
+                actualizarLista(solicitudesFacultad);
                 break;
             case 2:
                 //Obras mas solicitadas por el público general.
-                System.out.println("Se ejecuta");
+                List<Obra> solicitudesGeneral = datos.getSolicitudGeneral();
+                
+                actualizarLista(solicitudesGeneral);
                 break;
             case 3:
                 //Ejemplares disponibles por area de referencia.
-                System.out.println("Se ejecuta");
-                break;
+                if(this.txtBusquedaListado.getText().equals("") == false) {    
+                    List<Ejemplar> disponiblesAreaReferencia = datos.disponibleAreaReferencia(this.txtBusquedaListado.getText());
+                
+                    actualizarLista(disponiblesAreaReferencia);
+                    break;
+                } else { javax.swing.JOptionPane.showMessageDialog(rootPane, "Por favor introduzca un area tematica."); }
             case 4:
                 //Obras reservadas en una fecha determinada.
-                System.out.println("Se ejecuta");
-                break;
+                try {
+                    GregorianCalendar fechaPeriodoInicio = new GregorianCalendar(Integer.parseInt(txtAnioInicioPeriodo.getText()),
+                                                                                 Integer.parseInt(txtMesInicioPeriodo.getText()),
+                                                                                 Integer.parseInt(txtDiaInicioPeriodo.getText()));
+                
+                    List<Ejemplar> reservadosDesdeFecha = datos.ejemplaresReservados(fechaPeriodoInicio);
+                
+                    actualizarLista(reservadosDesdeFecha);
+                    break;
+                } catch(NumberFormatException ex) { javax.swing.JOptionPane.showMessageDialog(rootPane, "Valor para la fecha invalido."); }
             case 5:
                 //Lectores multados en un período de tiempo.
-                System.out.println("Se ejecuta");
-                break;
+                try {
+                    GregorianCalendar fechaInicio = new GregorianCalendar(Integer.parseInt(txtAnioInicioPeriodo.getText()),
+                                                                          Integer.parseInt(txtMesInicioPeriodo.getText()),
+                                                                          Integer.parseInt(txtDiaInicioPeriodo.getText()));
+                
+                    GregorianCalendar fechaFinalizacion = new GregorianCalendar(Integer.parseInt(txtAnioFinalPeriodo.getText()),
+                                                                                Integer.parseInt(txtMesFinalPeriodo.getText()),
+                                                                                Integer.parseInt(txtDiaFinalPeriodo.getText()));
+                
+                    List<Lector> multadosPeriodoDeTiempo = datos.periodoDeMulta(fechaInicio, fechaFinalizacion);
+                
+                    actualizarLista(multadosPeriodoDeTiempo);
+                    break;
+                } catch(NumberFormatException ex) { javax.swing.JOptionPane.showMessageDialog(rootPane, "Valor para la fecha invalido."); }
             case 6:
                 //Lectores por cantidad de multas aplicadas.
-                System.out.println("Se ejecuta");
+                List<Lector> ordenMultados = datos.getMultas();
+                
+                actualizarLista(ordenMultados);
                 break;
             case 7:
                 //Obras de una editorial determinada.
-                System.out.println("Se ejecuta");
-                break;
+                if(this.txtBusquedaListado.getText().equals("") == false) {
+                    List<Obra> obrasPorEditorial = datos.getEditoriales(this.txtBusquedaListado.getText());
+                
+                    actualizarLista(obrasPorEditorial);
+                    break;
+                } else { javax.swing.JOptionPane.showMessageDialog(rootPane, "Por favor introduzca una editorial."); }
 
         }
     }//GEN-LAST:event_botonFiltrarActionPerformed
 
+    public void esconderPeriodos() {
+        this.lblTituloFinPeriodo.setVisible(false);
+        this.lblTituloInicioPeriodo.setVisible(false);
+        this.lblAnioFinalPeriodo.setVisible(false);
+        this.lblAnioInicioPeriodo.setVisible(false);
+        this.lblDiaFinalPeriodo.setVisible(false);
+        this.lblDiaInicioPeriodo.setVisible(false);
+        this.lblMesFinalPeriodo.setVisible(false);
+        this.lblMesInicioPeriodo.setVisible(false);
+        this.txtAnioFinalPeriodo.setVisible(false);
+        this.txtAnioInicioPeriodo.setVisible(false);
+        this.txtMesFinalPeriodo.setVisible(false);
+        this.txtMesInicioPeriodo.setVisible(false);
+        this.txtDiaFinalPeriodo.setVisible(false);
+        this.txtDiaInicioPeriodo.setVisible(false);
+    }
+    
+    public void mostrarPeriodos() {
+        this.lblTituloFinPeriodo.setVisible(true);
+        this.lblTituloInicioPeriodo.setVisible(true);
+        this.lblAnioFinalPeriodo.setVisible(true);
+        this.lblAnioInicioPeriodo.setVisible(true);
+        this.lblDiaFinalPeriodo.setVisible(true);
+        this.lblDiaInicioPeriodo.setVisible(true);
+        this.lblMesFinalPeriodo.setVisible(true);
+        this.lblMesInicioPeriodo.setVisible(true);
+        this.txtAnioFinalPeriodo.setVisible(true);
+        this.txtAnioInicioPeriodo.setVisible(true);
+        this.txtMesFinalPeriodo.setVisible(true);
+        this.txtMesInicioPeriodo.setVisible(true);
+        this.txtDiaFinalPeriodo.setVisible(true);
+        this.txtDiaInicioPeriodo.setVisible(true);
+    }
+    
+    public void mostrarPeriodoInicio() {
+        this.lblTituloInicioPeriodo.setVisible(true);
+        this.lblAnioInicioPeriodo.setVisible(true);
+        this.lblDiaInicioPeriodo.setVisible(true);
+        this.lblMesInicioPeriodo.setVisible(true);
+        this.txtAnioInicioPeriodo.setVisible(true);
+        this.txtMesInicioPeriodo.setVisible(true);
+        this.txtDiaInicioPeriodo.setVisible(true);
+    }
+    
     private void botonReservacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonReservacionActionPerformed
         new VentanaReservacionEjemplar(datos).setVisible(true);
     }//GEN-LAST:event_botonReservacionActionPerformed
@@ -1273,6 +1444,35 @@ public class VentanaAdministrador extends javax.swing.JFrame {
     private void botonDarBajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonDarBajaActionPerformed
         new VentanaDarBajaEjemplar(listaGestionEjemplar.getSelectedIndex(), datos).setVisible(true);
     }//GEN-LAST:event_botonDarBajaActionPerformed
+
+    private void boxBusquedaTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxBusquedaTipoActionPerformed
+        switch (this.boxBusquedaTipo.getSelectedIndex()){
+            case 0:
+                esconderPeriodos();
+                break;
+            case 1:
+                esconderPeriodos();
+                break;
+            case 2:
+                esconderPeriodos();
+                break;
+            case 3:
+                esconderPeriodos();
+                break;
+            case 4:
+                mostrarPeriodoInicio();
+                break;
+            case 5:
+                mostrarPeriodos();
+                break;
+            case 6:
+                esconderPeriodos();
+                break;
+            case 7:
+                esconderPeriodos();
+                break;
+        }
+    }//GEN-LAST:event_boxBusquedaTipoActionPerformed
 
 
     
@@ -1396,8 +1596,18 @@ public class VentanaAdministrador extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JLabel lblAnioFinalPeriodo;
+    private javax.swing.JLabel lblAnioInicioPeriodo;
+    private javax.swing.JLabel lblDiaFinalPeriodo;
+    private javax.swing.JLabel lblDiaInicioPeriodo;
+    private javax.swing.JLabel lblMesFinalPeriodo;
+    private javax.swing.JLabel lblMesInicioPeriodo;
+    private javax.swing.JLabel lblTituloFinPeriodo;
+    private javax.swing.JLabel lblTituloInicioPeriodo;
     private javax.swing.JList<String> listaGestionEjemplar;
     private javax.swing.JTextField txtAnioEdicion;
+    private javax.swing.JTextField txtAnioFinalPeriodo;
+    private javax.swing.JTextField txtAnioInicioPeriodo;
     private javax.swing.JTextField txtAnioNacimiento;
     private javax.swing.JTextField txtApellido;
     private javax.swing.JTextField txtAreaReferencia;
@@ -1409,6 +1619,8 @@ public class VentanaAdministrador extends javax.swing.JFrame {
     private javax.swing.JTextField txtCodPostal;
     private javax.swing.JTextField txtCorreoElectronico;
     private javax.swing.JTextField txtDepartamento;
+    private javax.swing.JTextField txtDiaFinalPeriodo;
+    private javax.swing.JTextField txtDiaInicioPeriodo;
     private javax.swing.JTextField txtDiaNacimiento;
     private javax.swing.JTextField txtDocumento;
     private javax.swing.JTextField txtDocumentoLector;
@@ -1419,6 +1631,8 @@ public class VentanaAdministrador extends javax.swing.JFrame {
     private javax.swing.JTextField txtISBNColeccion;
     private javax.swing.JTextField txtIdioma;
     private javax.swing.JTextField txtLocalidad;
+    private javax.swing.JTextField txtMesFinalPeriodo;
+    private javax.swing.JTextField txtMesInicioPeriodo;
     private javax.swing.JTextField txtMesNacimiento;
     private javax.swing.JTextField txtNacionalidad;
     private javax.swing.JTextField txtNombre;

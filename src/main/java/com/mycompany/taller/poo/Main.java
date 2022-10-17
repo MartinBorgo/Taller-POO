@@ -25,18 +25,15 @@ import net.sourceforge.barbecue.output.OutputException;
  * @author Grupo 2
  */
 public class Main {
-    public static ArrayList<Usuario> listaDeBibliotecarios = new ArrayList();
-    public static ArrayList<Lector> listaLectores = new ArrayList();
-    public static ArrayList<Obra> listaObras = new ArrayList(); 
-
-    
     public static void main(String []args) throws IOException, ClassNotFoundException, BarcodeException, OutputException{
         
-        Bibliotecario biblio1 = new Bibliotecario(true, "Norma", "12345");
-        Bibliotecario biblio2 = new Bibliotecario(false, "Eduardo", "hola01");
-        Bibliotecario biblio3 = new Bibliotecario(false, "Ana", "345");
-        Bibliotecario biblio4 = new Bibliotecario(false, "Elisa", "1111a");
+//        Esto se queda para poder acordarnos la contraseñas y los usuarios
+//        Bibliotecario biblio1 = new Bibliotecario(true, "Norma", "12345");
+//        Bibliotecario biblio2 = new Bibliotecario(false, "Eduardo", "hola01");
+//        Bibliotecario biblio3 = new Bibliotecario(false, "Ana", "345");
+//        Bibliotecario biblio4 = new Bibliotecario(false, "Elisa", "1111a");
         
+//        de aca en adelante se puede borrar todo
 //        listaDeBibliotecarios.add(biblio1);
 //        listaDeBibliotecarios.add(biblio2);
 //        listaDeBibliotecarios.add(biblio3);

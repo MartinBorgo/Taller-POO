@@ -141,6 +141,13 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="265" max="-2" attributes="0"/>
+                      <Component id="lblTituloInicioPeriodo" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="lblTituloFinPeriodo" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="320" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="102" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
                           <Component id="jScrollPane2" min="-2" pref="928" max="-2" attributes="0"/>
@@ -154,7 +161,48 @@
                               <Component id="botonFiltrar" max="32767" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="107" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="250" max="-2" attributes="0"/>
+                              <Component id="lblDiaInicioPeriodo" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="lblMesInicioPeriodo" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblAnioInicioPeriodo" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="txtMesInicioPeriodo" pref="93" max="32767" attributes="0"/>
+                          <Component id="txtDiaInicioPeriodo" max="32767" attributes="0"/>
+                          <Component id="txtAnioInicioPeriodo" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="305" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblDiaFinalPeriodo" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblMesFinalPeriodo" alignment="1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="lblAnioFinalPeriodo" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="txtAnioFinalPeriodo" pref="90" max="32767" attributes="0"/>
+                          <Component id="txtDiaFinalPeriodo" max="32767" attributes="0"/>
+                          <Component id="txtMesFinalPeriodo" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="305" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -170,7 +218,33 @@
                       </Group>
                       <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
                       <Component id="jScrollPane2" min="-2" pref="406" max="-2" attributes="0"/>
-                      <EmptySpace pref="290" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblTituloInicioPeriodo" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblTituloFinPeriodo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblDiaInicioPeriodo" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblDiaFinalPeriodo" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtDiaFinalPeriodo" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtDiaInicioPeriodo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblMesInicioPeriodo" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblMesFinalPeriodo" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtMesFinalPeriodo" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtMesInicioPeriodo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="txtAnioFinalPeriodo" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblAnioFinalPeriodo" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtAnioInicioPeriodo" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblAnioInicioPeriodo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="108" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -210,6 +284,9 @@
                   </StringArray>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="boxBusquedaTipoActionPerformed"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
@@ -228,6 +305,58 @@
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="txtBusquedaListado">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblTituloInicioPeriodo">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Inicio del periodo"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblTituloFinPeriodo">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Fin del periodo"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblDiaInicioPeriodo">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Dia:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblMesInicioPeriodo">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Mes:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblAnioInicioPeriodo">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="A&#xf1;o:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblDiaFinalPeriodo">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Dia:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblMesFinalPeriodo">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Mes:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblAnioFinalPeriodo">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="A&#xf1;o:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtDiaFinalPeriodo">
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtMesFinalPeriodo">
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtAnioFinalPeriodo">
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtDiaInicioPeriodo">
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtMesInicioPeriodo">
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtAnioInicioPeriodo">
             </Component>
           </SubComponents>
         </Container>

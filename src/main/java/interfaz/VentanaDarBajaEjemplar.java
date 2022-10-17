@@ -21,7 +21,12 @@ public class VentanaDarBajaEjemplar extends javax.swing.JFrame {
      * Creates new form VentanaDarBajaEjemplar
      */
     public VentanaDarBajaEjemplar(int indice, GestionDatos datos) {
+        super("Baja de ejemplar");
+        this.datos = datos;
+        this.indiceEjemplar = indice;
+        
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

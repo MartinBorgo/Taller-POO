@@ -24,6 +24,7 @@ public class VentanaObservacionEjemplar extends javax.swing.JFrame {
         this.indiceEjemplar = indice;
         initComponents();
         recuperarObservacion();
+        this.setLocationRelativeTo(null);
     }
 
     /**

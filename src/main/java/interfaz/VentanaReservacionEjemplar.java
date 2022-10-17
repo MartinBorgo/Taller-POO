@@ -11,8 +11,6 @@ import gestion.inventario.Ejemplar;
 import gestion.inventario.Reservacion;
 import gestion.personas.Lector;
 import java.util.GregorianCalendar;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -25,9 +23,11 @@ public class VentanaReservacionEjemplar extends javax.swing.JFrame {
      * Creates new form VentanaReservacionEjemplar
      */
     public VentanaReservacionEjemplar(GestionDatos datos) {
-        super("Reservacion");
+        super("Reservacion de ejemplar");
         this.datos = datos;
+        
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
