@@ -87,9 +87,9 @@ public class Ubicacion implements Serializable{
      */
     @Override
     public String toString() {
-        return String.format("Pasillo: %s"
-                + "%nEstanteria: %s"
-                + "%nEstante: %s", 
+        return String.format(" Pasillo: %s,"
+                + "%n Estanteria: %s,"
+                + "%n Estante: %s", 
                 pasillo, estanteria, estante);
     }
     

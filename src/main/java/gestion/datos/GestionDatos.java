@@ -254,11 +254,14 @@ public class GestionDatos {
         // Copio todos los elementos de la lista en una nueva
         List<Lector> copy = listaLectores.stream().collect(Collectors.toList());
      
-        // Ordeno la lista por el criteio pasado por parametro
+        // Ordeno la lista por el criterio pasado por parametro
         copy.sort(multas);
         
         // Roto la lista para que quede ordebado de mayor a menor
         Collections.reverse(copy);
+        
+        //Verifica si la cantidad de multas es 0, si lo es remueve el objeto lector del arraylist.
+        copy.removeIf(x -> x.getMultas().isEmpty());
         return copy;
     }
     

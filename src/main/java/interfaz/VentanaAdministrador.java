@@ -1277,6 +1277,9 @@ public class VentanaAdministrador extends javax.swing.JFrame {
         }
 
         // Verifico que el lector no este multado
+        // true -> El lector esta multado
+        // false -> El lector no esta multado
+        
         if(lectorPrestamo.estaMultado()) {
             // Si el lector esta multado veo si su multa ya expiro, si es asi digo que no esta mas multado y le concedo el prestamo
             if(lectorPrestamo.getMultas().get(lectorPrestamo.cantidadMultas()).getFinalizacion().before(new GregorianCalendar())) {
@@ -1296,9 +1299,6 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                                                   ejemplarPrestamo,
                                                   lectorPrestamo);
         }
-            
-            
-        
     }//GEN-LAST:event_botonRegistrarPrestamoActionPerformed
     
     private void botonRegistrarDevolucionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarDevolucionActionPerformed
@@ -1376,6 +1376,10 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                 //Lectores por cantidad de multas aplicadas.
                 List<Lector> ordenMultados = datos.getMultas();
                 
+                if(ordenMultados.isEmpty()){
+                    javax.swing.JOptionPane.showMessageDialog(rootPane, "No hay lectores multados.");
+                    break;
+                }
                 actualizarLista(ordenMultados);
                 break;
             case 7:

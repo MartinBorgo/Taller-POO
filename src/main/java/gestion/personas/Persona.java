@@ -238,10 +238,10 @@ public abstract class Persona implements Serializable {
      */
     @Override
     public String toString() {
-        return String.format("Nombre: %s"
-                + "%nApellidos:%s"
-                + "%nDNI:%s"
-                + "%nNumero celular:%s", 
+        return String.format("Nombre: %s,"
+                + "%n Apellidos:%s,"
+                + "%n DNI:%s,"
+                + "%n Numero celular:%s", 
                 nombres, apellidos, dni, numCelular);
     }
 	
