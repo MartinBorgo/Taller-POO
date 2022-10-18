@@ -11,6 +11,7 @@ import gestion.datos.GestionDatos;
 import interfaz.VentanaLogueo;
 import gestion.inventario.*;
 import gestion.personas.*;
+import interfaz.VentanaBibliotecario;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
@@ -37,10 +38,6 @@ public class Main {
 //        Bibliotecario biblio4 = new Bibliotecario(false, "Elisa", "1111a");
         
 //        de aca en adelante se puede borrar todo
-//        listaDeBibliotecarios.add(biblio1);
-//        listaDeBibliotecarios.add(biblio2);
-//        listaDeBibliotecarios.add(biblio3);
-//        listaDeBibliotecarios.add(biblio4);
         
 //        Edicion edicion1 = new Edicion("Pearson", "Argentina", 1, 2016, 1, 560, "Español", FormatoTipo.PAPEL);
 //        Obra obra1 = new Obra(ObraTipo.LIBRO, AreaTematicaTipo.PROGRAMACION, 2,"Como programar en Java", "Java", 
@@ -79,6 +76,5 @@ public class Main {
         
         VentanaLogueo login = new VentanaLogueo(datos);
         login.setVisible(true);
-        
     }
 }
