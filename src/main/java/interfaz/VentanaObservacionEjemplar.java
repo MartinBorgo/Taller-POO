@@ -124,6 +124,11 @@ public class VentanaObservacionEjemplar extends javax.swing.JFrame {
         List<Ejemplar> ejemplares = datos.listaEjemplares();
         
         ejemplares.get(indiceEjemplar).setObservaciones(cajaDeTexto.getText());
+        
+        datos.escribirDatosObra();
+        this.setVisible(false);
+        
+        javax.swing.JOptionPane.showMessageDialog(rootPane, "Se realizo una observacion correctamente.");
     }//GEN-LAST:event_botonHacerObservacionActionPerformed
 
     private void botonCerrarVentanaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCerrarVentanaActionPerformed
