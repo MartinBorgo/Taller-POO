@@ -5,6 +5,8 @@ import enumeraciones.CaracteristicaTipo;
 import enumeraciones.FormatoTipo;
 import enumeraciones.ObraTipo;
 import enumeraciones.SexoTipo;
+import excepciones.EjemplarInexistenteError;
+import excepciones.LectorNoRegistradoError;
 import gestion.datos.GestionDatos;
 import interfaz.VentanaLogueo;
 import gestion.inventario.*;
@@ -25,7 +27,7 @@ import net.sourceforge.barbecue.output.OutputException;
  * @author Grupo 2
  */
 public class Main {
-    public static void main(String []args) throws IOException, ClassNotFoundException, BarcodeException, OutputException{
+    public static void main(String []args) throws IOException, ClassNotFoundException, BarcodeException, OutputException, EjemplarInexistenteError, LectorNoRegistradoError{
         
 //        Esto se queda para poder acordarnos la contraseñas y los usuarios
 //        Bibliotecario biblio1 = new Bibliotecario(true, "Norma", "12345");
@@ -39,26 +41,29 @@ public class Main {
 //        listaDeBibliotecarios.add(biblio3);
 //        listaDeBibliotecarios.add(biblio4);
         
-//        Edicion edicion1 = new Edicion("Pearson", "Argentina", 1, 2021, 1, 352, "Español", FormatoTipo.PAPEL);
-//        Obra obra1 = new Obra(ObraTipo.LIBRO, AreaTematicaTipo.MATEMATICAS, 2,"El librp python", "Pythonismo", 
-//                "Larson", "Menger", "", "Programacion", CaracteristicaTipo.BOLETIN, "Tecnologia", 2, edicion1);
+//        Edicion edicion1 = new Edicion("Pearson", "Argentina", 1, 2016, 1, 560, "Español", FormatoTipo.PAPEL);
+//        Obra obra1 = new Obra(ObraTipo.LIBRO, AreaTematicaTipo.PROGRAMACION, 2,"Como programar en Java", "Java", 
+//                "Deitel Paul", "Deitel Harvey", " ", "Computacion", CaracteristicaTipo.BOLETIN, "Tecnologia", 2, edicion1);
 //        
 //        Ejemplar ejemplarObra1 = new Ejemplar(new GregorianCalendar(2021, 10, 21), "Comprado", new Ubicacion(1, 3, 5), obra1);
         
         GestionDatos datos = new GestionDatos();
+//        Ejemplar buscar1 = datos.buscarEjemplar("4");
+//        System.out.println(buscar1.getObra().getTitulo());
+        Lector lector1 = datos.buscarLector(2);
+        System.out.println(lector1);
+        
 //        datos.agregarUsuario(biblio1);
 //        datos.agregarUsuario(biblio2);
 //        datos.agregarUsuario(biblio3);
 //        datos.agregarUsuario(biblio4);
 //        datos.agregarObra(obra1);
+//        
+//        datos.agregarLector(new Lector("Leandro", "Molina", 1, new GregorianCalendar(2003, 2, 12), 
+//                "Argentina", "P.A de Maria 2375", 3200, "Concordia", "3458474224", "molina@gmail.com", SexoTipo.FEMENINO));
         
-//        datos.agregarLector(new Lector("Pepito", "Fernandez", 23, new GregorianCalendar(1999, 5, 11), 
-//                "Argentina", "P.A de Maria 2375", 3200, "Concordia", "3458474224", "pepito@gmail.com", SexoTipo.FEMENINO));
-        
-        VentanaLogueo login = new VentanaLogueo(datos);
-        login.setVisible(true);
-
-
+//        VentanaLogueo login = new VentanaLogueo(datos);
+//        login.setVisible(true);
         
     }
 }
