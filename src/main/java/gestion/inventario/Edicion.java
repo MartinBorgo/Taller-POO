@@ -185,8 +185,8 @@ public class Edicion implements Serializable{
     @Override
     public String toString() {
         
-                return String.format("Editorial: %s"
-                        + "%nAnio: %d", 
+                return String.format("Editorial: %s,"
+                        + "%n Año: %d", 
                 editorial,anio);
     }
     

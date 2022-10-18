@@ -64,8 +64,8 @@ public class Docente extends Lector {
      */
     @Override
     public String toString() {
-        return String.format("%s"
-                + "Es un %s", super.toString(), this.getClass().getName());
+        return String.format("%s,"
+                + "%n Carreras: %s", super.toString(), carreras);
     }
 	
 }

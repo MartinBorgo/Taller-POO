@@ -20,7 +20,7 @@ import net.sourceforge.barbecue.output.*;
  * 
  */
 public class Ejemplar implements Serializable{
-    private static int incremental = 1;
+    private static int incremental = 45;
     
     private int idUnico;
     private String observaciones;
@@ -399,12 +399,13 @@ public class Ejemplar implements Serializable{
      */
     @Override
     public String toString() {
-        return String.format("Id ejemplar: %s"
-                + "%nFecha adquisicion: %s/%s/%s"
-                + "%nForma adquisicion: %s"
-                + "%nEn prestamo: %s"
-                + "%nUbicacion:%n%s", idUnico, fechaAdquisicion.get(Calendar.YEAR), fechaAdquisicion.get(Calendar.MONTH), 
-                fechaAdquisicion.get(Calendar.DAY_OF_MONTH), formaAdquisicion, enPrestamo, ubicacion);
+        String estaPrestado = enPrestamo ? "En prestamo" : "No esta en prestamo";
+        return String.format("Id ejemplar: %s,"
+                + "%n Fecha adquisicion: %s/%s/%s,"
+                + "%n Forma adquisicion: %s,"
+                + "%n En prestamo: %s,"
+                + "%n %s", idUnico, fechaAdquisicion.get(Calendar.YEAR), fechaAdquisicion.get(Calendar.MONTH), 
+                fechaAdquisicion.get(Calendar.DAY_OF_MONTH), formaAdquisicion, estaPrestado, ubicacion);
     }
     
     /**

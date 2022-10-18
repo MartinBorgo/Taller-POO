@@ -168,8 +168,9 @@ public class Lector extends Persona {
      */
     @Override
     public String toString() {
-        return String.format("%s"
-                + "Es un %s", super.toString(), this.getClass().getName());
+        return String.format("%s,"
+                + " Es un %s,"
+                + "%n Multas: %s", super.toString(), this.getClass().getName(), multas.size());
     }
    
 }

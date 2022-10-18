@@ -15,6 +15,7 @@ import interfaz.VentanaBibliotecario;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
+import java.util.List;
 import net.sourceforge.barbecue.BarcodeException;
 import net.sourceforge.barbecue.output.OutputException;
 
@@ -45,10 +46,24 @@ public class Main {
 //        Ejemplar ejemplarObra1 = new Ejemplar(new GregorianCalendar(2021, 10, 21), "Comprado", new Ubicacion(1, 3, 5), obra1);
         
         GestionDatos datos = new GestionDatos();
+//        List<Lector> pruebaLectores = datos.getListaLectores();
+//        List<Obra> pruebaObras = datos.getListaObras();
+//        List<Ejemplar> a = new ArrayList<>();
+//        for (Obra pruebaObra : pruebaObras) {
+//            for (Ejemplar ejemplare : pruebaObra.getEjemplares()) {
+//                a.add(ejemplare);
+//            }
+//        }
+//        
+//        for (Ejemplar ejemplar : a) {
+//            System.out.println(ejemplar.getObra().getTitulo()+ " ID UNICO:" + ejemplar.getIdUnico());
+//        }
 //        Ejemplar buscar1 = datos.buscarEjemplar("4");
+//        String hola = buscar1.isEnPrestamo() ? "En prestamo" : "No esta en prestamo";
+//        System.out.println(hola);
 //        System.out.println(buscar1.getObra().getTitulo());
-        Lector lector1 = datos.buscarLector(2);
-        System.out.println(lector1);
+//        Lector lector1 = datos.buscarLector(4);
+//        System.out.println(lector1);
         
 //        datos.agregarUsuario(biblio1);
 //        datos.agregarUsuario(biblio2);
@@ -61,6 +76,5 @@ public class Main {
         
         VentanaLogueo login = new VentanaLogueo(datos);
         login.setVisible(true);
-
     }
 }

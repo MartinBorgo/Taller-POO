@@ -1383,6 +1383,10 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                 //Lectores por cantidad de multas aplicadas.
                 List<Lector> ordenMultados = datos.getMultas();
                 
+                if(ordenMultados.isEmpty()){
+                    javax.swing.JOptionPane.showMessageDialog(rootPane, "No hay lectores multados.");
+                    break;
+                }
                 actualizarLista(ordenMultados);
                 break;
             case 7:
