@@ -214,6 +214,11 @@ public class VentanaAdministrador extends javax.swing.JFrame {
         });
 
         botonActualizarListaGestion.setText("Actualizar lista");
+        botonActualizarListaGestion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonActualizarListaGestionActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -1493,7 +1498,21 @@ public class VentanaAdministrador extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_boxBusquedaTipoActionPerformed
 
+    private void botonActualizarListaGestionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonActualizarListaGestionActionPerformed
+        List<Ejemplar> ejemplares = datos.listaEjemplares();
+        
+        actualizarListaGestion(ejemplares);
+    }//GEN-LAST:event_botonActualizarListaGestionActionPerformed
 
+    private void actualizarListaGestion(List<?> lista) {
+        DefaultListModel listModel = new DefaultListModel();
+        
+        for (Object o : lista) {
+            listModel.addElement(o.toString());
+        }
+        
+        this.listaGestionEjemplar.setModel(listModel);
+    }
     
     /**
      * @param args the command line arguments
