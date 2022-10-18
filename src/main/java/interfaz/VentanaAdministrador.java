@@ -85,8 +85,8 @@ public class VentanaAdministrador extends javax.swing.JFrame {
         txtMesFinalPeriodo = new javax.swing.JTextField();
         txtAnioFinalPeriodo = new javax.swing.JTextField();
         txtDiaInicioPeriodo = new javax.swing.JTextField();
-        txtMesInicioPeriodo = new javax.swing.JTextField();
         txtAnioInicioPeriodo = new javax.swing.JTextField();
+        txtMesInicioPeriodo = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jLabel24 = new javax.swing.JLabel();
         boxTipoDePrestamo = new javax.swing.JComboBox<>();
@@ -1261,7 +1261,6 @@ public class VentanaAdministrador extends javax.swing.JFrame {
     }
         
     private void botonRegistrarPrestamoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarPrestamoActionPerformed
-        
         // Se busca al lector segun el documento que se coloco, si no se lo encuentra devulve una referencua nula
         Lector lectorPrestamo = null;
         Ejemplar ejemplarPrestamo = null;
@@ -1275,34 +1274,32 @@ public class VentanaAdministrador extends javax.swing.JFrame {
             javax.swing.JOptionPane.showMessageDialog(rootPane, "Codigo no valido, ese ejemplar no existe.");
         }
 
+        try {
         // Verifico que el lector no este multado
-        if(lectorPrestamo.estaMultado()) {
+            if(lectorPrestamo.estaMultado()) {
             // Si el lector esta multado veo si su multa ya expiro, si es asi digo que no esta mas multado y le concedo el prestamo
-            if(lectorPrestamo.getMultas().get(lectorPrestamo.cantidadMultas()).getFinalizacion().before(new GregorianCalendar())) {
-                lectorPrestamo.setEstaMultado(false);
+                if(lectorPrestamo.getMultas().get(lectorPrestamo.cantidadMultas()).getFinalizacion().before(new GregorianCalendar())) {
+                    lectorPrestamo.setEstaMultado(false);
                     
+                    Prestamo nuevoPrestamo = new Prestamo(new GregorianCalendar(),
+                                                          (PrestamoTipo) this.boxTipoDePrestamo.getSelectedItem(),
+                                                          datos.getUsuarioLoguado(),
+                                                          ejemplarPrestamo,
+                                                          lectorPrestamo);
+                
+                } else { javax.swing.JOptionPane.showMessageDialog(rootPane, "Este lector esta multado no se le puede realizar un prestamo."); }
+            } else if(lectorPrestamo.estaMultado() == false){
                 Prestamo nuevoPrestamo = new Prestamo(new GregorianCalendar(),
                                                       (PrestamoTipo) this.boxTipoDePrestamo.getSelectedItem(),
                                                       datos.getUsuarioLoguado(),
                                                       ejemplarPrestamo,
                                                       lectorPrestamo);
-                
-            } else { javax.swing.JOptionPane.showMessageDialog(rootPane, "Este lector esta multado no se le puede realizar un prestamo."); }
-        } else if(lectorPrestamo.estaMultado() == false){
-            Prestamo nuevoPrestamo = new Prestamo(new GregorianCalendar(),
-                                                  (PrestamoTipo) this.boxTipoDePrestamo.getSelectedItem(),
-                                                  datos.getUsuarioLoguado(),
-                                                  ejemplarPrestamo,
-                                                  lectorPrestamo);
-        }
-            
-            
-        
+            } 
+        } catch(Exception ex) { javax.swing.JOptionPane.showMessageDialog(rootPane, "Por favor ingrese todos los datos."); }
     }//GEN-LAST:event_botonRegistrarPrestamoActionPerformed
     
     private void botonRegistrarDevolucionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarDevolucionActionPerformed
-        VentanaRegistrarDevolucion devolucion = new VentanaRegistrarDevolucion(this.datos);
-        devolucion.setVisible(true);
+        new VentanaRegistrarDevolucion(this.datos).setVisible(true);
     }//GEN-LAST:event_botonRegistrarDevolucionActionPerformed
     
     private void actualizarLista(List<?> lista) {

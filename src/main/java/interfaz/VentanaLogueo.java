@@ -162,8 +162,7 @@ public class VentanaLogueo extends javax.swing.JFrame {
                     
                     this.setVisible(false);
             
-                    VentanaAdministrador ventanaAdmin = new VentanaAdministrador(datos);
-                    ventanaAdmin.show();
+                    new VentanaAdministrador(datos).setVisible(true);
                 }
             } else {
                 if(bibliotecario.getNombreUsuario().equals(this.txtNombreUsuario.getText()) && bibliotecario.getContrasenia().equals(this.txtContrasenia.getText())) {
@@ -171,8 +170,7 @@ public class VentanaLogueo extends javax.swing.JFrame {
                     
                     this.setVisible(false);
             
-                    VentanaBibliotecario ventanaBibliotecario = new VentanaBibliotecario();
-                    ventanaBibliotecario.show();
+                    new VentanaBibliotecario(datos).setVisible(true);
                 }
             
             }

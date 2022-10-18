@@ -354,9 +354,9 @@
             </Component>
             <Component class="javax.swing.JTextField" name="txtDiaInicioPeriodo">
             </Component>
-            <Component class="javax.swing.JTextField" name="txtMesInicioPeriodo">
-            </Component>
             <Component class="javax.swing.JTextField" name="txtAnioInicioPeriodo">
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtMesInicioPeriodo">
             </Component>
           </SubComponents>
         </Container>
