@@ -1032,11 +1032,11 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                                                (FormatoTipo) this.boxFormato.getSelectedItem());
 
 
-        // Se controla que las obras que se inglesa pertenece a una coleccion o no
-        if(this.boxCaracteristicas.getSelectedItem().equals(CaracteristicaTipo.COLECCION)){
-            if(comprovacionColeccion()) {
-               javax.swing.JOptionPane.showMessageDialog(rootPane, "Por favor rellene todos los campos, en el caso de las colecciones ISBN y Nombre son obligatorios");
-           } else {
+            // Se controla que las obras que se inglesa pertenece a una coleccion o no
+            if(this.boxCaracteristicas.getSelectedItem().equals(CaracteristicaTipo.COLECCION)){
+                if(comprobacionColeccion()) {
+                    javax.swing.JOptionPane.showMessageDialog(rootPane, "Por favor rellene todos los campos, en el caso de las colecciones ISBN y Nombre son obligatorios");
+                } else {
                 
                    Coleccion nuevaColeccion = new Coleccion();
                    
@@ -1071,12 +1071,11 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                        }
                        
                    }
-               this.datos.agregarObra(nuevaColeccion);
-               limpiarRegistrarObra();
-               javax.swing.JOptionPane.showMessageDialog(rootPane, "La obra se a registrado de forma correcta.");
-           }
-          
-           } else {
+                   this.datos.agregarObra(nuevaColeccion);
+                   limpiarRegistrarObra();
+                   javax.swing.JOptionPane.showMessageDialog(rootPane, "La obra se a registrado de forma correcta.");
+                } 
+            } else {
                 if(comprobacionObra() == false) {
                 
                     Obra nuevaObra = new Obra();
@@ -1148,7 +1147,7 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                txtPrimerAutor.getText().equals("") || txtGenero.getText().equals("") || txtAreaReferencia.getText().equals("") || txtISBN.getText().equals("");
     }
     
-    private boolean comprovacionColeccion() {
+    private boolean comprobacionColeccion() {
         return txtNumPasillo.getText().equals("") || txtNumEstanteria.getText().equals("") || txtNumEstante.getText().equals("") ||
                txtEditorial.getText().equals("") || txtNumEdicion.getText().equals("") || txtAnioEdicion.getText().equals("") ||
                txtVolumenes.getText().equals("") || txtCantidadPaginas.getText().equals("") || txtIdioma.getText().equals("") ||
@@ -1439,11 +1438,15 @@ public class VentanaAdministrador extends javax.swing.JFrame {
     }//GEN-LAST:event_botonReservacionActionPerformed
 
     private void botonRealizarObservacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRealizarObservacionActionPerformed
-        new VentanaObservacionEjemplar(listaGestionEjemplar.getSelectedIndex(), datos).setVisible(true);
+        try {
+            new VentanaObservacionEjemplar(listaGestionEjemplar.getSelectedIndex(), datos).setVisible(true);
+        } catch(Exception ex) { javax.swing.JOptionPane.showMessageDialog(rootPane, "Por favor seleccione un elemento."); }
     }//GEN-LAST:event_botonRealizarObservacionActionPerformed
 
     private void botonDarBajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonDarBajaActionPerformed
-        new VentanaDarBajaEjemplar(listaGestionEjemplar.getSelectedIndex(), datos).setVisible(true);
+        try {
+            new VentanaDarBajaEjemplar(listaGestionEjemplar.getSelectedIndex(), datos).setVisible(true);
+        } catch(Exception ex) { javax.swing.JOptionPane.showMessageDialog(rootPane, "Por favor seleccione un elemento."); }
     }//GEN-LAST:event_botonDarBajaActionPerformed
 
     private void boxBusquedaTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxBusquedaTipoActionPerformed
