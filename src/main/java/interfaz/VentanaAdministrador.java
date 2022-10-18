@@ -1268,16 +1268,10 @@ public class VentanaAdministrador extends javax.swing.JFrame {
             lectorPrestamo = this.datos.buscarLector(Integer.parseInt(this.txtDocumentoLector.getText()));
             
             ejemplarPrestamo = this.datos.buscarEjemplar(this.txtCodEjemplar.getText());
-        } catch (LectorNoRegistradoError ex) {
-            javax.swing.JOptionPane.showMessageDialog(rootPane, "El Lector no se encuentra registrado, por favor cargue sus datos.");
-        } catch (EjemplarInexistenteError ex) {
-            javax.swing.JOptionPane.showMessageDialog(rootPane, "Codigo no valido, ese ejemplar no existe.");
-        }
-
-        try {
-        // Verifico que el lector no este multado
+            
+            // Verifico que el lector no este multado
             if(lectorPrestamo.estaMultado()) {
-            // Si el lector esta multado veo si su multa ya expiro, si es asi digo que no esta mas multado y le concedo el prestamo
+                // Si el lector esta multado veo si su multa ya expiro, si es asi digo que no esta mas multado y le concedo el prestamo
                 if(lectorPrestamo.getMultas().get(lectorPrestamo.cantidadMultas()).getFinalizacion().before(new GregorianCalendar())) {
                     lectorPrestamo.setEstaMultado(false);
                     
@@ -1286,6 +1280,9 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                                                           datos.getUsuarioLoguado(),
                                                           ejemplarPrestamo,
                                                           lectorPrestamo);
+                    
+                    limpiarPrestamo();
+                    javax.swing.JOptionPane.showMessageDialog(rootPane, "Prestamo cargado exitosamente.");
                 
                 } else { javax.swing.JOptionPane.showMessageDialog(rootPane, "Este lector esta multado no se le puede realizar un prestamo."); }
             } else if(lectorPrestamo.estaMultado() == false){
@@ -1294,9 +1291,23 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                                                       datos.getUsuarioLoguado(),
                                                       ejemplarPrestamo,
                                                       lectorPrestamo);
+                
+                limpiarPrestamo();
+                javax.swing.JOptionPane.showMessageDialog(rootPane, "Prestamo cargado exitosamente.");
             } 
-        } catch(Exception ex) { javax.swing.JOptionPane.showMessageDialog(rootPane, "Por favor ingrese todos los datos."); }
+        } catch (LectorNoRegistradoError ex) {
+            javax.swing.JOptionPane.showMessageDialog(rootPane, "El Lector no se encuentra registrado, por favor cargue sus datos.");
+        } catch (EjemplarInexistenteError ex) {
+            javax.swing.JOptionPane.showMessageDialog(rootPane, "Codigo no valido, ese ejemplar no existe.");
+        } catch (Exception ex) {
+            javax.swing.JOptionPane.showMessageDialog(rootPane, "Por favor rellene todos los campos.");
+        } 
     }//GEN-LAST:event_botonRegistrarPrestamoActionPerformed
+    
+    private void limpiarPrestamo() {
+        this.txtDocumentoLector.setText("");
+        this.txtCodEjemplar.setText("");
+    }
     
     private void botonRegistrarDevolucionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarDevolucionActionPerformed
         new VentanaRegistrarDevolucion(this.datos).setVisible(true);
