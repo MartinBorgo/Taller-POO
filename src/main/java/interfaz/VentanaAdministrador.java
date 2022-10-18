@@ -1282,6 +1282,7 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                                                           lectorPrestamo);
                     
                     datos.escribirDatosObra();
+                    datos.escribirDatosLector();
                     limpiarPrestamo();
                     javax.swing.JOptionPane.showMessageDialog(rootPane, "Prestamo cargado exitosamente.");
                 
