@@ -163,7 +163,7 @@ public class VentanaDarBajaEjemplar extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonCerrarVentanaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCerrarVentanaActionPerformed
-        this.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_botonCerrarVentanaActionPerformed
 
     private void botonDarDeBajaEjemplarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonDarDeBajaEjemplarActionPerformed
@@ -177,6 +177,11 @@ public class VentanaDarBajaEjemplar extends javax.swing.JFrame {
             ejemplares.get(indiceEjemplar).setFechaBaja(new GregorianCalendar());
             ejemplares.get(indiceEjemplar).setMotivoBaja(areaDeTexto.getText());
             ejemplares.get(indiceEjemplar).setUbicacionBaja(ubicacionBaja);
+            
+            datos.escribirDatosObra();
+            this.setVisible(false);
+            
+            javax.swing.JOptionPane.showMessageDialog(rootPane, "Se a dado de baja un ejemplar.");
         } catch (NumberFormatException ex) {
             javax.swing.JOptionPane.showMessageDialog(rootPane, "Por favor introduzca valores validos para la ubicacion.");
         }
