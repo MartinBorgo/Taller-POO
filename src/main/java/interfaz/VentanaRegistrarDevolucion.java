@@ -130,7 +130,9 @@ public class VentanaRegistrarDevolucion extends javax.swing.JFrame {
         
             lectorEntregaPrestamo.getPrestamo().setReceptorPrestamo(datos.getUsuarioLoguado());
         
-            dispose();
+            datos.escribirDatosLector();
+            
+            this.setVisible(false);
         } catch(PrestamoInexistenteError ex) {
             javax.swing.JOptionPane.showMessageDialog(rootPane, "Este ejemplar no se encuentra en prestamo");
         }

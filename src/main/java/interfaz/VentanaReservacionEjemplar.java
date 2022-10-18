@@ -188,19 +188,21 @@ public class VentanaReservacionEjemplar extends javax.swing.JFrame {
             ejemplarReservado = datos.buscarEjemplar(txtEjemplarReservacion.getText());
             
             lectorReserva = datos.buscarLector(Integer.parseInt(txtDocumentoLector.getText()));
+            
+            GregorianCalendar fechaReservacionEjemplar = new GregorianCalendar(Integer.parseInt(txtAnioReservacion.getText()),
+                                                                           Integer.parseInt(txtMesReservacion.getText()),
+                                                                           Integer.parseInt(txtDiaReservacion.getText()));
+        
+            new Reservacion(lectorReserva, ejemplarReservado, fechaReservacionEjemplar);
+        
+            datos.escribirDatosObra();
         } catch (EjemplarInexistenteError ex) {
             javax.swing.JOptionPane.showMessageDialog(rootPane, "Codigo de ejemplar incorrecto");
         } catch (LectorNoRegistradoError ex) {
             javax.swing.JOptionPane.showMessageDialog(rootPane, "Este lector no se encuentra registrado");
+        } catch( NumberFormatException ex ) {
+            javax.swing.JOptionPane.showMessageDialog(rootPane, "Valor para fecha incorrecto");
         }
-        
-        GregorianCalendar fechaReservacionEjemplar = new GregorianCalendar(Integer.parseInt(txtAnioReservacion.getText()),
-                                                                           Integer.parseInt(txtMesReservacion.getText()),
-                                                                           Integer.parseInt(txtDiaReservacion.getText()));
-        
-        new Reservacion(lectorReserva, ejemplarReservado, fechaReservacionEjemplar);
-        
-        
     }//GEN-LAST:event_botonRegistrarReservacionActionPerformed
 
     /**

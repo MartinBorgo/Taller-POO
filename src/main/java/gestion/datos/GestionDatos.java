@@ -361,7 +361,7 @@ public class GestionDatos {
     
     // ================ Metodos privados de la clase =============== //
     
-    private void escribirDatosObra() {
+    public void escribirDatosObra() {
         try {
             ObjectOutputStream oos = new ObjectOutputStream( new FileOutputStream("obras.dat"));
             oos.writeObject(this.listaObras);
@@ -372,7 +372,7 @@ public class GestionDatos {
         }
     }
     
-    private void leerDatosObra() {
+    public void leerDatosObra() {
         try {
             ObjectInputStream ois = new ObjectInputStream( new FileInputStream("obras.dat"));
             this.listaObras = (ArrayList<Obra>) ois.readObject();
@@ -383,7 +383,7 @@ public class GestionDatos {
         }
     }
     
-    private void escribirDatosLector() {
+    public void escribirDatosLector() {
         try{
             ObjectOutputStream oos = new ObjectOutputStream( new FileOutputStream("lectores.dat"));
             oos.writeObject(this.listaLectores);
@@ -394,7 +394,7 @@ public class GestionDatos {
         }
     }
     
-    private void leerDatosLector() {
+    public void leerDatosLector() {
         try {
             ObjectInputStream ois = new ObjectInputStream( new FileInputStream("lectores.dat"));
             this.listaLectores = (ArrayList<Lector>) ois.readObject();
@@ -405,7 +405,7 @@ public class GestionDatos {
         }
     }
     
-    private void escribirDatosUsuario() {
+    public void escribirDatosUsuario() {
         try{
             ObjectOutputStream oos = new ObjectOutputStream( new FileOutputStream("usuarios.dat"));
             oos.writeObject(this.listaUsuarios);
@@ -416,7 +416,7 @@ public class GestionDatos {
         }
     }
     
-    private void leerDatosUsuario() {
+    public void leerDatosUsuario() {
         try {
             ObjectInputStream ois = new ObjectInputStream( new FileInputStream("usuarios.dat"));
             this.listaUsuarios = (ArrayList<Usuario>) ois.readObject();
