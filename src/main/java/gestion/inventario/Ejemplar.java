@@ -6,6 +6,7 @@ package gestion.inventario;
 
 import gestion.personas.Lector;
 import java.io.File;
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -50,7 +51,7 @@ public class Ejemplar implements Serializable{
      */
     
     //Puede agarrar excepciones del metodo setCodigoBarras();
-    public Ejemplar(GregorianCalendar fechaAdquisicion, String formaAdquisicion, Ubicacion ubicacion, Obra obra) throws BarcodeException, OutputException {
+    public Ejemplar(GregorianCalendar fechaAdquisicion, String formaAdquisicion, Ubicacion ubicacion, Obra obra) throws BarcodeException, OutputException, IOException {
         this.idUnico = incremental;
         this.fechaAdquisicion = fechaAdquisicion;
         this.formaAdquisicion = formaAdquisicion;
@@ -78,7 +79,7 @@ public class Ejemplar implements Serializable{
      */
     
     //Puede agarrar excepciones del metodo setCodigoBarras();
-    public Ejemplar(GregorianCalendar fechaAdquisicion, String formaAdquisicion, Ubicacion ubicacion, Coleccion coleccion) throws BarcodeException, OutputException {
+    public Ejemplar(GregorianCalendar fechaAdquisicion, String formaAdquisicion, Ubicacion ubicacion, Coleccion coleccion) throws BarcodeException, OutputException, IOException {
         this.idUnico = incremental;
         this.fechaAdquisicion = fechaAdquisicion;
         this.formaAdquisicion = formaAdquisicion;
@@ -98,7 +99,7 @@ public class Ejemplar implements Serializable{
      * @throws BarcodeException setCodigoBarras()
      * @throws OutputException setCodigoBarras()
      */
-    public Ejemplar() throws BarcodeException, OutputException {
+    public Ejemplar() throws BarcodeException, OutputException, IOException {
         this.idUnico = incremental;
         this.listaSolicitudLectores  = new ArrayList();
         this.reservaciones = new ArrayList();
@@ -413,7 +414,7 @@ public class Ejemplar implements Serializable{
      * @throws OutputException barbecue
      * @throws BarcodeException barbecue
      */
-    private void setCodigoBarras() throws BarcodeException, OutputException{
+    private void setCodigoBarras() throws BarcodeException, OutputException, IOException{
         String idAux = Integer.toString(this.idUnico);
         Barcode bar = BarcodeFactory.createCode128(idAux);
         File archivo = new File("src/main/java/codigoDeBarras/" + idAux + ".png");
