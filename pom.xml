@@ -7,9 +7,9 @@
     <packaging>jar</packaging>
     <dependencies>
         <dependency>
-            <groupId>net.sourceforge.barbecue</groupId>
-            <artifactId>barbecue</artifactId>
-            <version>1.5-beta1</version>
+            <groupId>Barbecue</groupId>
+            <artifactId>codigoBarra.Barbecue</artifactId>
+            <version>2.0</version>
         </dependency>
     </dependencies>
     <properties>

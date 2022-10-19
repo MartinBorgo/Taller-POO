@@ -365,14 +365,14 @@ public class Obra implements Serializable{
     @Override
     public String toString() {
                 return String.format("Tipo obra: %s,"
-                + "%n Area tematica: %s,"
+                + "%n Area referencia: %s,"
                 + "%n Titulo: %s,"
                 + "%n Primer autor: %s,"
-                + "%n Genero: %s,"
                 + "%n Caracteristica: %s,"
+                + "%n Solicitud facultad: %s,"
+                + "%n Solicitud general: %s,"
                 + "%n %s", 
-                tipoDeObra, 
-                areaTematica.getAreaTematicaTipo(),titulo, primerAutor, genero, 
-                caracteristica.getCaracteristicaTipo(), edicion.toString());
+                tipoDeObra,areaReferencia,titulo, primerAutor, caracteristica.getCaracteristicaTipo(), 
+                solicitudFacultad, solicitudGeneral, edicion.toString());
     }
 }
