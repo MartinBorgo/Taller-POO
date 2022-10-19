@@ -9,15 +9,13 @@ import enumeraciones.CaracteristicaTipo;
 import enumeraciones.ObraTipo;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  *
  * @author martin
  */
-public class Obra implements Serializable{
+public class Obra implements Serializable {
     private ObraTipo tipoDeObra;
     private AreaTematicaTipo areaTematica;
     private CaracteristicaTipo caracteristica;

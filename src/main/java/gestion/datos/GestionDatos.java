@@ -372,7 +372,7 @@ public class GestionDatos {
         }
     }
     
-    public void leerDatosObra() {
+    private void leerDatosObra() {
         try {
             ObjectInputStream ois = new ObjectInputStream( new FileInputStream("obras.dat"));
             this.listaObras = (ArrayList<Obra>) ois.readObject();
@@ -394,7 +394,7 @@ public class GestionDatos {
         }
     }
     
-    public void leerDatosLector() {
+    private void leerDatosLector() {
         try {
             ObjectInputStream ois = new ObjectInputStream( new FileInputStream("lectores.dat"));
             this.listaLectores = (ArrayList<Lector>) ois.readObject();
@@ -416,7 +416,7 @@ public class GestionDatos {
         }
     }
     
-    public void leerDatosUsuario() {
+    private void leerDatosUsuario() {
         try {
             ObjectInputStream ois = new ObjectInputStream( new FileInputStream("usuarios.dat"));
             this.listaUsuarios = (ArrayList<Usuario>) ois.readObject();

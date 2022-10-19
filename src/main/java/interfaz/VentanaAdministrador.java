@@ -23,12 +23,14 @@ import gestion.personas.Alumno;
 import gestion.personas.Docente;
 import gestion.personas.Lector;
 import java.io.IOException;
+import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
+import javax.swing.table.DefaultTableModel;
 import net.sourceforge.barbecue.BarcodeException;
 import net.sourceforge.barbecue.output.OutputException;
 
@@ -47,6 +49,7 @@ public class VentanaAdministrador extends javax.swing.JFrame {
         this.datos = datos;
         initComponents();
         esconderPeriodos();
+        actualizarTablaGestion();
         this.setLocationRelativeTo(null);
     }
 
@@ -62,11 +65,11 @@ public class VentanaAdministrador extends javax.swing.JFrame {
         jScrollBar1 = new javax.swing.JScrollBar();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        listaGestionEjemplar = new javax.swing.JList<>();
         botonDarBaja = new javax.swing.JButton();
         botonRealizarObservacion = new javax.swing.JButton();
         botonActualizarListaGestion = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tablaGestionEjemplar = new javax.swing.JTable();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         ListaBusqueda = new javax.swing.JList<>();
@@ -198,8 +201,6 @@ public class VentanaAdministrador extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jScrollPane1.setViewportView(listaGestionEjemplar);
-
         botonDarBaja.setText("Dar de baja");
         botonDarBaja.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -221,34 +222,46 @@ public class VentanaAdministrador extends javax.swing.JFrame {
             }
         });
 
+        tablaGestionEjemplar.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Codigo", "Fecha adquisicion", "Forma de adquisicion", "Estado", "Ubicacion"
+            }
+        ));
+        jScrollPane3.setViewportView(tablaGestionEjemplar);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(84, 84, 84)
-                .addComponent(botonRealizarObservacion)
-                .addGap(18, 18, 18)
-                .addComponent(botonDarBaja)
-                .addGap(18, 18, 18)
-                .addComponent(botonActualizarListaGestion)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(84, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 964, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(89, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 965, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(botonRealizarObservacion)
+                        .addGap(18, 18, 18)
+                        .addComponent(botonDarBaja)
+                        .addGap(18, 18, 18)
+                        .addComponent(botonActualizarListaGestion)))
+                .addContainerGap(88, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(61, 61, 61)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
+                .addGap(57, 57, 57)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 590, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botonDarBaja)
                     .addComponent(botonRealizarObservacion)
                     .addComponent(botonActualizarListaGestion))
-                .addContainerGap(171, Short.MAX_VALUE))
+                .addContainerGap(146, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Gestionar Ejemplares", jPanel2);
@@ -1464,13 +1477,13 @@ public class VentanaAdministrador extends javax.swing.JFrame {
 
     private void botonRealizarObservacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRealizarObservacionActionPerformed
         try {
-            new VentanaObservacionEjemplar(listaGestionEjemplar.getSelectedIndex(), datos).setVisible(true);
+            new VentanaObservacionEjemplar(tablaGestionEjemplar.getSelectedColumn(), datos).setVisible(true);
         } catch(Exception ex) { javax.swing.JOptionPane.showMessageDialog(rootPane, "Por favor seleccione un elemento."); }
     }//GEN-LAST:event_botonRealizarObservacionActionPerformed
 
     private void botonDarBajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonDarBajaActionPerformed
         try {
-            new VentanaDarBajaEjemplar(listaGestionEjemplar.getSelectedIndex(), datos).setVisible(true);
+            new VentanaDarBajaEjemplar(tablaGestionEjemplar.getSelectedColumn(), datos).setVisible(true);
         } catch(Exception ex) { javax.swing.JOptionPane.showMessageDialog(rootPane, "Por favor seleccione un elemento."); }
     }//GEN-LAST:event_botonDarBajaActionPerformed
 
@@ -1504,19 +1517,31 @@ public class VentanaAdministrador extends javax.swing.JFrame {
     }//GEN-LAST:event_boxBusquedaTipoActionPerformed
 
     private void botonActualizarListaGestionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonActualizarListaGestionActionPerformed
-        List<Ejemplar> ejemplares = datos.listaEjemplares();
-        
-        actualizarListaGestion(ejemplares);
+        actualizarTablaGestion();
     }//GEN-LAST:event_botonActualizarListaGestionActionPerformed
 
-    private void actualizarListaGestion(List<?> lista) {
-        DefaultListModel listModel = new DefaultListModel();
+    private void actualizarTablaGestion() {
+        List<Ejemplar> ejemplares = datos.listaEjemplares();
         
-        for (Object o : lista) {
-            listModel.addElement(o.toString());
+        DefaultTableModel model = (DefaultTableModel) tablaGestionEjemplar.getModel();
+        
+        model.setRowCount(0);
+        for (Ejemplar ej : ejemplares) {
+            String estado = ej.isEnPrestamo() ? "En prestamo" : "Disponible";
+            String fechaAd = ej.getFechaAdquisicion().get(Calendar.DAY_OF_MONTH) + "/" + ej.getFechaAdquisicion().get(Calendar.MONTH) + "/" + ej.getFechaAdquisicion().get(Calendar.YEAR);
+            
+            String [] fila = {
+                    ej.getCodigoBarras(),
+                    fechaAd,
+                    ej.getFormaAdquisicion(),
+                    estado,
+                    ej.getUbicacion().toString()
+                };
+            
+            model.addRow(fila);
         }
         
-        this.listaGestionEjemplar.setModel(listModel);
+        this.tablaGestionEjemplar.setModel(model);
     }
     
     /**
@@ -1634,8 +1659,8 @@ public class VentanaAdministrador extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollBar jScrollBar1;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JTabbedPane jTabbedPane1;
@@ -1647,7 +1672,7 @@ public class VentanaAdministrador extends javax.swing.JFrame {
     private javax.swing.JLabel lblMesInicioPeriodo;
     private javax.swing.JLabel lblTituloFinPeriodo;
     private javax.swing.JLabel lblTituloInicioPeriodo;
-    private javax.swing.JList<String> listaGestionEjemplar;
+    private javax.swing.JTable tablaGestionEjemplar;
     private javax.swing.JTextField txtAnioEdicion;
     private javax.swing.JTextField txtAnioFinalPeriodo;
     private javax.swing.JTextField txtAnioInicioPeriodo;

@@ -408,7 +408,7 @@ public class Ejemplar implements Serializable{
                 + "%n %s", codigoBarras, fechaAdquisicion.get(Calendar.YEAR), fechaAdquisicion.get(Calendar.MONTH), 
                 fechaAdquisicion.get(Calendar.DAY_OF_MONTH), formaAdquisicion, estaPrestado, ubicacion);
     }
-    
+
     /**
      * Ingresa un codigo de barras al ejemplar, llamado desde el constructor.
      * @throws OutputException barbecue
