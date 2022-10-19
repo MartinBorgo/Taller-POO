@@ -315,7 +315,7 @@ public class GestionDatos {
                    (multa.getInicio().after(fechaInicio) && multa.getInicio().before(fechaFinal)) && (multa.getFinalizacion().after(fechaInicio) && multa.getFinalizacion().before(fechaFinal)) || 
                    (multa.getInicio().before(fechaInicio) && multa.getFinalizacion().after(fechaFinal))) {
                     
-                        periodoMulta.add(lector);
+                    if(periodoMulta.contains(lector) == false) periodoMulta.add(lector);
                     
                 }
             }
@@ -359,7 +359,7 @@ public class GestionDatos {
         return ejemplares;
     }
     
-    // ================ Metodos privados de la clase =============== //
+    // ================ Metodos de Escritura/Lectura =============== //
     
     public void escribirDatosObra() {
         try {
