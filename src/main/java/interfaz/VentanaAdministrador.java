@@ -1306,8 +1306,11 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                     
                     datos.escribirDatosObra();
                     datos.escribirDatosLector();
+                    GregorianCalendar fechaDevolver = nuevoPrestamo.getFechaDevolucion();
+                    String fechaDevolverString = Integer.toString(fechaDevolver.get(Calendar.YEAR))+ "/" + Integer.toString(fechaDevolver.get(Calendar.MONTH)) + "/"
+                            + Integer.toString(fechaDevolver.get(Calendar.DAY_OF_MONTH));
                     limpiarPrestamo();
-                    javax.swing.JOptionPane.showMessageDialog(rootPane, "Prestamo cargado exitosamente.");
+                    javax.swing.JOptionPane.showMessageDialog(rootPane, "Prestamo cargado exitosamente.\n Fecha a devolver: " + fechaDevolverString);
                 
                 } else { javax.swing.JOptionPane.showMessageDialog(rootPane, "Este lector esta multado no se le puede realizar un prestamo."); }
             } else if(lectorPrestamo.estaMultado() == false){
@@ -1318,8 +1321,12 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                                                       lectorPrestamo);
                 
                 datos.escribirDatosObra();
+                GregorianCalendar fechaDevolver = nuevoPrestamo.getFechaDevolucion();
+                String fechaDevolverString = Integer.toString(fechaDevolver.get(Calendar.YEAR))+ "/" + Integer.toString(fechaDevolver.get(Calendar.MONTH)) + "/"
+                        + Integer.toString(fechaDevolver.get(Calendar.DAY_OF_MONTH));
                 limpiarPrestamo();
-                javax.swing.JOptionPane.showMessageDialog(rootPane, "Prestamo cargado exitosamente.");
+                limpiarPrestamo();
+                javax.swing.JOptionPane.showMessageDialog(rootPane, "Prestamo cargado exitosamente.\n Fecha a devolver: " + fechaDevolverString);
             } 
         } catch (LectorNoRegistradoError ex) {
             javax.swing.JOptionPane.showMessageDialog(rootPane, "El Lector no se encuentra registrado, por favor cargue sus datos.");
