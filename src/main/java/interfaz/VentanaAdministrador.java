@@ -22,6 +22,7 @@ import gestion.inventario.Ubicacion;
 import gestion.personas.Alumno;
 import gestion.personas.Docente;
 import gestion.personas.Lector;
+import java.io.IOException;
 import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.logging.Level;
@@ -1073,6 +1074,8 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                            Logger.getLogger(VentanaAdministrador.class.getName()).log(Level.SEVERE, null, ex);
                        } catch (OutputException ex) {
                            Logger.getLogger(VentanaAdministrador.class.getName()).log(Level.SEVERE, null, ex);
+                       } catch (IOException ex) {
+                           Logger.getLogger(VentanaAdministrador.class.getName()).log(Level.SEVERE, null, ex);
                        }
                        
                    }
@@ -1108,6 +1111,8 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                         } catch (BarcodeException ex) {
                             Logger.getLogger(VentanaAdministrador.class.getName()).log(Level.SEVERE, null, ex);
                         } catch (OutputException ex) {
+                            Logger.getLogger(VentanaAdministrador.class.getName()).log(Level.SEVERE, null, ex);
+                        } catch (IOException ex) {
                             Logger.getLogger(VentanaAdministrador.class.getName()).log(Level.SEVERE, null, ex);
                         }
                     }
