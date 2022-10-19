@@ -6,6 +6,7 @@ package gestion.inventario;
 
 import gestion.personas.Lector;
 import java.io.Serializable;
+import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 /**
@@ -25,14 +26,11 @@ public class Reservacion implements Serializable{
      */
     public Reservacion(Lector lector, Ejemplar ejemplar, GregorianCalendar inicio) {
         this.solicitante = lector;
-        this.inicio = inicio;
-        
-        inicio.add(3, 4);
-        this.finalizacion = inicio;
-        
         this.ejemplarReservado = ejemplar;
-        ejemplar.agregarReservacion(this);
+        this.inicio = inicio;
+        this.finalizacion = new GregorianCalendar(inicio.get(Calendar.YEAR), inicio.get(Calendar.MONTH), inicio.get(Calendar.DAY_OF_MONTH) + 4);
         
+        ejemplar.agregarReservacion(this);
     }
     
     /**
