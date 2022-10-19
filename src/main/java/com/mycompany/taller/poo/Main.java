@@ -14,6 +14,7 @@ import gestion.personas.*;
 import interfaz.VentanaBibliotecario;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
 import net.sourceforge.barbecue.BarcodeException;
@@ -46,6 +47,24 @@ public class Main {
 //        Ejemplar ejemplarObra1 = new Ejemplar(new GregorianCalendar(2021, 10, 21), "Comprado", new Ubicacion(1, 3, 5), obra1);
         
         GestionDatos datos = new GestionDatos();
+        //Todos estos prestamos estan con el lector 1
+        //Prestados ejemplares 2,4,8,17, 25
+        
+//        Ejemplar ejemplarprestado2 = datos.buscarEjemplar("17");
+//        GregorianCalendar fechaPrestamo2 = ejemplarprestado2.getPrestamo().getFechaInicio();
+//        GregorianCalendar fechaPrestado2 = ejemplarprestado2.getPrestamo().getFechaDevolucion();
+//        
+//        String fechaPrestamoEjemplar2 = Integer.toString(fechaPrestamo2.get(Calendar.YEAR)) + "/" + Integer.toString(fechaPrestamo2.get(Calendar.MONTH)) + "/" 
+//                + Integer.toString(fechaPrestamo2.get(Calendar.DAY_OF_MONTH)) + " minuto: " + Integer.toString(fechaPrestamo2.get(Calendar.MINUTE)) + 
+//                        " segundos: " + Integer.toString(fechaPrestamo2.get(Calendar.SECOND));
+//        
+//        String fechaDevolverEjemplar2 = Integer.toString(fechaPrestado2.get(Calendar.YEAR)) + "/" + Integer.toString(fechaPrestado2.get(Calendar.MONTH)) + "/" 
+//                + Integer.toString(fechaPrestado2.get(Calendar.DAY_OF_MONTH)) + " minuto: " + Integer.toString(fechaPrestado2.get(Calendar.MINUTE)) 
+//                + " segundos: " + Integer.toString(fechaPrestamo2.get(Calendar.SECOND));
+//        
+//        System.out.println("FECHA PRESTAMO EJEMPLAR: " + fechaPrestamoEjemplar2);
+//        System.out.println("FECHA DEVOLUCION EJEMPLAR: " + fechaDevolverEjemplar2);
+        
 //        List<Lector> pruebaLectores = datos.getListaLectores();
 //        List<Obra> pruebaObras = datos.getListaObras();
 //        List<Ejemplar> a = new ArrayList<>();
