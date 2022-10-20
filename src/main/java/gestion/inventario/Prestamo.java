@@ -8,6 +8,7 @@ import enumeraciones.PrestamoTipo;
 import gestion.personas.Lector;
 import gestion.personas.Usuario;
 import java.io.Serializable;
+import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 
@@ -24,6 +25,7 @@ public class Prestamo implements Serializable{
     private Usuario receptorPrestamo;
     private Ejemplar ejemplarSolicitado;
     private Lector lectorSolicita;
+    
     /**
      * Constructor de Prestamo.
      * @param fechaInicio GregorianCalendar
@@ -38,9 +40,7 @@ public class Prestamo implements Serializable{
         this.emisorPrestamo = emisorPrestamo;
         this.ejemplarSolicitado = ejemplarSolicitado;
         this.lectorSolicita = lectorSolicita;
-        
-        fechaInicio.add(3,this.diasDePrestamo);
-        this.fechaDevolucion = fechaInicio;
+        this.fechaDevolucion = new GregorianCalendar(fechaInicio.get(Calendar.YEAR), fechaInicio.get(Calendar.MONTH), fechaInicio.get(Calendar.DAY_OF_MONTH) + diasDePrestamo);
     
         // Se incrementa el contador de obra de acuerdo al tipo de lector general/profesor/alumno
         if(lectorSolicita instanceof Lector) {
@@ -51,7 +51,6 @@ public class Prestamo implements Serializable{
         
         // Se mantiene la relacion entre Prestamo y Lector
         ejemplarSolicitado.setPrestamo(this);
-        ejemplarSolicitado.setEnPrestamo(true);
         ejemplarSolicitado.agregarLector(lectorSolicita);
                 
         // Se mantiene la relacion entre Prestamo y Ejemplar
@@ -147,6 +146,7 @@ public class Prestamo implements Serializable{
      */
     public void setReceptorPrestamo(Usuario receptorPrestamo) {
         this.receptorPrestamo = receptorPrestamo;
+        this.ejemplarSolicitado.setEnPrestamo(false);
     }
     /**
      * Devuelve el Ejemplar solicitado.

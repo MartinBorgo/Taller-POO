@@ -6,6 +6,7 @@ package gestion.inventario;
 
 import gestion.personas.Lector;
 import java.io.Serializable;
+import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 /**
@@ -25,9 +26,7 @@ public class Multa implements Serializable{
     public Multa(GregorianCalendar inicio, Lector personaMultada) {
         this.inicio = inicio;
         this.personaMultada = personaMultada;
-        
-        inicio.add(3, 30);  // Se le suma a la fecha de inicio los dias que va a esta multado
-        this.finalizacion = inicio;
+        this.finalizacion = new GregorianCalendar(inicio.get(Calendar.YEAR), inicio.get(Calendar.MONTH), inicio.get(Calendar.DAY_OF_MONTH) + 30);
         
         personaMultada.agregarMulta(this);
         
