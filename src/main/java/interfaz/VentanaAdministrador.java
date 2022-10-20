@@ -1352,7 +1352,7 @@ public class VentanaAdministrador extends javax.swing.JFrame {
     }
     
     private void botonRegistrarDevolucionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarDevolucionActionPerformed
-        new VentanaRegistrarDevolucion(this.datos).setVisible(true);
+        new DialogDevolucionEjemplar(this, true, datos).setVisible(true);
     }//GEN-LAST:event_botonRegistrarDevolucionActionPerformed
     
     private void actualizarLista(List<?> lista) {
@@ -1488,19 +1488,21 @@ public class VentanaAdministrador extends javax.swing.JFrame {
     }
     
     private void botonReservacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonReservacionActionPerformed
-        new VentanaReservacionEjemplar(datos).setVisible(true);
+        new DialogReservacionEjemplar(this, true, datos).setVisible(true);
     }//GEN-LAST:event_botonReservacionActionPerformed
 
     private void botonRealizarObservacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRealizarObservacionActionPerformed
         try {
-            new VentanaObservacionEjemplar(tablaGestionEjemplar.getSelectedColumn(), datos).setVisible(true);
-        } catch(Exception ex) { javax.swing.JOptionPane.showMessageDialog(rootPane, "Por favor seleccione un elemento."); }
+                new DialogObservacionEjemplar(this, true, datos, tablaGestionEjemplar.getSelectedRow()).setVisible(true);
+        } catch( Exception ex ) { javax.swing.JOptionPane.showMessageDialog(rootPane, "Por favor seleccione un elemento."); }
     }//GEN-LAST:event_botonRealizarObservacionActionPerformed
 
     private void botonDarBajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonDarBajaActionPerformed
-        try {
-            new VentanaDarBajaEjemplar(tablaGestionEjemplar.getSelectedColumn(), datos).setVisible(true);
-        } catch(Exception ex) { javax.swing.JOptionPane.showMessageDialog(rootPane, "Por favor seleccione un elemento."); }
+        if(tablaGestionEjemplar.getSelectedRow() != -1) {
+            new DialogBajaEjemplar(this, true, datos, tablaGestionEjemplar.getSelectedRow()).setVisible(true);
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(rootPane, "Por favor seleccione un elemento.");
+        }
     }//GEN-LAST:event_botonDarBajaActionPerformed
 
     private void boxBusquedaTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxBusquedaTipoActionPerformed

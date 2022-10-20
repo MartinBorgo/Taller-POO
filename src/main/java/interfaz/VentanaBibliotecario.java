@@ -646,7 +646,7 @@ public class VentanaBibliotecario extends javax.swing.JFrame {
     }//GEN-LAST:event_botonFiltrarActionPerformed
 
     private void botonRegistrarDevolucionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarDevolucionActionPerformed
-        new VentanaRegistrarDevolucion(this.datos).setVisible(true);
+        new DialogDevolucionEjemplar(this, true, datos).setVisible(true);
     }//GEN-LAST:event_botonRegistrarDevolucionActionPerformed
 
     private void botonRegistrarPrestamoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarPrestamoActionPerformed
@@ -767,7 +767,7 @@ public class VentanaBibliotecario extends javax.swing.JFrame {
     }//GEN-LAST:event_botonRegistrarLectorActionPerformed
 
     private void botonReservacionEjemplarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonReservacionEjemplarActionPerformed
-        new VentanaReservacionEjemplar(datos).setVisible(true);
+        new DialogReservacionEjemplar(this, true, datos).setVisible(true);
     }//GEN-LAST:event_botonReservacionEjemplarActionPerformed
 
     private void boxBusquedaTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxBusquedaTipoActionPerformed
