@@ -22,7 +22,6 @@ import gestion.inventario.Ubicacion;
 import gestion.personas.Alumno;
 import gestion.personas.Docente;
 import gestion.personas.Lector;
-import java.awt.Frame;
 import java.io.IOException;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -48,6 +47,7 @@ public class VentanaAdministrador extends javax.swing.JFrame {
     public VentanaAdministrador(GestionDatos datos) {
         super("Gestion de Biblioteca");
         this.datos = datos;
+        
         initComponents();
         esconderPeriodos();
         actualizarTablaGestion();
@@ -1101,7 +1101,8 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                        }
                        
                    }
-                   this.datos.agregarObra(nuevaColeccion);
+                   
+                   datos.agregarObra(nuevaColeccion);
                    limpiarRegistrarObra();
                    javax.swing.JOptionPane.showMessageDialog(rootPane, "La obra se a registrado de forma correcta.");
                 } 
@@ -1139,8 +1140,9 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                         }
                     }
                 
-                    this.datos.agregarObra(nuevaObra);
+                    datos.agregarObra(nuevaObra);
                     limpiarRegistrarObra();
+                    
                     javax.swing.JOptionPane.showMessageDialog(rootPane, "La obra se a registrado de forma correcta.");
                 
                 } else { javax.swing.JOptionPane.showMessageDialog(rootPane, "Por favor ingrese todos los datos."); }
@@ -1352,7 +1354,7 @@ public class VentanaAdministrador extends javax.swing.JFrame {
     }
     
     private void botonRegistrarDevolucionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarDevolucionActionPerformed
-        new VentanaRegistrarDevolucion(this.datos).setVisible(true);
+        new DialogDevolucionEjemplar(this, true, datos).setVisible(true);
     }//GEN-LAST:event_botonRegistrarDevolucionActionPerformed
     
     private void actualizarLista(List<?> lista) {
@@ -1488,19 +1490,21 @@ public class VentanaAdministrador extends javax.swing.JFrame {
     }
     
     private void botonReservacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonReservacionActionPerformed
-        new VentanaReservacionEjemplar(datos).setVisible(true);
+        new DialogReservacionEjemplar(this, true, datos).setVisible(true);
     }//GEN-LAST:event_botonReservacionActionPerformed
 
     private void botonRealizarObservacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRealizarObservacionActionPerformed
         try {
-            new VentanaObservacionEjemplar(tablaGestionEjemplar.getSelectedColumn(), datos).setVisible(true);
-        } catch(Exception ex) { javax.swing.JOptionPane.showMessageDialog(rootPane, "Por favor seleccione un elemento."); }
+                new DialogObservacionEjemplar(this, true, datos, tablaGestionEjemplar.getSelectedRow()).setVisible(true);
+        } catch( Exception ex ) { javax.swing.JOptionPane.showMessageDialog(rootPane, "Por favor seleccione un elemento."); }
     }//GEN-LAST:event_botonRealizarObservacionActionPerformed
 
     private void botonDarBajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonDarBajaActionPerformed
-        try {
-            new VentanaDarBajaEjemplar(tablaGestionEjemplar.getSelectedColumn(), datos).setVisible(true);
-        } catch(Exception ex) { javax.swing.JOptionPane.showMessageDialog(rootPane, "Por favor seleccione un elemento."); }
+        if(tablaGestionEjemplar.getSelectedRow() != -1) {
+            new DialogBajaEjemplar(this, true, datos, tablaGestionEjemplar.getSelectedRow()).setVisible(true);
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(rootPane, "Por favor seleccione un elemento.");
+        }
     }//GEN-LAST:event_botonDarBajaActionPerformed
 
     private void boxBusquedaTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxBusquedaTipoActionPerformed

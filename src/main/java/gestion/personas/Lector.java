@@ -15,7 +15,7 @@ import java.util.List;
 public class Lector extends Persona {
     private boolean estaMultado;
     private Prestamo Prestamo;
-    private ArrayList<Ejemplar> listaLibros;
+    private List<Ejemplar> listaLibros;
     private List<Multa>multas;
 
     /**
@@ -99,7 +99,7 @@ public class Lector extends Persona {
      * 
      * @return ArrayList ejemplar
      */
-    public ArrayList<Ejemplar> getListaLibros() {
+    public List<Ejemplar> getListaLibros() {
         return listaLibros;
     }
 
@@ -150,6 +150,7 @@ public class Lector extends Persona {
      */
     public void agregarMulta(Multa multa) {
         this.multas.add(multa);
+        this.estaMultado = true;
     }
 
     /**
