@@ -22,7 +22,6 @@ import gestion.inventario.Ubicacion;
 import gestion.personas.Alumno;
 import gestion.personas.Docente;
 import gestion.personas.Lector;
-import java.awt.Frame;
 import java.io.IOException;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -48,6 +47,7 @@ public class VentanaAdministrador extends javax.swing.JFrame {
     public VentanaAdministrador(GestionDatos datos) {
         super("Gestion de Biblioteca");
         this.datos = datos;
+        
         initComponents();
         esconderPeriodos();
         actualizarTablaGestion();
@@ -1101,7 +1101,8 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                        }
                        
                    }
-                   this.datos.agregarObra(nuevaColeccion);
+                   
+                   datos.agregarObra(nuevaColeccion);
                    limpiarRegistrarObra();
                    javax.swing.JOptionPane.showMessageDialog(rootPane, "La obra se a registrado de forma correcta.");
                 } 
@@ -1139,8 +1140,9 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                         }
                     }
                 
-                    this.datos.agregarObra(nuevaObra);
+                    datos.agregarObra(nuevaObra);
                     limpiarRegistrarObra();
+                    
                     javax.swing.JOptionPane.showMessageDialog(rootPane, "La obra se a registrado de forma correcta.");
                 
                 } else { javax.swing.JOptionPane.showMessageDialog(rootPane, "Por favor ingrese todos los datos."); }
