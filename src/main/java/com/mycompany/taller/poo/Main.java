@@ -50,7 +50,9 @@ public class Main {
         //Todos estos prestamos estan con el lector 1
         //Prestados ejemplares 2,4,8,17, 25
         
-//        Ejemplar ejemplarprestado2 = datos.buscarEjemplar("17");
+        Ejemplar ejemplarprestado2 = datos.buscarEjemplar("17");
+        Lector lectorConPrestamo = ejemplarprestado2.getPrestamo().getLectorSolicita();
+        System.out.println(lectorConPrestamo.getNombres() + " " + lectorConPrestamo.getApellidos());
 //        GregorianCalendar fechaPrestamo2 = ejemplarprestado2.getPrestamo().getFechaInicio();
 //        GregorianCalendar fechaPrestado2 = ejemplarprestado2.getPrestamo().getFechaDevolucion();
 //        
