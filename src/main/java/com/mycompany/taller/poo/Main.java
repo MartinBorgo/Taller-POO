@@ -47,7 +47,7 @@ public class Main {
         
         GestionDatos datos = new GestionDatos();
         
-        datos.getListaLectores().get(0).agregarMulta(new Multa(new GregorianCalendar(2022, 05, 12), datos.getListaLectores().get(0)));
+//        datos.getListaLectores().get(0).agregarMulta(new Multa(new GregorianCalendar(2022, 05, 12), datos.getListaLectores().get(0)));
         
 //        List<Lector> pruebaLectores = datos.getListaLectores();
 //        List<Obra> pruebaObras = datos.getListaObras();
