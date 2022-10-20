@@ -168,9 +168,17 @@ public class Lector extends Persona {
      */
     @Override
     public String toString() {
+        String lectorClase;
+        if(this instanceof Alumno){
+            lectorClase = "Alumno";
+        }else if(this instanceof Docente){
+            lectorClase = "Docente";
+        }else{
+            lectorClase = "Lector";
+        }
         return String.format("%s,"
                 + " Es un %s,"
-                + "%n Multas: %s", super.toString(), this.getClass().getName(), multas.size());
+                + "%n Multas: %s", super.toString(), lectorClase, multas.size());
     }
    
 }

@@ -132,6 +132,7 @@ public class VentanaRegistrarDevolucion extends javax.swing.JFrame {
         
             datos.escribirDatosLector();
             
+            javax.swing.JOptionPane.showMessageDialog(rootPane, "Se realizo la devolucion con exito.");
             this.setVisible(false);
         } catch(PrestamoInexistenteError ex) {
             javax.swing.JOptionPane.showMessageDialog(rootPane, "Este ejemplar no se encuentra en prestamo");
