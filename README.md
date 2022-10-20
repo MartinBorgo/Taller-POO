@@ -1,6 +1,6 @@
 # Taller de Programacion Orientado a Objetos.
 <b> Este repositorio es el taller de programacion orientada a objetos de la facultad de administracion UNER </b>
-Integrantes:
+### Integrantes del grupo:
 - Martin Borgo.
 - Sebastian Haoys.
 - Cesar de Maurizio.
