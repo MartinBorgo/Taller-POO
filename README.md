@@ -10,6 +10,9 @@ Integrantes:
 ## ¿De que trata el proyecto?
 Se trata de resolver el nuevo sistema de control de prestamos solicitado por la biblioteca de la FCAD, cumpliendo los requerimientos solicitados.
 
+## Instalacion del proyecto.
+El proyecto puede ser descargado por medio .ZIP o por medio de comandos de git (git clone). En estos 2 metodos el proyecto funciona correctamente.
+
 ## Funcionamiento del proyecto.
 Este para su ejecucion se realiza desde el main, ubicado en:
     Taller-POO/src/main/java/com/mycompany/taller/poo/Main.java
