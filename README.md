@@ -1,6 +1,6 @@
 # Taller de Programacion Orientado a Objetos.
 <b> Este repositorio es el taller de programacion orientada a objetos de la facultad de administracion UNER </b>
-Integrantes:
+### Integrantes del grupo:
 - Martin Borgo.
 - Sebastian Haoys.
 - Cesar de Maurizio.
@@ -21,7 +21,7 @@ Al ejecutarlo le habra una pantalla de inicio sesion esta podra iniciarse con lo
 - Eduardo hola01 (bibliotecario)
 - Ana 345 (bibliotecario)
 - Elisa 1111a (bibliotecario)
-La diferencia entre el admin y bibliotecario, es la cantidad de funcionalidades que tienen permitidas.
+<p>La diferencia entre el admin y bibliotecario, es la cantidad de funcionalidades que tienen permitidas. </p>
 
 |  Funcionalidades | Admin | Bibliotecario
 | ----------- | ------------ | ------------ |
@@ -43,4 +43,5 @@ Taller-POO/src/main/java/codigoDeBarras
 Son archivos .PNG para su escaneo.
 Recomendamos para el escaneo de los barcodes el programa **Barcode to PC** que posee aplicacion de escritorio y celular.
 Este posee conexion entre la computadora y el celular por medio de Wi-Fi, se hace una vinculacion entre los dispositivos para su funcionamiento.
-[Link para Barcode to PC.](https://barcodetopc.com/ "Link para Barcode to PC.")
+[Link para Barcode to PC.](https://barcodetopc.com/ "Link para Barcode to PC.")<br>
+![](https://barcodetopc.com/wp-content/themes/barcodetopc/assets/images/logo.png)
