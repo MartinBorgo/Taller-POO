@@ -17,13 +17,13 @@ import net.sourceforge.barbecue.output.*;
 
 /**
  *
- * @author martin
+ * @author Grupo 2
  * 
  */
 public class Ejemplar implements Serializable{
     private static int incremental = 45;
     
-    private int idUnico;
+    private Integer idUnico;
     private String observaciones;
     private GregorianCalendar fechaAdquisicion;
     private String formaAdquisicion;
@@ -40,7 +40,7 @@ public class Ejemplar implements Serializable{
     private String codigoBarras;
    
     /**
-     * Construye un objeto ejemplar con la informacion basica a la hora de su adquisicion
+     * Construye un objeto ejemplar con sus valores inicializados
      * 
      * @param fechaAdquisicion GregorianCalendar
      * @param formaAdquisicion String
@@ -68,7 +68,7 @@ public class Ejemplar implements Serializable{
     }
 
     /**
-     * Construye un objeto Ejemplar con la informacion basica a la hora de la adquisicion
+     * Construye un objeto Ejemplar con sus valores inicializados
      * 
      * @param fechaAdquisicion fechaAdquisicion
      * @param formaAdquisicion String
@@ -95,7 +95,7 @@ public class Ejemplar implements Serializable{
     }
 
     /**
-     * Construye un objeto ejemplar si settear ningun tipo de dato
+     * Construye un objeto ejemplar con todos sus valores por defecto
      * @throws BarcodeException setCodigoBarras()
      * @throws OutputException setCodigoBarras()
      */
@@ -110,18 +110,18 @@ public class Ejemplar implements Serializable{
 
     /**
      * Devuelve el codigo identificador de el ejemplar
-     * @return int
+     * @return Integer
      */
-    public int getIdUnico() {
+    public Integer getIdUnico() {
         return idUnico;
     }
 
     /**
      * Setea El codigo unico con el valor pasado por parametro
      * 
-     * @param idUnico int
+     * @param idUnico Integer
      */
-    public void setIdUnico(int idUnico) {
+    public void setIdUnico(Integer idUnico) {
         this.idUnico = idUnico;
     }
 
@@ -235,20 +235,16 @@ public class Ejemplar implements Serializable{
     }
 
     /**
-     * Devuelve el estado del ejemplar:
-     * true -> Esta en prestamo
-     * false -> Esta disponible
+     * Devuelve el estado del ejemplar
      * 
-     * @return boolean 
+     * @return <b>true</b> si el ejemplar esta en prestamo, de lo contrario se retornara false
      */
     public boolean isEnPrestamo() {
         return enPrestamo;
     }
 
     /**
-     * Setea el estado del del ejemplar con el valor pasado por parametro
-     * true -> El ejemplar pasa a estar en prestamo
-     * false -> El ejemplar pasa a estar disponible
+     * Setea el estado del ejemplar con el valor pasado por parametro, true para que este en prestamo, false para que este disponible
      * 
      * @param enPrestamo boolean
      */
@@ -257,7 +253,7 @@ public class Ejemplar implements Serializable{
     }
 
     /**
-     * Devuelve la ubicacion en la que se encuentra el ejemplar en la biblioteca
+     * Devuelve la ubicacion en la que se encuentra el ejemplar
      * 
      * @return Ubicacion
      */
@@ -266,7 +262,7 @@ public class Ejemplar implements Serializable{
     }
 
     /**
-     * Setea la ubicacion en la que se encuentra el libro
+     * Setea la ubicacion en la que se encuentra el ejemplar
      * 
      * @param ubicacion Ubicacion
      */
@@ -275,16 +271,16 @@ public class Ejemplar implements Serializable{
     }
     
     /**
-     * Devuelve la un objeto de tipo Prestamo, con toda la informacion de este mismo
+     * Devuelve un objeto de tipo Prestamo, con toda la informacion de este mismo
      * 
-     * @return Prestamo
+     * @return Un Prestamo con toda la informacion acerca del mismo
      */
     public Prestamo getPrestamo() {
         return Prestamo;
     }
 
     /**
-     * Setea un prestamo para el ejemplar
+     * Setea un prestamo para el ejemplar y setea el estado del ejemplar como prestado
      * 
      * @param Prestamo Prestamo
      */

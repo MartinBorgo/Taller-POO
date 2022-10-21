@@ -18,8 +18,9 @@ public class Reservacion implements Serializable{
     private GregorianCalendar finalizacion;
     private Ejemplar ejemplarReservado;
     private Lector solicitante;
+   
     /**
-     * 
+     *Construye un objeto Reservacion con sus valores inicializados 
      * @param lector Lector
      * @param ejemplar Ejemplar
      * @param inicio GregorianCalendar
@@ -31,6 +32,12 @@ public class Reservacion implements Serializable{
         this.finalizacion = new GregorianCalendar(inicio.get(Calendar.YEAR), inicio.get(Calendar.MONTH), inicio.get(Calendar.DAY_OF_MONTH) + 4);
         
         ejemplar.agregarReservacion(this);
+    }
+
+    /**
+     * Construye un objeto Reservacion con sus valores por defecto
+     */
+    public Reservacion() {
     }
     
     /**

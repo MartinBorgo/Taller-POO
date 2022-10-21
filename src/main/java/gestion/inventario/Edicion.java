@@ -9,20 +9,20 @@ import java.io.Serializable;
 
 /**
  *
- * @author martin
+ * @author Grupo 2
  */
 public class Edicion implements Serializable{
     private String editorial;
     private String paisEdicion;
-    private  int numeroEdicion;
-    private int anio;
-    private int volumenes;
-    private int paginas;
+    private Integer numeroEdicion;
+    private Integer anio;
+    private Integer volumenes;
+    private Integer paginas;
     private String idioma;
     private FormatoTipo formato;
 
     /**
-     * Construye un objeto Edicion con toda la informacion pasada por parametros.
+     * Construye un objeto Edicion con todos sus valores inicalizados.
      * 
      * @param editorial String
      * @param paisEdicion String
@@ -33,7 +33,7 @@ public class Edicion implements Serializable{
      * @param idioma String
      * @param formato FormatoTipo
      */
-    public Edicion(String editorial, String paisEdicion, int numeroEdicion, int anio, int volumenes, int paginas, String idioma, FormatoTipo formato) {
+    public Edicion(String editorial, String paisEdicion, Integer numeroEdicion, Integer anio, Integer volumenes, Integer paginas, String idioma, FormatoTipo formato) {
         this.editorial = editorial;
         this.paisEdicion = paisEdicion;
         this.numeroEdicion = numeroEdicion;
@@ -67,7 +67,7 @@ public class Edicion implements Serializable{
     }
     
     /**
-     * Devuelve el pais de la edicion.
+     * Devuelve el pais de edicion.
      * @return String
      */
     public String getPaisEdicion() {
@@ -84,65 +84,65 @@ public class Edicion implements Serializable{
 
     /**
      * Devuelve el numero de edicion.
-     * @return int
+     * @return Integer
      */
-    public int getNumeroEdicion() {
+    public Integer getNumeroEdicion() {
         return numeroEdicion;
     }
 
     /**
      * Ingresa el numero de edicion.
-     * @param numeroEdicion int
+     * @param numeroEdicion Integer
      */
-    public void setNumeroEdicion(int numeroEdicion) {
+    public void setNumeroEdicion(Integer numeroEdicion) {
         this.numeroEdicion = numeroEdicion;
     }
 
     /**
-     * Devuelve el año de la edicion.
-     * @return int
+     * Devuelve el año de edicion de la coleccion.
+     * @return Integer
      */
-    public int getAnio() {
+    public Integer getAnio() {
         return anio;
     }
 
     /**
      * Ingresa el año de la edicion.
-     * @param anio int
+     * @param anio Integer
      */
-    public void setAnio(int anio) {
+    public void setAnio(Integer anio) {
         this.anio = anio;
     }
 
     /**
      * Devuelve la cantidad de volumenes de la edicion.
-     * @return int
+     * @return Integer
      */
-    public int getVolumenes() {
+    public Integer getVolumenes() {
         return volumenes;
     }
 
     /**
      * Ingresa la cantidad de volumenes que contiene la edicion.
-     * @param volumenes int
+     * @param volumenes Integer
      */
-    public void setVolumenes(int volumenes) {
+    public void setVolumenes(Integer volumenes) {
         this.volumenes = volumenes;
     }
 
     /**
      * Devuelve las paginas que contiene la edicion.
-     * @return int
+     * @return Integer
      */
-    public int getPaginas() {
+    public Integer getPaginas() {
         return paginas;
     }
 
     /**
      * Ingresa las paginas que contiene la edicion.
-     * @param paginas int
+     * @param paginas Integer
      */
-    public void setPaginas(int paginas) {
+    public void setPaginas(Integer paginas) {
         this.paginas = paginas;
     }
 

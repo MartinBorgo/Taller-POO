@@ -13,13 +13,13 @@ import java.util.List;
 
 /**
  *
- * @author martin
+ * @author Grupo 2
  */
 public class Obra implements Serializable {
     private ObraTipo tipoDeObra;
     private AreaTematicaTipo areaTematica;
     private CaracteristicaTipo caracteristica;
-    private int cantidadEjemplares;
+    private Integer cantidadEjemplares;
     private String titulo;
     private String subtitulo;
     private String primerAutor;
@@ -28,9 +28,9 @@ public class Obra implements Serializable {
     private String genero;
     private String indiceObra;
     private String areaReferencia;
-    private int solicitudFacultad;
-    private int solicitudGeneral;
-    private int isbn;
+    private Integer solicitudFacultad;
+    private Integer solicitudGeneral;
+    private Integer isbn;
     private Edicion edicion;
     private List<Ejemplar> ejemplares;
 
@@ -39,7 +39,7 @@ public class Obra implements Serializable {
      * Construye un objeto obra con los valore pasados por parametro.
      * @param tipoDeObra tipoDeObra
      * @param areaTematica AreaTematicaTipo
-     * @param cantidadEjemplares int
+     * @param cantidadEjemplares Integer
      * @param titulo String
      * @param subtitulo String
      * @param primerAutor String
@@ -48,12 +48,12 @@ public class Obra implements Serializable {
      * @param genero String
      * @param caracteristica CaracteristicaTipo
      * @param areaReferencia String
-     * @param isbn int
+     * @param isbn Integer
      * @param edicion Edicion
      */    
-    public Obra(ObraTipo tipoDeObra, AreaTematicaTipo areaTematica, int cantidadEjemplares, String titulo, String subtitulo, String primerAutor,
+    public Obra(ObraTipo tipoDeObra, AreaTematicaTipo areaTematica, Integer cantidadEjemplares, String titulo, String subtitulo, String primerAutor,
                 String segundoAutor, String tercerAutor, String genero, CaracteristicaTipo caracteristica, String areaReferencia,
-                int isbn, Edicion edicion) {
+                Integer isbn, Edicion edicion) {
         
         this.tipoDeObra = tipoDeObra;
         this.areaTematica = areaTematica;
@@ -112,14 +112,14 @@ public class Obra implements Serializable {
      * Devuelve la cantidad de ejemplares.
      * @return int
      */
-    public int getCantidadEjemplares() {
+    public Integer getCantidadEjemplares() {
         return cantidadEjemplares;
     }
     /**
      * Establece la cantidad de ejemplares de la obra.
      * @param cantidadEjemplares int
      */
-    public void setCantidadEjemplares(int cantidadEjemplares) {
+    public void setCantidadEjemplares(Integer cantidadEjemplares) {
         this.cantidadEjemplares = cantidadEjemplares;
     }
     /**
@@ -252,42 +252,42 @@ public class Obra implements Serializable {
      * Devuelve la solicitud de facultad.
      * @return int
      */
-    public int getSolicitudFacultad() {
+    public Integer getSolicitudFacultad() {
         return solicitudFacultad;
     }
     /**
      * Establece la solicitud facultad para el objeto actual de obra.
      * @param solicitudFacultad int
      */
-    public void setSolicitudFacultad(int solicitudFacultad) {
+    public void setSolicitudFacultad(Integer solicitudFacultad) {
         this.solicitudFacultad = solicitudFacultad;
     }
     /**
      * Devuelve la solicitud general del objeto actual.
      * @return int
      */
-    public int getSolicitudGeneral() {
+    public Integer getSolicitudGeneral() {
         return solicitudGeneral;
     }
     /**
      * Establece la solicitud general. Requiere un int de parámetro.
      * @param solicitudGeneral int
      */
-    public void setSolicitudGeneral(int solicitudGeneral) {
+    public void setSolicitudGeneral(Integer solicitudGeneral) {
         this.solicitudGeneral = solicitudGeneral;
     }
     /**
      * Devuelve el ISBN de la obra.
      * @return int
      */
-    public int getIsbn() {
+    public Integer getIsbn() {
         return isbn;
     }
     /**
      * Establece el ISBN de la Obra.
      * @param isbn int
      */
-    public void setIsbn(int isbn) {
+    public void setIsbn(Integer isbn) {
         this.isbn = isbn;
     }
     /**
@@ -314,8 +314,6 @@ public class Obra implements Serializable {
         return ejemplares;
     }
     
-    
-    
     // =========== Metodos hechos a mano =========== //
     
     /**
@@ -325,19 +323,6 @@ public class Obra implements Serializable {
     public void agregarEjemplar(Ejemplar ej) {
         this.ejemplares.add(ej);
     
-    }
-    
-    /**
-     * Devuelve el ejemplar utilizando el número identificador introducido de parámetro.
-     * @param identificador int
-     * @return Ejemplar
-     */
-    public Ejemplar buscarEjemplar(int identificador) {
-        for(Ejemplar ejemplar : this.ejemplares){
-            if(ejemplar.getIdUnico() == identificador) return ejemplar;
-        }
-        
-        return null;
     }
     
     /**

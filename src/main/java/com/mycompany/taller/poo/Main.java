@@ -46,7 +46,7 @@ public class Main {
 //        Ejemplar ejemplarObra1 = new Ejemplar(new GregorianCalendar(2021, 10, 21), "Comprado", new Ubicacion(1, 3, 5), obra1);
         
         GestionDatos datos = new GestionDatos();
-        Lector lectorDNI1 = datos.buscarLector(1);
+//        Lector lectorDNI1 = datos.buscarLector(1);
 //        datos.getListaLectores().get(0).agregarMulta(new Multa(new GregorianCalendar(2022, 05, 12), datos.getListaLectores().get(0)));
         
 //        List<Lector> pruebaLectores = datos.getListaLectores();

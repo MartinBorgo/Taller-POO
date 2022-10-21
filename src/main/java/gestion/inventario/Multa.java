@@ -11,7 +11,7 @@ import java.util.GregorianCalendar;
 
 /**
  *
- * @author martin
+ * @author Grupo 2
  */
 public class Multa implements Serializable{
     private Lector personaMultada;
@@ -19,7 +19,7 @@ public class Multa implements Serializable{
     private GregorianCalendar finalizacion;
 
     /**
-     * Crea un objeto multa con valores pasados por parametros.
+     * Crea un objeto multa con sus valores inicializados.
      * @param inicio GregorianCalendar
      * @param personaMultada Lector
      */
@@ -48,15 +48,13 @@ public class Multa implements Serializable{
     }
 
     /**
-     * Setea una nueva fecha de inicio para el prestamo
+     * Setea una nueva fecha de inicio para el prestamo y calcula el dia de finalizacion de la multa
      * 
      * @param inicio GregorianCalendar
      */
     public void setInicio(GregorianCalendar inicio) {
         this.inicio = inicio;
-        
-        inicio.add(3, 30);
-        this.finalizacion = inicio;
+        this.finalizacion = new GregorianCalendar(inicio.get(Calendar.YEAR), inicio.get(Calendar.MONTH), inicio.get(Calendar.DAY_OF_MONTH) + 30);
     }
 
     /**
@@ -95,6 +93,4 @@ public class Multa implements Serializable{
         this.personaMultada = personaMultada;
     }
     
-    
-
 }

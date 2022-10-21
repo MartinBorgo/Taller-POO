@@ -14,12 +14,12 @@ import java.util.GregorianCalendar;
 
 /**
  *
- * @author martin
+ * @author Grupo 2
  */
 public class Prestamo implements Serializable{
     private GregorianCalendar fechaInicio;
     private GregorianCalendar fechaDevolucion;
-    private int diasDePrestamo = 4;
+    private Integer diasDePrestamo = 4;
     private PrestamoTipo tipoPrestamo;
     private Usuario emisorPrestamo;
     private Usuario receptorPrestamo;
@@ -27,7 +27,7 @@ public class Prestamo implements Serializable{
     private Lector lectorSolicita;
     
     /**
-     * Constructor de Prestamo.
+     * Construye un objeto Pestamo con sus valores inicializados.
      * @param fechaInicio GregorianCalendar
      * @param tipoPrestamo PrestamoTipo
      * @param emisorPrestamo Usuario
@@ -95,14 +95,14 @@ public class Prestamo implements Serializable{
      * Devuelve los días del préstamo.
      * @return int
      */
-    public int getDiasDePrestamo() {
+    public Integer getDiasDePrestamo() {
         return diasDePrestamo;
     }
     /**
      * Establece la cantidad de días del préstamo.
      * @param diasDePrestamo int
      */
-    public void setDiasDePrestamo(int diasDePrestamo) {
+    public void setDiasDePrestamo(Integer diasDePrestamo) {
         this.diasDePrestamo = diasDePrestamo;
     }
     /**

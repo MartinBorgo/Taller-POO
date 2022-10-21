@@ -6,7 +6,7 @@ import java.util.GregorianCalendar;
 
 /**
  * Esta clase hereda de persona e implementa la interface serializable.
- * @author pepeponpin
+ * @author Grupo 2
  */
 public class Usuario extends Persona implements Serializable {
     private boolean administrador;
@@ -21,7 +21,7 @@ public class Usuario extends Persona implements Serializable {
      * @param contrasenia String
      * @param nombres String
      * @param apellidos String
-     * @param dni int
+     * @param dni Integer
      * @param fechaNacimiento GregorianCalendar
      * @param nacionalidad String
      * @param domicilio String
@@ -31,8 +31,8 @@ public class Usuario extends Persona implements Serializable {
      * @param mail String
      * @param sexo SexoTipo
      */
-    public Usuario(boolean administrador, String nombreUsuario, String contrasenia, String nombres, String apellidos, int dni, GregorianCalendar fechaNacimiento,
-                   String nacionalidad, String domicilio, int codPostal, String localidad, String numCelular, String mail, SexoTipo sexo) {
+    public Usuario(boolean administrador, String nombreUsuario, String contrasenia, String nombres, String apellidos, Integer dni, GregorianCalendar fechaNacimiento,
+                   String nacionalidad, String domicilio, Integer codPostal, String localidad, String numCelular, String mail, SexoTipo sexo) {
         
         super(nombres, apellidos, dni, fechaNacimiento, nacionalidad, domicilio, codPostal, localidad, numCelular, mail, sexo);
         this.administrador = administrador;

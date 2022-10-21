@@ -5,7 +5,7 @@ import java.util.GregorianCalendar;
 
 /**
  * Esta clase Alumno hereda de la clase lector, especifica que es un integrante de la facultad (FCAD) UNER.
- * @author pepeponpin
+ * @author Grupo 2
  */
 public class Alumno extends Lector {
     private String carrera;

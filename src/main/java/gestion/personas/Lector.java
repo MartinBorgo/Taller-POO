@@ -10,7 +10,7 @@ import java.util.List;
 
 /**
  * Esta clase hereda de Persona, especifica que en una biblioteca hay lectores.
- * @author pepeponpin
+ * @author Grupo 2
  */
 public class Lector extends Persona {
     private boolean estaMultado;
@@ -33,8 +33,8 @@ public class Lector extends Persona {
      * @param mail String
      * @param sexo SexoTipo
      */
-    public Lector(String nombres, String apellidos, int dni, GregorianCalendar fechaNacimiento, String nacionalidad, 
-                  String domicilio, int codPostal, String localidad, String numCelular, String mail, SexoTipo sexo) {
+    public Lector(String nombres, String apellidos, Integer dni, GregorianCalendar fechaNacimiento, String nacionalidad, 
+                  String domicilio, Integer codPostal, String localidad, String numCelular, String mail, SexoTipo sexo) {
         
         super(nombres, apellidos, dni, fechaNacimiento, nacionalidad, domicilio, codPostal, localidad, numCelular, mail, sexo);
         this.estaMultado = false;

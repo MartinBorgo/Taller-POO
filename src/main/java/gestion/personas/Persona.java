@@ -6,17 +6,17 @@ import java.util.GregorianCalendar;
 
 /**
  * Clase abstracta que implementa la interface Serializable.
- * @author pepeponpin
+ * @author Grupo 2
  */
 public abstract class Persona implements Serializable {
     private String nombres;
     private String apellidos;
-    private int dni;
+    private Integer dni;
     private GregorianCalendar fechaNacimiento;
     private SexoTipo sexo;
     private String nacionalidad;
     private String domicilio;
-    private int codPostal;
+    private Integer codPostal;
     private String localidad;
     private String numCelular;
     private String mail;
@@ -35,8 +35,8 @@ public abstract class Persona implements Serializable {
      * @param mail String
      * @param sexo SexoTipo
      */
-    public Persona(String nombres, String apellidos, int dni, GregorianCalendar fechaNacimiento, String nacionalidad,
-                   String domicilio, int codPostal, String localidad, String numCelular, String mail, SexoTipo sexo) {
+    public Persona(String nombres, String apellidos, Integer dni, GregorianCalendar fechaNacimiento, String nacionalidad,
+                   String domicilio, Integer codPostal, String localidad, String numCelular, String mail, SexoTipo sexo) {
 	this.nombres = nombres;
 	this.apellidos = apellidos;
 	this.dni = dni;
@@ -90,17 +90,17 @@ public abstract class Persona implements Serializable {
 
     /**
      * Retorna el dni de la persona
-     * @return int
+     * @return Integer
      */
-    public int getDni() {
+    public Integer getDni() {
         return dni;
     }
 
     /**
      * Ingresa el dni de la persona
-     * @param dni int
+     * @param dni Integer
      */
-    public void setDni(int dni) {
+    public void setDni(Integer dni) {
         this.dni = dni;
     }
 
@@ -170,17 +170,17 @@ public abstract class Persona implements Serializable {
 
     /**
      * Retorna el codigo postal de la persona
-     * @return int
+     * @return Integer
      */
-    public int getCodPostal() {
+    public Integer getCodPostal() {
         return codPostal;
     }
 
     /**
      * Ingresa el codigo postal de la persona
-     * @param codPostal int
+     * @param codPostal Integer
      */
-    public void setCodPostal(int codPostal) {
+    public void setCodPostal(Integer codPostal) {
         this.codPostal = codPostal;
     }
 
@@ -218,7 +218,7 @@ public abstract class Persona implements Serializable {
 
     /**
      * Retorna el correo electronico de la persona
-     * @return 
+     * @return String
      */
     public String getMail() {
         return mail;

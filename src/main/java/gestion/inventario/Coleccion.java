@@ -14,35 +14,35 @@ import java.util.List;
 
 /**
  *
- * @author martin
+ * @author Grupo 2
  */
 public class Coleccion extends Obra implements Serializable {
-    private int isbnColeccion;
+    private Integer isbnColeccion;
     private String nombreColeccion;
     private List<Ejemplar> ejemplares;
 
     /**
-     * Construye un objeto Coleccion con toda la informacion pasada por parametros
+     * Construye un objeto Coleccion con todos sus valores inicializados
      * 
-     * @param isbnColeccion
-     * @param nombre
-     * @param tipoDeObra
-     * @param areaTematica
-     * @param cantidadEjemplares
-     * @param titulo
-     * @param subtitulo
-     * @param primerAutor
-     * @param segundAutor
-     * @param tercerAutor
-     * @param genero
-     * @param caracterisitica
-     * @param areaReferencia
-     * @param isbn
-     * @param edicion 
+     * @param isbnColeccion Integer
+     * @param nombre String
+     * @param tipoDeObra ObraTipo
+     * @param areaTematica String
+     * @param cantidadEjemplares Integer
+     * @param titulo String
+     * @param subtitulo String
+     * @param primerAutor String
+     * @param segundAutor String
+     * @param tercerAutor String
+     * @param genero String
+     * @param caracterisitica CaracteristicaTipo
+     * @param areaReferencia String
+     * @param isbn Integer
+     * @param edicion Edicion
      */
-    public Coleccion(int isbnColeccion, String nombre, ObraTipo tipoDeObra, AreaTematicaTipo areaTematica, int cantidadEjemplares,
+    public Coleccion(Integer isbnColeccion, String nombre, ObraTipo tipoDeObra, AreaTematicaTipo areaTematica, Integer cantidadEjemplares,
                      String titulo, String subtitulo, String primerAutor, String segundAutor, String tercerAutor, String genero,
-                     CaracteristicaTipo caracterisitica, String areaReferencia, int isbn, Edicion edicion) {
+                     CaracteristicaTipo caracterisitica, String areaReferencia, Integer isbn, Edicion edicion) {
         
         super(tipoDeObra, areaTematica, cantidadEjemplares, titulo, subtitulo, primerAutor, segundAutor, tercerAutor, genero, caracterisitica, areaReferencia, isbn, edicion);
         
@@ -55,6 +55,7 @@ public class Coleccion extends Obra implements Serializable {
      * Construye un objeto Coleccion con todos los valores por defecto
      */
     public Coleccion() {
+        this.ejemplares = new ArrayList();
     }
 
     /**
@@ -62,7 +63,7 @@ public class Coleccion extends Obra implements Serializable {
      * 
      * @return int 
      */
-    public int getIsbnColeccion() {
+    public Integer getIsbnColeccion() {
         return isbnColeccion;
     }
 
@@ -71,7 +72,7 @@ public class Coleccion extends Obra implements Serializable {
      * 
      * @param isbnColeccion 
      */
-    public void setIsbnColeccion(int isbnColeccion) {
+    public void setIsbnColeccion(Integer isbnColeccion) {
         this.isbnColeccion = isbnColeccion;
     }
 

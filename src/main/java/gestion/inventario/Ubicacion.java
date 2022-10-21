@@ -8,7 +8,7 @@ import java.io.Serializable;
 
 /**
  *
- * @author martin
+ * @author Grupo 2
  */
 public class Ubicacion implements Serializable{
     private int pasillo;

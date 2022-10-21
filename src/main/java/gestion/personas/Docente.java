@@ -5,7 +5,7 @@ import java.util.GregorianCalendar;
 
 /**
  * Esta clase hereda de Lector, especifica que es un integrante de la facultad (FCAD) UNER.
- * @author pepeponpin
+ * @author Grupo 2
  */
 public class Docente extends Lector {
     private String carreras;
@@ -16,18 +16,18 @@ public class Docente extends Lector {
      * @param carreras String
      * @param nombres String
      * @param apellidos String
-     * @param dni int
+     * @param dni Integer
      * @param fechaNacimiento GregorianCalendar
      * @param nacionalidad String
      * @param domicilio String
-     * @param codPostal int
+     * @param codPostal Integer
      * @param localidad String
      * @param numCelular String
      * @param mail String
      * @param sexo SexoTipo
      */
-    public Docente(String carreras, String nombres, String apellidos, int dni, GregorianCalendar fechaNacimiento, String nacionalidad,
-                   String domicilio, int codPostal, String localidad, String numCelular, String mail, SexoTipo sexo) {
+    public Docente(String carreras, String nombres, String apellidos, Integer dni, GregorianCalendar fechaNacimiento, String nacionalidad,
+                   String domicilio, Integer codPostal, String localidad, String numCelular, String mail, SexoTipo sexo) {
         
         super(nombres, apellidos, dni, fechaNacimiento, nacionalidad, domicilio, codPostal, localidad, numCelular, mail, sexo);
         this.carreras = carreras;
