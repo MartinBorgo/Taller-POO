@@ -74,8 +74,8 @@ public class Main {
 //        datos.agregarUsuario(biblio4);
 //        datos.agregarObra(obra1);
 //        
-//        datos.agregarLector(new Lector("Leandro", "Molina", 1, new GregorianCalendar(2003, 2, 12), 
-//                "Argentina", "P.A de Maria 2375", 3200, "Concordia", "3458474224", "molina@gmail.com", SexoTipo.FEMENINO));
+//        datos.agregarLector(new Lector("Oscar", "Molina", 1, new GregorianCalendar(1980, 2, 12), 
+//                "Argentina", "P.A de Maria 2375", 3200, "Concordia", "3458474224", "oscar@gmail.com", SexoTipo.MASCULINO));
         
         VentanaLogueo login = new VentanaLogueo(datos);
         login.setVisible(true);

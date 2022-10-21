@@ -1085,7 +1085,7 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                         nuevaColeccion.setIsbnColeccion(Integer.parseInt(txtISBNColeccion.getText()));
 
                    
-                   for(int i = 1; i <= nuevaColeccion.getCantidadEjemplares(); i++) {
+                   for(int i = 1; i < nuevaColeccion.getCantidadEjemplares(); i++) {
                        try {
                            Ejemplar ejemplarNuevo = new Ejemplar(new GregorianCalendar(),
                                    (String) this.boxFormaAdquisicion.getSelectedItem(),
@@ -1104,7 +1104,7 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                    
                    datos.agregarObra(nuevaColeccion);
                    limpiarRegistrarObra();
-                   javax.swing.JOptionPane.showMessageDialog(rootPane, "La obra se a registrado de forma correcta.");
+                   javax.swing.JOptionPane.showMessageDialog(rootPane, "La obra se ha registrado de forma correcta.");
                 } 
             } else {
                 if(comprobacionObra() == false) {
@@ -1125,7 +1125,7 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                     nuevaObra.setIsbn(Integer.parseInt(txtISBN.getText()));
                     nuevaObra.setEdicion(nuevaEdicion);
 
-                    for(int i = 0; i <= nuevaObra.getCantidadEjemplares(); i++) {
+                    for(int i = 1; i < nuevaObra.getCantidadEjemplares(); i++) {
                         try {
                             Ejemplar ejemplarNuevo = new Ejemplar(new GregorianCalendar(),
                                                                   (String) this.boxFormaAdquisicion.getSelectedItem(),
@@ -1143,7 +1143,7 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                     datos.agregarObra(nuevaObra);
                     limpiarRegistrarObra();
                     
-                    javax.swing.JOptionPane.showMessageDialog(rootPane, "La obra se a registrado de forma correcta.");
+                    javax.swing.JOptionPane.showMessageDialog(rootPane, "La obra se ha registrado de forma correcta.");
                 
                 } else { javax.swing.JOptionPane.showMessageDialog(rootPane, "Por favor ingrese todos los datos."); }
             }
@@ -1171,6 +1171,7 @@ public class VentanaAdministrador extends javax.swing.JFrame {
         this.txtISBN.setText("");
         this.txtISBNColeccion.setText("");
         this.txtNombreColeccion.setText("");
+        this.txtPaisEdicion.setText("");
     }
     
     private boolean comprobacionObra() {
