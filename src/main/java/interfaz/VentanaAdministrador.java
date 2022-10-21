@@ -1085,7 +1085,7 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                         nuevaColeccion.setIsbnColeccion(Integer.parseInt(txtISBNColeccion.getText()));
 
                    
-                   for(int i = 1; i < nuevaColeccion.getCantidadEjemplares(); i++) {
+                   for(int i = 1; i <= nuevaColeccion.getCantidadEjemplares(); i++) {
                        try {
                            Ejemplar ejemplarNuevo = new Ejemplar(new GregorianCalendar(),
                                    (String) this.boxFormaAdquisicion.getSelectedItem(),
@@ -1125,7 +1125,7 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                     nuevaObra.setIsbn(Integer.parseInt(txtISBN.getText()));
                     nuevaObra.setEdicion(nuevaEdicion);
 
-                    for(int i = 1; i < nuevaObra.getCantidadEjemplares(); i++) {
+                    for(int i = 1; i <= nuevaObra.getCantidadEjemplares(); i++) {
                         try {
                             Ejemplar ejemplarNuevo = new Ejemplar(new GregorianCalendar(),
                                                                   (String) this.boxFormaAdquisicion.getSelectedItem(),
