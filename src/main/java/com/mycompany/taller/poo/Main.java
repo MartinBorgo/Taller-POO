@@ -49,12 +49,12 @@ public class Main {
         Lector lectorDNI1 = datos.buscarLector(1);
         Lector lectorDNI2 = datos.buscarLector(2);
 //        System.out.println(lectorDNI1);
-        lectorDNI1.agregarMulta(new Multa(new GregorianCalendar(2022, 05, 12), lectorDNI1));
-        lectorDNI1.agregarMulta(new Multa(new GregorianCalendar(2022, 05, 12), lectorDNI1));
-        lectorDNI1.agregarMulta(new Multa(new GregorianCalendar(2022, 05, 12), lectorDNI1));
-        lectorDNI1.agregarMulta(new Multa(new GregorianCalendar(2022, 05, 12), lectorDNI1));
+//        lectorDNI1.agregarMulta(new Multa(new GregorianCalendar(2022, 05, 12), lectorDNI1));
+//        lectorDNI1.agregarMulta(new Multa(new GregorianCalendar(2022, 05, 12), lectorDNI1));
+//        lectorDNI1.agregarMulta(new Multa(new GregorianCalendar(2022, 05, 12), lectorDNI1));
+//        lectorDNI1.agregarMulta(new Multa(new GregorianCalendar(2022, 05, 12), lectorDNI1));
         System.out.println(lectorDNI1.getMultas().size());
-        lectorDNI2.agregarMulta(new Multa(new GregorianCalendar(2020, 06, 12), lectorDNI2));
+//        lectorDNI2.agregarMulta(new Multa(new GregorianCalendar(2020, 06, 12), lectorDNI2));
 //        datos.getListaLectores().get(0).agregarMulta(new Multa(new GregorianCalendar(2022, 05, 12), datos.getListaLectores().get(0)));
         
         
