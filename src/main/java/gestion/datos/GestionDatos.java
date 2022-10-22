@@ -133,6 +133,9 @@ public class GestionDatos {
      */
     public Lector buscarPrestamo(String cod) throws PrestamoInexistenteError {
         for(Lector lector : this.listaLectores) {
+            if(lector.getPrestamo() == null){ 
+                continue; 
+            }
             if(lector.getPrestamo().getEjemplarSolicitado().getCodigoBarras().equals(cod)) {
                 return lector;
             }
