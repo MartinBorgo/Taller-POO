@@ -231,7 +231,7 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Codigo", "Fecha adquisicion", "Forma de adquisicion", "Estado", "Ubicacion"
+                "Codigo de barra", "Fecha adquisicion", "Forma de adquisicion", "Estado", "Ubicacion"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -1104,7 +1104,7 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                    
                    datos.agregarObra(nuevaColeccion);
                    limpiarRegistrarObra();
-                   javax.swing.JOptionPane.showMessageDialog(rootPane, "La obra se ha registrado de forma correcta.");
+                   javax.swing.JOptionPane.showMessageDialog(rootPane, "La obra se registro de forma correcta.");
                 } 
             } else {
                 if(comprobacionObra() == false) {
@@ -1143,7 +1143,7 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                     datos.agregarObra(nuevaObra);
                     limpiarRegistrarObra();
                     
-                    javax.swing.JOptionPane.showMessageDialog(rootPane, "La obra se ha registrado de forma correcta.");
+                    javax.swing.JOptionPane.showMessageDialog(rootPane, "La obra se registro de forma correcta.");
                 
                 } else { javax.swing.JOptionPane.showMessageDialog(rootPane, "Por favor ingrese todos los datos."); }
             }
@@ -1215,7 +1215,7 @@ public class VentanaAdministrador extends javax.swing.JFrame {
             
                     this.datos.agregarLector(nuevoLector);
                     limpiarRegistrarLector();
-                    javax.swing.JOptionPane.showMessageDialog(rootPane, "Se a registrado el lector de manera exitosa.");
+                    javax.swing.JOptionPane.showMessageDialog(rootPane, "Se regostro al lector de manera exitosa.");
                 }
             } else { javax.swing.JOptionPane.showMessageDialog(rootPane, "Por favor rellene todos los campos."); }
         
@@ -1236,7 +1236,7 @@ public class VentanaAdministrador extends javax.swing.JFrame {
         
                     this.datos.agregarLector(nuevoAlumno);
                     limpiarRegistrarLector();
-                    javax.swing.JOptionPane.showMessageDialog(rootPane, "Se a registrado el lector de manera exitosa.");
+                    javax.swing.JOptionPane.showMessageDialog(rootPane, "Se regostro al lector de manera exitosa.");
                 }
             
         
@@ -1256,7 +1256,7 @@ public class VentanaAdministrador extends javax.swing.JFrame {
         
                     this.datos.agregarLector(nuevoDocente);
                     limpiarRegistrarLector();
-                    javax.swing.JOptionPane.showMessageDialog(rootPane, "Se a registrado el lector de manera exitosa.");
+                    javax.swing.JOptionPane.showMessageDialog(rootPane, "Se registro al lector de manera exitosa.");
                 }
             }else { javax.swing.JOptionPane.showMessageDialog(rootPane, "El campo carrera es obligatorio para los Alumnos y Profesores."); }
         } catch(NumberFormatException ex) { javax.swing.JOptionPane.showMessageDialog(rootPane, "Por favor ingrese los datos de forma correcta."); }

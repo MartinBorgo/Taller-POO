@@ -73,7 +73,7 @@ public class VentanaLogueo extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(0, 70, 10, 0);
         jPanel1.add(jLabel6, gridBagConstraints);
 
-        botonIniciarSesion.setText("Registrarse");
+        botonIniciarSesion.setText("Iniciar sesion");
         botonIniciarSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonIniciarSesionActionPerformed(evt);
