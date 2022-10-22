@@ -3,9 +3,7 @@
 ### Integrantes del grupo:
 - Martin Borgo.
 - Sebastian Haoys.
-- Cesar de Maurizio.
 - Leandro Molina.
-- Gabriel (Libre).
 
 ## ¿De que trata el proyecto?
 Se trata de resolver el nuevo sistema de control de prestamos solicitado por la biblioteca de la FCAD, cumpliendo los requerimientos solicitados.
