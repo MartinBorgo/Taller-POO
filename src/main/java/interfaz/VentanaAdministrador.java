@@ -11,6 +11,7 @@ import enumeraciones.FormatoTipo;
 import enumeraciones.ObraTipo;
 import enumeraciones.PrestamoTipo;
 import enumeraciones.SexoTipo;
+import excepciones.EjemplarEnPrestamoError;
 import excepciones.EjemplarInexistenteError;
 import excepciones.LectorNoRegistradoError;
 import gestion.inventario.Coleccion;
@@ -1345,9 +1346,11 @@ public class VentanaAdministrador extends javax.swing.JFrame {
             javax.swing.JOptionPane.showMessageDialog(rootPane, "El Lector no se encuentra registrado, por favor cargue sus datos.");
         } catch (EjemplarInexistenteError ex) {
             javax.swing.JOptionPane.showMessageDialog(rootPane, "Codigo no valido, ese ejemplar no existe.");
+        } catch (EjemplarEnPrestamoError ex) {
+            javax.swing.JOptionPane.showMessageDialog(rootPane, "Este ejemplar se encuentra en prestamo actualmente.");
         } catch (Exception ex) {
             javax.swing.JOptionPane.showMessageDialog(rootPane, "Este lector se encuentra multado.");
-        } 
+        }
     }//GEN-LAST:event_botonRegistrarPrestamoActionPerformed
     
     private void limpiarPrestamo() {

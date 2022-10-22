@@ -52,7 +52,7 @@ public class Main {
 //        new Multa(new GregorianCalendar(2022, 05, 12), lectorDNI1);
 //        new Multa(new GregorianCalendar(2022, 05, 12), lectorDNI1);
 //        new Multa(new GregorianCalendar(2022, 05, 12), lectorDNI1);
-        System.out.println(lectorDNI1.getMultas().size());
+
 //        lectorDNI2.agregarMulta(new Multa(new GregorianCalendar(2020, 06, 12), lectorDNI2));
 //        datos.getListaLectores().get(0).agregarMulta(new Multa(new GregorianCalendar(2022, 05, 12), datos.getListaLectores().get(0)));
         
