@@ -1377,8 +1377,11 @@ public class VentanaAdministrador extends javax.swing.JFrame {
             case 0:
                 //Lectores que no devolvieron sus obras.
                 List<Lector> lectores = datos.devolucionesTardias();
-                
-                actualizarLista(lectores);
+                if(lectores.size() != 0){
+                    actualizarLista(lectores);
+                }else{
+                    javax.swing.JOptionPane.showMessageDialog(rootPane, "No hay lectores con devoluciones fuera de tiempo.");
+                }
                 break;
             case 1:
                 // Obras mas solicitadas por alumnos y docentes
