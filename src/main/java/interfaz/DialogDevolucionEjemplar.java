@@ -125,6 +125,7 @@ public class DialogDevolucionEjemplar extends javax.swing.JDialog {
             datos.escribirDatosObra();
             
             txtCodEjemplar.setText("");
+            javax.swing.JOptionPane.showMessageDialog(rootPane, "Se devolvio el ejemplar");
         } catch(PrestamoInexistenteError ex) {
             javax.swing.JOptionPane.showMessageDialog(rootPane, "Este ejemplar no se encuentra en prestamo");
         }
