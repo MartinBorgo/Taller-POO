@@ -46,9 +46,17 @@ public class Main {
 //        Ejemplar ejemplarObra1 = new Ejemplar(new GregorianCalendar(2021, 10, 21), "Comprado", new Ubicacion(1, 3, 5), obra1);
         
         GestionDatos datos = new GestionDatos();
-//        Lector lectorDNI1 = datos.buscarLector(4);
+        Lector lectorDNI1 = datos.buscarLector(1);
+        Lector lectorDNI2 = datos.buscarLector(2);
 //        System.out.println(lectorDNI1);
+        lectorDNI1.agregarMulta(new Multa(new GregorianCalendar(2022, 05, 12), lectorDNI1));
+        lectorDNI1.agregarMulta(new Multa(new GregorianCalendar(2022, 05, 12), lectorDNI1));
+        lectorDNI1.agregarMulta(new Multa(new GregorianCalendar(2022, 05, 12), lectorDNI1));
+        lectorDNI1.agregarMulta(new Multa(new GregorianCalendar(2022, 05, 12), lectorDNI1));
+        System.out.println(lectorDNI1.getMultas().size());
+        lectorDNI2.agregarMulta(new Multa(new GregorianCalendar(2020, 06, 12), lectorDNI2));
 //        datos.getListaLectores().get(0).agregarMulta(new Multa(new GregorianCalendar(2022, 05, 12), datos.getListaLectores().get(0)));
+        
         
 //        List<Lector> pruebaLectores = datos.getListaLectores();
 //        List<Obra> pruebaObras = datos.getListaObras();
