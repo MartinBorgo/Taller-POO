@@ -347,13 +347,13 @@ public class Obra implements Serializable {
      */
     @Override
     public String toString() {
-                return String.format("Tipo obra: %s,"
-                + "%n Area referencia: %s,"
-                + "%n Titulo: %s,"
-                + "%n Primer autor: %s,"
-                + "%n Caracteristica: %s,"
-                + "%n Solicitud facultad: %s,"
-                + "%n Solicitud general: %s,"
+                return String.format("Tipo obra: %s |"
+                + "%n Area referencia: %s |"
+                + "%n Titulo: %s |"
+                + "%n Primer autor: %s |"
+                + "%n Caracteristica: %s |"
+                + "%n Solicitud facultad: %s |"
+                + "%n Solicitud general: %s |"
                 + "%n %s", 
                 tipoDeObra,areaReferencia,titulo, primerAutor, caracteristica.getCaracteristicaTipo(), 
                 solicitudFacultad, solicitudGeneral, edicion.toString());
