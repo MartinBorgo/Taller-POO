@@ -1318,8 +1318,10 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                     
                     datos.escribirDatosObra();
                     datos.escribirDatosLector();
+                    
                     GregorianCalendar fechaDevolver = nuevoPrestamo.getFechaDevolucion();
-                    String fechaDevolverString = Integer.toString(fechaDevolver.get(Calendar.YEAR))+ "/" + Integer.toString(fechaDevolver.get(Calendar.MONTH)) + "/"
+                    String fechaDevolverString = Integer.toString(fechaDevolver.get(Calendar.YEAR))+ "/"
+                            + Integer.toString(fechaDevolver.get(Calendar.MONTH)) + "/"
                             + Integer.toString(fechaDevolver.get(Calendar.DAY_OF_MONTH));
                     limpiarPrestamo();
                     javax.swing.JOptionPane.showMessageDialog(rootPane, "Prestamo cargado exitosamente.\n Fecha a devolver: " + fechaDevolverString);
@@ -1337,7 +1339,6 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                 String fechaDevolverString = Integer.toString(fechaDevolver.get(Calendar.YEAR))+ "/" + Integer.toString(fechaDevolver.get(Calendar.MONTH)) + "/"
                         + Integer.toString(fechaDevolver.get(Calendar.DAY_OF_MONTH));
                 limpiarPrestamo();
-                limpiarPrestamo();
                 javax.swing.JOptionPane.showMessageDialog(rootPane, "Prestamo cargado exitosamente.\n Fecha a devolver: " + fechaDevolverString);
             } 
         } catch (LectorNoRegistradoError ex) {
@@ -1345,7 +1346,7 @@ public class VentanaAdministrador extends javax.swing.JFrame {
         } catch (EjemplarInexistenteError ex) {
             javax.swing.JOptionPane.showMessageDialog(rootPane, "Codigo no valido, ese ejemplar no existe.");
         } catch (Exception ex) {
-            javax.swing.JOptionPane.showMessageDialog(rootPane, "Por favor rellene todos los campos.");
+            javax.swing.JOptionPane.showMessageDialog(rootPane, "Este lector se encuentra multado.");
         } 
     }//GEN-LAST:event_botonRegistrarPrestamoActionPerformed
     
