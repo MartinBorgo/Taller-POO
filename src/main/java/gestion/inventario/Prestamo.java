@@ -5,8 +5,7 @@
 package gestion.inventario;
 
 import enumeraciones.PrestamoTipo;
-import gestion.personas.Lector;
-import gestion.personas.Usuario;
+import gestion.personas.*;
 import java.io.Serializable;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -40,12 +39,16 @@ public class Prestamo implements Serializable{
         this.emisorPrestamo = emisorPrestamo;
         this.ejemplarSolicitado = ejemplarSolicitado;
         this.lectorSolicita = lectorSolicita;
+//        this.fechaDevolucion = new GregorianCalendar(fechaInicio.get(Calendar.YEAR), fechaInicio.get(Calendar.MONTH), fechaInicio.get(Calendar.DAY_OF_MONTH), fechaInicio.get(Calendar.HOUR), fechaInicio.get(Calendar.MINUTE) + 2);
         this.fechaDevolucion = new GregorianCalendar(fechaInicio.get(Calendar.YEAR), fechaInicio.get(Calendar.MONTH), fechaInicio.get(Calendar.DAY_OF_MONTH) + diasDePrestamo);
     
         // Se incrementa el contador de obra de acuerdo al tipo de lector general/profesor/alumno
-        if(lectorSolicita instanceof Lector) {
+        
+        if(lectorSolicita.getClass().getName().equals("gestion.personas.Lector")) {
             ejemplarSolicitado.getObra().incrementarGeneral();
-        } else {
+        } else if (lectorSolicita.getClass().getName().equals("gestion.personas.Alumno")) {
+            ejemplarSolicitado.getObra().incrementarFacultad();
+        }else if(lectorSolicita.getClass().getName().equals("gestion.personas.Docente")){
             ejemplarSolicitado.getObra().incrementarFacultad();
         }
         

@@ -1216,7 +1216,7 @@ public class VentanaAdministrador extends javax.swing.JFrame {
             
                     this.datos.agregarLector(nuevoLector);
                     limpiarRegistrarLector();
-                    javax.swing.JOptionPane.showMessageDialog(rootPane, "Se regostro al lector de manera exitosa.");
+                    javax.swing.JOptionPane.showMessageDialog(rootPane, "Se registro al lector de manera exitosa.");
                 }
             } else { javax.swing.JOptionPane.showMessageDialog(rootPane, "Por favor rellene todos los campos."); }
         
@@ -1237,7 +1237,7 @@ public class VentanaAdministrador extends javax.swing.JFrame {
         
                     this.datos.agregarLector(nuevoAlumno);
                     limpiarRegistrarLector();
-                    javax.swing.JOptionPane.showMessageDialog(rootPane, "Se regostro al lector de manera exitosa.");
+                    javax.swing.JOptionPane.showMessageDialog(rootPane, "Se registro al lector de manera exitosa.");
                 }
             
         
