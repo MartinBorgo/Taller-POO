@@ -64,7 +64,7 @@ public class Alumno extends Lector {
      */
     @Override
     public String toString() {
-        return String.format("%s,"
+        return String.format("%s |"
                 + "%n Carrera: %s", super.toString(),carrera);
     }
 	
