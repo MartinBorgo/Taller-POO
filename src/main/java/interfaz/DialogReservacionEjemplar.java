@@ -4,7 +4,6 @@
  */
 package interfaz;
 
-import excepciones.EjemplarEnPrestamoError;
 import excepciones.EjemplarInexistenteError;
 import excepciones.LectorNoRegistradoError;
 import gestion.datos.GestionDatos;
@@ -206,16 +205,18 @@ public class DialogReservacionEjemplar extends javax.swing.JDialog {
                                                                                Integer.parseInt(txtDiaReservacion.getText()));
         
             new Reservacion(lectorReserva, ejemplarReservado, fechaReservacionEjemplar);
-            javax.swing.JOptionPane.showMessageDialog(rootPane, "Reservacion realizada con exito.");
+            
             datos.escribirDatosObra();
+            javax.swing.JOptionPane.showMessageDialog(rootPane, "Reservacion realizada con exito.");
+
+            
+            
         } catch (EjemplarInexistenteError ex) {
             javax.swing.JOptionPane.showMessageDialog(rootPane, "Codigo de ejemplar incorrecto");
         } catch (LectorNoRegistradoError ex) {
             javax.swing.JOptionPane.showMessageDialog(rootPane, "Este lector no se encuentra registrado");
         } catch( NumberFormatException ex ) {
             javax.swing.JOptionPane.showMessageDialog(rootPane, "Valor para fecha incorrecto");
-        } catch (EjemplarEnPrestamoError ex) {
-            Logger.getLogger(DialogReservacionEjemplar.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_botonRegistrarReservacionActionPerformed
 

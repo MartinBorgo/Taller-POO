@@ -13,6 +13,7 @@ import gestion.datos.GestionDatos;
 import interfaz.VentanaLogueo;
 import gestion.inventario.*;
 import gestion.personas.*;
+import interfaz.VentanaAdministrador;
 import interfaz.VentanaBibliotecario;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -43,17 +44,10 @@ public class Main {
 //        de aca en adelante se puede borrar todo
         
         GestionDatos datos = new GestionDatos();
-
-        Lector lectorDNI1 = datos.buscarLector(1);
-        Lector lectorDNI2 = datos.buscarLector(2);
-        Ejemplar ejemplar = datos.buscarEjemplar("6");
-        
-        Prestamo elprestamo = new Prestamo(new GregorianCalendar(2022, 10, 22), PrestamoTipo.DOMICILIO, datos.getListaUsuarios().get(1), ejemplar, lectorDNI2);
-        
-        System.out.println(elprestamo.getFechaDevolucion().before(new GregorianCalendar()));
-        
         
         VentanaLogueo login = new VentanaLogueo(datos);
         login.setVisible(true);
+        
+
     }
 }
