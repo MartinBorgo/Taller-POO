@@ -43,9 +43,11 @@ public class Prestamo implements Serializable{
         this.fechaDevolucion = new GregorianCalendar(fechaInicio.get(Calendar.YEAR), fechaInicio.get(Calendar.MONTH), fechaInicio.get(Calendar.DAY_OF_MONTH) + diasDePrestamo);
     
         // Se incrementa el contador de obra de acuerdo al tipo de lector general/profesor/alumno
-        if(lectorSolicita instanceof Lector) {
+        if(lectorSolicita.getClass().getName().equals("gestion.personas.Lector")) {
             ejemplarSolicitado.getObra().incrementarGeneral();
-        } else {
+        } else if (lectorSolicita.getClass().getName().equals("gestion.personas.Alumno")) {
+            ejemplarSolicitado.getObra().incrementarFacultad();
+        }else if(lectorSolicita.getClass().getName().equals("gestion.personas.Docente")){
             ejemplarSolicitado.getObra().incrementarFacultad();
         }
         
