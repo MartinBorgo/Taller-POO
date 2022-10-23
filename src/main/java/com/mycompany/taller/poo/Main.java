@@ -33,8 +33,12 @@ import net.sourceforge.barbecue.output.OutputException;
  * @author Grupo 2
  */
 public class Main {
-    public static void main(String []args) throws EjemplarInexistenteError, LectorNoRegistradoError {
+    public static void main(String []args) throws EjemplarInexistenteError, LectorNoRegistradoError, BarcodeException, OutputException, IOException {
         
+//        Edicion edicion1 = new Edicion("Pearson", "Argentina", 10, 2016, 1, 526, "Español", FormatoTipo.PAPEL);
+//        Obra obra1 = new Obra(ObraTipo.LIBRO, AreaTematicaTipo.PROGRAMACION, 1, "Como Programar en Java", "", "Paul Deitel", "Harvey Deitel", "", "Informatica", CaracteristicaTipo.BOLETIN, "Programacion", 011, edicion1);
+//        Ejemplar ejemplar1 = new Ejemplar(new GregorianCalendar(12, 2, 2017), "Comprado", new Ubicacion(1, 1, 1), obra1);
+
 //        Esto se queda para poder acordarnos la contraseñas y los usuarios
 //        Bibliotecario biblio1 = new Bibliotecario(true, "Norma", "12345");
 //        Bibliotecario biblio2 = new Bibliotecario(false, "Eduardo", "hola01");
@@ -45,9 +49,19 @@ public class Main {
         
         GestionDatos datos = new GestionDatos();
         
-//        VentanaLogueo login = new VentanaLogueo(datos);
-//        login.setVisible(true);
+//        datos.agregarObra(obra1);
+//        datos.agregarLector(new Lector("Oscar", "Molina", 1, new GregorianCalendar(10, 3, 1975), "Argentina", "P.A de Maria 123", 3200, "Concordia", "3457458123", "oscar@gmail.com", SexoTipo.MASCULINO));
         
-        new VentanaAdministrador(datos).setVisible(true);
+//        Lector lectorDNI1 = datos.buscarLector(1);
+//        Lector lectorDNI2 = datos.buscarLector(2);
+//        System.out.println(lectorDNI2.getClass().getName());
+
+//        datos.agregarUsuario(biblio1);
+//        datos.agregarUsuario(biblio2);
+//        datos.agregarUsuario(biblio3);
+//        datos.agregarUsuario(biblio4);
+        
+        VentanaLogueo login = new VentanaLogueo(datos);
+        login.setVisible(true);
     }
 }
