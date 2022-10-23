@@ -409,7 +409,7 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                 .addContainerGap(298, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Listados", jPanel4);
+        jTabbedPane1.addTab("Consulta", jPanel4);
 
         jLabel24.setText("Tipo de prestamo:");
 
@@ -1081,7 +1081,6 @@ public class VentanaAdministrador extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel7.add(jLabel23, gridBagConstraints);
 
-        jLabel52.setIcon(new javax.swing.ImageIcon("/home/martin/Git/Taller-POO/src/main/java/resources/lacreatura2.png")); // NOI18N
         jLabel52.setText("jLabel52");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
