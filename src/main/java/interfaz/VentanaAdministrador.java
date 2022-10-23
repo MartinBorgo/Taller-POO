@@ -206,6 +206,7 @@ public class VentanaAdministrador extends javax.swing.JFrame {
         jLabel20 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         hyperlink = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -1035,7 +1036,7 @@ public class VentanaAdministrador extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Registrar Obra", jPanel1);
 
-        jLabel20.setIcon(new javax.swing.ImageIcon("/home/pepeponpin/NetBeansProjects/Taller-POO/src/main/java/resources/lacreatura.png")); // NOI18N
+        jLabel20.setIcon(new javax.swing.ImageIcon("/home/pepeponpin/NetBeansProjects/Taller-POO/src/main/java/resources/lacreatura2.png")); // NOI18N
 
         jLabel22.setText("¡Si tenes dudas sobre el proyecto te recomendamos que leas el Readme en github! ahi vas a encontrar informacion util.");
 
@@ -1054,14 +1055,12 @@ public class VentanaAdministrador extends javax.swing.JFrame {
             }
         });
 
+        jLabel23.setIcon(new javax.swing.ImageIcon("/home/pepeponpin/NetBeansProjects/Taller-POO/src/main/java/resources/lacreatura.png")); // NOI18N
+
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel20)
-                .addGap(292, 292, 292))
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel7Layout.createSequentialGroup()
@@ -1069,8 +1068,13 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                         .addComponent(jLabel22))
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGap(64, 64, 64)
-                        .addComponent(hyperlink)))
-                .addContainerGap(309, Short.MAX_VALUE))
+                        .addComponent(hyperlink))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 580, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel23)))
+                .addContainerGap(100, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1079,9 +1083,11 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                 .addComponent(jLabel22)
                 .addGap(18, 18, 18)
                 .addComponent(hyperlink)
-                .addGap(8, 8, 8)
-                .addComponent(jLabel20)
-                .addContainerGap(682, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel23)
+                    .addComponent(jLabel20))
+                .addContainerGap(672, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Ayuda", jPanel7);
@@ -1686,6 +1692,7 @@ public class VentanaAdministrador extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
