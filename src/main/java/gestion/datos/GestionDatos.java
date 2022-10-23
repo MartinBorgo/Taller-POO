@@ -175,10 +175,8 @@ public class GestionDatos {
         List<Ejemplar> ejemplares = listaEjemplares();
         
         for(Ejemplar ejemplar : ejemplares) {
-            if(ejemplar.getCodigoBarras().equals(cod) && ejemplar.isEnPrestamo() == false) {
+            if(ejemplar.getCodigoBarras().equals(cod)) {
                 return ejemplar;
-            } else {
-                throw new EjemplarEnPrestamoError();
             }
         }
         

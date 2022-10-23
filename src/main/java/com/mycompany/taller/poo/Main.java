@@ -39,51 +39,12 @@ public class Main {
         
 //        de aca en adelante se puede borrar todo
         
-//        Edicion edicion1 = new Edicion("Pearson", "Argentina", 1, 2016, 1, 560, "Español", FormatoTipo.PAPEL);
-//        Obra obra1 = new Obra(ObraTipo.LIBRO, AreaTematicaTipo.PROGRAMACION, 2,"Como programar en Java", "Java", 
-//                "Deitel Paul", "Deitel Harvey", " ", "Computacion", CaracteristicaTipo.BOLETIN, "Tecnologia", 2, edicion1);
-//        
-//        Ejemplar ejemplarObra1 = new Ejemplar(new GregorianCalendar(2021, 10, 21), "Comprado", new Ubicacion(1, 3, 5), obra1);
-        
         GestionDatos datos = new GestionDatos();
+
         Lector lectorDNI1 = datos.buscarLector(1);
         Lector lectorDNI2 = datos.buscarLector(2);
         System.out.println(lectorDNI2.getClass().getName());
-//        new Multa(new GregorianCalendar(2022, 05, 12), lectorDNI1);
-//        new Multa(new GregorianCalendar(2022, 05, 12), lectorDNI1);
-//        new Multa(new GregorianCalendar(2022, 05, 12), lectorDNI1);
 
-//        lectorDNI2.agregarMulta(new Multa(new GregorianCalendar(2020, 06, 12), lectorDNI2));
-//        datos.getListaLectores().get(0).agregarMulta(new Multa(new GregorianCalendar(2022, 05, 12), datos.getListaLectores().get(0)));
-        
-        
-//        List<Lector> pruebaLectores = datos.getListaLectores();
-//        List<Obra> pruebaObras = datos.getListaObras();
-//        List<Ejemplar> a = new ArrayList<>();
-//        for (Obra pruebaObra : pruebaObras) {
-//            for (Ejemplar ejemplare : pruebaObra.getEjemplares()) {
-//                a.add(ejemplare);
-//            }
-//        }
-//        
-//        for (Ejemplar ejemplar : a) {
-//            System.out.println(ejemplar.getObra().getTitulo()+ " ID UNICO:" + ejemplar.getIdUnico());
-//        }
-//        Ejemplar buscar1 = datos.buscarEjemplar("4");
-//        String hola = buscar1.isEnPrestamo() ? "En prestamo" : "No esta en prestamo";
-//        System.out.println(hola);
-//        System.out.println(buscar1.getObra().getTitulo());
-//        Lector lector1 = datos.buscarLector(4);
-//        System.out.println(lector1);
-        
-//        datos.agregarUsuario(biblio1);
-//        datos.agregarUsuario(biblio2);
-//        datos.agregarUsuario(biblio3);
-//        datos.agregarUsuario(biblio4);
-//        datos.agregarObra(obra1);
-//        
-//        datos.agregarLector(new Lector("Oscar", "Molina", 1, new GregorianCalendar(1980, 2, 12), 
-//                "Argentina", "P.A de Maria 2375", 3200, "Concordia", "3458474224", "oscar@gmail.com", SexoTipo.MASCULINO));
         
         VentanaLogueo login = new VentanaLogueo(datos);
         login.setVisible(true);
