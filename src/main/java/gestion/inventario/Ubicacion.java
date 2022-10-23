@@ -11,9 +11,9 @@ import java.io.Serializable;
  * @author Grupo 2
  */
 public class Ubicacion implements Serializable{
-    private int pasillo;
-    private int estanteria;
-    private int estante;
+    private Integer pasillo;
+    private Integer estanteria;
+    private Integer estante;
 
     /**
      * Se crea un objeto Ubicacion con valores pasados por parametro
@@ -21,7 +21,7 @@ public class Ubicacion implements Serializable{
      * @param estanteria int
      * @param estante int
      */
-    public Ubicacion(int pasillo, int estanteria, int estante) {
+    public Ubicacion(Integer pasillo, Integer estanteria, Integer estante) {
         this.pasillo = pasillo;
         this.estanteria = estanteria;
         this.estante = estante;
@@ -45,7 +45,7 @@ public class Ubicacion implements Serializable{
      * Ingresa el pasillo de la ubicacion.
      * @param pasillo int
      */
-    public void setPasillo(int pasillo) {
+    public void setPasillo(Integer pasillo) {
         this.pasillo = pasillo;
     }
 
@@ -53,7 +53,7 @@ public class Ubicacion implements Serializable{
      * Retorna la estanteria de la ubicacion.
      * @return int
      */
-    public int getEstanteria() {
+    public Integer getEstanteria() {
         return estanteria;
     }
 
@@ -61,7 +61,7 @@ public class Ubicacion implements Serializable{
      * Ingresa la estanteria de la ubicacion.
      * @param estanteria int
      */
-    public void setEstanteria(int estanteria) {
+    public void setEstanteria(Integer estanteria) {
         this.estanteria = estanteria;
     }
 
@@ -69,7 +69,7 @@ public class Ubicacion implements Serializable{
      * Retorna el estante de la ubicacion.
      * @return int
      */
-    public int getEstante() {
+    public Integer getEstante() {
         return estante;
     }
 
@@ -77,7 +77,7 @@ public class Ubicacion implements Serializable{
      * Ingresa el estante de la ubicacion
      * @param estante 
      */
-    public void setEstante(int estante) {
+    public void setEstante(Integer estante) {
         this.estante = estante;
     }
 

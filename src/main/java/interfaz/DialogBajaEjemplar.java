@@ -180,7 +180,6 @@ public class DialogBajaEjemplar extends javax.swing.JDialog {
             this.setVisible(false);
             
             javax.swing.JOptionPane.showMessageDialog(rootPane, "Se a dado de baja un ejemplar.");
-            
         } catch (NumberFormatException ex) {
             javax.swing.JOptionPane.showMessageDialog(rootPane, "Por favor introduzca valores validos para la ubicacion.");
         }

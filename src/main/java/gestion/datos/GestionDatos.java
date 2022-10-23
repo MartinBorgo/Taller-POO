@@ -26,7 +26,7 @@ import java.util.stream.Collectors;
 
 /**
  *
- * @author martin
+ * @author Grupo 2
  */
 public class GestionDatos {
     private List<Usuario> listaUsuarios;
@@ -276,7 +276,7 @@ public class GestionDatos {
                 continue;
             }
             if(ejemplar.getPrestamo().getFechaDevolucion().before(new GregorianCalendar())) {
-                lectoresParaMultar.add(ejemplar.getPrestamo().getLectorSolicita());
+                lectoresParaMultar.add(ejemplar.getPrestamo().getSolicitante());
             
             }
         }

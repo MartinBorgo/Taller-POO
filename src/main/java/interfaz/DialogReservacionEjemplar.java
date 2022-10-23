@@ -207,9 +207,9 @@ public class DialogReservacionEjemplar extends javax.swing.JDialog {
             new Reservacion(lectorReserva, ejemplarReservado, fechaReservacionEjemplar);
             
             datos.escribirDatosObra();
-            javax.swing.JOptionPane.showMessageDialog(rootPane, "Reservacion realizada con exito.");
-
+            this.setVisible(false);
             
+            javax.swing.JOptionPane.showMessageDialog(rootPane, "Reservacion realizada con exito.");
             
         } catch (EjemplarInexistenteError ex) {
             javax.swing.JOptionPane.showMessageDialog(rootPane, "Codigo de ejemplar incorrecto");

@@ -116,7 +116,7 @@ public class DialogDevolucionEjemplar extends javax.swing.JDialog {
             Ejemplar ejemplarEnPrestamo = datos.buscarEjemplar(txtCodEjemplar.getText());
         
             if(ejemplarEnPrestamo.getPrestamo().getFechaDevolucion().before(new GregorianCalendar())) {
-                Lector persona = ejemplarEnPrestamo.getPrestamo().getLectorSolicita();
+                Lector persona = ejemplarEnPrestamo.getPrestamo().getSolicitante();
                 
                 new Multa(new GregorianCalendar(), persona);
                 
@@ -127,12 +127,11 @@ public class DialogDevolucionEjemplar extends javax.swing.JDialog {
         
             datos.escribirDatosLector();
             datos.escribirDatosObra();
-            
             txtCodEjemplar.setText("");
+            this.setVisible(false);
             
             javax.swing.JOptionPane.showMessageDialog(rootPane, "Se devolvio el ejemplar");
-            this.setVisible(false);
-
+            
         } catch(EjemplarInexistenteError ex) {
             javax.swing.JOptionPane.showMessageDialog(rootPane, "Este ejemplar no se encuentra en prestamo");
         }
