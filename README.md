@@ -42,4 +42,30 @@ Son archivos .PNG para su escaneo.
 Recomendamos para el escaneo de los barcodes el programa **Barcode to PC** que posee aplicacion de escritorio y celular.
 Este posee conexion entre la computadora y el celular por medio de Wi-Fi, se hace una vinculacion entre los dispositivos para su funcionamiento.
 [Link para Barcode to PC.](https://barcodetopc.com/ "Link para Barcode to PC.")<br>
-![](https://barcodetopc.com/wp-content/themes/barcodetopc/assets/images/logo.png)
+![](https://barcodetopc.com/wp-content/themes/barcodetopc/assets/images/logo.png)<br>
+
+## Funcionalidades
+Cuando se inicia sesion dependiendo del usuario se tendran mas o menos funcionalidades. Tomaremos todas las funcionalidades del administracion para esta explicacion.
+Las funcionalidades son:
+- Gestion Ejemplares
+- Listados
+- Prestamo
+- Registrar nuevo lector
+- Registrar obra
+- Ayuda<br>
+
+### Gestion ejemplares
+Muestra todos los ejemplares cargados, se muestra de cada ejemplar el codigo de barras, fecha de adquisicion, forma de adquisicion, estado y ubicacion en la biblioteca.
+En la parte de abajo posee 3 botones cuales son:
+- **Realizar observacion**: Permite dejar un comentario sobre el ejemplar (Ejemplo: el ejemplar 20 tiene las paginas 19-22 con daños.), debe seleccionar un ejemplar del listado y hacer click sobre el boton **Realizar observacion** apareciendo una ventana que le permite escribir la observacion correspondiente con el ejemplar, para guardar la observacion presione en **Hecho** guardando la observacion. Para eliminar la observacion ingrese nuevamente a realizar observacion y borre el texto escrito. Dandole a **Hecho** para guardar el cambio.
+- **Dar de baja**: Permite dar de baja un libro, como en Realizar observacion tiene que seleccionar un ejemplar del listado, y darle a **Dar de baja**. Se le pedira motivo de la baja y ubicacion de la baja del ejemplar.
+- **Actualizar lista**: Refresca el listado de ejemplares cargados (Si cargo nuevas obras o presto algun ejemplar favor de refrescar los ejemplares para mostrar los nuevos datos.).
+### Listados
+
+### Prestamo 
+
+### Registrar nuevo lector
+
+### Registrar obra
+
+### Ayuda
