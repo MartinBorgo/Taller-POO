@@ -21,7 +21,7 @@ import net.sourceforge.barbecue.output.*;
  * 
  */
 public class Ejemplar implements Serializable{
-    private static int incremental = 26;
+    private static int incremental = 2;
     
     private Integer idUnico;
     private String observaciones;
