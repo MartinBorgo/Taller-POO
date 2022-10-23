@@ -22,7 +22,10 @@ import gestion.inventario.Ubicacion;
 import gestion.personas.Alumno;
 import gestion.personas.Docente;
 import gestion.personas.Lector;
+import java.awt.Desktop;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
@@ -33,7 +36,6 @@ import javax.swing.DefaultListModel;
 import javax.swing.table.DefaultTableModel;
 import net.sourceforge.barbecue.BarcodeException;
 import net.sourceforge.barbecue.output.OutputException;
-
 /**
  *
  * @author Grupo 2
@@ -199,6 +201,11 @@ public class VentanaAdministrador extends javax.swing.JFrame {
         txtTercerAutor = new javax.swing.JTextField();
         jLabel56 = new javax.swing.JLabel();
         txtAreaReferencia = new javax.swing.JTextField();
+        jPanel7 = new javax.swing.JPanel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        hyperlink = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -270,7 +277,7 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                     .addComponent(botonDarBaja)
                     .addComponent(botonRealizarObservacion)
                     .addComponent(botonActualizarListaGestion))
-                .addContainerGap(146, Short.MAX_VALUE))
+                .addContainerGap(793, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Gestionar Ejemplares", jPanel2);
@@ -344,7 +351,7 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                             .addComponent(lblAnioInicioPeriodo))))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtMesInicioPeriodo, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
+                    .addComponent(txtMesInicioPeriodo, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE)
                     .addComponent(txtDiaInicioPeriodo)
                     .addComponent(txtAnioInicioPeriodo))
                 .addGap(305, 305, 305)
@@ -396,7 +403,7 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                     .addComponent(lblAnioFinalPeriodo)
                     .addComponent(txtAnioInicioPeriodo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblAnioInicioPeriodo))
-                .addContainerGap(108, Short.MAX_VALUE))
+                .addContainerGap(759, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Listados", jPanel4);
@@ -495,7 +502,7 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                     .addComponent(txtDocumentoLector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34)
                 .addComponent(botonRegistrarPrestamo)
-                .addContainerGap(459, Short.MAX_VALUE))
+                .addContainerGap(1114, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Prestamo", jPanel3);
@@ -558,7 +565,7 @@ public class VentanaAdministrador extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap(173, Short.MAX_VALUE)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                                 .addComponent(jLabel37)
@@ -596,12 +603,12 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                                             .addComponent(txtAnioNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGap(37, 37, 37)))))
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(196, 196, 196)
+                        .addGap(202, 202, 202)
                         .addComponent(jLabel32)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                         .addComponent(jLabel40)
@@ -832,7 +839,7 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                             .addComponent(txtCanEjemplares)
                             .addComponent(boxAreaTematica, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(boxTipoDeObra, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(boxFormaAdquisicion, 0, 231, Short.MAX_VALUE)
+                            .addComponent(boxFormaAdquisicion, 0, 251, Short.MAX_VALUE)
                             .addComponent(txtTitulo)
                             .addComponent(txtSegundoAutor)
                             .addComponent(txtTercerAutor)
@@ -1023,10 +1030,66 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                     .addComponent(txtISBNColeccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(90, 90, 90)
                 .addComponent(botonCargarDatos)
-                .addContainerGap(72, Short.MAX_VALUE))
+                .addContainerGap(734, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Registrar Obra", jPanel1);
+
+        jLabel20.setIcon(new javax.swing.ImageIcon("/home/pepeponpin/NetBeansProjects/Taller-POO/src/main/java/resources/lacreatura2.png")); // NOI18N
+
+        jLabel22.setText("¡Si tenes dudas sobre el proyecto te recomendamos que leas el Readme en github! ahi vas a encontrar informacion util.");
+
+        hyperlink.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
+        hyperlink.setForeground(new java.awt.Color(51, 62, 223));
+        hyperlink.setText("Visitanos aca");
+        hyperlink.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                hyperlinkMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                hyperlinkMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                hyperlinkMouseExited(evt);
+            }
+        });
+
+        jLabel23.setIcon(new javax.swing.ImageIcon("/home/pepeponpin/NetBeansProjects/Taller-POO/src/main/java/resources/lacreatura.png")); // NOI18N
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(51, 51, 51)
+                        .addComponent(jLabel22))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(64, 64, 64)
+                        .addComponent(hyperlink))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 580, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel23)))
+                .addContainerGap(100, Short.MAX_VALUE))
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(jLabel22)
+                .addGap(18, 18, 18)
+                .addComponent(hyperlink)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel23)
+                    .addComponent(jLabel20))
+                .addContainerGap(672, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Ayuda", jPanel7);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1380,8 +1443,11 @@ public class VentanaAdministrador extends javax.swing.JFrame {
             case 0:
                 //Lectores que no devolvieron sus obras.
                 List<Lector> lectores = datos.devolucionesTardias();
-                
-                actualizarLista(lectores);
+                if(lectores.size() != 0){
+                    actualizarLista(lectores);
+                }else{
+                    javax.swing.JOptionPane.showMessageDialog(rootPane, "No hay lectores con devoluciones fuera de tiempo.");
+                }
                 break;
             case 1:
                 // Obras mas solicitadas por alumnos y docentes
@@ -1560,6 +1626,27 @@ public class VentanaAdministrador extends javax.swing.JFrame {
         actualizarTablaGestion();
     }//GEN-LAST:event_botonActualizarListaGestionActionPerformed
 
+    private void hyperlinkMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hyperlinkMouseClicked
+        // TODO add your handling code here:
+        try {
+
+            Desktop.getDesktop().browse(new URI("https://github.com/MartinBorgo/Taller-POO"));
+
+        } catch (IOException | URISyntaxException e1) {
+            e1.printStackTrace();
+        }
+    }//GEN-LAST:event_hyperlinkMouseClicked
+
+    private void hyperlinkMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hyperlinkMouseExited
+        // TODO add your handling code here:
+        hyperlink.setText("Visitanos aca");
+    }//GEN-LAST:event_hyperlinkMouseExited
+
+    private void hyperlinkMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hyperlinkMouseEntered
+        // TODO add your handling code here:
+        hyperlink.setText("<html><a href='https://github.com/MartinBorgo/Taller-POO'>Visitanos aca</a></html>");
+    }//GEN-LAST:event_hyperlinkMouseEntered
+
     private void actualizarTablaGestion() {
         List<Ejemplar> ejemplares = datos.listaEjemplares();
         
@@ -1604,6 +1691,7 @@ public class VentanaAdministrador extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> boxSexo;
     private javax.swing.JComboBox<String> boxTipoDeObra;
     private javax.swing.JComboBox<String> boxTipoDePrestamo;
+    private javax.swing.JLabel hyperlink;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1616,7 +1704,10 @@ public class VentanaAdministrador extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
@@ -1662,6 +1753,7 @@ public class VentanaAdministrador extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollBar jScrollBar1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;

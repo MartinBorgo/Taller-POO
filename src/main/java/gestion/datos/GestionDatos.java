@@ -272,12 +272,14 @@ public class GestionDatos {
         List<Lector> lectoresParaMultar = new ArrayList();
         
         for(Ejemplar ejemplar : ejemplares) {
+            if(ejemplar.getPrestamo() == null){
+                continue;
+            }
             if(ejemplar.getPrestamo().getFechaDevolucion().before(new GregorianCalendar())) {
                 lectoresParaMultar.add(ejemplar.getPrestamo().getLectorSolicita());
             
             }
         }
-    
         return lectoresParaMultar;
     }
     

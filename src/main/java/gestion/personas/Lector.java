@@ -177,8 +177,8 @@ public class Lector extends Persona {
         }else{
             lectorClase = "Lector";
         }
-        return String.format("%s,"
-                + " Es un %s,"
+        return String.format("%s |"
+                + " Es un %s |"
                 + "%n Multas: %s", super.toString(), lectorClase, multas.size());
     }
    

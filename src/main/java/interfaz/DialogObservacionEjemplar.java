@@ -51,7 +51,7 @@ public class DialogObservacionEjemplar extends javax.swing.JDialog {
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
         jLabel1.setFont(new java.awt.Font("Noto Sans", 0, 24)); // NOI18N
-        jLabel1.setText("Observacion de Ejmplar");
+        jLabel1.setText("Observacion de Ejemplar");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
