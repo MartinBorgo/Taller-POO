@@ -39,12 +39,6 @@ public class Main {
         
 //        de aca en adelante se puede borrar todo
         
-//        Edicion edicion1 = new Edicion("Pearson", "Argentina", 1, 2016, 1, 560, "Español", FormatoTipo.PAPEL);
-//        Obra obra1 = new Obra(ObraTipo.LIBRO, AreaTematicaTipo.PROGRAMACION, 2,"Como programar en Java", "Java", 
-//                "Deitel Paul", "Deitel Harvey", " ", "Computacion", CaracteristicaTipo.BOLETIN, "Tecnologia", 2, edicion1);
-//        
-//        Ejemplar ejemplarObra1 = new Ejemplar(new GregorianCalendar(2021, 10, 21), "Comprado", new Ubicacion(1, 3, 5), obra1);
-        
         GestionDatos datos = new GestionDatos();
         
         VentanaLogueo login = new VentanaLogueo(datos);
