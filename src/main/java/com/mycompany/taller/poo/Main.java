@@ -45,9 +45,7 @@ public class Main {
         
         GestionDatos datos = new GestionDatos();
         
-//        VentanaLogueo login = new VentanaLogueo(datos);
-//        login.setVisible(true);
-        
-        new VentanaAdministrador(datos).setVisible(true);
+        new VentanaLogueo(datos).setVisible(true);;
+
     }
 }
