@@ -11,7 +11,6 @@ import enumeraciones.FormatoTipo;
 import enumeraciones.ObraTipo;
 import enumeraciones.PrestamoTipo;
 import enumeraciones.SexoTipo;
-import excepciones.EjemplarEnPrestamoError;
 import excepciones.EjemplarInexistenteError;
 import excepciones.LectorNoRegistradoError;
 import gestion.inventario.Coleccion;
@@ -1321,9 +1320,11 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                     datos.escribirDatosLector();
                     
                     GregorianCalendar fechaDevolver = nuevoPrestamo.getFechaDevolucion();
-                    String fechaDevolverString = Integer.toString(fechaDevolver.get(Calendar.YEAR))+ "/"
+                    String fechaDevolverString = 
+                              Integer.toString(fechaDevolver.get(Calendar.YEAR))+ "/"
                             + Integer.toString(fechaDevolver.get(Calendar.MONTH)) + "/"
                             + Integer.toString(fechaDevolver.get(Calendar.DAY_OF_MONTH));
+                    
                     limpiarPrestamo();
                     javax.swing.JOptionPane.showMessageDialog(rootPane, "Prestamo cargado exitosamente.\n Fecha a devolver: " + fechaDevolverString);
                 
@@ -1337,8 +1338,12 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                 
                 datos.escribirDatosObra();
                 GregorianCalendar fechaDevolver = nuevoPrestamo.getFechaDevolucion();
-                String fechaDevolverString = Integer.toString(fechaDevolver.get(Calendar.YEAR))+ "/" + Integer.toString(fechaDevolver.get(Calendar.MONTH)) + "/"
+                
+                String fechaDevolverString = 
+                          Integer.toString(fechaDevolver.get(Calendar.YEAR))+ "/"
+                        + Integer.toString(fechaDevolver.get(Calendar.MONTH)) + "/"
                         + Integer.toString(fechaDevolver.get(Calendar.DAY_OF_MONTH));
+                
                 limpiarPrestamo();
                 javax.swing.JOptionPane.showMessageDialog(rootPane, "Prestamo cargado exitosamente.\n Fecha a devolver: " + fechaDevolverString);
             } 
@@ -1346,8 +1351,6 @@ public class VentanaAdministrador extends javax.swing.JFrame {
             javax.swing.JOptionPane.showMessageDialog(rootPane, "El Lector no se encuentra registrado, por favor cargue sus datos.");
         } catch (EjemplarInexistenteError ex) {
             javax.swing.JOptionPane.showMessageDialog(rootPane, "Codigo no valido, ese ejemplar no existe.");
-        } catch (EjemplarEnPrestamoError ex) {
-            javax.swing.JOptionPane.showMessageDialog(rootPane, "Este ejemplar se encuentra en prestamo actualmente.");
         } catch (Exception ex) {
             javax.swing.JOptionPane.showMessageDialog(rootPane, "Este lector se encuentra multado.");
         }
@@ -1399,7 +1402,10 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                 
                     actualizarLista(disponiblesAreaReferencia);
                     break;
-                } else { javax.swing.JOptionPane.showMessageDialog(rootPane, "Por favor introduzca un area tematica."); }
+                } else {
+                    javax.swing.JOptionPane.showMessageDialog(rootPane, "Por favor introduzca un area tematica.");
+                    break;
+                }
             case 4:
                 //Obras reservadas en una fecha determinada.
                 try {
@@ -1411,7 +1417,10 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                 
                     actualizarLista(reservadosDesdeFecha);
                     break;
-                } catch(NumberFormatException ex) { javax.swing.JOptionPane.showMessageDialog(rootPane, "Valor para la fecha invalido."); }
+                } catch(NumberFormatException ex) {
+                    javax.swing.JOptionPane.showMessageDialog(rootPane, "Valor para la fecha invalido.");
+                    break;
+                }
             case 5:
                 //Lectores multados en un período de tiempo.
                 try {
@@ -1427,7 +1436,10 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                 
                     actualizarLista(multadosPeriodoDeTiempo);
                     break;
-                } catch(NumberFormatException ex) { javax.swing.JOptionPane.showMessageDialog(rootPane, "Valor para la fecha invalido."); }
+                } catch(NumberFormatException ex) {
+                    javax.swing.JOptionPane.showMessageDialog(rootPane, "Valor para la fecha invalido.");
+                    break;
+                }
             case 6:
                 //Lectores por cantidad de multas aplicadas.
                 List<Lector> ordenMultados = datos.getMultas();
@@ -1445,7 +1457,10 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                 
                     actualizarLista(obrasPorEditorial);
                     break;
-                } else { javax.swing.JOptionPane.showMessageDialog(rootPane, "Por favor introduzca una editorial."); }
+                } else {
+                    javax.swing.JOptionPane.showMessageDialog(rootPane, "Por favor introduzca una editorial.");
+                    break;
+                }
 
         }
     }//GEN-LAST:event_botonFiltrarActionPerformed

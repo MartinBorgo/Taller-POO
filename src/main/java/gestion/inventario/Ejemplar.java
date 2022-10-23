@@ -396,11 +396,11 @@ public class Ejemplar implements Serializable{
      */
     @Override
     public String toString() {
-        String estaPrestado = enPrestamo ? "En prestamo" : "No esta en prestamo";
+        String estaPrestado = enPrestamo ? "En prestamo" : "Disponible";
         return String.format("Codigo barras: %s,"
                 + "%n Fecha adquisicion: %s/%s/%s,"
                 + "%n Forma adquisicion: %s,"
-                + "%n En prestamo: %s,"
+                + "%n Estado: %s,"
                 + "%n %s", codigoBarras, fechaAdquisicion.get(Calendar.YEAR), fechaAdquisicion.get(Calendar.MONTH), 
                 fechaAdquisicion.get(Calendar.DAY_OF_MONTH), formaAdquisicion, estaPrestado, ubicacion);
     }

@@ -15,7 +15,6 @@ import gestion.inventario.Prestamo;
 import gestion.personas.Alumno;
 import gestion.personas.Docente;
 import gestion.personas.Lector;
-import java.awt.Frame;
 import java.util.GregorianCalendar;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
@@ -598,7 +597,10 @@ public class VentanaBibliotecario extends javax.swing.JFrame {
                 
                     actualizarLista(disponiblesAreaReferencia);
                     break;
-                } else { javax.swing.JOptionPane.showMessageDialog(rootPane, "Por favor introduzca un area tematica."); }
+                } else {
+                    javax.swing.JOptionPane.showMessageDialog(rootPane, "Por favor introduzca un area tematica.");
+                    break;
+                }
             case 4:
                 //Obras reservadas en una fecha determinada.
                 try {
@@ -610,7 +612,10 @@ public class VentanaBibliotecario extends javax.swing.JFrame {
                 
                     actualizarLista(reservadosDesdeFecha);
                     break;
-                } catch(NumberFormatException ex) { javax.swing.JOptionPane.showMessageDialog(rootPane, "Valor para la fecha invalido."); }
+                } catch(NumberFormatException ex) {
+                    javax.swing.JOptionPane.showMessageDialog(rootPane, "Valor para la fecha invalido.");
+                    break;
+                }
             case 5:
                 //Lectores multados en un período de tiempo.
                 try {
@@ -626,7 +631,10 @@ public class VentanaBibliotecario extends javax.swing.JFrame {
                 
                     actualizarLista(multadosPeriodoDeTiempo);
                     break;
-                } catch(NumberFormatException ex) { javax.swing.JOptionPane.showMessageDialog(rootPane, "Valor para la fecha invalido."); }
+                } catch(NumberFormatException ex) {
+                    javax.swing.JOptionPane.showMessageDialog(rootPane, "Valor para la fecha invalido.");
+                    break;
+                }
             case 6:
                 //Lectores por cantidad de multas aplicadas.
                 List<Lector> ordenMultados = datos.getMultas();
@@ -640,7 +648,10 @@ public class VentanaBibliotecario extends javax.swing.JFrame {
                 
                     actualizarLista(obrasPorEditorial);
                     break;
-                } else { javax.swing.JOptionPane.showMessageDialog(rootPane, "Por favor introduzca una editorial."); }
+                } else {
+                    javax.swing.JOptionPane.showMessageDialog(rootPane, "Por favor introduzca una editorial.");
+                    break;
+                }
 
         }
     }//GEN-LAST:event_botonFiltrarActionPerformed
