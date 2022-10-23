@@ -11,6 +11,7 @@ import enumeraciones.FormatoTipo;
 import enumeraciones.ObraTipo;
 import enumeraciones.PrestamoTipo;
 import enumeraciones.SexoTipo;
+import excepciones.EjemplarEnPrestamoError;
 import excepciones.EjemplarInexistenteError;
 import excepciones.LectorNoRegistradoError;
 import gestion.inventario.Coleccion;
@@ -1215,7 +1216,7 @@ public class VentanaAdministrador extends javax.swing.JFrame {
             
                     this.datos.agregarLector(nuevoLector);
                     limpiarRegistrarLector();
-                    javax.swing.JOptionPane.showMessageDialog(rootPane, "Se regostro al lector de manera exitosa.");
+                    javax.swing.JOptionPane.showMessageDialog(rootPane, "Se registro al lector de manera exitosa.");
                 }
             } else { javax.swing.JOptionPane.showMessageDialog(rootPane, "Por favor rellene todos los campos."); }
         
@@ -1236,7 +1237,7 @@ public class VentanaAdministrador extends javax.swing.JFrame {
         
                     this.datos.agregarLector(nuevoAlumno);
                     limpiarRegistrarLector();
-                    javax.swing.JOptionPane.showMessageDialog(rootPane, "Se regostro al lector de manera exitosa.");
+                    javax.swing.JOptionPane.showMessageDialog(rootPane, "Se registro al lector de manera exitosa.");
                 }
             
         
@@ -1318,8 +1319,10 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                     
                     datos.escribirDatosObra();
                     datos.escribirDatosLector();
+                    
                     GregorianCalendar fechaDevolver = nuevoPrestamo.getFechaDevolucion();
-                    String fechaDevolverString = Integer.toString(fechaDevolver.get(Calendar.YEAR))+ "/" + Integer.toString(fechaDevolver.get(Calendar.MONTH)) + "/"
+                    String fechaDevolverString = Integer.toString(fechaDevolver.get(Calendar.YEAR))+ "/"
+                            + Integer.toString(fechaDevolver.get(Calendar.MONTH)) + "/"
                             + Integer.toString(fechaDevolver.get(Calendar.DAY_OF_MONTH));
                     limpiarPrestamo();
                     javax.swing.JOptionPane.showMessageDialog(rootPane, "Prestamo cargado exitosamente.\n Fecha a devolver: " + fechaDevolverString);
@@ -1337,16 +1340,17 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                 String fechaDevolverString = Integer.toString(fechaDevolver.get(Calendar.YEAR))+ "/" + Integer.toString(fechaDevolver.get(Calendar.MONTH)) + "/"
                         + Integer.toString(fechaDevolver.get(Calendar.DAY_OF_MONTH));
                 limpiarPrestamo();
-                limpiarPrestamo();
                 javax.swing.JOptionPane.showMessageDialog(rootPane, "Prestamo cargado exitosamente.\n Fecha a devolver: " + fechaDevolverString);
             } 
         } catch (LectorNoRegistradoError ex) {
             javax.swing.JOptionPane.showMessageDialog(rootPane, "El Lector no se encuentra registrado, por favor cargue sus datos.");
         } catch (EjemplarInexistenteError ex) {
             javax.swing.JOptionPane.showMessageDialog(rootPane, "Codigo no valido, ese ejemplar no existe.");
+        } catch (EjemplarEnPrestamoError ex) {
+            javax.swing.JOptionPane.showMessageDialog(rootPane, "Este ejemplar se encuentra en prestamo actualmente.");
         } catch (Exception ex) {
-            javax.swing.JOptionPane.showMessageDialog(rootPane, "Por favor rellene todos los campos.");
-        } 
+            javax.swing.JOptionPane.showMessageDialog(rootPane, "Este lector se encuentra multado.");
+        }
     }//GEN-LAST:event_botonRegistrarPrestamoActionPerformed
     
     private void limpiarPrestamo() {

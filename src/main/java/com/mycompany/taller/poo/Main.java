@@ -40,6 +40,11 @@ public class Main {
 //        de aca en adelante se puede borrar todo
         
         GestionDatos datos = new GestionDatos();
+
+        Lector lectorDNI1 = datos.buscarLector(1);
+        Lector lectorDNI2 = datos.buscarLector(2);
+        System.out.println(lectorDNI2.getClass().getName());
+
         
         VentanaLogueo login = new VentanaLogueo(datos);
         login.setVisible(true);

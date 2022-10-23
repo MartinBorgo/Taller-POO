@@ -28,7 +28,7 @@ public class Multa implements Serializable{
         this.personaMultada = personaMultada;
         this.finalizacion = new GregorianCalendar(inicio.get(Calendar.YEAR), inicio.get(Calendar.MONTH), inicio.get(Calendar.DAY_OF_MONTH) + 30);
         
-//        personaMultada.agregarMulta(this); NO TOCAR MALO MALO MALO MALO, NO LO HAGAS POR FAVOR
+        personaMultada.agregarMulta(this);
         
     }
 

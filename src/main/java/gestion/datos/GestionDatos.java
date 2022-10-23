@@ -4,6 +4,7 @@
  */
 package gestion.datos;
 
+import excepciones.EjemplarEnPrestamoError;
 import excepciones.EjemplarInexistenteError;
 import excepciones.LectorNoRegistradoError;
 import excepciones.PrestamoInexistenteError;
@@ -170,7 +171,7 @@ public class GestionDatos {
      * @return Ejemplar o null
      * @throws EjemplarInexistenteError Si el codigo no coincide con ninguno de los codigos de los ejemplares cargados
      */
-    public Ejemplar buscarEjemplar(String cod) throws EjemplarInexistenteError {
+    public Ejemplar buscarEjemplar(String cod) throws EjemplarInexistenteError, EjemplarEnPrestamoError {
         List<Ejemplar> ejemplares = listaEjemplares();
         
         for(Ejemplar ejemplar : ejemplares) {
