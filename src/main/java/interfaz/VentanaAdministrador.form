@@ -169,8 +169,8 @@
         <Container class="javax.swing.JPanel" name="jPanel4">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Listados">
-                <Property name="tabTitle" type="java.lang.String" value="Listados"/>
+              <JTabbedPaneConstraints tabName="Consulta">
+                <Property name="tabTitle" type="java.lang.String" value="Consulta"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -1560,9 +1560,6 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel52">
               <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="/home/martin/Git/Taller-POO/src/main/java/resources/lacreatura2.png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="jLabel52"/>
               </Properties>
               <Constraints>
