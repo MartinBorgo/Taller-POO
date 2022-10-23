@@ -4,8 +4,10 @@
  */
 package interfaz;
 
+import excepciones.EjemplarInexistenteError;
 import excepciones.PrestamoInexistenteError;
 import gestion.datos.GestionDatos;
+import gestion.inventario.Ejemplar;
 import gestion.inventario.Multa;
 import gestion.personas.Lector;
 import java.util.GregorianCalendar;
@@ -111,25 +113,26 @@ public class DialogDevolucionEjemplar extends javax.swing.JDialog {
 
     private void botonRegistrarDevolucionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarDevolucionActionPerformed
         try{
-            Lector lectorEntregaPrestamo = datos.buscarPrestamo(txtCodEjemplar.getText());
+            Ejemplar ejemplarEnPrestamo = datos.buscarEjemplar(txtCodEjemplar.getText());
         
-            if(lectorEntregaPrestamo.getPrestamo().getFechaDevolucion().before(new GregorianCalendar())) {
-                new Multa(new GregorianCalendar(), lectorEntregaPrestamo);
+            if(ejemplarEnPrestamo.getPrestamo().getFechaDevolucion().before(new GregorianCalendar())) {
+                Lector persona = ejemplarEnPrestamo.getPrestamo().getSolicitante();
                 
-                javax.swing.JOptionPane.showMessageDialog(rootPane, "El lector " + lectorEntregaPrestamo.getNombres() + " " + lectorEntregaPrestamo.getApellidos() + " ha sido multado.");
+                new Multa(new GregorianCalendar(), persona);
+                
+                javax.swing.JOptionPane.showMessageDialog(rootPane, "El lector " + persona.getNombres() + " " + persona.getApellidos() + " ha sido multado.");
             }
         
-            lectorEntregaPrestamo.getPrestamo().setReceptorPrestamo(datos.getUsuarioLoguado());
+            ejemplarEnPrestamo.getPrestamo().setReceptorPrestamo(datos.getUsuarioLoguado());
         
             datos.escribirDatosLector();
             datos.escribirDatosObra();
-            
             txtCodEjemplar.setText("");
+            this.setVisible(false);
             
             javax.swing.JOptionPane.showMessageDialog(rootPane, "Se devolvio el ejemplar");
-            this.setVisible(false);
-
-        } catch(PrestamoInexistenteError ex) {
+            
+        } catch(EjemplarInexistenteError ex) {
             javax.swing.JOptionPane.showMessageDialog(rootPane, "Este ejemplar no se encuentra en prestamo");
         }
     }//GEN-LAST:event_botonRegistrarDevolucionActionPerformed

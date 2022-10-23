@@ -5,9 +5,9 @@ package gestion.personas;
  * @author Grupo 2
  */
 public class Bibliotecario extends Usuario {
-    private static int incremento = 1;
+    private static Integer incremento = 1;
     
-    private int identificador;
+    private Integer identificador;
 
     /**
      * Construye un objeto Bibliotecarion con sus valores inicializados
@@ -34,7 +34,7 @@ public class Bibliotecario extends Usuario {
      * 
      * @return identificador int
      */
-    public int getIdentificador() {
+    public Integer getIdentificador() {
         return identificador;
     }
 
@@ -43,7 +43,7 @@ public class Bibliotecario extends Usuario {
      * 
      * @param identificador int
      */
-    public void setIdentificador(int identificador) {
+    public void setIdentificador(Integer identificador) {
         this.identificador = identificador;
     }
 

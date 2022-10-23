@@ -9,7 +9,7 @@ import java.util.Comparator;
 
 /**
  *
- * @author martin
+ * @author Grupo 2
  */
 class CriterioCantidadMultas implements Comparator<Lector>{
 

@@ -4,7 +4,6 @@
  */
 package gestion.datos;
 
-import excepciones.EjemplarEnPrestamoError;
 import excepciones.EjemplarInexistenteError;
 import excepciones.LectorNoRegistradoError;
 import excepciones.PrestamoInexistenteError;
@@ -27,7 +26,7 @@ import java.util.stream.Collectors;
 
 /**
  *
- * @author martin
+ * @author Grupo 2
  */
 public class GestionDatos {
     private List<Usuario> listaUsuarios;
@@ -126,26 +125,6 @@ public class GestionDatos {
     // ================ Metodos de busqueda =============== //
     
     /**
-     * Devuelve el lector que tenga en prestamo el ejemplar que se pase por parametro.
-     * 
-     * @param cod String
-     * @return Lector o null
-     * @throws PrestamoInexistenteError Si el prestamo de ese ejemplar no existe
-     */
-    public Lector buscarPrestamo(String cod) throws PrestamoInexistenteError {
-        for(Lector lector : this.listaLectores) {
-            if(lector.getPrestamo() == null){ 
-                continue; 
-            }
-            if(lector.getPrestamo().getEjemplarSolicitado().getCodigoBarras().equals(cod)) {
-                return lector;
-            }
-        }
-        
-        throw new PrestamoInexistenteError();
-    }
-
-    /**
      * Devuelve al lector que posea el numero de documento pasado por parametro.
      * Si el parametro que le pasamos no coincide con el DNI de ningun lector -> <b> return null </b>
      * 
@@ -165,13 +144,13 @@ public class GestionDatos {
     
     /**
      * Devuelve el ejemplar que posea el el mismo id que el que se le pasa por parametro.
-     * Si el numero que le pasamos por parametro no coincide con ningun ID -> <b> return null </b>
+     * Si el numero que le pasamos por parametro no coincide con ningun ID <b>proveca una excepcion -> EjemplarInexistenteError</b>
      * 
      * @param cod String
      * @return Ejemplar o null
      * @throws EjemplarInexistenteError Si el codigo no coincide con ninguno de los codigos de los ejemplares cargados
      */
-    public Ejemplar buscarEjemplar(String cod) throws EjemplarInexistenteError, EjemplarEnPrestamoError {
+    public Ejemplar buscarEjemplar(String cod) throws EjemplarInexistenteError {
         List<Ejemplar> ejemplares = listaEjemplares();
         
         for(Ejemplar ejemplar : ejemplares) {
@@ -297,7 +276,7 @@ public class GestionDatos {
                 continue;
             }
             if(ejemplar.getPrestamo().getFechaDevolucion().before(new GregorianCalendar())) {
-                lectoresParaMultar.add(ejemplar.getPrestamo().getLectorSolicita());
+                lectoresParaMultar.add(ejemplar.getPrestamo().getSolicitante());
             
             }
         }

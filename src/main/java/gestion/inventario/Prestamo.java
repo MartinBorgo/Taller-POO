@@ -23,7 +23,7 @@ public class Prestamo implements Serializable{
     private Usuario emisorPrestamo;
     private Usuario receptorPrestamo;
     private Ejemplar ejemplarSolicitado;
-    private Lector lectorSolicita;
+    private Lector solicitante;
     
     /**
      * Construye un objeto Pestamo con sus valores inicializados.
@@ -38,7 +38,7 @@ public class Prestamo implements Serializable{
         this.tipoPrestamo = tipoPrestamo;
         this.emisorPrestamo = emisorPrestamo;
         this.ejemplarSolicitado = ejemplarSolicitado;
-        this.lectorSolicita = lectorSolicita;
+        this.solicitante = lectorSolicita;
 //        this.fechaDevolucion = new GregorianCalendar(fechaInicio.get(Calendar.YEAR), fechaInicio.get(Calendar.MONTH), fechaInicio.get(Calendar.DAY_OF_MONTH), fechaInicio.get(Calendar.HOUR), fechaInicio.get(Calendar.MINUTE) + 2);
         this.fechaDevolucion = new GregorianCalendar(fechaInicio.get(Calendar.YEAR), fechaInicio.get(Calendar.MONTH), fechaInicio.get(Calendar.DAY_OF_MONTH) + diasDePrestamo);
     
@@ -169,15 +169,15 @@ public class Prestamo implements Serializable{
      * Devuelve el objeto Lector el cual solicita el prestamo.
      * @return Lector
      */
-    public Lector getLectorSolicita() {
-        return lectorSolicita;
+    public Lector getSolicitante() {
+        return solicitante;
     }
     /**
      * Establece la solicitud del lector. Requiere un objeto Lector.
-     * @param lectorSolicita Lector
+     * @param solicitante Lector
      */
-    public void setLectorSolicita(Lector lectorSolicita) {
-        this.lectorSolicita = lectorSolicita;
+    public void setSolicitante(Lector solicitante) {
+        this.solicitante = solicitante;
     }
     
     

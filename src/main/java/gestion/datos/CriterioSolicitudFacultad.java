@@ -9,7 +9,7 @@ import java.util.Comparator;
 
 /**
  *
- * @author pepeponpin
+ * @author Grupo 2
  */
 class CriterioSolicitudFacultad implements Comparator<Obra>{
 
