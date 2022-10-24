@@ -45,6 +45,7 @@ public class VentanaBibliotecario extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
@@ -116,6 +117,10 @@ public class VentanaBibliotecario extends javax.swing.JFrame {
         txtDiaNacimiento = new javax.swing.JTextField();
         txtMesNacimiento = new javax.swing.JTextField();
         txtAnioNacimiento = new javax.swing.JTextField();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        hyperlink = new javax.swing.JLabel();
+        fotoMona = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -556,6 +561,38 @@ public class VentanaBibliotecario extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Registrar nuevo lector", jPanel3);
 
+        jPanel4.setLayout(new java.awt.GridBagLayout());
+
+        jLabel9.setText("¡Si tenes dudas sobre el proyecto te recomendamos que leas el Readme en github! ahi vas a encontrar informacion util.");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridwidth = 3;
+        jPanel4.add(jLabel9, gridBagConstraints);
+
+        hyperlink.setText("Visitanos Aca");
+        hyperlink.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                hyperlinkMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                hyperlinkMouseExited(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.insets = new java.awt.Insets(50, 0, 30, 0);
+        jPanel4.add(hyperlink, gridBagConstraints);
+
+        fotoMona.setText("jLabel27");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 3;
+        jPanel4.add(fotoMona, gridBagConstraints);
+
+        jTabbedPane1.addTab("Ayuda", jPanel4);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -810,6 +847,14 @@ public class VentanaBibliotecario extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_boxBusquedaTipoActionPerformed
 
+    private void hyperlinkMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hyperlinkMouseExited
+        hyperlink.setText("Visitanos aca");
+    }//GEN-LAST:event_hyperlinkMouseExited
+
+    private void hyperlinkMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hyperlinkMouseEntered
+        hyperlink.setText("<html><a href='https://github.com/MartinBorgo/Taller-POO'>Visitanos aca</a></html>");
+    }//GEN-LAST:event_hyperlinkMouseEntered
+
     private void actualizarLista(List<?> lista) {
         DefaultListModel listModel = new DefaultListModel();
         
@@ -913,6 +958,8 @@ public class VentanaBibliotecario extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> boxCargo;
     private javax.swing.JComboBox<String> boxSexo;
     private javax.swing.JComboBox<String> boxTipoDePrestamo;
+    private javax.swing.JLabel fotoMona;
+    private javax.swing.JLabel hyperlink;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -937,9 +984,11 @@ public class VentanaBibliotecario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JLabel lblAnioFinalPeriodo;
