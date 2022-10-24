@@ -50,7 +50,6 @@ public class VentanaAdministrador extends javax.swing.JFrame {
     public VentanaAdministrador(GestionDatos datos) {
         super("Gestion de Biblioteca");
         this.datos = datos;
-        
         initComponents();
         esconderPeriodos();
         actualizarTablaGestion();
@@ -204,8 +203,9 @@ public class VentanaAdministrador extends javax.swing.JFrame {
         jLabel56 = new javax.swing.JLabel();
         txtAreaReferencia = new javax.swing.JTextField();
         jPanel7 = new javax.swing.JPanel();
-        jLabel22 = new javax.swing.JLabel();
+        jLabelReadmeGitHub = new javax.swing.JLabel();
         hyperlink = new javax.swing.JLabel();
+        MONA = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -1037,12 +1037,12 @@ public class VentanaAdministrador extends javax.swing.JFrame {
 
         jPanel7.setLayout(new java.awt.GridBagLayout());
 
-        jLabel22.setText("¡Si tenes dudas sobre el proyecto te recomendamos que leas el Readme en github! ahi vas a encontrar informacion util.");
+        jLabelReadmeGitHub.setText("¡Si tenes dudas sobre el proyecto te recomendamos que leas el Readme en github! ahi vas a encontrar informacion util.");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 3;
-        jPanel7.add(jLabel22, gridBagConstraints);
+        jPanel7.add(jLabelReadmeGitHub, gridBagConstraints);
 
         hyperlink.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         hyperlink.setForeground(new java.awt.Color(51, 62, 223));
@@ -1064,6 +1064,12 @@ public class VentanaAdministrador extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.insets = new java.awt.Insets(30, 0, 20, 0);
         jPanel7.add(hyperlink, gridBagConstraints);
+
+        MONA.setIcon(new javax.swing.ImageIcon("/home/pepeponpin/NetBeansProjects/Taller-POO/libreria/ico2.png")); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 5;
+        jPanel7.add(MONA, gridBagConstraints);
 
         jTabbedPane1.addTab("Ayuda", jPanel7);
 
@@ -1649,6 +1655,7 @@ public class VentanaAdministrador extends javax.swing.JFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JList<String> ListaBusqueda;
+    private javax.swing.JLabel MONA;
     private javax.swing.JButton botonActualizarListaGestion;
     private javax.swing.JButton botonCargarDatos;
     private javax.swing.JButton botonDarBaja;
@@ -1681,7 +1688,6 @@ public class VentanaAdministrador extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
@@ -1722,6 +1728,7 @@ public class VentanaAdministrador extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabelReadmeGitHub;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
