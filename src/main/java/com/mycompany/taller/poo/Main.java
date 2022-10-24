@@ -48,7 +48,8 @@ public class Main {
 //        de aca en adelante se puede borrar todo
         
         GestionDatos datos = new GestionDatos();
-        
+        Ejemplar ej1 = datos.buscarEjemplar("1");
+        System.out.println(ej1);
 
 //        datos.agregarObra(obra1);
 //        datos.agregarLector(new Lector("Oscar", "Molina", 1, new GregorianCalendar(10, 3, 1975), "Argentina", "P.A de Maria 123", 3200, "Concordia", "3457458123", "oscar@gmail.com", SexoTipo.MASCULINO));
