@@ -48,8 +48,10 @@ public class Main {
 //        de aca en adelante se puede borrar todo
         
         GestionDatos datos = new GestionDatos();
-        
+        // El documento de los lectores van del 1 hasta el 8
+        // documentos 1, 6, 5 son lectores, el resto son de la facultad
 
+        System.out.println(datos.getListaLectores());
 //        datos.agregarObra(obra1);
 //        datos.agregarLector(new Lector("Oscar", "Molina", 1, new GregorianCalendar(10, 3, 1975), "Argentina", "P.A de Maria 123", 3200, "Concordia", "3457458123", "oscar@gmail.com", SexoTipo.MASCULINO));
         
