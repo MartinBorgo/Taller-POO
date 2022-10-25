@@ -678,12 +678,17 @@ public class VentanaBibliotecario extends javax.swing.JFrame {
                     datos.escribirDatosObra();
                     datos.escribirDatosLector();
                     
+                    GregorianCalendar fechaPrestamo = nuevoPrestamo.getFechaInicio();
                     GregorianCalendar fechaDevolver = nuevoPrestamo.getFechaDevolucion();
-                    String fechaDevolverString = Integer.toString(fechaDevolver.get(Calendar.YEAR))+ "/" + Integer.toString(fechaDevolver.get(Calendar.MONTH) + 1) + "/" 
+                    
+                    String fechaPrestamoString = Integer.toString(fechaPrestamo.get(Calendar.YEAR)) + "/" + Integer.toString(fechaPrestamo.get(Calendar.MONTH) + 1) + "/"
+                            + Integer.toString(fechaPrestamo.get(Calendar.DAY_OF_MONTH));
+                    
+                    String fechaDevolverString = Integer.toString(fechaDevolver.get(Calendar.YEAR)) + "/" + Integer.toString(fechaDevolver.get(Calendar.MONTH) + 1) + "/" 
                             + Integer.toString(fechaDevolver.get(Calendar.DAY_OF_MONTH));
                     
                     limpiarPrestamo();
-                    javax.swing.JOptionPane.showMessageDialog(rootPane, "Prestamo cargado exitosamente.\n Fecha a devolver: " + fechaDevolverString);
+                    javax.swing.JOptionPane.showMessageDialog(rootPane, "Fecha del prestamo: " + fechaPrestamoString + "\n Prestamo cargado exitosamente.\n Fecha a devolver: " + fechaDevolverString);
                 
                 } else { javax.swing.JOptionPane.showMessageDialog(rootPane, "Este lector esta multado no se le puede realizar un prestamo."); }
             } else if(lectorPrestamo.estaMultado() == false){
@@ -692,15 +697,20 @@ public class VentanaBibliotecario extends javax.swing.JFrame {
                                                       datos.getUsuarioLoguado(),
                                                       ejemplarPrestamo,
                                                       lectorPrestamo);
-                
+                    
+                    GregorianCalendar fechaPrestamo = nuevoPrestamo.getFechaInicio();
                     GregorianCalendar fechaDevolver = nuevoPrestamo.getFechaDevolucion();
+                    
+                    String fechaPrestamoString = Integer.toString(fechaPrestamo.get(Calendar.YEAR)) + "/" + Integer.toString(fechaPrestamo.get(Calendar.MONTH) + 1) + "/"
+                            + Integer.toString(fechaPrestamo.get(Calendar.DAY_OF_MONTH));
+                    
                     String fechaDevolverString = Integer.toString(fechaDevolver.get(Calendar.YEAR))+ "/" + Integer.toString(fechaDevolver.get(Calendar.MONTH) + 1) + "/" 
                             + Integer.toString(fechaDevolver.get(Calendar.DAY_OF_MONTH));                
                 
                     datos.escribirDatosObra();
                     datos.escribirDatosLector();
                     limpiarPrestamo();
-                    javax.swing.JOptionPane.showMessageDialog(rootPane, "Prestamo cargado exitosamente.\n Fecha a devolver: " + fechaDevolverString);
+                    javax.swing.JOptionPane.showMessageDialog(rootPane, "Fecha del prestamo: " + fechaPrestamoString + "\n Prestamo cargado exitosamente.\n Fecha a devolver: " + fechaDevolverString);
             } 
         } catch (LectorNoRegistradoError ex) {
             javax.swing.JOptionPane.showMessageDialog(rootPane, "El Lector no se encuentra registrado, por favor cargue sus datos.");
