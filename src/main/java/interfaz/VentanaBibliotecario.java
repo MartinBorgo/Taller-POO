@@ -583,8 +583,6 @@ public class VentanaBibliotecario extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.insets = new java.awt.Insets(50, 0, 30, 0);
         jPanel4.add(hyperlink, gridBagConstraints);
-
-        fotoMona.setText("jLabel27");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
