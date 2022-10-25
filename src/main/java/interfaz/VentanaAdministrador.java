@@ -1400,7 +1400,7 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                 
                 String fechaDevolverString = 
                           Integer.toString(fechaDevolver.get(Calendar.YEAR))+ "/"
-                        + Integer.toString(fechaDevolver.get(Calendar.MONTH)) + "/"
+                        + Integer.toString(fechaDevolver.get(Calendar.MONTH) + 1) + "/"
                         + Integer.toString(fechaDevolver.get(Calendar.DAY_OF_MONTH));
                 
                 limpiarPrestamo();
