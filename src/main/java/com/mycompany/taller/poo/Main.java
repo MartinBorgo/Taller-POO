@@ -51,6 +51,8 @@ public class Main {
 
         // El documento de los lectores van del 1 hasta el 8
         // documentos 1, 6, 5 son lectores, el resto son de la facultad
+        
+        // fechas que se tienen que poner para ver el listado de reservaciones 01/03/2022 y 22/11/2022
 
 
 //        datos.agregarObra(obra1);

@@ -83,7 +83,7 @@ public class VentanaLogueo extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.ipadx = 100;
+        gridBagConstraints.ipadx = 90;
         gridBagConstraints.insets = new java.awt.Insets(50, 0, 10, 0);
         jPanel1.add(botonIniciarSesion, gridBagConstraints);
 
@@ -104,7 +104,7 @@ public class VentanaLogueo extends javax.swing.JFrame {
         gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 60;
+        gridBagConstraints.ipadx = 100;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 0);
         jPanel1.add(txtNombreUsuario, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();

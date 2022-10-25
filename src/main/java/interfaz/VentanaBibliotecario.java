@@ -262,16 +262,25 @@ public class VentanaBibliotecario extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Listado", jPanel1);
 
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         jLabel4.setFont(new java.awt.Font("Noto Sans", 0, 24)); // NOI18N
         jLabel4.setText("Informacion del Prestamo");
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 140, 322, -1));
 
         jLabel5.setText("Tipo de prestamo:");
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 190, -1, -1));
 
         boxTipoDePrestamo.setModel(new DefaultComboBoxModel(PrestamoTipo.values()));
+        jPanel2.add(boxTipoDePrestamo, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 190, 189, -1));
 
         jLabel6.setText("Codigo de ejemplar:");
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 230, -1, -1));
+        jPanel2.add(txtCodEjemplar, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 230, 189, -1));
 
         jLabel7.setText("Documento del lector:");
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 270, -1, -1));
+        jPanel2.add(txtDocumentoLector, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 270, 189, -1));
 
         botonRegistrarPrestamo.setText("Registrar prestamo");
         botonRegistrarPrestamo.addActionListener(new java.awt.event.ActionListener() {
@@ -279,6 +288,7 @@ public class VentanaBibliotecario extends javax.swing.JFrame {
                 botonRegistrarPrestamoActionPerformed(evt);
             }
         });
+        jPanel2.add(botonRegistrarPrestamo, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 340, -1, -1));
 
         botonRegistrarDevolucion.setText("Registrar devolucion");
         botonRegistrarDevolucion.addActionListener(new java.awt.event.ActionListener() {
@@ -286,6 +296,7 @@ public class VentanaBibliotecario extends javax.swing.JFrame {
                 botonRegistrarDevolucionActionPerformed(evt);
             }
         });
+        jPanel2.add(botonRegistrarDevolucion, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 20, -1, -1));
 
         botonReservacionEjemplar.setText("Realizar reservacion");
         botonReservacionEjemplar.addActionListener(new java.awt.event.ActionListener() {
@@ -293,69 +304,7 @@ public class VentanaBibliotecario extends javax.swing.JFrame {
                 botonReservacionEjemplarActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(botonReservacionEjemplar)
-                .addGap(18, 18, 18)
-                .addComponent(botonRegistrarDevolucion)
-                .addGap(15, 15, 15))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(468, 468, 468)
-                .addComponent(botonRegistrarPrestamo)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtDocumentoLector, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtCodEjemplar, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(405, 405, 405)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(boxTipoDePrestamo, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(378, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botonRegistrarDevolucion)
-                    .addComponent(botonReservacionEjemplar))
-                .addGap(147, 147, 147)
-                .addComponent(jLabel4)
-                .addGap(36, 36, 36)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(boxTipoDePrestamo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtCodEjemplar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtDocumentoLector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7))
-                .addGap(42, 42, 42)
-                .addComponent(botonRegistrarPrestamo)
-                .addContainerGap(356, Short.MAX_VALUE))
-        );
+        jPanel2.add(botonReservacionEjemplar, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 20, -1, -1));
 
         jTabbedPane1.addTab("Prestamo", jPanel2);
 
@@ -590,14 +539,8 @@ public class VentanaBibliotecario extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 1;
+        gridBagConstraints.insets = new java.awt.Insets(30, 0, 0, 0);
         jPanel4.add(hyperlink, gridBagConstraints);
-
-        final String icono1 = "ico2.png";
-        Path rutaRelativa = Paths.get(icono1);
-        Path rutaAbsoluta = rutaRelativa.toAbsolutePath();
-        String rutaAbsolutaString = rutaAbsoluta.toString();
-        fotoMona.setIcon(new javax.swing.ImageIcon(rutaAbsolutaString));
-
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
