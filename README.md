@@ -10,7 +10,7 @@ Se trata de resolver el nuevo sistema de control de prestamos solicitado por la 
 ## Instalacion del proyecto.
 El proyecto puede ser descargado por medio .ZIP o por medio de comandos de git (git clone). En estos 2 metodos el proyecto funciona correctamente.
 **ACTUALMENTE si se descarga por medio de .ZIP o por medio de comandos de git (git clone). No funcionara por no localizacion de archivos serializados. Problema a ser solucionado.**
-
+Descargalo por aca: [ACA.](https://drive.google.com/file/d/1zf9SmN_v6TikTbSCRz8GmOHuJsbGCxO9/view?usp=sharing "ACA")
 ## Funcionamiento del proyecto.
 Este para su ejecucion se realiza desde el main, ubicado en:
     Taller-POO/src/main/java/com/mycompany/taller/poo/Main.java
