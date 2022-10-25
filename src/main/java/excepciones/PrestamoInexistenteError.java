@@ -5,8 +5,8 @@
 package excepciones;
 
 /**
- *
- * @author martin
+ * Esta clase se encarga cuando no existe un prestamo.
+ * @author Grupo 2
  */
 public class PrestamoInexistenteError extends Exception{
     

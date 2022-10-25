@@ -13,7 +13,7 @@ import java.util.List;
 
 
 /**
- *
+ * Clase coleccion.
  * @author Grupo 2
  */
 public class Coleccion extends Obra implements Serializable {
@@ -61,7 +61,7 @@ public class Coleccion extends Obra implements Serializable {
     /**
      * Devuelve el ISBN de la coleccion
      * 
-     * @return int 
+     * @return Integer 
      */
     public Integer getIsbnColeccion() {
         return isbnColeccion;
@@ -70,7 +70,7 @@ public class Coleccion extends Obra implements Serializable {
     /**
      * Setea el ISBN de la coleccion
      * 
-     * @param isbnColeccion 
+     * @param isbnColeccion Integer
      */
     public void setIsbnColeccion(Integer isbnColeccion) {
         this.isbnColeccion = isbnColeccion;
@@ -88,7 +88,7 @@ public class Coleccion extends Obra implements Serializable {
     /**
      * Setea un nuevo nombre para la coleccion
      * 
-     * @param nombre 
+     * @param nombre String
      */
     public void setNombreColeccion(String nombre) {
         this.nombreColeccion = nombre;

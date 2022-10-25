@@ -5,9 +5,8 @@
 package enumeraciones;
 
 /**
- *
- * @author martin
  * Esta enumeración contiene todas las caracteristicas que puede poseer una obra
+ * @author martin
  */
 public enum CaracteristicaTipo {
 

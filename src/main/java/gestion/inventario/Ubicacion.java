@@ -7,7 +7,7 @@ package gestion.inventario;
 import java.io.Serializable;
 
 /**
- *
+ * Clase ubicacion.
  * @author Grupo 2
  */
 public class Ubicacion implements Serializable{
@@ -17,9 +17,9 @@ public class Ubicacion implements Serializable{
 
     /**
      * Se crea un objeto Ubicacion con valores pasados por parametro
-     * @param pasillo int
-     * @param estanteria int
-     * @param estante int
+     * @param pasillo Integer
+     * @param estanteria Integer
+     * @param estante Integer
      */
     public Ubicacion(Integer pasillo, Integer estanteria, Integer estante) {
         this.pasillo = pasillo;
@@ -28,14 +28,14 @@ public class Ubicacion implements Serializable{
     }
 
     /**
-     * Se crea un objeto Ubicacion con valores pretermidados
+     * Se crea un objeto Ubicacion con valores preterminados
      */
     public Ubicacion() {
     }
     
     /**
      * Retorna el pasillo de la ubicacion.
-     * @return int
+     * @return Integer
      */
     public int getPasillo() {
         return pasillo;
@@ -43,7 +43,7 @@ public class Ubicacion implements Serializable{
 
     /**
      * Ingresa el pasillo de la ubicacion.
-     * @param pasillo int
+     * @param pasillo Integer
      */
     public void setPasillo(Integer pasillo) {
         this.pasillo = pasillo;
@@ -51,7 +51,7 @@ public class Ubicacion implements Serializable{
 
     /**
      * Retorna la estanteria de la ubicacion.
-     * @return int
+     * @return Integer
      */
     public Integer getEstanteria() {
         return estanteria;
@@ -59,7 +59,7 @@ public class Ubicacion implements Serializable{
 
     /**
      * Ingresa la estanteria de la ubicacion.
-     * @param estanteria int
+     * @param estanteria Integer
      */
     public void setEstanteria(Integer estanteria) {
         this.estanteria = estanteria;
@@ -67,7 +67,7 @@ public class Ubicacion implements Serializable{
 
     /**
      * Retorna el estante de la ubicacion.
-     * @return int
+     * @return Integer
      */
     public Integer getEstante() {
         return estante;
@@ -75,7 +75,7 @@ public class Ubicacion implements Serializable{
 
     /**
      * Ingresa el estante de la ubicacion
-     * @param estante 
+     * @param estante Integer
      */
     public void setEstante(Integer estante) {
         this.estante = estante;

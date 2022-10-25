@@ -97,7 +97,7 @@ public class Lector extends Persona {
     /**
      * Devuelve una lista con todas las multas que tiene el lector
      * 
-     * @return ArrayList ejemplar
+     * @return List - Ejemplar
      */
     public List<Ejemplar> getListaLibros() {
         return listaLibros;
@@ -106,7 +106,7 @@ public class Lector extends Persona {
     /**
      * Setea un nuevo valor para la el listado de libros que pidio prestado el lector
      * 
-     * @param listaLibros ArrayList Ejemplar
+     * @param listaLibros ArrayList - Ejemplar
      */
     public void setListaLibros(ArrayList<Ejemplar> listaLibros) {
         this.listaLibros = listaLibros;
@@ -115,7 +115,7 @@ public class Lector extends Persona {
     /**
      * Devuelve el listado de todas las multas que posee el lector
      * 
-     * @return Lista Multa
+     * @return Lista - Multa
      */
     public List<Multa> getMultas() {
         return multas;
@@ -124,7 +124,7 @@ public class Lector extends Persona {
     /**
      * Setea un nuevo valor para la lista de multas que posee el lector
      * 
-     * @param multas List Multa
+     * @param multas List - Multa
      */
     public void setMultas(List<Multa> multas) {
         this.multas = multas;
@@ -156,7 +156,7 @@ public class Lector extends Persona {
     /**
      * Devuelve la cantidad de multas que le pusieron al lector
      * 
-     * @return int 
+     * @return Integer 
      */
     public int cantidadMultas() {
         return multas.size();

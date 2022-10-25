@@ -49,7 +49,7 @@ public class Docente extends Lector {
     }
 
     /**
-     * Setea la carrera en la que da caterea el docente
+     * Setea la carrera en la que da catedra el docente
      * 
      * @param carreras String
      */

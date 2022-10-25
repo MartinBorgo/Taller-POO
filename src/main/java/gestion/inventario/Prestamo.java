@@ -12,7 +12,7 @@ import java.util.GregorianCalendar;
 
 
 /**
- *
+ * Clase prestamo de ejemplar.
  * @author Grupo 2
  */
 public class Prestamo implements Serializable{
@@ -62,7 +62,7 @@ public class Prestamo implements Serializable{
         
     }
     /**
-     * Se crea un objecto con valores preterminados.
+     * Se crea un objecto con valores predeterminados.
      */
     public Prestamo() {
     }
@@ -96,14 +96,14 @@ public class Prestamo implements Serializable{
     }
     /**
      * Devuelve los días del préstamo.
-     * @return int
+     * @return Integer
      */
     public Integer getDiasDePrestamo() {
         return diasDePrestamo;
     }
     /**
      * Establece la cantidad de días del préstamo.
-     * @param diasDePrestamo int
+     * @param diasDePrestamo Integer
      */
     public void setDiasDePrestamo(Integer diasDePrestamo) {
         this.diasDePrestamo = diasDePrestamo;
