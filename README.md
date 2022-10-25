@@ -88,7 +88,7 @@ Permite agregar un nuevo lector, con todos sus datos a la "base de datos" de la 
 Una vez llenado todos los campos solo debe pulsar el boton **Registrar**
 
 ### Registrar obra
-Permite registrar una nueva obra a la "base de datos" de la biblioteca, para hacer esto se debe completar todos los campos y apretar el boton **Cargar datos** y se crearan de forma automatica la cantidad de ejemplares de esa obra
+Permite registrar una nueva obra a la "base de datos" de la biblioteca, para hacer esto se debe completar todos los campos y apretar el boton **Cargar datos** y se crearan de forma automatica la cantidad de ejemplares de esa obra. En caso de que algun campo no desee ser completado, por ejemplo el de segundo y tercer autor, solo basta con ponerle un espacio y se cargara correctamente la obra.
 
 ### Ayuda
 Se debe tener algunas concideraciones en el caso de los listados:
