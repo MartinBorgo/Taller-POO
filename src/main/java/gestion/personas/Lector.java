@@ -63,7 +63,7 @@ public class Lector extends Persona {
     /**
      * Setea el estado del lector
      * 
-     * @param estaMultado boolean -> true para que el lector este multado, false para que no lo este
+     * @param estaMultado boolean. True para que el lector este multado, false para que no lo este
      */
     public void setEstaMultado(boolean estaMultado) {
         this.estaMultado = estaMultado;

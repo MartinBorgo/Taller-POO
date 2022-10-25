@@ -240,7 +240,7 @@ public class Ejemplar implements Serializable{
     /**
      * Devuelve el estado del ejemplar
      * 
-     * @return <b>true</b> -> si el ejemplar esta en prestamo, <b>false</b> -> si no esta en prestamo.
+     * @return <b>true</b> si el ejemplar esta en prestamo,de lo contrario <b>false</b>
      */
     public boolean isEnPrestamo() {
         return enPrestamo;

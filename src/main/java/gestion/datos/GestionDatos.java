@@ -125,10 +125,10 @@ public class GestionDatos {
     
     /**
      * Devuelve al lector que posea el numero de documento pasado por parametro.
-     * Si el parametro que le pasamos no coincide con el DNI de ningun lector -> <b> return null </b>
+     * Si el parametro que le pasamos no coincide con el DNI de ningun lector estonces <b>provoca una excepcion - LectorNoRegistrado</b>
      * 
      * @param dni int
-     * @return Lector o null
+     * @return Un objeto <b>Lector</b> con el DNI que nosotros le pasamos
      * @throws LectorNoRegistradoError Si no se encuentra en la lista de lectores
      */
     public Lector buscarLector(int dni) throws LectorNoRegistradoError {
@@ -143,10 +143,10 @@ public class GestionDatos {
     
     /**
      * Devuelve el ejemplar que posea el el mismo id que el que se le pasa por parametro.
-     * Si el numero que le pasamos por parametro no coincide con ningun ID <b>proveca una excepcion -> EjemplarInexistenteError</b>
+     * Si el numero que le pasamos por parametro no coincide con ningun ID <b>provoca una excepcion - EjemplarInexistenteError</b>
      * 
      * @param cod String
-     * @return Ejemplar o null
+     * @return un objeto de tipo ejemplar con el codigo de barras que nosotros solicitamos Ejemplar
      * @throws EjemplarInexistenteError Si el codigo no coincide con ninguno de los codigos de los ejemplares cargados
      */
     public Ejemplar buscarEjemplar(String cod) throws EjemplarInexistenteError {
