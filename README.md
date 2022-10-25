@@ -84,7 +84,16 @@ El boton **Realizar reservacion** permite reservar un ejemplar para un lector en
 El boton **registrar devolucion** requiere el ingreso del codigo de barras del ejemplar para ser devuelto.
 
 ### Registrar nuevo lector
+Permite agregar un nuevo lector, con todos sus datos a la "base de datos" de la biblioteca, para poder registrar correctamente al lector se debe llenar todos sus datos, en caso de que sea ***lector general*** no hace falta introducirle una carrera. Pero en caso de que el lector sea ***Alumno o Docente*** este campo debe ser completado de manera obligatoria.
+Una vez llenado todos los campos solo debe pulsar el boton **Registrar**
 
 ### Registrar obra
+Permite registrar una nueva obra a la "base de datos" de la biblioteca, para hacer esto se debe completar todos los campos y apretar el boton **Cargar datos** y se crearan de forma automatica la cantidad de ejemplares de esa obra
 
 ### Ayuda
+Se debe tener algunas concideraciones en el caso de los listados:
+
+- En caso de ejemplares disponibles por area de referencia: recomendamos poner las areas de referencias Calculo, Programacion
+- En caso de Obras dada una editorial determinada: recomendamos poner Cengage Learning, Alfaomega Grupo Editor, Pearson
+- En caso de Lectores multados en un periodo de tiempo: si bien se puede poner cualquier fecha, si quiere ver alguna diferencia recomendamos las fechas 12/05/2022 hasta el 12/11/2022
+- En caso de Obras reservadas a partir de una fecha determinada: recomendamos poner las fechas 10/03/2022 o 22/11/2022
