@@ -1380,7 +1380,7 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                     GregorianCalendar fechaDevolver = nuevoPrestamo.getFechaDevolucion();
                     String fechaDevolverString = 
                               Integer.toString(fechaDevolver.get(Calendar.YEAR))+ "/"
-                            + Integer.toString(fechaDevolver.get(Calendar.MONTH)) + "/"
+                            + Integer.toString(fechaDevolver.get(Calendar.MONTH) + 1) + "/"
                             + Integer.toString(fechaDevolver.get(Calendar.DAY_OF_MONTH));
                     
                     limpiarPrestamo();
@@ -1395,6 +1395,7 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                                                       lectorPrestamo);
                 
                 datos.escribirDatosObra();
+                datos.escribirDatosLector();
                 GregorianCalendar fechaDevolver = nuevoPrestamo.getFechaDevolucion();
                 
                 String fechaDevolverString = 
