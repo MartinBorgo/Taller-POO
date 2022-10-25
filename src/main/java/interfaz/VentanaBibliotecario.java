@@ -591,13 +591,13 @@ public class VentanaBibliotecario extends javax.swing.JFrame {
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 1;
         jPanel4.add(hyperlink, gridBagConstraints);
-        
+
         final String icono1 = "ico2.png";
         Path rutaRelativa = Paths.get(icono1);
         Path rutaAbsoluta = rutaRelativa.toAbsolutePath();
         String rutaAbsolutaString = rutaAbsoluta.toString();
         fotoMona.setIcon(new javax.swing.ImageIcon(rutaAbsolutaString));
-        
+
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
