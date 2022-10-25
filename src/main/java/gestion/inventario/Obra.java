@@ -117,7 +117,7 @@ public class Obra implements Serializable {
     }
     /**
      * Establece la cantidad de ejemplares de la obra.
-     * @param cantidadEjemplares int
+     * @param cantidadEjemplares Integer
      */
     public void setCantidadEjemplares(Integer cantidadEjemplares) {
         this.cantidadEjemplares = cantidadEjemplares;
@@ -208,7 +208,7 @@ public class Obra implements Serializable {
     }
     /**
      * Devuelve un objeto CaracteristicaTipo de la obra actual.
-     * @return Caracteristicatipo
+     * @return CaracteristicaTipo
      */
     public CaracteristicaTipo getCaracteristica() {
         return caracteristica;
@@ -317,7 +317,7 @@ public class Obra implements Serializable {
     // =========== Metodos hechos a mano =========== //
     
     /**
-     * Agregar Ejemplar. Requiere que sea un objeto de tipo Ejemplar.
+     * Agregar un ejemplar perteneciente a esta Obra. Requiere que sea un objeto de tipo Ejemplar.
      * @param ej Ejemplar
      */
     public void agregarEjemplar(Ejemplar ej) {

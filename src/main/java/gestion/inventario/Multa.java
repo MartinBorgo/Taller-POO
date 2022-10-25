@@ -87,7 +87,7 @@ public class Multa implements Serializable{
     /**
      * Setea un nuevo lector para la multa
      * 
-     * @param personaMultada GregorianCalendar
+     * @param personaMultada Lector
      */
     public void setPersonaMultada(Lector personaMultada) {
         this.personaMultada = personaMultada;

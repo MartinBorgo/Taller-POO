@@ -54,22 +54,16 @@ public class Lector extends Persona {
     /**
      * Devuelve si el lector esta multado
      * 
-     * true -> El lector esta multado
-     * false -> El lector no esta multado
-     * 
-     * @return boolean 
+     * @return true si el lector se encuentra multado, de lo contrario retorna false
      */
     public boolean estaMultado() {
         return estaMultado;
     }
 
     /**
-     * Settea el estado del lector
+     * Setea el estado del lector
      * 
-     * true -> El lector pasa a estar multado
-     * false -> El lector deja de estar multado
-     * 
-     * @param estaMultado boolean
+     * @param estaMultado boolean -> true para que el lector este multado, false para que no lo este
      */
     public void setEstaMultado(boolean estaMultado) {
         this.estaMultado = estaMultado;
@@ -106,9 +100,9 @@ public class Lector extends Persona {
     /**
      * Setea un nuevo valor para la el listado de libros que pidio prestado el lector
      * 
-     * @param listaLibros ArrayList - Ejemplar
+     * @param listaLibros List - Ejemplar
      */
-    public void setListaLibros(ArrayList<Ejemplar> listaLibros) {
+    public void setListaLibros(List<Ejemplar> listaLibros) {
         this.listaLibros = listaLibros;
     }
 

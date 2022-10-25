@@ -186,7 +186,7 @@ public class Ejemplar implements Serializable{
     /**
      * Devuelve la fecha en la que se dio de baja al ejemplar
      * 
-     * @return GregorianCalendar 
+     * @return la fecha en que se dio de baja el ejemplar en formato GregorianCalendar 
      */
     public GregorianCalendar getFechaBaja() {
         return fechaBaja;

@@ -99,7 +99,7 @@ public class Coleccion extends Obra implements Serializable {
     /**
      * Agrega un ejemplar que pertenece a dicha coleccion
      * 
-     * @param e 
+     * @param e Ejemplar
      */
     public void agregarEjemplar(Ejemplar e) {
         this.ejemplares.add(e);
