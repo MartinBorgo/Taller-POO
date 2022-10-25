@@ -4,12 +4,12 @@
 - Martin Borgo.
 - Sebastian Haoys.
 - Leandro Molina.
-
 ## ¿De que trata el proyecto?
 Se trata de resolver el nuevo sistema de control de prestamos solicitado por la biblioteca de la FCAD, cumpliendo los requerimientos solicitados.
 
 ## Instalacion del proyecto.
 El proyecto puede ser descargado por medio .ZIP o por medio de comandos de git (git clone). En estos 2 metodos el proyecto funciona correctamente.
+**ACTUALMENTE si se descarga por medio de .ZIP o por medio de comandos de git (git clone). No funcionara por no localizacion de archivos serializados. Problema a ser solucionado.**
 
 ## Funcionamiento del proyecto.
 Este para su ejecucion se realiza desde el main, ubicado en:
