@@ -15,6 +15,12 @@ import gestion.inventario.Prestamo;
 import gestion.personas.Alumno;
 import gestion.personas.Docente;
 import gestion.personas.Lector;
+import java.awt.Desktop;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.GregorianCalendar;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
@@ -568,8 +574,12 @@ public class VentanaBibliotecario extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = 3;
         jPanel4.add(jLabel9, gridBagConstraints);
 
-        hyperlink.setText("Visitanos Aca");
+        hyperlink.setForeground(new java.awt.Color(51, 62, 223));
+        hyperlink.setText("¡Visitanos aca!");
         hyperlink.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                hyperlinkMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 hyperlinkMouseEntered(evt);
             }
@@ -578,11 +588,16 @@ public class VentanaBibliotecario extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.insets = new java.awt.Insets(50, 0, 30, 0);
         jPanel4.add(hyperlink, gridBagConstraints);
+
+        final String icono1 = "ico2.png";
+        Path rutaRelativa = Paths.get(icono1);
+        Path rutaAbsoluta = rutaRelativa.toAbsolutePath();
+        String rutaAbsolutaString = rutaAbsoluta.toString();
+        fotoMona.setIcon(new javax.swing.ImageIcon(rutaAbsolutaString));
+
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
@@ -845,13 +860,26 @@ public class VentanaBibliotecario extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_boxBusquedaTipoActionPerformed
 
-    private void hyperlinkMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hyperlinkMouseExited
-        hyperlink.setText("Visitanos aca");
-    }//GEN-LAST:event_hyperlinkMouseExited
+    private void hyperlinkMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hyperlinkMouseClicked
+        // TODO add your handling code here:
+        try {
+
+            Desktop.getDesktop().browse(new URI("https://github.com/MartinBorgo/Taller-POO"));
+
+        } catch (IOException | URISyntaxException e1) {
+            e1.printStackTrace();
+        }
+    }//GEN-LAST:event_hyperlinkMouseClicked
 
     private void hyperlinkMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hyperlinkMouseEntered
+        // TODO add your handling code here:
         hyperlink.setText("<html><a href='https://github.com/MartinBorgo/Taller-POO'>Visitanos aca</a></html>");
     }//GEN-LAST:event_hyperlinkMouseEntered
+
+    private void hyperlinkMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hyperlinkMouseExited
+        // TODO add your handling code here:
+        hyperlink.setText("Visitanos aca");
+    }//GEN-LAST:event_hyperlinkMouseExited
 
     private void actualizarLista(List<?> lista) {
         DefaultListModel listModel = new DefaultListModel();
