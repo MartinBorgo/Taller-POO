@@ -10,7 +10,7 @@ public class Bibliotecario extends Usuario {
     private Integer identificador;
 
     /**
-     * Construye un objeto Bibliotecarion con sus valores inicializados
+     * Construye un objeto Bibliotecario con sus valores inicializados
      * 
      * @param administrador boolean
      * @param nombreUsuario String
@@ -32,7 +32,7 @@ public class Bibliotecario extends Usuario {
     /**
      * Devuelve el codigo que identifica al bibliotecario
      * 
-     * @return identificador int
+     * @return identificador Integer
      */
     public Integer getIdentificador() {
         return identificador;
@@ -41,7 +41,7 @@ public class Bibliotecario extends Usuario {
     /**
      * Setea un nuevo valor para el codigo identificador del bibliotecario
      * 
-     * @param identificador int
+     * @param identificador Integer
      */
     public void setIdentificador(Integer identificador) {
         this.identificador = identificador;

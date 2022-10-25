@@ -10,7 +10,7 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 /**
- *
+ * Clase multa a lectores.
  * @author Grupo 2
  */
 public class Multa implements Serializable{

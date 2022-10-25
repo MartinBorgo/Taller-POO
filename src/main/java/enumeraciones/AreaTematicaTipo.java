@@ -5,9 +5,8 @@
 package enumeraciones;
 
 /**
- *
- * @author martin
  * Esta enumeración contiene a las areas tematicas a las que puede pertenecer un libro
+ * @author martin
  */
 public enum AreaTematicaTipo {
 

@@ -63,7 +63,7 @@ public class Usuario extends Persona implements Serializable {
     /**
      * Devuelve un valor booleano que nos permite saber si el usuario es un administrador o no
      * 
-     * @return true si el usuario es un administrador y false en el caso contrario
+     * @return <b>true</b> -> si el usuario es un administrador y <b>false</b> -> en el caso contrario
      */
     public boolean esAdministrador() {
         return administrador;

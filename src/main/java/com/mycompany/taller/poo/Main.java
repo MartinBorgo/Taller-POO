@@ -16,6 +16,7 @@ import gestion.personas.*;
 import interfaz.VentanaAdministrador;
 import interfaz.VentanaBibliotecario;
 import java.io.IOException;
+import java.time.Year;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -45,24 +46,15 @@ public class Main {
 //        Bibliotecario biblio3 = new Bibliotecario(false, "Ana", "345");
 //        Bibliotecario biblio4 = new Bibliotecario(false, "Elisa", "1111a");
         
-//        de aca en adelante se puede borrar todo
         
         GestionDatos datos = new GestionDatos();
-
-//        Ejemplar ej1 = datos.buscarEjemplar("1");
-//        System.out.println(ej1);
 
         // El documento de los lectores van del 1 hasta el 8
         // documentos 1, 6, 5 son lectores, el resto son de la facultad
 
 
-//        System.out.println(datos.getListaLectores());
 //        datos.agregarObra(obra1);
 //        datos.agregarLector(new Lector("Oscar", "Molina", 1, new GregorianCalendar(10, 3, 1975), "Argentina", "P.A de Maria 123", 3200, "Concordia", "3457458123", "oscar@gmail.com", SexoTipo.MASCULINO));
-        
-//        Lector lectorDNI1 = datos.buscarLector(1);
-//        Lector lectorDNI2 = datos.buscarLector(2);
-//        System.out.println(lectorDNI2.getClass().getName());
 
 //        datos.agregarUsuario(biblio1);
 //        datos.agregarUsuario(biblio2);

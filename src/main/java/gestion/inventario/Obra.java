@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
+ * Clase obra.
  * @author Grupo 2
  */
 public class Obra implements Serializable {
@@ -110,7 +110,7 @@ public class Obra implements Serializable {
     }
     /**
      * Devuelve la cantidad de ejemplares.
-     * @return int
+     * @return Integer
      */
     public Integer getCantidadEjemplares() {
         return cantidadEjemplares;
@@ -250,42 +250,42 @@ public class Obra implements Serializable {
     }
     /**
      * Devuelve la solicitud de facultad.
-     * @return int
+     * @return Integer
      */
     public Integer getSolicitudFacultad() {
         return solicitudFacultad;
     }
     /**
      * Establece la solicitud facultad para el objeto actual de obra.
-     * @param solicitudFacultad int
+     * @param solicitudFacultad Integer
      */
     public void setSolicitudFacultad(Integer solicitudFacultad) {
         this.solicitudFacultad = solicitudFacultad;
     }
     /**
      * Devuelve la solicitud general del objeto actual.
-     * @return int
+     * @return Integer
      */
     public Integer getSolicitudGeneral() {
         return solicitudGeneral;
     }
     /**
      * Establece la solicitud general. Requiere un int de parámetro.
-     * @param solicitudGeneral int
+     * @param solicitudGeneral Integer
      */
     public void setSolicitudGeneral(Integer solicitudGeneral) {
         this.solicitudGeneral = solicitudGeneral;
     }
     /**
      * Devuelve el ISBN de la obra.
-     * @return int
+     * @return Integer
      */
     public Integer getIsbn() {
         return isbn;
     }
     /**
      * Establece el ISBN de la Obra.
-     * @param isbn int
+     * @param isbn Integer
      */
     public void setIsbn(Integer isbn) {
         this.isbn = isbn;
@@ -308,7 +308,7 @@ public class Obra implements Serializable {
     /**
      * Devuelve todos los ejemplares correspondientes al objeto Obra
      * 
-     * @return List Ejemplar
+     * @return List - Ejemplar
      */
     public List<Ejemplar> getEjemplares() {
         return ejemplares;

@@ -10,7 +10,7 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 /**
- *
+ * Clase reservacion de ejemplar.
  * @author Grupo 2
  */
 public class Reservacion implements Serializable{
@@ -41,7 +41,7 @@ public class Reservacion implements Serializable{
     }
     
     /**
-     * Retorna la fecha de inicio.
+     * Retorna la fecha de inicio de la reservacion.
      * @return GregorianCalendar
      */
     public GregorianCalendar getInicio() {

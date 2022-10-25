@@ -8,7 +8,7 @@ import enumeraciones.FormatoTipo;
 import java.io.Serializable;
 
 /**
- *
+ * Clase edicion de obra.
  * @author Grupo 2
  */
 public class Edicion implements Serializable{
@@ -26,10 +26,10 @@ public class Edicion implements Serializable{
      * 
      * @param editorial String
      * @param paisEdicion String
-     * @param numeroEdicion int
-     * @param anio int
-     * @param volumenes int
-     * @param paginas int
+     * @param numeroEdicion Integer
+     * @param anio Integer
+     * @param volumenes Integer
+     * @param paginas Integer
      * @param idioma String
      * @param formato FormatoTipo
      */

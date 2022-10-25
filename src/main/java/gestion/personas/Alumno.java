@@ -40,7 +40,7 @@ public class Alumno extends Lector {
     }
 
     /**
-     * Devuelve la carrera que esta cursando el alumno
+     * Devuelve la/s carrera/s que esta cursando el alumno
      * 
      * @return String
      */
@@ -49,7 +49,7 @@ public class Alumno extends Lector {
     }
 
     /**
-     * Setea la carrera en que cursa el alumno
+     * Setea la/s carrera/s en que cursa el alumno
      * 
      * @param carreras String
      */

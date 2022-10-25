@@ -8,13 +8,13 @@ import gestion.inventario.Obra;
 import java.util.Comparator;
 
 /**
- *
+ * Clase que utiliza la interface comparator, utilizada solo para un metodo.
  * @author Grupo 2
  */
 class CriterioSolicitudGeneral implements Comparator<Obra>{
 
     /**
-     * Se utiliza en GestionDatos para getSolicitudGeneral()
+     * Compara por solicitudes generales, se utiliza en GestionDatos para getSolicitudGeneral()
      * @param o1 Obra
      * @param o2 Obra
      * @return int

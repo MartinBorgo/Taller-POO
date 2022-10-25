@@ -5,7 +5,7 @@ import java.io.Serializable;
 import java.util.GregorianCalendar;
 
 /**
- * Clase abstracta que implementa la interface Serializable.
+ * Clase abstracta Persona que implementa la interface Serializable.
  * @author Grupo 2
  */
 public abstract class Persona implements Serializable {
@@ -25,11 +25,11 @@ public abstract class Persona implements Serializable {
      * 
      * @param nombres String
      * @param apellidos String
-     * @param dni int
+     * @param dni Integer
      * @param fechaNacimiento GregorianCalendar
      * @param nacionalidad String
      * @param domicilio String
-     * @param codPostal int
+     * @param codPostal Integer
      * @param localidad String
      * @param numCelular String
      * @param mail String
@@ -122,7 +122,7 @@ public abstract class Persona implements Serializable {
 
     /**
      * Retorna el tipo de sexo de la persona
-     * @return SextoTipo
+     * @return SexoTipo
      */
     public SexoTipo getSexo() {
         return sexo;

@@ -6,7 +6,7 @@ package excepciones;
 
 /**
  * Esta clase se encarga de tirar un mensaje de excepcion si el ejemplar resulta inexistente.
- * @author martin
+ * @author Grupo 2
  */
 public class EjemplarInexistenteError extends Exception {
 

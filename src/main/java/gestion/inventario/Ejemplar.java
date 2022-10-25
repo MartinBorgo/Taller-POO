@@ -16,7 +16,7 @@ import net.sourceforge.barbecue.*;
 import net.sourceforge.barbecue.output.*;
 
 /**
- *
+ * Clase ejemplar.
  * @author Grupo 2
  * 
  */
@@ -46,8 +46,9 @@ public class Ejemplar implements Serializable{
      * @param formaAdquisicion String
      * @param ubicacion Ubicacion
      * @param obra Obra
-     * @throws BarcodeException setCodigoBarras()
-     * @throws OutputException setCodigoBarras()
+     * @throws BarcodeException por setCodigoBarras()
+     * @throws OutputException por setCodigoBarras()
+     * @throws java.io.IOException por setCodigoBarras()
      */
     
     //Puede agarrar excepciones del metodo setCodigoBarras();
@@ -74,8 +75,9 @@ public class Ejemplar implements Serializable{
      * @param formaAdquisicion String
      * @param ubicacion Ubicacion
      * @param coleccion Coleccion
-     * @throws BarcodeException setCodigoBarras()
-     * @throws OutputException setCodigoBarras()
+     * @throws BarcodeException por setCodigoBarras()
+     * @throws OutputException por setCodigoBarras()
+     * @throws java.io.IOException por setCodigoBarras()
      */
     
     //Puede agarrar excepciones del metodo setCodigoBarras();
@@ -96,8 +98,9 @@ public class Ejemplar implements Serializable{
 
     /**
      * Construye un objeto ejemplar con todos sus valores por defecto
-     * @throws BarcodeException setCodigoBarras()
-     * @throws OutputException setCodigoBarras()
+     * @throws BarcodeException por setCodigoBarras()
+     * @throws OutputException por setCodigoBarras()
+     * @throws java.io.IOException por setCodigoBarras()
      */
     public Ejemplar() throws BarcodeException, OutputException, IOException {
         this.idUnico = incremental;
@@ -201,7 +204,7 @@ public class Ejemplar implements Serializable{
     /**
      * Devuelve el motivo de la baja del ejemplar
      * 
-     * @return String String
+     * @return String
      */
     public String getMotivoBaja() {
         return motivoBaja;
@@ -237,7 +240,7 @@ public class Ejemplar implements Serializable{
     /**
      * Devuelve el estado del ejemplar
      * 
-     * @return <b>true</b> si el ejemplar esta en prestamo, de lo contrario se retornara false
+     * @return <b>true</b> -> si el ejemplar esta en prestamo, <b>false</b> -> si no esta en prestamo.
      */
     public boolean isEnPrestamo() {
         return enPrestamo;
@@ -328,7 +331,7 @@ public class Ejemplar implements Serializable{
     /**
      * Devuelve la lista de todos los lectores que solicitaron este ejemplar
      * 
-     * @return List Lector
+     * @return List - Lector
      */
     public List<Lector> getListaSolicitudLectores() {
         return listaSolicitudLectores;
@@ -337,7 +340,7 @@ public class Ejemplar implements Serializable{
     /**
      * Setea una nueva lista de lector que tomo en prestamo el ejemplar 
      * 
-     * @param listaSolicitudLectores List Lector
+     * @param listaSolicitudLectores List - Lector
      */
     public void setListaSolicitudLectores(List<Lector> listaSolicitudLectores) {
         this.listaSolicitudLectores = listaSolicitudLectores;
@@ -346,7 +349,7 @@ public class Ejemplar implements Serializable{
     /**
      * Devuelve la lista de las reservaciones que tiene el ejemplar
      * 
-     * @return Lista de todas las reservaciones del ejemplar
+     * @return List - Reservacion, lista de todas las reservaciones del ejemplar
      */
     public List<Reservacion> getReservaciones() {
         return reservaciones;
@@ -355,7 +358,7 @@ public class Ejemplar implements Serializable{
     /**
      * Setea una nueva lista de reservaciones para el ejemplar
      * 
-     * @param reservaciones List Reservacion
+     * @param reservaciones List - Reservacion
      */
     public void setReservaciones(List<Reservacion> reservaciones) {
         this.reservaciones = reservaciones;

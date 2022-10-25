@@ -6,7 +6,7 @@ package excepciones;
 
 /**
  * Esta clase se encarga de tirar una excepcion si el lector no esta registrado.
- * @author martin
+ * @author Grupo 2
  */
 public class LectorNoRegistradoError extends Exception {
 
